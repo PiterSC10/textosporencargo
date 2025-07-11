@@ -156,57 +156,22 @@
         </a>
     </section>
 
-    <!-- Contact Section with Custom Form -->
+    <!-- Contact Section with Redirect Button -->
     <section id="contacto" class="py-16 px-4 max-w-4xl mx-auto text-center">
         <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
-            <i class="fas fa-paper-plane mr-3"></i>Contáctame Directamente
+            <i class="fas fa-file-signature mr-3"></i>Haz tu Pedido Personalizado
         </h2>
         <p class="text-xl text-gray-300 mb-8">
-            Rellena el formulario a continuación para solicitar tu texto personalizado o para cualquier consulta. Me pondré en contacto contigo lo antes posible.
+            Haz clic en el botón a continuación para rellenar el formulario y solicitar tu texto único, hecho a medida para ti. ¡Es rápido y sencillo!
         </p>
 
-        <!-- Formulario configurado para enviar a Google Forms -->
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdHjq3Y54Mt9o9HHfEXNKffzRCvbQRCWZlQjwcGivo0oz33OA/formResponse" method="POST" target="_blank" class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 text-left">
-            <div class="mb-6">
-                <label for="name" class="block text-gray-300 text-lg font-semibold mb-2">Tu Nombre:</label>
-                <!-- IMPORTANTE: Reemplaza "entry.XXXXXXX" con el ID real de tu campo "Nombre" en Google Forms -->
-                <input type="text" id="name" name="entry.123456789" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Escribe tu nombre completo" required>
-            </div>
-
-            <div class="mb-6">
-                <label for="email" class="block text-gray-300 text-lg font-semibold mb-2">Tu Email:</label>
-                <!-- IMPORTANTE: Reemplaza "entry.YYYYYYY" con el ID real de tu campo "Email" en Google Forms -->
-                <input type="email" id="email" name="entry.987654321" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="ejemplo@dominio.com" required>
-            </div>
-
-            <div class="mb-6">
-                <label for="service" class="block text-gray-300 text-lg font-semibold mb-2">Tipo de Servicio (Opcional):</label>
-                <!-- IMPORTANTE: Reemplaza "entry.ZZZZZZZ" con el ID real de tu campo "Tipo de Servicio" en Google Forms -->
-                <select id="service" name="entry.543210987" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                    <option value="">Selecciona un servicio</option>
-                    <option value="Carta Personalizada">Carta Personalizada</option>
-                    <option value="Discurso para Eventos">Discurso para Eventos</option>
-                    <option value="Curriculum y Carta de Presentacion">Currículum y Carta de Presentación</option>
-                    <option value="Reclamaciones Legales">Reclamaciones Legales</option>
-                    <option value="Cuento Personalizado">Cuento Personalizado</option>
-                    <option value="Texto Romantico o Picante">Texto Romántico o Picante</option>
-                    <option value="Lista de Ideas de Regalo">Lista de Ideas de Regalo</option>
-                    <option value="Otro / Consulta General">Otro / Consulta General</option>
-                </select>
-            </div>
-
-            <div class="mb-6">
-                <label for="message" class="block text-gray-300 text-lg font-semibold mb-2">Tu Mensaje:</label>
-                <!-- IMPORTANTE: Reemplaza "entry.AAAAAAA" con el ID real de tu campo "Mensaje" en Google Forms -->
-                <textarea id="message" name="entry.678901234" rows="6" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Describe qué tipo de texto necesitas o tu consulta..." required></textarea>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 text-xl">
-                    Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>
-                </button>
-            </div>
-        </form>
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHjq3Y54Mt9o9HHfEXNKffzRCvbQRCWZlQjwcGivo0oz33OA/viewform?usp=header"
+               target="_blank"
+               class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 text-2xl">
+                Ir al Formulario de Pedido <i class="fas fa-external-link-alt ml-3"></i>
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
