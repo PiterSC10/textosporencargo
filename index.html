@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Textos por Encargo – Pedro Soriano</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #eee;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #222, #000);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      color: #00ffd5;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    nav {
+      background-color: #000;
+      padding: 10px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #00ffd5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .service-card {
+      background-color: #1e1e1e;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 255, 213, 0.1);
+    }
+    .service-card h3 {
+      color: #00ffd5;
+      margin-bottom: 10px;
+    }
+    .price {
+      color: #0f0;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+    }
+    .btn-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 24px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2em; }
+      nav a { display: inline-block; margin: 10px 5px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="inicio">
+  <h1>Textos por Encargo</h1>
+  <p>Cartas, discursos, cuentos y más... 100% personalizadas por Pedro Soriano con ayuda de la IA.</p>
+</header>
+
+<nav>
+  <a href="#servicios">Servicios</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section id="servicios">
+  <h2 style="color:#00ffd5; margin-bottom:20px;">Nuestros Servicios</h2>
+
+  <div class="service-card">
+    <h3>✍️ Carta personalizada</h3>
+    <p>Cartas para amor, disculpas, cumpleaños, o lo que necesites. Textos únicos y emotivos.</p>
+    <p class="price">Precio: 10 €</p>
+  </div>
+
+  <div class="service-card">
+    <h3>🎤 Discurso para eventos</h3>
+    <p>Texto listo para leer en bodas, comuniones, cumpleaños o despedidas.</p>
+    <p class="price">Precio: 10 €</p>
+  </div>
+
+  <div class="service-card">
+    <h3>📄 Currículum y carta de presentación</h3>
+    <p>CV profesional moderno + carta personalizada para buscar trabajo.</p>
+    <p class="price">Precio: 15 €</p>
+  </div>
+
+  <div class="service-card">
+    <h3>📩 Reclamaciones legales</h3>
+    <p>Redacción profesional para reclamar a aerolíneas, bancos, seguros, etc.</p>
+    <p class="price">Precio: 10 €</p>
+  </div>
+
+  <div class="service-card">
+    <h3>📘 Cuento personalizado</h3>
+    <p>Cuento corto con el niño o mascota como protagonista. Ideal para regalar.</p>
+    <p class="price">Precio: 15 €</p>
+  </div>
+
+  <div class="service-card">
+    <h3>💌 Texto romántico o picante</h3>
+    <p>Poema o mensaje personalizado para sorprender a tu pareja.</p>
+    <p class="price">Precio: 10 €</p>
+  </div>
+
+  <div class="service-card">
+    <h3>🎁 Lista de ideas de regalo</h3>
+    <p>5 ideas originales adaptadas a tu pareja o familiar. Con consejos extra.</p>
+    <p class="price">Precio: 10 €</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2 style="color:#00ffd5; margin-bottom:20px;">Contacto</h2>
+  <p>¿Quieres hacer un pedido? Escríbeme por WhatsApp o email:</p>
+  <ul style="margin-top: 10px;">
+    <li>📱 WhatsApp: <a href="https://wa.me/34600000000" target="_blank" style="color:#25D366;">+34 600 000 000</a></li>
+    <li>✉️ Email: <a href="mailto:pedro@email.com" style="color:#00ffd5;">pedro@email.com</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025 Pedro Soriano · Textos por Encargo</p>
+</footer>
+
+<a class="btn-whatsapp" href="https://wa.me/34600000000" target="_blank">💬</a>
+
+</body>
+</html>
