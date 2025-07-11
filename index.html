@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Textos por Encargo – Pedro Soriano</title>
+    <title>Tus Textos por Encargo – Pedro Soriano</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -33,15 +33,7 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 255, 213, 0.2);
         }
-        /* WhatsApp button animation */
-        .btn-whatsapp-animate {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+        /* Removed WhatsApp button animation as it's no longer present */
     </style>
 </head>
 <body class="antialiased">
@@ -52,7 +44,7 @@
             Textos por Encargo
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-            Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas</span> por Pedro Soriano con ayuda de la IA.
+            Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas</span>
         </p>
         <div class="mt-8">
             <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105">
@@ -68,7 +60,7 @@
                 <i class="fas fa-clipboard-list mr-2"></i>Servicios
             </a>
             <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
-                <i class="fas fa-phone-alt mr-2"></i>Contacto
+                <i class="fas fa-envelope mr-2"></i>Contacto
             </a>
         </div>
     </nav>
@@ -155,7 +147,7 @@
     <!-- Call to Action Section -->
     <section class="py-16 px-4 bg-gray-900 text-center rounded-xl shadow-inner max-w-6xl mx-auto mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-            ¿Listo para Transformar tus Ideas en Palabras?
+            ¿Listo para Transformar tus Ideas en Textos profesionales?
         </h2>
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             No esperes más. Con Pedro Soriano, tus textos serán inolvidables. ¡Contáctame ahora y empecemos a crear magia!
@@ -165,24 +157,50 @@
         </a>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Form -->
     <section id="contacto" class="py-16 px-4 max-w-4xl mx-auto text-center">
         <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
-            <i class="fas fa-headset mr-3"></i>Hablemos
+            <i class="fas fa-paper-plane mr-3"></i>Contáctame
         </h2>
-        <p class="text-xl text-gray-300 mb-8">¿Quieres hacer un pedido o tienes alguna pregunta? Escríbeme, ¡estoy aquí para ayudarte!</p>
-        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-            <div class="flex items-center text-xl">
-                <i class="fab fa-whatsapp text-green-500 text-3xl mr-3"></i>
-                <span class="font-semibold text-gray-200">WhatsApp:</span>
-                <a href="https://wa.me/34600000000" target="_blank" class="text-green-400 hover:text-green-300 ml-2 transition-colors duration-300">+34 600 000 000</a>
+        <p class="text-xl text-gray-300 mb-8">Rellena el formulario a continuación para solicitar tu texto personalizado o para cualquier consulta. Me pondré en contacto contigo lo antes posible.</p>
+
+        <form class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 text-left">
+            <div class="mb-6">
+                <label for="name" class="block text-gray-300 text-lg font-semibold mb-2">Tu Nombre:</label>
+                <input type="text" id="name" name="name" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Escribe tu nombre completo" required>
             </div>
-            <div class="flex items-center text-xl">
-                <i class="fas fa-envelope text-teal-500 text-3xl mr-3"></i>
-                <span class="font-semibold text-gray-200">Email:</span>
-                <a href="mailto:pedro@email.com" class="text-teal-400 hover:text-teal-300 ml-2 transition-colors duration-300">pedro@email.com</a>
+
+            <div class="mb-6">
+                <label for="email" class="block text-gray-300 text-lg font-semibold mb-2">Tu Email:</label>
+                <input type="email" id="email" name="email" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="ejemplo@dominio.com" required>
             </div>
-        </div>
+
+            <div class="mb-6">
+                <label for="service" class="block text-gray-300 text-lg font-semibold mb-2">Tipo de Servicio (Opcional):</label>
+                <select id="service" name="service" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="carta-personalizada">Carta Personalizada</option>
+                    <option value="discurso-eventos">Discurso para Eventos</option>
+                    <option value="curriculum-carta">Currículum y Carta de Presentación</option>
+                    <option value="reclamaciones-legales">Reclamaciones Legales</option>
+                    <option value="cuento-personalizado">Cuento Personalizado</option>
+                    <option value="texto-romantico">Texto Romántico o Picante</option>
+                    <option value="ideas-regalo">Lista de Ideas de Regalo</option>
+                    <option value="otro">Otro / Consulta General</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label for="message" class="block text-gray-300 text-lg font-semibold mb-2">Tu Mensaje:</label>
+                <textarea id="message" name="message" rows="6" class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Describe qué tipo de texto necesitas o tu consulta..." required></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 text-xl">
+                    Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </div>
+        </form>
     </section>
 
     <!-- Footer Section -->
@@ -190,12 +208,6 @@
         <p>&copy; 2025 Pedro Soriano · Textos por Encargo. Todos los derechos reservados.</p>
         <p class="text-sm mt-2">Diseñado con <i class="fas fa-heart text-red-500"></i> y palabras.</p>
     </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <a class="fixed bottom-6 right-6 bg-green-500 text-white p-5 rounded-full shadow-xl text-3xl btn-whatsapp-animate z-50 transform transition-transform duration-300 hover:scale-110"
-       href="https://wa.me/34600000000" target="_blank" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
 </body>
 </html>
