@@ -1,167 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Textos por Encargo – Pedro Soriano</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #111;
-      color: #eee;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(to right, #222, #000);
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      color: #00ffd5;
-    }
-    header p {
-      font-size: 1.2em;
-      color: #ccc;
-    }
-    nav {
-      background-color: #000;
-      padding: 10px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      margin: 0 15px;
-      color: #00ffd5;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .service-card {
-      background-color: #1e1e1e;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 255, 213, 0.1);
-    }
-    .service-card h3 {
-      color: #00ffd5;
-      margin-bottom: 10px;
-    }
-    .price {
-      color: #0f0;
-      font-weight: bold;
-    }
-    footer {
-      background-color: #000;
-      text-align: center;
-      padding: 20px;
-      color: #888;
-    }
-    .btn-whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      padding: 15px 18px;
-      border-radius: 50%;
-      text-decoration: none;
-      font-size: 24px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2em; }
-      nav a { display: inline-block; margin: 10px 5px; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Textos por Encargo – Pedro Soriano</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for animations and overrides */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111; /* Dark background */
+            color: #eee; /* Light text */
+            line-height: 1.6;
+        }
+        /* Gradient for header */
+        .header-gradient {
+            background: linear-gradient(to right, #222, #000);
+        }
+        /* Sticky navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        /* Service card hover effect */
+        .service-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 213, 0.2);
+        }
+        /* WhatsApp button animation */
+        .btn-whatsapp-animate {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-<header id="inicio">
-  <h1>Textos por Encargo</h1>
-  <p>Cartas, discursos, cuentos y más... 100% personalizadas por Pedro Soriano con ayuda de la IA.</p>
-</header>
+    <!-- Header Section -->
+    <header id="inicio" class="header-gradient py-16 px-4 text-center rounded-b-xl shadow-lg">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in">
+            Textos por Encargo
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
+            Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas</span> por Pedro Soriano con ayuda de la IA.
+        </p>
+        <div class="mt-8">
+            <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105">
+                Ver Servicios <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </header>
 
-<nav>
-  <a href="#servicios">Servicios</a>
-  <a href="#contacto">Contacto</a>
-</nav>
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-900 py-4 px-4 text-center shadow-md sticky-nav">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-center space-x-4">
+            <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
+                <i class="fas fa-clipboard-list mr-2"></i>Servicios
+            </a>
+            <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
+                <i class="fas fa-phone-alt mr-2"></i>Contacto
+            </a>
+        </div>
+    </nav>
 
-<section id="servicios">
-  <h2 style="color:#00ffd5; margin-bottom:20px;">Nuestros Servicios</h2>
+    <!-- Services Section -->
+    <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
+            <i class="fas fa-gem mr-3"></i>Nuestros Servicios Exclusivos
+        </h2>
 
-  <div class="service-card">
-    <h3>✍️ Carta personalizada</h3>
-    <p>Cartas para amor, disculpas, cumpleaños, o lo que necesites. Textos únicos y emotivos.</p>
-    <p class="price">Precio: 10 €</p>
-  </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card: Carta personalizada -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Carta Personalizada</h3>
+                <p class="text-gray-300 mb-4 text-center">Cartas para amor, disculpas, cumpleaños, o lo que necesites. Textos únicos y emotivos que tocan el corazón.</p>
+                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
+            </div>
 
-  <div class="service-card">
-    <h3>🎤 Discurso para eventos</h3>
-    <p>Texto listo para leer en bodas, comuniones, cumpleaños o despedidas.</p>
-    <p class="price">Precio: 10 €</p>
-  </div>
+            <!-- Service Card: Discurso para eventos -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Discurso para Eventos</h3>
+                <p class="text-gray-300 mb-4 text-center">Texto listo para leer en bodas, comuniones, cumpleaños o despedidas. Impacta a tu audiencia con palabras perfectas.</p>
+                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
+            </div>
 
-  <div class="service-card">
-    <h3>📄 Currículum y carta de presentación</h3>
-    <p>CV profesional moderno + carta personalizada para buscar trabajo.</p>
-    <p class="price">Precio: 15 €</p>
-  </div>
+            <!-- Service Card: Currículum y carta de presentación -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Currículum y Carta de Presentación</h3>
+                <p class="text-gray-300 mb-4 text-center">CV profesional moderno + carta personalizada para buscar trabajo. Abre puertas a nuevas oportunidades.</p>
+                <p class="text-3xl font-bold text-green-400 text-center">15 €</p>
+            </div>
 
-  <div class="service-card">
-    <h3>📩 Reclamaciones legales</h3>
-    <p>Redacción profesional para reclamar a aerolíneas, bancos, seguros, etc.</p>
-    <p class="price">Precio: 10 €</p>
-  </div>
+            <!-- Service Card: Reclamaciones legales -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Reclamaciones Legales</h3>
+                <p class="text-gray-300 mb-4 text-center">Redacción profesional para reclamar a aerolíneas, bancos, seguros, etc. Defiende tus derechos con claridad.</p>
+                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
+            </div>
 
-  <div class="service-card">
-    <h3>📘 Cuento personalizado</h3>
-    <p>Cuento corto con el niño o mascota como protagonista. Ideal para regalar.</p>
-    <p class="price">Precio: 15 €</p>
-  </div>
+            <!-- Service Card: Cuento personalizado -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Cuento Personalizado</h3>
+                <p class="text-gray-300 mb-4 text-center">Cuento corto con el niño o mascota como protagonista. Un regalo único y entrañable para recordar siempre.</p>
+                <p class="text-3xl font-bold text-green-400 text-center">15 €</p>
+            </div>
 
-  <div class="service-card">
-    <h3>💌 Texto romántico o picante</h3>
-    <p>Poema o mensaje personalizado para sorprender a tu pareja.</p>
-    <p class="price">Precio: 10 €</p>
-  </div>
+            <!-- Service Card: Texto romántico o picante -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Texto Romántico o Picante</h3>
+                <p class="text-gray-300 mb-4 text-center">Poema o mensaje personalizado para sorprender a tu pareja. Enciende la chispa con palabras que enamoran.</p>
+                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
+            </div>
 
-  <div class="service-card">
-    <h3>🎁 Lista de ideas de regalo</h3>
-    <p>5 ideas originales adaptadas a tu pareja o familiar. Con consejos extra.</p>
-    <p class="price">Precio: 10 €</p>
-  </div>
-</section>
+            <!-- Service Card: Lista de ideas de regalo -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                <div class="text-5xl text-teal-400 mb-4 text-center">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Lista de Ideas de Regalo</h3>
+                <p class="text-gray-300 mb-4 text-center">5 ideas originales adaptadas a tu pareja o familiar, con consejos extra. ¡Nunca más te quedarás sin ideas!</p>
+                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
+            </div>
+        </div>
+    </section>
 
-<section id="contacto">
-  <h2 style="color:#00ffd5; margin-bottom:20px;">Contacto</h2>
-  <p>¿Quieres hacer un pedido? Escríbeme por WhatsApp o email:</p>
-  <ul style="margin-top: 10px;">
-    <li>📱 WhatsApp: <a href="https://wa.me/34600000000" target="_blank" style="color:#25D366;">+34 600 000 000</a></li>
-    <li>✉️ Email: <a href="mailto:pedro@email.com" style="color:#00ffd5;">pedro@email.com</a></li>
-  </ul>
-</section>
+    <!-- Call to Action Section -->
+    <section class="py-16 px-4 bg-gray-900 text-center rounded-xl shadow-inner max-w-6xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+            ¿Listo para Transformar tus Ideas en Palabras?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            No esperes más. Con Pedro Soriano, tus textos serán inolvidables. ¡Contáctame ahora y empecemos a crear magia!
+        </p>
+        <a href="#contacto" class="inline-block bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 text-2xl">
+            ¡Quiero mi Texto Personalizado! <i class="fas fa-arrow-right ml-3"></i>
+        </a>
+    </section>
 
-<footer>
-  <p>© 2025 Pedro Soriano · Textos por Encargo</p>
-</footer>
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 px-4 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
+            <i class="fas fa-headset mr-3"></i>Hablemos
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">¿Quieres hacer un pedido o tienes alguna pregunta? Escríbeme, ¡estoy aquí para ayudarte!</p>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+            <div class="flex items-center text-xl">
+                <i class="fab fa-whatsapp text-green-500 text-3xl mr-3"></i>
+                <span class="font-semibold text-gray-200">WhatsApp:</span>
+                <a href="https://wa.me/34600000000" target="_blank" class="text-green-400 hover:text-green-300 ml-2 transition-colors duration-300">+34 600 000 000</a>
+            </div>
+            <div class="flex items-center text-xl">
+                <i class="fas fa-envelope text-teal-500 text-3xl mr-3"></i>
+                <span class="font-semibold text-gray-200">Email:</span>
+                <a href="mailto:pedro@email.com" class="text-teal-400 hover:text-teal-300 ml-2 transition-colors duration-300">pedro@email.com</a>
+            </div>
+        </div>
+    </section>
 
-<a class="btn-whatsapp" href="https://wa.me/34600000000" target="_blank">💬</a>
+    <!-- Footer Section -->
+    <footer class="bg-gray-950 py-8 px-4 text-center text-gray-500 rounded-t-xl shadow-inner mt-16">
+        <p>&copy; 2025 Pedro Soriano · Textos por Encargo. Todos los derechos reservados.</p>
+        <p class="text-sm mt-2">Diseñado con <i class="fas fa-heart text-red-500"></i> y palabras.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a class="fixed bottom-6 right-6 bg-green-500 text-white p-5 rounded-full shadow-xl text-3xl btn-whatsapp-animate z-50 transform transition-transform duration-300 hover:scale-110"
+       href="https://wa.me/34600000000" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
