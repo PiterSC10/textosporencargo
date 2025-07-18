@@ -142,6 +142,46 @@
         .popup-links a:hover {
             color: #81e6d9; /* Lighter teal on hover */
         }
+
+        /* Estilos para el efecto de destello */
+        .sparkle-effect {
+            position: relative; /* Needed for pseudo-element positioning */
+            overflow: hidden; /* Hide overflow of the sparkle */
+        }
+        .sparkle-effect::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            animation: sparkle 0.5s ease-out forwards;
+            z-index: 10000; /* Asegura que esté por encima del contenido del popup */
+        }
+
+        @keyframes sparkle {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                width: 150px; /* Tamaño del destello */
+                height: 150px; /* Tamaño del destello */
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                width: 200px; /* Tamaño máximo */
+                height: 200px; /* Tamaño máximo */
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -152,7 +192,7 @@
             Textos por Encargo
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-            Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas</span>
+            Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas.</span>
         </p>
         <div class="mt-2">
             <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105">
@@ -190,89 +230,137 @@
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service Card: Carta personalizada -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">
-                    <i class="fas fa-envelope-open-text"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Carta Personalizada</h3>
-                <p class="text-gray-300 mb-4 text-center">Cartas para amor, disculpas, cumpleaños, o lo que necesites. Textos únicos y emotivos que tocan el corazón.</p>
-                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
-            </div>
+            <!-- Dynamic Service Cards will be injected here by JavaScript -->
+            <script>
+                function togglePopup(id) {
+                    const popup = document.getElementById(id);
+                    const popupBox = popup.querySelector('.popup-box'); // Get the inner popup-box div
 
-            <!-- Service Card: Discurso para eventos -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">
-                    <i class="fas fa-microphone-alt"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Discurso para Eventos</h3>
-                <p class="text-gray-300 mb-4 text-center">Texto listo para leer en bodas, comuniones, cumpleaños o despedidas. Impacta a tu audiencia con palabras perfectas.</p>
-                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
-            </div>
+                    if (popup.classList.contains("hidden")) {
+                        // Opening the popup
+                        popup.classList.remove("hidden");
+                        if (popupBox) {
+                            // Remove any existing sparkle effect to re-trigger
+                            popupBox.classList.remove('sparkle-effect');
+                            // Force reflow to restart animation
+                            void popupBox.offsetWidth; // Trigger reflow
+                            popupBox.classList.add('sparkle-effect');
+                        }
+                    } else {
+                        // Closing the popup
+                        popup.classList.add("hidden");
+                        if (popupBox) {
+                            popupBox.classList.remove('sparkle-effect'); // Clean up on close
+                        }
+                    }
+                }
 
-            <!-- Servicio: Tu Mini Libro -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">📖</div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Tu Mini Libro Personalizado</h3>
-                <p class="text-gray-300 mb-4 text-center">
-                    ¿Tienes una historia que contar? ¿Una idea única o quieres ser el protagonista de tu propio libro?
-                    Creamos un <strong>mini libro de 25 a 30 páginas</strong> con tu historia, anécdota o personaje principal.
-                    Incluye portadas básicas, narrativa completa y entregado en formato PDF. Un relato personalizado hecho con alma.
-                </p>
-                <p class="text-3xl font-bold text-green-400 text-center">50 €</p>
-            </div>
+                function crearServicio(id, titulo, descripcion, ejemplo, price) {
+                    const borderColorClass = titulo.includes("Simpson") ? 'border-yellow-500' : 'border-gray-700';
+                    const iconColorClass = titulo.includes("Simpson") ? 'text-yellow-400' : 'text-teal-400';
+                    const titleColorClass = titulo.includes("Simpson") ? 'text-yellow-300' : 'text-teal-300';
 
-            <!-- Service Card: Reclamaciones legales -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">
-                    <i class="fas fa-gavel"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Reclamaciones Legales</h3>
-                <p class="text-gray-300 mb-4 text-center">Redacción profesional para reclamar a aerolíneas, bancos, seguros, etc. Defiende tus derechos con claridad. Reclamaciones escritas eficaces.</p>
-                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
-            </div>
+                    document.write(`
+                        <div class='bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border ${borderColorClass}'>
+                            <div class="text-5xl ${iconColorClass} mb-4 text-center">
+                                ${
+                                    // Icons based on service type
+                                    titulo.includes("Carta") ? '<i class="fas fa-envelope-open-text"></i>' :
+                                    titulo.includes("Discurso") ? '<i class="fas fa-microphone-alt"></i>' :
+                                    titulo.includes("Mini Libro") ? '📖' :
+                                    titulo.includes("Reclamaciones") ? '<i class="fas fa-gavel"></i>' :
+                                    titulo.includes("Cuento") ? '<i class="fas fa-book-open"></i>' :
+                                    titulo.includes("Picante") ? '<i class="fas fa-heart"></i>' :
+                                    titulo.includes("Ideas") ? '<i class="fas fa-gift"></i>' :
+                                    titulo.includes("Simpson") ? '<i class="fas fa-user-astronaut"></i>' :
+                                    '<i class="fas fa-file-alt"></i>' // Default icon for other services
+                                }
+                            </div>
+                            <h3 class='text-2xl font-semibold ${titleColorClass} mb-3 text-center'>${titulo}</h3>
+                            <p class='text-gray-300 mb-4 text-center'>${descripcion}</p>
+                            <p class="text-3xl font-bold text-green-400 text-center">${price}</p>
+                            <div class="text-center mt-4">
+                                <button onclick="togglePopup('${id}')" class='bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105'>Ver ejemplo</button>
+                            </div>
+                        </div>
+                        <div id='${id}' class='hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
+                            <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box text-gray-900 relative'>
+                                <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="togglePopup('${id}')">×</span>
+                                <h3 class='text-2xl font-bold mb-4 text-teal-600'>Ejemplo: ${titulo}</h3>
+                                <p class='text-base mb-4 whitespace-pre-line'>${ejemplo}</p>
+                                <button onclick="togglePopup('${id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>Cerrar</button>
+                            </div>
+                        </div>
+                    `);
+                }
 
-            <!-- Service Card: Cuento personalizado -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Cuento Personalizado</h3>
-                <p class="text-gray-300 mb-4 text-center">Cuento corto con el niño o mascota como protagonista. Un regalo único y entrañable para recordar siempre. Relatos personalizados con sentimiento.</p>
-                <p class="text-3xl font-bold text-green-400 text-center">15 €</p>
-            </div>
+                crearServicio("popupCarta", "Carta Personalizada", "Una carta hecha a medida para cualquier ocasión.", `Querida Laura:
 
-            <!-- Service Card: Texto romántico o picante -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Texto Romántico o Picante</h3>
-                <p class="text-gray-300 mb-4 text-center">Poema o mensaje personalizado para sorprender a tu pareja. Enciende la chispa con palabras que enamoran. Textos emocionales a medida.</p>
-                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
-            </div>
+No sé cómo expresar todo lo que siento por ti, pero lo intentaré con estas líneas. Desde que apareciste en mi vida, todo tiene más color, más sentido y más calma.
 
-            <!-- Service Card: Lista de ideas de regalo -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <div class="text-5xl text-teal-400 mb-4 text-center">
-                    <i class="fas fa-gift"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center">Lista de Ideas de Regalo</h3>
-                <p class="text-gray-300 mb-4 text-center">5 ideas originales adaptadas a tu pareja o familiar, con consejos extra. ¡Nunca más te quedarás sin ideas!</p>
-                <p class="text-3xl font-bold text-green-400 text-center">10 €</p>
-            </div>
+Gracias por cada sonrisa, cada abrazo, cada silencio que compartimos. Eres mi lugar seguro.
 
-            <!-- Service Card: Ilustración estilo Simpsons -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-yellow-500">
-                <div class="text-5xl text-yellow-400 mb-4 text-center">
-                    <i class="fas fa-user-astronaut"></i>
-                </div>
-                <h3 class="text-2xl font-semibold text-yellow-300 mb-3 text-center">Ilustración estilo Simpsons</h3>
-                <p class="text-gray-300 mb-4 text-center">Convierte tu foto (solo, con pareja, mascota o familia) en una ilustración al estilo Simpsons. Dos versiones incluidas: fondo neutro y fondo divertido. Un regalo original y personalizado.</p>
-                <p class="text-3xl font-bold text-green-400 text-center">30 €</p>
-            </div>
+Con todo mi amor,
+Pedro`, '10 €');
 
-            <!-- Servicio: Página web completa -->
+                crearServicio("popupDiscurso", "Discurso para Eventos", "Sorprende en bodas, cumpleaños o eventos con palabras memorables.", `Buenas tardes a todos:
+
+Hoy celebramos los 40 años de alguien que ha sabido vivir cada etapa con intensidad y humor. Ana, eres esa amiga que todos queremos tener: la que escucha, la que aconseja, y la que siempre tiene un plan.
+
+Tu risa es contagiosa y Dani, tu paciencia es de otro planeta. Juntos sois como el wifi y el café: imprescindibles para la vida moderna.
+
+Os deseo una vida llena de aventuras, de desayunos compartidos y de películas a medias. Porque al final, eso es el amor: reír, apoyarse y elegir seguir juntos cada día.
+
+¡Salud por vosotros!`, '10 €');
+
+                crearServicio("popupMiniLibro", "Mini Libro", "Un librito de 50 páginas con una historia personalizada.", `Capítulo 1: La decisión
+
+Nadie sabía que aquella mañana de octubre, Elena tomaría una decisión que cambiaría su vida. Cruzó la puerta del tren sin mirar atrás. Su mochila, una libreta y un billete a lo desconocido.
+
+La estación olía a café, pero en su cabeza solo había una palabra: libertad.`);
+
+                crearServicio("popupReclamacion", "Reclamaciones", "Textos formales para reclamar productos o servicios.", `Estimado/a responsable de Atención al Cliente,
+
+El día 12 de marzo realicé un pedido (#4521XZ) en su tienda online, con fecha estimada de entrega para el 15 de marzo. A día de hoy no ha sido entregado ni he recibido ninguna notificación.
+
+Solicito el reembolso íntegro del importe (37,95 €) en un plazo máximo de 7 días, tal como establece la ley. En caso contrario, iniciaré reclamación ante Consumo.
+
+Atentamente,
+Pedro Soriano`, '10 €');
+
+                crearServicio("popupCuento", "Cuento Personalizado", "Historias mágicas adaptadas a quien tú quieras.", `Érase una vez un niño llamado Leo, que tenía un secreto: podía hablar con los animales. Cada noche, se escapaba al bosque para escuchar las historias del búho sabio y del zorro bromista.
+
+Un día, los animales le pidieron ayuda: la luna había desaparecido. Y solo Leo podía encontrarla...`, '15 €');
+
+                crearServicio("popupPicante", "Texto Picante", "Mensajes atrevidos y con chispa para sorprender a tu pareja.", `Anoche soñé contigo... pero no pienso contártelo.
+Al menos no por aquí.
+
+Solo diré que cuando vuelvas, te voy a hacer olvidar qué día es, cómo te llamas… y por qué tardaste tanto.
+
+¿Vienes o te lo escribo con el cuerpo?`, '10 €');
+
+                crearServicio("popupIdeas", "Lista de Ideas para Regalo", "Ideas creativas y personalizadas según tu presupuesto.", `🧠 Lista personalizada (40€ - 100€):
+1. Caja de los 5 sentidos con textos para cada sentido.
+2. Botella con carta enrollada + coordenadas de dónde conocisteis.
+3. "Vale por" experiencias: desayuno en cama, masaje, noche sin pantallas.
+4. Álbum con frases que escribió tu pareja en el móvil (sí, las stalkearé).
+5. Mini cuento personalizado con final sorpresa.`, '10 €');
+
+                crearServicio("popupSimpson", "Ilustración estilo Los Simpsons", "Convierte tu foto en una ilustración con el humor amarillo más famoso.", `
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                        <div class="text-center">
+                            <p class="font-semibold mb-2">Original:</p>
+                            <img src="https://placehold.co/200x250/cccccc/000000?text=Tu+foto+aquí" alt="Persona original" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto">
+                        </div>
+                        <div class="text-center">
+                            <p class="font-semibold mb-2">Convertido:</p>
+                            <img src="https://placehold.co/200x250/ffe031/000000?text=Estilo+Simpsons" alt="Persona estilo Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                        </div>
+                    </div>
+                `, '30 €');
+
+            </script>
+            <!-- Servicio: Página web completa (restaurado a su diseño original en la tarjeta) -->
             <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
                 <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center flex items-center justify-center">
                     <span class="text-5xl mr-3 text-teal-400">🌐</span>Página web completa
@@ -422,6 +510,7 @@
                 <li><strong>¿Puedo pedir una modificación después de recibir el texto?</strong><br/>Sí, puedes solicitar ajustes menores por email.</li>
                 <li><strong>¿Se puede pagar con tarjeta sin tener cuenta PayPal?</strong><br/>Sí, PayPal permite pago con tarjeta sin registrarse.</li>
                 <li><strong>¿Por qué elegir esta web en lugar de hacerlo yo con IA?</strong><br/>Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.</li>
+                <li><strong>¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?</strong><br/>No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.</li>
             </ul>
         </div>
     </section>
@@ -478,7 +567,7 @@
     <!-- Footer -->
     <footer class="bg-gray-950 py-8 pb-24 px-4 text-center text-gray-500 rounded-t-xl shadow-inner mt-16">
         <p>&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.</p>
-        <p class="text-sm mt-2">Diseñado con <i class="fas fa-heart text-red-500"></i>. Servicio de redacción desde Málaga, España.</p>
+        <p class="text-sm mt-2">Diseñado con <i class="fas fa-heart text-red-500"></i></p>
         <!-- Social Media Icons -->
         <div class="flex space-x-4 justify-center mt-6">
             <a href="https://www.instagram.com/petersoriano10" target="_blank" aria-label="Instagram">
