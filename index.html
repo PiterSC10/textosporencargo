@@ -284,7 +284,7 @@
                             </div>
                         </div>
                         <div id='${id}' class='hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
-                            <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'> <!-- Removed text-gray-900 here -->
+                            <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'>
                                 <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="togglePopup('${id}')">×</span>
                                 <h3 class='text-2xl font-bold mb-4 text-teal-600'>Ejemplo: ${titulo}</h3>
                                 <p class='text-base mb-4 whitespace-pre-line'>${ejemplo}</p>
@@ -347,14 +347,14 @@ Solo diré que cuando vuelvas, te voy a hacer olvidar qué día es, cómo te lla
 5. Mini cuento personalizado con final sorpresa.`, '10 €');
 
                 crearServicio("popupSimpson", "Ilustración estilo Los Simpsons", "Convierte tu foto en una ilustración con el humor amarillo más famoso.", `
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
                         <div class="text-center">
-                            <p class="font-semibold mb-2">Original:</p>
-                            <img src="https://placehold.co/200x250/cccccc/000000?text=Tu+foto+aquí" alt="Persona original" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto">
+                            <p class="font-semibold text-gray-300 mb-2">Foto original</p>
+                            <img src="simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-44 border border-gray-600">
                         </div>
                         <div class="text-center">
-                            <p class="font-semibold mb-2">Convertido:</p>
-                            <img src="https://placehold.co/200x250/ffe031/000000?text=Estilo+Simpsons" alt="Persona estilo Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
+                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-44 border-4 border-yellow-400">
                         </div>
                     </div>
                 `, '30 €');
