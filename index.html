@@ -18,9 +18,19 @@
     <meta property="og:url" content="https://pitersc10.github.io/textosporencargo/" />
     <meta property="og:type" content="website" />
 
-    <!-- Favicon y Apple Touch Icon (asegurando la ruta /assets/) -->
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+    <!-- Favicon clásico (para navegadores) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <!-- Apple Touch Icon (para accesos directos en iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <!-- Web App Manifest (opcional para apps progresivas) -->
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Icono general por si el navegador no admite tamaños -->
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Metadatos para iOS y Android modernos -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#00838F"> <!-- Color principal de la web -->
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,14 +84,14 @@
 <body class="antialiased">
 
     <!-- Header Section -->
-    <header id="inicio" class="header-gradient py-28 px-4 text-center rounded-b-xl shadow-lg">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in pt-4">
+    <header id="inicio" class="header-gradient py-24 px-4 text-center rounded-b-xl shadow-lg">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in pt-4">
             Textos por Encargo
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
             Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas</span>
         </p>
-        <div class="mt-4"> <!-- Reduced margin-top here -->
+        <div class="mt-2">
             <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105">
                 Ver Servicios <i class="fas fa-arrow-down ml-2"></i>
             </a>
@@ -89,7 +99,7 @@
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="bg-gray-900 py-4 px-4 text-center shadow-md sticky-nav">
+    <nav class="bg-gray-900 py-2 px-4 text-center shadow-md sticky-nav">
         <div class="max-w-4xl mx-auto flex flex-wrap justify-center space-x-4">
             <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
                 <i class="fas fa-clipboard-list mr-2"></i>Servicios
@@ -111,7 +121,7 @@
     </nav>
 
     <!-- Services Section -->
-    <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto">
+    <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto pt-10">
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
             <i class="fas fa-gem mr-3"></i>Nuestros Servicios Exclusivos
         </h2>
@@ -414,7 +424,7 @@
             <a href="https://www.youtube.com/@pasaportedemano" target="_blank" aria-label="YouTube">
                 <i class="fab fa-youtube text-red-600 text-2xl"></i> <!-- Font Awesome YouTube icon -->
             </a>
-            <a href="#contacto" class="text-blue-500 hover:text-blue-400" aria-label="PayPal">
+            <a href="https://www.paypal.es" target="_blank" class="text-blue-500 hover:text-blue-400" aria-label="PayPal">
                 <i class="fab fa-paypal text-blue-500 text-2xl"></i> <!-- Font Awesome PayPal icon -->
             </a>
         </div>
@@ -444,3 +454,4 @@
 
 </body>
 </html>
+
