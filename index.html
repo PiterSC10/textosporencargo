@@ -244,8 +244,15 @@
             <!-- Left: Logo -->
             <a href="#inicio" class="text-2xl font-bold text-white" data-key="logoTitle">YourDesignGPT</a>
 
-            <!-- Center: Navigation Links -->
-            <div class="flex justify-center space-x-2"> <!-- Reduced space-x for tighter grouping -->
+            <!-- Hamburger menu icon for mobile -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-teal-400 hover:text-teal-200 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Center: Navigation Links (hidden on small screens, flex on medium and larger) -->
+            <div id="main-nav-links" class="hidden md:flex justify-center space-x-2">
                 <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
                     <i class="fas fa-clipboard-list mr-1"></i><span data-key="services">Servicios</span>
                 </a>
@@ -263,8 +270,8 @@
                 </a>
             </div>
 
-            <!-- Right: Language Flags (stacked with emojis) -->
-            <div class="flex flex-col items-center space-y-1"> <!-- Changed items-end to items-center -->
+            <!-- Right: Language Flags (hidden on small, flex on medium+) -->
+            <div class="hidden md:flex flex-col items-center space-y-1">
                 <div class="flex items-center space-x-1 cursor-pointer" onclick="switchLanguage('es')">
                     <span class="text-sm text-white font-semibold">ES</span>
                     <span role="img" aria-label="Spanish Flag">🇪🇸</span>
@@ -274,6 +281,38 @@
                     <span role="img" aria-label="United Kingdom Flag">🇬🇧</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Mobile Menu (initially hidden) -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-950 z-40 flex flex-col items-center justify-center space-y-6 text-2xl">
+            <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
+                <i class="fas fa-clipboard-list mr-1"></i><span data-key="services">Servicios</span>
+            </a>
+            <a href="#como-funciona" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
+                <i class="fas fa-info-circle mr-1"></i><span data-key="howItWorks">Cómo Funciona</span>
+            </a>
+            <a href="#reseñas" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
+                <i class="fas fa-star mr-1"></i><span data-key="reviews">Reseñas</span>
+            </a>
+            <a href="#faq" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
+                <i class="fas fa-question-circle mr-1"></i><span data-key="faq">FAQ</span>
+            </a>
+            <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
+                <i class="fas fa-envelope mr-1"></i><span data-key="contact">Contacto</span>
+            </a>
+            <div class="flex flex-col items-center space-y-2 mt-4">
+                <div class="flex items-center space-x-1 cursor-pointer text-white" onclick="switchLanguage('es'); toggleMobileMenu();">
+                    <span class="text-lg font-semibold">ES</span>
+                    <span role="img" aria-label="Spanish Flag">🇪🇸</span>
+                </div>
+                <div class="flex items-center space-x-1 cursor-pointer text-white" onclick="switchLanguage('en'); toggleMobileMenu();">
+                    <span class="text-lg font-semibold">EN</span>
+                    <span role="img" aria-label="United Kingdom Flag">🇬🇧</span>
+                </div>
+            </div>
+            <button class="absolute top-4 right-4 text-white text-4xl focus:outline-none" onclick="toggleMobileMenu()">
+                &times;
+            </button>
         </div>
     </nav>
 
@@ -657,11 +696,11 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Foto original</p>
-                            <img src="https://placehold.co/200x200/666/fff?text=Original" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="https://placehold.co/200x200/FDD835/000?text=Simpsons" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `,
@@ -749,10 +788,6 @@
                 legalNotice: "Aviso legal",
                 ctaBannerText: "¿Tienes prisa? Pídelo en 2 minutos →",
                 ctaBannerButton: "Ir al Formulario",
-                // Removed cookie banner related translations
-                // cookieBannerText: "Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando aceptas su uso.",
-                // cookieAccept: "Aceptar",
-                // cookieReject: "Rechazar",
 
                 privacyPopupTitle: "Política de Privacidad",
                 privacyPopupResponsible: "Responsable del tratamiento:",
@@ -878,11 +913,11 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Original photo</p>
-                            <img src="https://placehold.co/200x200/666/fff?text=Original" alt="Real photo" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="simpson-original.jpg" alt="Real photo" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Simpsons style version</p>
-                            <img src="https://placehold.co/200x200/FDD835/000?text=Simpsons" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <img src="simpson-ilustracion.jpg" alt="Simpsons illustration" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `,
@@ -967,13 +1002,9 @@
                 footerCopyright: "&copy; 2025 Pedro SC · Texts by Order. All rights reserved.",
                 footerDesign: "Designed with ❤️",
                 privacyPolicy: "Privacy Policy",
-                legalNotice: "Legal Notice",
+                legalNotice: "Aviso legal",
                 ctaBannerText: "In a hurry? Order in 2 minutes →",
                 ctaBannerButton: "Go to Form",
-                // Removed cookie banner related translations
-                // cookieBannerText: "This site uses cookies to improve your experience. By continuing to browse, you accept their use.",
-                // cookieAccept: "Accept",
-                // cookieReject: "Reject",
 
                 privacyPopupTitle: "Privacy Policy",
                 privacyPopupResponsible: "Data controller:",
@@ -983,32 +1014,249 @@
                 privacyPopupPurposeText: "We collect your data exclusively in order to provide you with the requested service (writing personalized texts), carry out the corresponding invoicing and send you communications related to your order.<br>We do not use your data for advertising purposes or share it with third parties.",
                 privacyPopupLegitimationTitle: "2. Legitimation",
                 privacyPopupLegitimationText: "The legal basis for the processing of your data is the explicit consent you grant by completing a contact form or by contracting a service on this website.",
-                privacyPopupConservationTitle: "3. Data retention",
-                privacyPopupConservationText: "The personal data provided will be kept for the time strictly necessary to comply with the obligations legal, fiscal and contractual, and never beyond what is necessary to provide the service.",
-                privacyPopupRightsTitle: "4. User rights",
-                privacyPopupRightsText: "You can exercise your rights of access, rectification, cancellation, opposition, portability and limitation of processing at any time by sending an email to: textosporencargo@gmail.com<br>You also have the right to file a complaint with the Spanish Data Protection Agency if you consider that your rights have been violated.",
-                privacyPopupSecurityTitle: "5. Security measures",
-                privacyPopupSecurityText: "We adopt appropriate technical and organizational security measures to guarantee the confidentiality, integrity and availability of your personal information.",
-                privacyPopupCookiesTitle: "6. Cookie Policy",
-                privacyPopupCookiesText: "This site website does not use third-party cookies or tracking technologies. It is a static and informative website. If cookies are included in the future, you will be informed and consent will be requested in accordance with current regulations.",
+                privacyPopupConservationTitle: "3. Conservación de datos",
+                privacyPopupConservationText: "Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legales, fiscales y contractuales, y nunca más allá de lo necesario para prestar el servicio.",
+                privacyPopupRightsTitle: "4. Derechos del usuario",
+                privacyPopupRightsText: "Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com<br>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.",
+                privacyPopupSecurityTitle: "5. Medidas de seguridad",
+                privacyPopupSecurityText: "Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.",
+                privacyPopupCookiesTitle: "6. Política de cookies",
+                privacyPopupCookiesText: "Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
                 
-                legalPopupTitle: "Legal Notice",
-                legalPopupOwner: "Website owner:",
+                legalPopupTitle: "Aviso Legal",
+                legalPopupOwner: "Titular del sitio web:",
                 legalPopupEmail: "Email:",
-                legalPopupWeb: "Website:",
-                legalPopupObjectTitle: "1. Object and acceptance",
-                legalPopupObjectText: "This legal notice regulates the use of the website textosporencargo.com, owned by Pedro S.C. By accessing this website, it is understood that the user accepts and undertakes to comply with the conditions set forth herein.",
-                legalPopupConditionsTitle: "2. Terms of use",
-                legalPopupConditionsText: "The website offers personalized text writing services, such as letters, speeches, stories, complaints, among others. The use of the information contained on this page is the sole responsibility of the user.<br>Any use for illicit purposes or that infringes the rights or interests of third parties.",
-                legalPopupIntellectualTitle: "3. Intellectual and industrial property",
-                legalPopupIntellectualText: "All content on the website, including texts, images, logos, graphic design and code source, are protected by copyright and intellectual property rights.<br>Total or partial reproduction is prohibited without the express consent of the owner.",
-                legalPopupResponsibilityTitle: "4. Responsibility",
-                legalPopupResponsibilityText: "The absence of errors in the contents is not guaranteed, nor that they are permanently updated, although every effort will be made to keep them updated.<br>The owner is not responsible for the use that users make of the information published or for the direct or indirect damages that may arise from its utilization.",
-                legalPopupExternalLinksTitle: "5. External links",
-                legalPopupExternalLinksText: "This website may contain links to external pages. The owner is not responsible for the content of these sites, nor for the privacy policies or conditions of use that may apply.",
-                legalPopupLegislationTitle: "6. Applicable law and jurisdiction",
-                legalPopupLegislationText: "This website is governed by Spanish law. For the resolution of any conflict that pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.",
-                closeButton: "Close"
+                legalPopupWeb: "Web:",
+                legalPopupObjectTitle: "1. Objeto y aceptación",
+                legalPopupObjectText: "El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.",
+                legalPopupConditionsTitle: "2. Condiciones de uso",
+                legalPopupConditionsText: "La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.",
+                legalPopupIntellectualTitle: "3. Propiedad intelectual e industrial",
+                legalPopupIntellectualText: "Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.<br>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.",
+                legalPopupResponsibilityTitle: "4. Responsabilidad",
+                legalPopupResponsibilityText: "No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.<br>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.",
+                legalPopupExternalLinksTitle: "5. Enlaces externos",
+                legalPopupExternalLinksText: "Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.",
+                legalPopupLegislationTitle: "6. Legislación aplicable y jurisdicción",
+                legalPopupLegislationText: "Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.",
+                closeButton: "Cerrar"
+            },
+            en: {
+                pageTitle: "YourDesignGPT", // Updated title
+                logoTitle: "YourDesignGPT",
+                headerTitle: "The Future of Design, Powered by AI",
+                headerSubtitle: "We transform your ideas into impactful visual realities with the most advanced artificial intelligence.",
+                viewServices: "View Services",
+                services: "Services",
+                howItWorks: "How It Works",
+                reviews: "Reviews",
+                faq: "FAQ",
+                contact: "Contact",
+                ourExclusiveServices: "Our Exclusive Services",
+                cartaPersonalizadaTitle: "Personalized Letter",
+                cartaPersonalizadaDesc: "Write a unique, emotional, or formal letter, completely adapted to your personal situation.",
+                cartaPersonalizadaExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Style to choose: romantic, formal, poetic or friendly</li>
+    <li>Adaptation to desired emotional tone</li>
+    <li>Original text without generic templates</li>
+    <li>Delivery in 24-72h in Word or PDF format</li>
+  </ul>
+`,
+                discursoTitle: "Speech for Events",
+                discursoDesc: "We write a professional and personalized speech for any special occasion.",
+                discursoExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Ideal for weddings, birthdays, retirements, presentations or awards</li>
+    <li>Text adaptable to desired duration (2-5 minutes)</li>
+    <li>Can include humor, emotion or motivational tone</li>
+    <li>Delivery in 24-72h and editable</li>
+  </ul>
+`,
+                minilibroTitle: "Your Personalized Mini Book",
+                minilibroDesc: "I create a mini book where you or your story are the protagonists.",
+                minilibroExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Approximately 20 pages</li>
+    <li>Simple cover and back cover included</li>
+    <li>Can be fiction, autobiographical or your original idea</li>
+    <li>Delivery in 24-72h in PDF ready to print or share</li>
+  </ul>
+`,
+                reclamacionTitle: "Text for Complaints",
+                reclamacionDesc: "Document written with clear and persuasive language to defend your rights. With us, it's like having your own personal lawyer.",
+                reclamacionExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Personalized writing for each case</li>
+    <li>Based on a firm, courteous and resolute tone</li>
+    <li>Editable format + version ready to send</li>
+    <li>Includes basic legal structure guidance</li>
+    <li>Delivery in 24-72h</li>
+  </ul>
+`,
+                cuentoTitle: "Personalized Story",
+                cuentoDesc: "A short story where you, your partner or a loved one are the protagonists.",
+                cuentoExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Custom story with real name(s)</li>
+    <li>Ideal for gifting on birthdays, anniversaries or special events</li>
+    <li>Magical, romantic or comical touches as preferred</li>
+    <li>Delivery in 24-72h in PDF format (3-5 pages)</li>
+  </ul>
+`,
+                picanteTitle: "Spicy or Romantic Text",
+                picanteDesc: "A daring or suggestive text to ignite the spark or surprise with elegance.",
+                picanteExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Sexy, romantic or provocative style as per client</li>
+    <li>Use of careful or explicit language as desired</li>
+    <li>Discrete and anonymous format</li>
+    <li>Delivery in 24-72h by email or message</li>
+  </ul>
+`,
+                regaloTitle: "Creative Gift Ideas List",
+                regaloDesc: "Don't know what to give? I'll create a personalized and ingenious list for the occasion.",
+                regaloExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>10 ideas with explanation and optional links</li>
+    <li>Based on tastes, age, relationship and occasion</li>
+    <li>Includes low-cost and original ideas</li>
+    <li>Delivery in 24-72h in table or visual list format</li>
+  </ul>
+`,
+                simpsonTitle: "The Simpsons Style Illustration",
+                simpsonDesc: "Turn your photo into an illustration with the most famous yellow humor.",
+                simpsonExample: `
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                        <div class="text-center">
+                            <p class="font-semibold text-gray-300 mb-2">Original photo</p>
+                            <img src="simpson-original.jpg" alt="Real photo" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                        </div>
+                        <div class="text-center">
+                            <p class="font-semibold text-yellow-300 mb-2">Simpsons style version</p>
+                            <img src="simpson-ilustracion.jpg" alt="Simpsons illustration" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                        </div>
+                    </div>
+                `,
+                webCompletaTitle: "Complete Website",
+                webCompletaDesc: "We create your own professional website. You forget about everything, we manage it.",
+                webCompletaFeatures: [
+                    "Included .com domain (1 year)",
+                    "Included hosting (1 year)",
+                    "Responsive website like this one",
+                    "Active WhatsApp button",
+                    "Professional email with your domain",
+                    "Custom form",
+                    "Favicon, design and sections ready",
+                    "Full upload to the server",
+                    "Step-by-step user manual",
+                    "First month of maintenance included"
+                ],
+                webCompletaPriceNote: "Annual renewal: €150 (domain + server + management). If not renewed, the website will be automatically deactivated.",
+                viewExampleButton: "View example", // Added for service cards
+
+                howItWorksTitle: "How our service works?",
+                step1Title: "Step 1: Tell us your text idea!",
+                step1Desc: "Fill out our simple form with all the details. The more information, the better to create unique content!",
+                step2Title: "Step 2: Make the secure payment",
+                step2Desc: "Once we confirm the details, we will send you a PayPal link for a fast and totally secure payment.",
+                step3Title: "Step 3: Receive your masterpiece",
+                step3Desc: "In 24-72h you will receive your creative text in PDF directly in your email.",
+
+                ctaTitle: "Ready to transform your ideas into professional and unique texts?",
+                ctaSubtitle: "Don't wait any longer, with Pedro SC, your texts will be unforgettable. Contact me now and let's start creating magic!",
+                ctaButton: "I want my Personalized Text!",
+
+                orderTitle: "Place your Custom Order",
+                orderSubtitle: "Click the button below to fill out the form and request your unique text, tailor-made for you. It's quick and easy!",
+                orderButton: "Request your personalized text",
+
+                reviewsTitle: "Satisfied Customer Reviews",
+                review1Text: "“I ordered a *Simpsons*-style portrait with my partner and... it's as if Matt Groening himself drew us! Great for a gift.”",
+                review1Author: "— Javier and Laura",
+                review2Text: "“I requested a letter for my anniversary. Pedro SC captured exactly what I wanted to say. My partner cried with emotion. Thanks a million!”",
+                review2Author: "— Andrea M.",
+                review3Text: "“I needed an urgent complaint for an airline. They sent it to me in PDF and the next day I had a response. Fast, clear and effective.”",
+                review3Author: "— Sergio T.",
+
+                faqTitle: "Frequently Asked Questions",
+                faqQ1: "What kind of texts do you offer?",
+                faqA1: "Letters, speeches, stories, complaints, resumes and more, delivered in PDF.",
+                faqQ2: "How do I place an order?",
+                faqA2: "Fill out the form with your details. We'll take care of the rest.",
+                faqQ3: "How do I receive my order?",
+                faqA3: "By email in PDF, once completed and paid.",
+                faqQ4: "How much does each service cost?",
+                faqA4: "Between €10 and €15, depending on the type of text.",
+                faqQ5: "Can I order something not on the list?",
+                faqA5: "Yes, select “Other” and describe what you need.",
+                faqQ6: "How is payment made?",
+                faqA6: "We will send you a PayPal link by email to complete the payment securely.",
+                faqQ7: "When will I receive my text?",
+                faqA7: "In 24-72h after payment, except for exceptions that will be communicated.",
+                faqQ8: "Can I request a modification after receiving the text?",
+                faqA8: "Yes, you can request minor adjustments by email.",
+                faqQ9: "Can I pay by card without a PayPal account?",
+                faqA9: "Yes, PayPal allows card payment without registration.",
+                faqQ10: "Why choose this website in place of doing it myself with AI?",
+                faqA10: "Because here you save time, errors and tests. We give you everything ready and well written by professional writers.",
+                faqQ11: "Are the examples in the pop-ups the actual size of the text I receive?",
+                faqA11: "No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.",
+
+                paymentSecure: "Secure Payment",
+                paymentSecureDesc: "Protected with PayPal and SSL encryption.",
+                deliveryPdf: "PDF Delivery",
+                deliveryPdfDesc: "Receive your text by email in high quality.",
+                deliveryTime: "24-72h Delivery",
+                deliveryTimeDesc: "You will receive your order in a maximum of 3 days.",
+                personalAttention: "Personalized Attention",
+                personalAttentionDesc: "I answer you personally by email.",
+                personalized: "100% Personalized",
+                personalizedDesc: "Each text adapts to your story and tone.",
+                satisfiedClients: "Satisfied Clients",
+                satisfiedClientsDesc: "Real ratings that endorse our work.",
+
+                footerCopyright: "&copy; 2025 Pedro SC · Texts by Order. All rights reserved.",
+                footerDesign: "Designed with ❤️",
+                privacyPolicy: "Privacy Policy",
+                legalNotice: "Aviso legal",
+                ctaBannerText: "In a hurry? Order in 2 minutes →",
+                ctaBannerButton: "Go to Form",
+
+                privacyPopupTitle: "Privacy Policy",
+                privacyPopupResponsible: "Data controller:",
+                privacyPopupEmail: "Contact email:",
+                privacyPopupWeb: "Website:",
+                privacyPopupPurposeTitle: "1. Purpose of data processing",
+                privacyPopupPurposeText: "We collect your data exclusively in order to provide you with the requested service (writing personalized texts), carry out the corresponding invoicing and send you communications related to your order.<br>We do not use your data for advertising purposes or share it with third parties.",
+                privacyPopupLegitimationTitle: "2. Legitimation",
+                privacyPopupLegitimationText: "The legal basis for the processing of your data is the explicit consent you grant by completing a contact form or by contracting a service on this website.",
+                privacyPopupConservationTitle: "3. Conservación de datos",
+                privacyPopupConservationText: "The personal data provided will be kept for the time strictly necessary to comply with the obligations legal, fiscal and contractual, and never beyond what is necessary to provide the service.",
+                privacyPopupRightsTitle: "4. Derechos del usuario",
+                privacyPopupRightsText: "You can exercise your rights of access, rectification, cancellation, opposition, portability and limitation of processing at any time by sending an email to: textosporencargo@gmail.com<br>You also have the right to file a complaint with the Spanish Data Protection Agency if you consider that your rights have been violated.",
+                privacyPopupSecurityTitle: "5. Medidas de seguridad",
+                privacyPopupSecurityText: "Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad and availability of your information personal.",
+                privacyPopupCookiesTitle: "6. Política de cookies",
+                privacyPopupCookiesText: "Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
+                
+                legalPopupTitle: "Aviso Legal",
+                legalPopupOwner: "Titular del sitio web:",
+                legalPopupEmail: "Email:",
+                legalPopupWeb: "Web:",
+                legalPopupObjectTitle: "1. Objeto y aceptación",
+                legalPopupObjectText: "El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.",
+                legalPopupConditionsTitle: "2. Condiciones de uso",
+                legalPopupConditionsText: "La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.",
+                legalPopupIntellectualTitle: "3. Propiedad intelectual e industrial",
+                legalPopupIntellectualText: "Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.<br>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.",
+                legalPopupResponsibilityTitle: "4. Responsabilidad",
+                legalPopupResponsibilityText: "No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.<br>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.",
+                legalPopupExternalLinksTitle: "5. Enlaces externos",
+                legalPopupExternalLinksText: "Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.",
+                legalPopupLegislationTitle: "6. Legislación aplicable y jurisdicción",
+                legalPopupLegislationText: "Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.",
+                closeButton: "Cerrar"
             }
         };
 
@@ -1292,9 +1540,21 @@
             applyTranslations(currentLang);
         }
 
-        // Initial load: apply default language
+        // Function to toggle the mobile menu visibility
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Initial load: apply default language and set up event listeners
         document.addEventListener('DOMContentLoaded', () => {
             applyTranslations(currentLang);
+
+            // Add event listener for the mobile menu button
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            }
         });
 
         window.addEventListener('scroll', function () {
@@ -1315,10 +1575,7 @@
         function closePopup(id) {
             document.getElementById(id).style.display = 'none';
         }
-
-        // Removed cookie banner functions: acceptCookies() and rejectCookies()
     </script>
 
 </body>
 </html>
-
