@@ -93,7 +93,7 @@
             z-index: 9999;
         }
         .popup-box {
-            background: #222; /* Dark background for popup */
+            background: #ADD8E6; /* Light blue background for popup */
             max-width: 700px;
             padding: 2rem;
             border-radius: 12px;
@@ -101,30 +101,36 @@
             max-height: 90vh;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Darker shadow */
             position: relative;
-            color: #eee; /* Light text for popup */
+            color: #000; /* Black text for popup */
         }
         .popup-box h2 {
             margin-top: 0;
             font-size: 1.5rem;
-            color: #4fd1c5; /* Teal color for headings */
+            color: #000; /* Black color for headings */
             margin-bottom: 1rem;
         }
         .popup-box p {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #ccc; /* Lighter gray for paragraphs */
+            color: #000; /* Black for paragraphs */
             margin-bottom: 0.8rem;
+        }
+        .popup-box ul { /* Added style for ul within popup */
+            color: #000; /* Black for list items */
+        }
+        .popup-box li { /* Added style for li within popup */
+            color: #000; /* Black for list items */
         }
         .popup-close {
             position: absolute;
             top: 10px; right: 20px;
             font-size: 1.8rem; /* Slightly larger for better tap target */
             cursor: pointer;
-            color: #999; /* Gray for close button */
+            color: #333; /* Darker gray for close button */
             transition: color 0.2s ease-in-out;
         }
         .popup-close:hover {
-            color: #eee; /* White on hover */
+            color: #000; /* Black on hover */
         }
         .popup-links {
             display: flex;
@@ -136,11 +142,11 @@
             text-decoration: underline;
             cursor: pointer;
             font-weight: bold;
-            color: #4fd1c5; /* Teal color for links */
+            color: #000080; /* Dark blue color for links */
             transition: color 0.2s ease-in-out;
         }
         .popup-links a:hover {
-            color: #81e6d9; /* Lighter teal on hover */
+            color: #0000CD; /* Medium blue on hover */
         }
 
         /* Estilos para el efecto de destello */
@@ -189,10 +195,12 @@
     <!-- Header Section -->
     <header id="inicio" class="header-gradient py-24 px-4 text-center rounded-b-xl shadow-lg">
         <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in pt-4">
-            Textos por Encargo
+            PeterWeb 2.0
+
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-            Cartas, discursos, cuentos y más... <span class="font-semibold text-teal-200">100% personalizadas.</span>
+            Despreocúpate, que lo hacemos por ti...          
+            <span class="font-semibold text-teal-200">100% personalizadas</span>
         </p>
         <div class="mt-2">
             <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105">
@@ -267,11 +275,11 @@
                                     // Icons based on service type
                                     titulo.includes("Carta") ? '<i class="fas fa-envelope-open-text"></i>' :
                                     titulo.includes("Discurso") ? '<i class="fas fa-microphone-alt"></i>' :
-                                    titulo.includes("Mini Libro") ? '📖' :
+                                    titulo.includes("Mini libro") ? '📖' :
                                     titulo.includes("Reclamaciones") ? '<i class="fas fa-gavel"></i>' :
                                     titulo.includes("Cuento") ? '<i class="fas fa-book-open"></i>' :
                                     titulo.includes("Picante") ? '<i class="fas fa-heart"></i>' :
-                                    titulo.includes("Ideas") ? '<i class="fas fa-gift"></i>' :
+                                    titulo.includes("regalo") ? '<i class="fas fa-gift"></i>' :
                                     titulo.includes("Simpson") ? '<i class="fas fa-user-astronaut"></i>' :
                                     '<i class="fas fa-file-alt"></i>' // Default icon for other services
                                 }
@@ -287,74 +295,86 @@
                             <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'>
                                 <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="togglePopup('${id}')">×</span>
                                 <h3 class='text-2xl font-bold mb-4 text-teal-600'>Ejemplo: ${titulo}</h3>
-                                <p class='text-base mb-4 whitespace-pre-line'>${ejemplo}</p>
+                                <div class='text-base mb-4 whitespace-pre-line'>${ejemplo}</div>
                                 <button onclick="togglePopup('${id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>Cerrar</button>
                             </div>
                         </div>
                     `);
                 }
 
-                crearServicio("popupCarta", "Carta Personalizada", "Redactamos cartas únicas y emotivas para cualquier ocasión especial, desde agradecimientos hasta peticiones importantes.", `Querida Laura:
+                crearServicio("popupCarta", "Carta personalizada", "Escribe una carta única, emotiva o formal, adaptada completamente a tu situación personal.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Estilo a elegir: romántico, formal, poético o amistoso</li>
+    <li>Adaptación a tono emocional deseado</li>
+    <li>Texto original y sin plantillas genéricas</li>
+    <li>Entrega en 24-72h en formato Word o PDF</li>
+  </ul>
+`, '10 €');
 
-No sé cómo expresar todo lo que siento por ti, pero lo intentaré con estas líneas. Desde que apareciste en mi vida, todo tiene más color, más sentido y más calma.
+                crearServicio("popupDiscurso", "Discurso para eventos", "Redactamos un discurso profesional y personalizado para cualquier ocasión especial.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Ideal para bodas, cumpleaños, jubilaciones, presentaciones o premiaciones</li>
+    <li>Texto adaptable a duración deseada (2-5 minutos)</li>
+    <li>Se puede incluir humor, emoción o tono motivacional</li>
+    <li>Entrega en 24-72h y editable</li>
+  </ul>
+`, '15 €');
 
-Gracias por cada sonrisa, cada abrazo, cada silencio que compartimos. Eres mi lugar seguro.
+                crearServicio("popupMinilibro", "Tu mini libro personalizado", "Te creo un mini libro donde tú o tu historia sois protagonistas.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>20 páginas aproximadamente</li>
+    <li>Portada y contraportada sencilla incluidas</li>
+    <li>Puede ser de ficción, autobiográfico o una idea original tuya</li>
+    <li>Entrega en 24-72h en PDF listo para imprimir o compartir</li>
+  </ul>
+`, '50 €');
 
-Con todo mi amor,
-Pedro`, '10 €');
+                crearServicio("popupReclamacion", "Texto para reclamaciones", "Documento redactado con lenguaje claro y persuasivo para defender tus derechos. Con nosotros, es como tener tu propio abogado personal.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Redacción personalizada para cada caso</li>
+    <li>Basado en tono firme, cortés y resolutivo</li>
+    <li>Formato editable + versión lista para enviar</li>
+    <li>Incluye orientación sobre estructura legal básica</li>
+    <li>Entrega en 24-72h</li>
+  </ul>
+`, '10 €');
 
-                crearServicio("popupDiscurso", "Discurso para Eventos", "Preparamos discursos impactantes y memorables para bodas, cumpleaños, homenajes o cualquier evento que requiera palabras inspiradoras.", `Buenas tardes a todos:
+                crearServicio("popupCuento", "Cuento personalizado", "Un relato corto donde tú, tu pareja o un ser querido sois protagonistas.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Historia a medida con nombre/s reales</li>
+    <li>Ideal para regalar en cumpleaños, aniversarios o eventos especiales</li>
+    <li>Toques mágicos, románticos o cómicos según preferencia</li>
+    <li>Entrega en 24-72h en formato PDF (3-5 páginas)</li>
+  </ul>
+`, '20 €');
 
-Hoy celebramos los 40 años de alguien que ha sabido vivir cada etapa con intensidad y humor. Ana, eres esa amiga que todos queremos tener: la que escucha, la que aconseja, y la que siempre tiene un plan.
+                crearServicio("popupPicante", "Texto picante o romántico", "Un texto atrevido o sugerente para encender la chispa o sorprender con elegancia.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Estilo sexy, romántico o provocador según el cliente</li>
+    <li>Uso de lenguaje cuidado o explícito a elección</li>
+    <li>Formato discreto y anónimo</li>
+    <li>Entrega en 24-72h por email o mensaje</li>
+  </ul>
+`, '10 €');
 
-Tu risa es contagiosa y Dani, tu paciencia es de otro planeta. Juntos sois como el wifi y el café: imprescindibles para la vida moderna.
-
-Os deseo una vida llena de aventuras, de desayunos compartidos y de películas a medias. Porque al final, eso es el amor: reír, apoyarse y elegir seguir juntos cada día.
-
-¡Salud por vosotros!`, '10 €');
-
-                crearServicio("popupMiniLibro", "Mini Libro", "Un librito de 50 páginas con una historia completamente personalizada, ideal para regalar o inmortalizar un momento especial.", `Capítulo 1: La decisión
-
-Nadie sabía que aquella mañana de octubre, Elena tomaría una decisión que cambiaría su vida. Cruzó la puerta del tren sin mirar atrás. Su mochila, una libreta y un billete a lo desconocido.
-
-La estación olía a café, pero en su cabeza solo había una palabra: libertad.`, '50 €');
-
-                crearServicio("popupReclamacion", "Reclamaciones", "Elaboramos textos formales y efectivos para presentar reclamaciones de productos o servicios, asegurando claridad y contundencia.", `Estimado/a responsable de Atención al Cliente,
-
-El día 12 de marzo realicé un pedido (#4521XZ) en su tienda online, con fecha estimada de entrega para el 15 de marzo. A día de hoy no ha sido entregado ni he recibido ninguna notificación.
-
-Solicito el reembolso íntegro del importe (37,95 €) en un plazo máximo de 7 días, tal como establece la ley. En caso contrario, iniciaré reclamación ante Consumo.
-
-Atentamente,
-Pedro Soriano`, '10 €');
-
-                crearServicio("popupCuento", "Cuento Personalizado", "Creamos historias mágicas y originales, adaptadas a tus personajes y situaciones favoritas, perfectas para niños y adultos.", `Érase una vez un niño llamado Leo, que tenía un secreto: podía hablar con los animales. Cada noche, se escapaba al bosque para escuchar las historias del búho sabio y del zorro bromista.
-
-Un día, los animales le pidieron ayuda: la luna había desaparecido. Y solo Leo podía encontrarla...`, '15 €');
-
-                crearServicio("popupPicante", "Texto Picante", "Mensajes atrevidos, sugerentes y con chispa, diseñados para sorprender y avivar la pasión en tu relación de pareja.", `Anoche soñé contigo... pero no pienso contártelo.
-Al menos no por aquí.
-
-Solo diré que cuando vuelvas, te voy a hacer olvidar qué día es, cómo te llamas… y por qué tardaste tanto.
-
-¿Vienes o te lo escribo con el cuerpo?`, '10 €');
-
-                crearServicio("popupIdeas", "Lista de Ideas para Regalo", "Generamos listas de ideas de regalos creativas y personalizadas, ajustadas a tu presupuesto y a los gustos de la persona.", `🧠 Lista personalizada (40€ - 100€):
-1. Caja de los 5 sentidos con textos para cada sentido.
-2. Botella con carta enrollada + coordenadas de dónde conocisteis.
-3. "Vale por" experiencias: desayuno en cama, masaje, noche sin pantallas.
-4. Álbum con frases que escribió tu pareja en el móvil (sí, las stalkearé).
-5. Mini cuento personalizado con final sorpresa.`, '10 €');
+                crearServicio("popupRegalo", "Lista creativa de ideas para regalar", "¿No sabes qué regalar? Te creo una lista personalizada e ingeniosa según la ocasión.", `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>10 ideas con explicación y enlaces opcionales</li>
+    <li>Basada en los gustos, edad, relación y ocasión</li>
+    <li>Incluye ideas low-cost y originales</li>
+    <li>Entrega en 24-72h en formato tabla o lista visual</li>
+  </ul>
+`, '10 €');
 
                 crearServicio("popupSimpson", "Ilustración estilo Los Simpsons", "Convierte tu foto en una ilustración con el humor amarillo más famoso.", `
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Foto original</p>
-                            <img src="simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-44 border border-gray-600">
+                            <img src="assets/img/simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-44 border-4 border-yellow-400">
+                            <img src="assets/img/simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `, '30 €');
