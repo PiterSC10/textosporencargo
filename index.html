@@ -6,7 +6,7 @@
     <!-- Metaetiqueta de verificación de Google -->
     <meta name="google-site-verification" content="vxXhWIlAV8oBEOjLwRsoTAuYVDDPiCFCyG1HtZJ3LhQ" />
     <!-- Título y descripción (meta etiquetas SEO) -->
-    <title>PeterWeb 2.0</title>
+    <title data-key="pageTitle">YourDesignGPT</title>
     <meta name="description" content="Crea textos únicos y emotivos con Pedro S.C. Cartas de recomendación, discursos, relatos personalizados y más, hechos con alma.">
     <meta name="keywords" content="textos por encargo, redacción personalizada, escribir textos a medida, cartas de recomendación, discursos por encargo, relatos personalizados, reclamaciones escritas, textos emocionales, redactado por humanos, textos creativos, redactores profesionales, contenido único, textos con sentimiento, textos para particulares, textos para empresas, textos para sorprender, textos para regalar, redactor en España, servicio de redacción desde Málaga, textos escritos por españoles">
     <meta name="author" content="Pedro SC">
@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://pitersc10.github.io/textosporencargo/" />
 
     <!-- Etiquetas Open Graph (para WhatsApp, redes, etc.) -->
-    <meta property="og:title" content="PeterWeb 2.0" />
+    <meta property="og:title" content="YourDesignGPT" />
     <meta property="og:description" content="Haz tu pedido en minutos y recibe tu texto original por email. Ahorra tiempo, deja que lo escribamos por ti." />
     <meta property="og:image" content="https://pitersc10.github.io/textosporencargo/assets/favicon.png" />
     <meta property="og:url" content="https://pitersc10.github.io/textosporencargo/" />
@@ -46,7 +46,15 @@
             background-color: #111; /* Dark background */
             color: #eee; /* Light text */
             line-height: 1.6;
+            opacity: 0; /* Initially hidden for fade-in effect */
+            animation: fadeIn 1s ease-in-out forwards; /* Fade-in animation */
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Gradient for header */
         .header-gradient {
             background: linear-gradient(to right, #222, #000);
@@ -230,226 +238,75 @@
 </head>
 <body class="antialiased">
 
+    <!-- Navigation Bar (moved to top and centered links) -->
+    <nav class="bg-gray-900 py-2 px-4 shadow-md sticky-nav">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Left: Logo -->
+            <a href="#inicio" class="text-2xl font-bold text-white" data-key="logoTitle">YourDesignGPT</a>
+
+            <!-- Center: Navigation Links -->
+            <div class="flex justify-center space-x-2"> <!-- Reduced space-x for tighter grouping -->
+                <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
+                    <i class="fas fa-clipboard-list mr-1"></i><span data-key="services">Servicios</span>
+                </a>
+                <a href="#como-funciona" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
+                    <i class="fas fa-info-circle mr-1"></i><span data-key="howItWorks">Cómo Funciona</span>
+                </a>
+                <a href="#reseñas" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
+                    <i class="fas fa-star mr-1"></i><span data-key="reviews">Reseñas</span>
+                </a>
+                <a href="#faq" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
+                    <i class="fas fa-question-circle mr-1"></i><span data-key="faq">FAQ</span>
+                </a>
+                <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
+                    <i class="fas fa-envelope mr-1"></i><span data-key="contact">Contacto</span>
+                </a>
+            </div>
+
+            <!-- Right: Language Flags (stacked with emojis) -->
+            <div class="flex flex-col items-center space-y-1"> <!-- Changed items-end to items-center -->
+                <div class="flex items-center space-x-1 cursor-pointer" onclick="switchLanguage('es')">
+                    <span class="text-sm text-white font-semibold">ES</span>
+                    <span role="img" aria-label="Spanish Flag">🇪🇸</span>
+                </div>
+                <div class="flex items-center space-x-1 cursor-pointer" onclick="switchLanguage('en')">
+                    <span class="text-sm text-white font-semibold">EN</span>
+                    <span role="img" aria-label="United Kingdom Flag">🇬🇧</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header Section -->
     <header id="inicio" class="header-gradient py-24 px-4 text-center rounded-b-xl shadow-lg">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in pt-4">
-            PeterWeb 2.0
-
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in pt-4" data-key="headerTitle">
+            El Diseño del Futuro, Impulsado por IA
         </h1>
-        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-            Despreocúpate, que lo hacemos por ti...          
-            <span class="font-semibold text-teal-200">100% personalizadas</span>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" data-key="headerSubtitle">
+            Transformamos tus ideas en realidades visuales impactantes con la inteligencia artificial más avanzada.
         </p>
         <div class="mt-2">
-            <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105">
+            <a href="#servicios" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105" data-key="viewServices">
                 Ver Servicios <i class="fas fa-arrow-down ml-2"></i>
             </a>
         </div>
     </header>
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-900 py-2 px-4 text-center shadow-md sticky-nav">
-        <div class="max-w-4xl mx-auto flex flex-wrap justify-center space-x-4">
-            <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
-                <i class="fas fa-clipboard-list mr-2"></i>Servicios
-            </a>
-            <!-- New navigation links -->
-            <a href="#como-funciona" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
-                <i class="fas fa-info-circle mr-2"></i>Cómo Funciona
-            </a>
-            <a href="#reseñas" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
-                <i class="fas fa-star mr-2"></i>Reseñas
-            </a>
-            <a href="#faq" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
-                <i class="fas fa-question-circle mr-2"></i>FAQ
-            </a>
-            <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-3 rounded-md hover:bg-gray-800">
-                <i class="fas fa-envelope mr-2"></i>Contacto
-            </a>
-        </div>
-    </nav>
-
     <!-- Services Section -->
     <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto pt-10 scroll-mt-20">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500" data-key="ourExclusiveServices">
             <i class="fas fa-gem mr-3"></i>Nuestros Servicios Exclusivos
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="service-cards-container">
             <!-- Dynamic Service Cards will be injected here by JavaScript -->
-            <script>
-                function togglePopup(id) {
-                    const popup = document.getElementById(id);
-                    const popupBox = popup.querySelector('.popup-box'); // Get the inner popup-box div
-
-                    if (popup.classList.contains("hidden")) {
-                        // Opening the popup
-                        popup.classList.remove("hidden");
-                        if (popupBox) {
-                            // Remove any existing sparkle effect to re-trigger
-                            popupBox.classList.remove('sparkle-effect');
-                            // Force reflow to restart animation
-                            void popupBox.offsetWidth; // Trigger reflow
-                            popupBox.classList.add('sparkle-effect');
-                        }
-                    } else {
-                        // Closing the popup
-                        popup.classList.add("hidden");
-                        if (popupBox) {
-                            popupBox.classList.remove('sparkle-effect'); // Clean up on close
-                        }
-                    }
-                }
-
-                function crearServicio(id, titulo, descripcion, ejemplo, price) {
-                    const borderColorClass = titulo.includes("Simpson") ? 'border-yellow-500' : 'border-gray-700';
-                    const iconColorClass = titulo.includes("Simpson") ? 'text-yellow-400' : 'text-teal-400';
-                    const titleColorClass = titulo.includes("Simpson") ? 'text-yellow-300' : 'text-teal-300';
-
-                    document.write(`
-                        <div class='bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border ${borderColorClass}'>
-                            <div class="text-5xl ${iconColorClass} mb-4 text-center">
-                                ${
-                                    // Icons based on service type
-                                    titulo.includes("Carta") ? '<i class="fas fa-envelope-open-text"></i>' :
-                                    titulo.includes("Discurso") ? '<i class="fas fa-microphone-alt"></i>' :
-                                    titulo.includes("Mini libro") ? '📖' :
-                                    titulo.includes("Reclamaciones") ? '<i class="fas fa-gavel"></i>' :
-                                    titulo.includes("Cuento") ? '<i class="fas fa-book-open"></i>' :
-                                    titulo.includes("Picante") ? '<i class="fas fa-heart"></i>' :
-                                    titulo.includes("regalo") ? '<i class="fas fa-gift"></i>' :
-                                    titulo.includes("Simpson") ? '<i class="fas fa-user-astronaut"></i>' :
-                                    '<i class="fas fa-file-alt"></i>' // Default icon for other services
-                                }
-                            </div>
-                            <h3 class='text-2xl font-semibold ${titleColorClass} mb-3 text-center'>${titulo}</h3>
-                            <p class='text-gray-300 mb-4 text-center'>${descripcion}</p>
-                            <p class="text-3xl font-bold text-green-400 text-center">${price}</p>
-                            <div class="text-center mt-4">
-                                <button onclick="togglePopup('${id}')" class='bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105'>Ver ejemplo</button>
-                            </div>
-                        </div>
-                        <div id='${id}' class='hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
-                            <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'>
-                                <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="togglePopup('${id}')">×</span>
-                                <h3 class='text-2xl font-bold mb-4 text-teal-600'>Ejemplo: ${titulo}</h3>
-                                <div class='text-base mb-4 whitespace-pre-line'>${ejemplo}</div>
-                                <button onclick="togglePopup('${id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>Cerrar</button>
-                            </div>
-                        </div>
-                    `);
-                }
-
-                crearServicio("popupCarta", "Carta personalizada", "Escribe una carta única, emotiva o formal, adaptada completamente a tu situación personal.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Estilo a elegir: romántico, formal, poético o amistoso</li>
-    <li>Adaptación a tono emocional deseado</li>
-    <li>Texto original y sin plantillas genéricas</li>
-    <li>Entrega en 24-72h en formato Word o PDF</li>
-  </ul>
-`, '10 €');
-
-                crearServicio("popupDiscurso", "Discurso para eventos", "Redactamos un discurso profesional y personalizado para cualquier ocasión especial.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Ideal para bodas, cumpleaños, jubilaciones, presentaciones o premiaciones</li>
-    <li>Texto adaptable a duración deseada (2-5 minutos)</li>
-    <li>Se puede incluir humor, emoción o tono motivacional</li>
-    <li>Entrega en 24-72h y editable</li>
-  </ul>
-`, '15 €');
-
-                crearServicio("popupMinilibro", "Tu mini libro personalizado", "Te creo un mini libro donde tú o tu historia sois protagonistas.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>20 páginas aproximadamente</li>
-    <li>Portada y contraportada sencilla incluidas</li>
-    <li>Puede ser de ficción, autobiográfico o una idea original tuya</li>
-    <li>Entrega en 24-72h en PDF listo para imprimir o compartir</li>
-  </ul>
-`, '50 €');
-
-                crearServicio("popupReclamacion", "Texto para reclamaciones", "Documento redactado con lenguaje claro y persuasivo para defender tus derechos. Con nosotros, es como tener tu propio abogado personal.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Redacción personalizada para cada caso</li>
-    <li>Basado en tono firme, cortés y resolutivo</li>
-    <li>Formato editable + versión lista para enviar</li>
-    <li>Incluye orientación sobre estructura legal básica</li>
-    <li>Entrega en 24-72h</li>
-  </ul>
-`, '10 €');
-
-                crearServicio("popupCuento", "Cuento personalizado", "Un relato corto donde tú, tu pareja o un ser querido sois protagonistas.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Historia a medida con nombre/s reales</li>
-    <li>Ideal para regalar en cumpleaños, aniversarios o eventos especiales</li>
-    <li>Toques mágicos, románticos o cómicos según preferencia</li>
-    <li>Entrega en 24-72h en formato PDF (3-5 páginas)</li>
-  </ul>
-`, '20 €');
-
-                crearServicio("popupPicante", "Texto picante o romántico", "Un texto atrevido o sugerente para encender la chispa o sorprender con elegancia.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Estilo sexy, romántico o provocador según el cliente</li>
-    <li>Uso de lenguaje cuidado o explícito a elección</li>
-    <li>Formato discreto y anónimo</li>
-    <li>Entrega en 24-72h por email o mensaje</li>
-  </ul>
-`, '10 €');
-
-                crearServicio("popupRegalo", "Lista creativa de ideas para regalar", "¿No sabes qué regalar? Te creo una lista personalizada e ingeniosa según la ocasión.", `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>10 ideas con explicación y enlaces opcionales</li>
-    <li>Basada en los gustos, edad, relación y ocasión</li>
-    <li>Incluye ideas low-cost y originales</li>
-    <li>Entrega en 24-72h en formato tabla o lista visual</li>
-  </ul>
-`, '10 €');
-
-                crearServicio("popupSimpson", "Ilustración estilo Los Simpsons", "Convierte tu foto en una ilustración con el humor amarillo más famoso.", `
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
-                        <div class="text-center">
-                            <p class="font-semibold text-gray-300 mb-2">Foto original</p>
-                            <img src="simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
-                        </div>
-                        <div class="text-center">
-                            <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
-                        </div>
-                    </div>
-                `, '30 €');
-
-            </script>
-            <!-- Servicio: Página web completa (restaurado a su diseño original en la tarjeta) -->
-            <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
-                <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center flex items-center justify-center">
-                    <span class="text-5xl mr-3 text-teal-400">🌐</span>Página web completa
-                </h3>
-                <p class="text-gray-300 mb-4 text-center">
-                    Creamos tu propia web profesional. Tú olvídate de todo, nosotros lo gestionamos.
-                </p>
-                <ul class="text-left text-sm text-gray-300 list-disc pl-4 space-y-1 mb-3">
-                    <li>Dominio .com incluido (1 año)</li>
-                    <li>Hosting incluido (1 año)</li>
-                    <li>Web responsive como esta</li>
-                    <li>Botón de WhatsApp activo</li>
-                    <li>Correo profesional con tu dominio</li>
-                    <li>Formulario personalizado</li>
-                    <li>Favicon, diseño y apartados listos</li>
-                    <li>Subida completa al servidor</li>
-                    <li>Manual de uso paso a paso</li>
-                    <li>Primer mes de mantenimiento incluido</li>
-                </ul>
-                <p class="text-3xl font-bold text-green-400 text-center">300 €</p>
-                <p class="text-xs italic text-gray-400 text-center">
-                    Renovación anual: 150 € (dominio + servidor + gestión). Si no se renueva, la web se desactiva automáticamente.
-                </p>
-            </div>
         </div>
     </section>
 
     <!-- Sección Cómo Funciona -->
     <section id="como-funciona" class="bg-gray-800 py-12 px-6 md:px-16 rounded-xl shadow-inner mx-auto max-w-6xl mb-16 scroll-mt-20">
         <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500" data-key="howItWorksTitle">
                 <i class="fas fa-cogs mr-3"></i>¿Cómo funciona nuestro servicio?
             </h2>
             
@@ -458,22 +315,22 @@
                 <!-- Paso 1 -->
                 <div class="bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-xl transition duration-300 border border-gray-700">
                     <div class="text-5xl mb-4 text-yellow-400">📝</div>
-                    <h3 class="text-xl font-semibold mb-2 text-teal-300">Paso 1: ¡Cuéntanos tu idea para el texto!</h3>
-                    <p class="text-gray-300 text-sm">Rellena nuestro sencillo formulario con todos los detalles. ¡Cuanta más información, mejor para crear contenido único!</p>
+                    <h3 class="text-xl font-semibold mb-2 text-teal-300" data-key="step1Title">Paso 1: ¡Cuéntanos tu idea para el texto!</h3>
+                    <p class="text-gray-300 text-sm" data-key="step1Desc">Rellena nuestro sencillo formulario con todos los detalles. ¡Cuanta más información, mejor para crear contenido único!</p>
                 </div>
                 
                 <!-- Paso 2 -->
                 <div class="bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-xl transition duration-300 border border-gray-700">
                     <div class="text-5xl mb-4 text-green-400">💸</div>
-                    <h3 class="text-xl font-semibold mb-2 text-teal-300">Paso 2: Realiza el pago seguro</h3>
-                    <p class="text-gray-300 text-sm">Una vez confirmemos los detalles, te enviaremos un enlace de PayPal para un pago rápido y totalmente seguro.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-teal-300" data-key="step2Title">Paso 2: Realiza el pago seguro</h3>
+                    <p class="text-gray-300 text-sm" data-key="step2Desc">Una vez confirmemos los detalles, te enviaremos un enlace de PayPal para un pago rápido y totalmente seguro.</p>
                 </div>
                 
                 <!-- Paso 3 -->
                 <div class="bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-xl transition duration-300 border border-gray-700">
                     <div class="text-5xl mb-4 text-blue-400">📩</div>
-                    <h3 class="text-xl font-semibold mb-2 text-teal-300">Paso 3: Recibe tu obra maestra</h3>
-                    <p class="text-gray-300 text-sm">En 24-72h recibirás tu texto creativo en PDF directamente en tu correo electrónico.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-teal-300" data-key="step3Title">Paso 3: Recibe tu obra maestra</h3>
+                    <p class="text-gray-300 text-sm" data-key="step3Desc">En 24-72h recibirás tu texto creativo en PDF directamente en tu correo electrónico.</p>
                 </div>
                 
             </div>
@@ -482,32 +339,32 @@
 
     <!-- Call to Action Section -->
     <section class="py-16 px-4 bg-gray-900 text-center rounded-xl shadow-inner max-w-6xl mx-auto mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500" data-key="ctaTitle">
             ¿Listo para transformar tus ideas en textos profesionales y únicos?
         </h2>
-        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto" data-key="ctaSubtitle">
             No esperes más, con Pedro SC, tus textos serán inolvidables. ¡Contáctame ahora y empecemos a crear magia!
         </p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHjq3Y54Mt9o9HHfEXNKffzRCvbQRCWZlQjwcGivo0oz33OA/viewform?usp=header"
            target="_blank"
-           class="inline-block bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-cyan-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 text-2xl">
+           class="inline-block bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-cyan-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 text-2xl" data-key="ctaButton">
             ¡Quiero mi Texto Personalizado! <i class="fas fa-arrow-right ml-3"></i>
         </a>
     </section>
 
     <!-- Contact Section with Redirect Button -->
     <section id="contacto" class="py-16 px-4 max-w-4xl mx-auto text-center scroll-mt-20">
-        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500" data-key="orderTitle">
             <i class="fas fa-file-signature mr-3"></i>Haz tu Pedido Personalizado
         </h2>
-        <p class="text-xl text-gray-300 mb-8">
+        <p class="text-xl text-gray-300 mb-8" data-key="orderSubtitle">
             Haz clic en el botón a continuación para rellenar el formulario y solicitar tu texto único, hecho a medida para ti. ¡Es rápido y sencillo!
         </p>
 
         <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHjq3Y54Mt9o9HHfEXNKffzRCvbQRCWZlQjwcGivo0oz33OA/viewform?usp=header"
                target="_blank"
-               class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 text-2xl">
+               class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 text-2xl" data-key="orderButton">
                 Solicita tu texto personalizado <i class="fas fa-external-link-alt ml-3"></i>
             </a>
         </div>
@@ -515,7 +372,7 @@
 
     <!-- Opiniones de Clientes -->
     <section class="py-16 px-4 max-w-6xl mx-auto text-center scroll-mt-20" id="reseñas">
-        <h2 class="text-4xl md:text-5xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
+        <h2 class="text-4xl md:text-5xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500" data-key="reviewsTitle">
             <i class="fas fa-star mr-3"></i>Opiniones de Clientes Satisfechos
         </h2>
 
@@ -526,8 +383,8 @@
                     <div class="text-yellow-400 text-xl mr-2">★★★★★</div>
                     <span class="text-sm text-gray-600">5.0</span>
                 </div>
-                <p class="text-gray-700 italic">“Encargué un retrato estilo *Simpsons* con mi pareja y... ¡es como si Matt Groening nos hubiera dibujado él mismo! Genial para regalar.”</p>
-                <div class="mt-4 text-right text-sm text-gray-600">— Javier y Laura</div>
+                <p class="text-gray-700 italic" data-key="review1Text">“Encargué un retrato estilo *Simpsons* con mi pareja y... ¡es como si Matt Groening nos hubiera dibujado él mismo! Genial para regalar.”</p>
+                <div class="mt-4 text-right text-sm text-gray-600" data-key="review1Author">— Javier y Laura</div>
             </div>
 
             <!-- Opinión 2: Texto personalizado -->
@@ -536,8 +393,8 @@
                     <div class="text-yellow-400 text-xl mr-2">★★★★★</div>
                     <span class="text-sm text-gray-600">5.0</span>
                 </div>
-                <p class="text-gray-700 italic">“Solicité una carta para mi aniversario. Pedro SC captó exactamente lo que quería decir. Mi pareja lloró de emoción. ¡Gracias infinitas!”</p>
-                <div class="mt-4 text-right text-sm text-gray-600">— Andrea M.</div>
+                <p class="text-gray-700 italic" data-key="review2Text">“Solicité una carta para mi aniversario. Pedro SC captó exactamente lo que quería decir. Mi pareja lloró de emoción. ¡Gracias infinitas!”</p>
+                <div class="mt-4 text-right text-sm text-gray-600" data-key="review2Author">— Andrea M.</div>
             </div>
 
             <!-- Opinión 3: Reclamación legal -->
@@ -546,8 +403,8 @@
                     <div class="text-yellow-400 text-xl mr-2">★★★★★</div>
                     <span class="text-sm text-gray-600">5.0</span>
                 </div>
-                <p class="text-gray-700 italic">“Necesitaba una reclamación urgente para una aerolínea. Me la enviaron en PDF y al día siguiente tenía respuesta. Rápido, claro y eficaz.”</p>
-                <div class="mt-4 text-right text-sm text-gray-600">— Sergio T.</div>
+                <p class="text-gray-700 italic" data-key="review3Text">“Necesitaba una reclamación urgente para una aerolínea. Me la enviaron en PDF y al día siguiente tenía respuesta. Rápido, claro y eficaz.”</p>
+                <div class="mt-4 text-right text-sm text-gray-600" data-key="review3Author">— Sergio T.</div>
             </div>
         </div>
     </section>
@@ -555,22 +412,22 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-16 px-4 max-w-4xl mx-auto scroll-mt-20">
         <div class="mt-16 bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
-            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-6 text-center">
+            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-6 text-center" data-key="faqTitle">
                 Preguntas Frecuentes
             </h3>
 
             <ul class="space-y-6 text-gray-300 text-lg text-left">
-                <li><strong>¿Qué tipo de textos ofrecéis?</strong><br/>Cartas, discursos, cuentos, reclamaciones, currículums y más, entregados en PDF.</li>
-                <li><strong>¿Cómo hago un pedido?</strong><br/>Rellena el formulario con tus detalles. Nosotros nos encargamos del resto.</li>
-                <li><strong>¿Cómo recibo mi encargo?</strong><br/>Por email en PDF, una vez completado y pagado.</li>
-                <li><strong>¿Cuánto cuesta cada servicio?</strong><br/>Entre 10€ y 15€, según el tipo de texto.</li>
-                <li><strong>¿Puedo pedir algo que no aparece en la lista?</strong><br/>Sí, selecciona “Otro” y describe lo que necesitas.</li>
-                <li><strong>¿Cómo se realiza el pago?</strong><br/>Te enviaremos un enlace de PayPal por email para completar el pago de forma segura.</li>
-                <li><strong>¿Cuándo recibiré mi texto?</strong><br/>En 24-72h tras el pago, salvo excepciones que se comunicarán.</li>
-                <li><strong>¿Puedo pedir una modificación después de recibir el texto?</strong><br/>Sí, puedes solicitar ajustes menores por email.</li>
-                <li><strong>¿Se puede pagar con tarjeta sin tener cuenta PayPal?</strong><br/>Sí, PayPal permite pago con tarjeta sin registrarse.</li>
-                <li><strong>¿Por qué elegir esta web en lugar de hacerlo yo con IA?</strong><br/>Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.</li>
-                <li><strong>¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?</strong><br/>No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.</li>
+                <li><strong data-key="faqQ1">¿Qué tipo de textos ofrecéis?</strong><br/><span data-key="faqA1">Cartas, discursos, cuentos, reclamaciones, currículums y más, entregados en PDF.</span></li>
+                <li><strong data-key="faqQ2">¿Cómo hago un pedido?</strong><br/><span data-key="faqA2">Rellena el formulario con tus detalles. Nosotros nos encargamos del resto.</span></li>
+                <li><strong data-key="faqQ3">¿Cómo recibo mi encargo?</strong><br/><span data-key="faqA3">Por email en PDF, una vez completado y pagado.</span></li>
+                <li><strong data-key="faqQ4">¿Cuánto cuesta cada servicio?</strong><br/><span data-key="faqA4">Entre 10€ y 15€, según el tipo de texto.</span></li>
+                <li><strong data-key="faqQ5">¿Puedo pedir algo que no aparece en la lista?</strong><br/><span data-key="faqA5">Sí, selecciona “Otro” y describe lo que necesitas.</span></li>
+                <li><strong data-key="faqQ6">¿Cómo se realiza el pago?</strong><br/><span data-key="faqA6">Te enviaremos un enlace de PayPal por email para completar el pago de forma segura.</span></li>
+                <li><strong data-key="faqQ7">¿Cuándo recibiré mi texto?</strong><br/><span data-key="faqA7">En 24-72h tras el pago, salvo excepciones que se comunicarán.</span></li>
+                <li><strong data-key="faqQ8">¿Puedo pedir una modificación después de recibir el texto?</strong><br/><span data-key="faqA8">Sí, puedes solicitar ajustes menores por email.</span></li>
+                <li><strong data-key="faqQ9">¿Se puede pagar con tarjeta sin tener cuenta PayPal?</strong><br/><span data-key="faqA9">Sí, PayPal permite pago con tarjeta sin registrarse.</span></li>
+                <li><strong data-key="faqQ10">¿Por qué elegir esta web en lugar de hacerlo yo con IA?</strong><br/><span data-key="faqA10">Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.</span></li>
+                <li><strong data-key="faqQ11">¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?</strong><br/><span data-key="faqA11">No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.</span></li>
             </ul>
         </div>
     </section>
@@ -582,43 +439,43 @@
             <!-- Badge 1 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-lock text-4xl text-green-400 mb-3"></i>
-                <h3 class="text-lg font-semibold">Pago Seguro</h3>
-                <p class="text-sm text-gray-400">Protegido con PayPal y cifrado SSL.</p>
+                <h3 class="text-lg font-semibold" data-key="paymentSecure">Pago Seguro</h3>
+                <p class="text-sm text-gray-400" data-key="paymentSecureDesc">Protegido con PayPal y cifrado SSL.</p>
             </div>
 
             <!-- Badge 2 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-file-pdf text-4xl text-teal-400 mb-3"></i>
-                <h3 class="text-lg font-semibold">Entrega en PDF</h3>
-                <p class="text-sm text-gray-400">Recibe tu texto por correo en alta calidad.</p>
+                <h3 class="text-lg font-semibold" data-key="deliveryPdf">Entrega en PDF</h3>
+                <p class="text-sm text-gray-400" data-key="deliveryPdfDesc">Recibe tu texto por correo en alta calidad.</p>
             </div>
 
             <!-- Badge 3 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-clock text-4xl text-blue-400 mb-3"></i>
-                <h3 class="text-lg font-semibold">Entrega 24-72h</h3>
-                <p class="text-sm text-gray-400">Recibirás tu encargo en máximo 3 días.</p>
+                <h3 class="text-lg font-semibold" data-key="deliveryTime">Entrega 24-72h</h3>
+                <p class="text-sm text-gray-400" data-key="deliveryTimeDesc">Recibirás tu encargo en máximo 3 días.</p>
             </div>
 
             <!-- Badge 4 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-headset text-4xl text-yellow-400 mb-3"></i>
-                <h3 class="text-lg font-semibold">Atención Personalizada</h3>
-                <p class="text-sm text-gray-400">Te respondo siempre por email personalmente.</p>
+                <h3 class="text-lg font-semibold" data-key="personalAttention">Atención Personalizada</h3>
+                <p class="text-sm text-gray-400" data-key="personalAttentionDesc">Te respondo siempre por email personalmente.</p>
             </div>
 
             <!-- Badge 5 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-check-circle text-4xl text-purple-400 mb-3"></i>
-                <h3 class="text-lg font-semibold">100% Personalizado</h3>
-                <p class="text-sm text-gray-400">Cada texto se adapta a tu historia y tono.</p>
+                <h3 class="text-lg font-semibold" data-key="personalized">100% Personalizado</h3>
+                <p class="text-sm text-gray-400" data-key="personalizedDesc">Cada texto se adapta a tu historia y tono.</p>
             </div>
 
             <!-- Badge 6 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-star text-4xl text-pink-400 mb-3"></i>
-                <h3 class="text-lg font-semibold">Clientes Satisfechos</h3>
-                <p class="text-sm text-gray-400">Valoraciones reales que avalan nuestro trabajo.</p>
+                <h3 class="text-lg font-semibold" data-key="satisfiedClients">Clientes Satisfechos</h3>
+                <p class="text-sm text-gray-400" data-key="satisfiedClientsDesc">Valoraciones reales que avalan nuestro trabajo.</p>
             </div>
 
         </div>
@@ -626,8 +483,8 @@
 
     <!-- Footer -->
     <footer class="bg-gray-950 py-8 pb-24 px-4 text-center text-gray-500 rounded-t-xl shadow-inner mt-16">
-        <p>&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.</p>
-        <p class="text-sm mt-2">Diseñado con <i class="fas fa-heart text-red-500"></i></p>
+        <p data-key="footerCopyright">&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.</p>
+        <p class="text-sm mt-2" data-key="footerDesign"></p> <!-- Content moved to JS for translation -->
         <!-- Social Media Icons -->
         <div class="flex space-x-4 justify-center mt-6">
             <a href="https://www.instagram.com/petersoriano10" target="_blank" aria-label="Instagram">
@@ -641,51 +498,42 @@
             </a>
         </div>
         <div class="mt-4 popup-links">
-            <a onclick="openPopup('privacy')">Política de privacidad</a> |
-            <a onclick="openPopup('legal')">Aviso legal</a>
+            <a onclick="openPopup('privacy')" data-key="privacyPolicy">Política de privacidad</a> |
+            <a onclick="openPopup('legal')" data-key="legalNotice">Aviso legal</a>
         </div>
     </footer>
 
     <!-- Banner flotante CTA -->
     <div id="cta-banner" class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-3 px-6 shadow-lg hidden transition-all duration-300 z-50">
         <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <p class="text-lg font-semibold">¿Tienes prisa? Pídelo en 2 minutos →</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHjq3Y54Mt9o9HHfEXNKffzRCvbQRCWZlQjwcGivo0oz33OA/viewform?usp=header" class="bg-white text-teal-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-100 transition duration-300" target="_blank">
+            <p class="text-lg font-semibold" data-key="ctaBannerText">¿Tienes prisa? Pídelo en 2 minutos →</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHjq3Y54Mt9o9HHfEXNKffzRCvbQRCWZlQjwcGivo0oz33OA/viewform?usp=header" class="bg-white text-teal-600 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-100 transition duration-300" target="_blank" data-key="ctaBannerButton">
                 Ir al Formulario
             </a>
         </div>
-    </div>
-
-    <!-- Banner de cookies (básico y legal) -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-900 text-white py-4 px-6 text-center text-sm shadow-lg z-50">
-      Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando aceptas su uso.
-      <button onclick="acceptCookies()" class="ml-4 px-4 py-2 bg-teal-600 text-white font-bold rounded-md cursor-pointer hover:bg-teal-700 transition-colors duration-300">Aceptar</button>
-      <button onclick="rejectCookies()" class="ml-2 px-4 py-2 bg-gray-600 text-white font-bold rounded-md cursor-pointer hover:bg-gray-700 transition-colors duration-300">Rechazar</button>
     </div>
 
     <!-- POP-UP POLÍTICA DE PRIVACIDAD -->
     <div class="popup-overlay" id="privacy">
       <div class="popup-box">
         <span class="popup-close" onclick="closePopup('privacy')">×</span>
-        <h2>Política de Privacidad</h2>
-        <p><strong>Responsable del tratamiento:</strong> Pedro S.C.<br>
-        <strong>Email de contacto:</strong> textosporencargo@gmail.com<br>
-        <strong>Web:</strong> www.textosporencargo.com</p>
+        <h2 data-key="privacyPopupTitle">Política de Privacidad</h2>
+        <p><strong data-key="privacyPopupResponsible">Responsable del tratamiento:</strong> Pedro S.C.<br>
+        <strong data-key="privacyPopupEmail">Email de contacto:</strong> textosporencargo@gmail.com<br>
+        <strong data-key="privacyPopupWeb">Web:</strong> www.textosporencargo.com</p>
 
-        <p><strong>1. Finalidad del tratamiento de datos</strong></p>
-        <p>Recopilamos tus datos exclusivamente con el objetivo de poder prestarte el servicio solicitado (redacción de textos personalizados), realizar la facturación correspondiente y enviarte comunicaciones relacionadas con tu pedido.</p>
-        <p>No utilizamos tus datos con fines publicitarios ni los compartimos con terceros.</p>
-        <p><strong>2. Legitimación</strong></p>
-        <p>La base legal para el tratamiento de tus datos es el consentimiento explícito que otorgas al completar un formulario de contacto o al contratar un servicio en esta web.</p>
-        <p><strong>3. Conservación de datos</strong></p>
-        <p>Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legales, fiscales y contractuales, y nunca más allá de lo necesario para prestar el servicio.</p>
-        <p><strong>4. Derechos del usuario</strong></p>
-        <p>Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com</p>
-        <p>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.</p>
-        <p><strong>5. Medidas de seguridad</strong></p>
-        <p>Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.</p>
-        <p><strong>6. Política de cookies</strong></p>
-        <p>Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.</p>
+        <p><strong data-key="privacyPopupPurposeTitle">1. Finalidad del tratamiento de datos</strong></p>
+        <p data-key="privacyPopupPurposeText">Recopilamos tus datos exclusivamente con el objetivo de poder prestarte el servicio solicitado (redacción de textos personalizados), realizar la facturación correspondiente y enviarte comunicaciones relacionadas con tu pedido.<br>No utilizamos tus datos con fines publicitarios ni los compartimos con terceros.</p>
+        <p><strong data-key="privacyPopupLegitimationTitle">2. Legitimación</strong></p>
+        <p data-key="privacyPopupLegitimationText">La base legal para el tratamiento de tus datos es el consentimiento explícito que otorgas al completar un formulario de contacto o al contratar un servicio en esta web.</p>
+        <p><strong data-key="privacyPopupConservationTitle">3. Conservación de datos</strong></p>
+        <p data-key="privacyPopupConservationText">Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legales, fiscales y contractuales, y nunca más allá de lo necesario para prestar el servicio.</p>
+        <p><strong data-key="privacyPopupRightsTitle">4. Derechos del usuario</strong></p>
+        <p data-key="privacyPopupRightsText">Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com<br>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.</p>
+        <p><strong data-key="privacyPopupSecurityTitle">5. Medidas de seguridad</strong></p>
+        <p data-key="privacyPopupSecurityText">Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.</p>
+        <p><strong data-key="privacyPopupCookiesTitle">6. Política de cookies</strong></p>
+        <p data-key="privacyPopupCookiesText">Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.</p>
       </div>
     </div>
 
@@ -693,36 +541,768 @@
     <div class="popup-overlay" id="legal">
       <div class="popup-box">
         <span class="popup-close" onclick="closePopup('legal')">×</span>
-        <h2>Aviso Legal</h2>
-        <p><strong>Titular del sitio web:</strong> Pedro S.C.<br>
-        <strong>Email:</strong> textosporencargo@gmail.com<br>
-        <strong>Web:</strong> www.textosporencargo.com</p>
+        <h2 data-key="legalPopupTitle">Aviso Legal</h2>
+        <p><strong data-key="legalPopupOwner">Titular del sitio web:</strong> Pedro S.C.<br>
+        <strong data-key="legalPopupEmail">Email:</strong> textosporencargo@gmail.com<br>
+        <strong data-key="legalPopupWeb">Web:</strong> www.textosporencargo.com</p>
 
-        <p><strong>1. Objeto y aceptación</strong></p>
-        <p>El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.</p>
-        <p><strong>2. Condiciones de uso</strong></p>
-        <p>La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.</p>
-        <p>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.</p>
-        <p><strong>3. Propiedad intelectual e industrial</strong></p>
-        <p>Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.
-        <p>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.</p>
-        <p><strong>4. Responsabilidad</strong></p>
-        <p>No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.</p>
-        <p>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.</p>
-        <p><strong>5. Enlaces externos</strong></p>
-        <p>Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.</p>
-        <p><strong>6. Legislación aplicable y jurisdicción</strong></p>
-        <p>Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.</p>
+        <p><strong data-key="legalPopupObjectTitle">1. Objeto y aceptación</strong></p>
+        <p data-key="legalPopupObjectText">El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.</p>
+        <p><strong data-key="legalPopupConditionsTitle">2. Condiciones de uso</strong></p>
+        <p data-key="legalPopupConditionsText">La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.</p>
+        <p><strong data-key="legalPopupIntellectualTitle">3. Propiedad intelectual e industrial</strong></p>
+        <p data-key="legalPopupIntellectualText">Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.<br>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.</p>
+        <p><strong data-key="legalPopupResponsibilityTitle">4. Responsabilidad</strong></p>
+        <p data-key="legalPopupResponsibilityText">No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.<br>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.</p>
+        <p><strong data-key="legalPopupExternalLinksTitle">5. Enlaces externos</strong></p>
+        <p data-key="legalPopupExternalLinksText">Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.</p>
+        <p><strong data-key="legalPopupLegislationTitle">6. Legislación aplicable y jurisdicción</strong></p>
+        <p data-key="legalPopupLegislationText">Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.</p>
       </div>
     </div>
 
     <!-- Script para mostrar solo al hacer scroll -->
     <script type="text/javascript">
+        // Global variable for current language
+        let currentLang = 'es'; // Default language
+
+        // Translations object
+        const translations = {
+            es: {
+                pageTitle: "YourDesignGPT", // Updated title
+                logoTitle: "YourDesignGPT",
+                headerTitle: "El Diseño del Futuro, Impulsado por IA",
+                headerSubtitle: "Transformamos tus ideas en realidades visuales impactantes con la inteligencia artificial más avanzada.",
+                viewServices: "Ver Servicios",
+                services: "Servicios",
+                howItWorks: "Cómo Funciona",
+                reviews: "Reseñas",
+                faq: "FAQ",
+                contact: "Contacto",
+                ourExclusiveServices: "Nuestros Servicios Exclusivos",
+                cartaPersonalizadaTitle: "Carta personalizada",
+                cartaPersonalizadaDesc: "Escribe una carta única, emotiva o formal, adaptada completamente a tu situación personal.",
+                cartaPersonalizadaExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Estilo a elegir: romántico, formal, poético o amistoso</li>
+    <li>Adaptación a tono emocional deseado</li>
+    <li>Texto original y sin plantillas genéricas</li>
+    <li>Entrega en 24-72h en formato Word o PDF</li>
+  </ul>
+`,
+                discursoTitle: "Discurso para eventos",
+                discursoDesc: "Redactamos un discurso profesional y personalizado para cualquier ocasión especial.",
+                discursoExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Ideal para bodas, cumpleaños, jubilaciones, presentaciones o premiaciones</li>
+    <li>Texto adaptable a duración deseada (2-5 minutos)</li>
+    <li>Se puede incluir humor, emoción o tono motivacional</li>
+    <li>Entrega en 24-72h y editable</li>
+  </ul>
+`,
+                minilibroTitle: "Tu mini libro personalizado",
+                minilibroDesc: "Te creo un mini libro donde tú o tu historia sois protagonistas.",
+                minilibroExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>20 páginas aproximadamente</li>
+    <li>Portada y contraportada sencilla incluidas</li>
+    <li>Puede ser de ficción, autobiográfico o una idea original tuya</li>
+    <li>Entrega en 24-72h en PDF listo para imprimir o compartir</li>
+  </ul>
+`,
+                reclamacionTitle: "Texto para reclamaciones",
+                reclamacionDesc: "Documento redactado con lenguaje claro y persuasivo para defender tus derechos. Con nosotros, es como tener tu propio abogado personal.",
+                reclamacionExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Redacción personalizada para cada caso</li>
+    <li>Basado en tono firme, cortés y resolutivo</li>
+    <li>Formato editable + versión lista para enviar</li>
+    <li>Incluye orientación sobre estructura legal básica</li>
+    <li>Entrega en 24-72h</li>
+  </ul>
+`,
+                cuentoTitle: "Cuento personalizado",
+                cuentoDesc: "Un relato corto donde tú, tu pareja o un ser querido sois protagonistas.",
+                cuentoExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Historia a medida con nombre/s reales</li>
+    <li>Ideal para regalar en cumpleaños, aniversarios o eventos especiales</li>
+    <li>Toques mágicos, románticos o cómicos según preferencia</li>
+    <li>Entrega en 24-72h en formato PDF (3-5 páginas)</li>
+  </ul>
+`,
+                picanteTitle: "Texto picante o romántico",
+                picanteDesc: "Un texto atrevido o sugerente para encender la chispa o sorprender con elegancia.",
+                picanteExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Estilo sexy, romántico o provocador según el cliente</li>
+    <li>Uso de lenguaje cuidado o explícito a elección</li>
+    <li>Formato discreto y anónimo</li>
+    <li>Entrega en 24-72h por email o mensaje</li>
+  </ul>
+`,
+                regaloTitle: "Lista creativa de ideas para regalar",
+                regaloDesc: "¿No sabes qué regalar? Te creo una lista personalizada e ingeniosa según la ocasión.",
+                regaloExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>10 ideas con explicación y enlaces opcionales</li>
+    <li>Basada en los gustos, edad, relación y ocasión</li>
+    <li>Incluye ideas low-cost y originales</li>
+    <li>Entrega en 24-72h en formato tabla o lista visual</li>
+  </ul>
+`,
+                simpsonTitle: "Ilustración estilo Los Simpsons",
+                simpsonDesc: "Convierte tu foto en una ilustración con el humor amarillo más famoso.",
+                simpsonExample: `
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                        <div class="text-center">
+                            <p class="font-semibold text-gray-300 mb-2">Foto original</p>
+                            <img src="https://placehold.co/200x200/666/fff?text=Original" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                        </div>
+                        <div class="text-center">
+                            <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
+                            <img src="https://placehold.co/200x200/FDD835/000?text=Simpsons" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                        </div>
+                    </div>
+                `,
+                webCompletaTitle: "Página web completa",
+                webCompletaDesc: "Creamos tu propia web profesional. Tú olvídate de todo, nosotros lo gestionamos.",
+                webCompletaFeatures: [
+                    "Dominio .com incluido (1 año)",
+                    "Hosting incluido (1 año)",
+                    "Web responsive como esta",
+                    "Botón de WhatsApp activo",
+                    "Correo profesional con tu dominio",
+                    "Formulario personalizado",
+                    "Favicon, diseño y apartados listos",
+                    "Subida completa al servidor",
+                    "Manual de uso paso a paso",
+                    "Primer mes de mantenimiento incluido"
+                ],
+                webCompletaPriceNote: "Renovación anual: 150 € (dominio + servidor + gestión). Si no se renueva, la web se desactiva automáticamente.",
+                viewExampleButton: "Ver ejemplo", // Added for service cards
+
+                howItWorksTitle: "¿Cómo funciona nuestro servicio?",
+                step1Title: "Paso 1: ¡Cuéntanos tu idea para el texto!",
+                step1Desc: "Rellena nuestro sencillo formulario con todos los detalles. ¡Cuanta más información, mejor para crear contenido único!",
+                step2Title: "Paso 2: Realiza el pago seguro",
+                step2Desc: "Una vez confirmemos los detalles, te enviaremos un enlace de PayPal para un pago rápido y totalmente seguro.",
+                step3Title: "Paso 3: Recibe tu obra maestra",
+                step3Desc: "En 24-72h recibirás tu texto creativo en PDF directamente en tu correo electrónico.",
+
+                ctaTitle: "¿Listo para transformar tus ideas en textos profesionales y únicos?",
+                ctaSubtitle: "No esperes más, con Pedro SC, tus textos serán inolvidables. ¡Contáctame ahora y empecemos a crear magia!",
+                ctaButton: "¡Quiero mi Texto Personalizado!",
+
+                orderTitle: "Haz tu Pedido Personalizado",
+                orderSubtitle: "Haz clic en el botón a continuación para rellenar el formulario y solicitar tu texto único, hecho a medida para ti. ¡Es rápido y sencillo!",
+                orderButton: "Solicita tu texto personalizado",
+
+                reviewsTitle: "Opiniones de Clientes Satisfechos",
+                review1Text: "“Encargué un retrato estilo *Simpsons* con mi pareja y... ¡es como si Matt Groening nos hubiera dibujado él mismo! Genial para regalar.”",
+                review1Author: "— Javier y Laura",
+                review2Text: "“Solicité una carta para mi aniversario. Pedro SC captó exactamente lo que quería decir. Mi pareja lloró de emoción. ¡Gracias infinitas!”",
+                review2Author: "— Andrea M.",
+                review3Text: "“Necesitaba una reclamación urgente para una aerolínea. Me la enviaron en PDF y al día siguiente tenía respuesta. Rápido, claro y eficaz.”",
+                review3Author: "— Sergio T.",
+
+                faqTitle: "Preguntas Frecuentes",
+                faqQ1: "¿Qué tipo de textos ofrecéis? ",
+                faqA1: "Cartas, discursos, cuentos, reclamaciones, currículums y más, entregados en PDF.",
+                faqQ2: "¿Cómo hago un pedido?",
+                faqA2: "Rellena el formulario con tus detalles. Nosotros nos encargamos del resto.",
+                faqQ3: "¿Cómo recibo mi encargo?",
+                faqA3: "Por email en PDF, una vez completado y pagado.",
+                faqQ4: "¿Cuánto cuesta cada servicio?",
+                faqA4: "Entre 10€ y 15€, según el tipo de texto.",
+                faqQ5: "¿Puedo pedir algo que no aparece en la lista?",
+                faqA5: "Sí, selecciona “Otro” y describe lo que necesitas.",
+                faqQ6: "¿Cómo se realiza el pago?",
+                faqA6: "Te enviaremos un enlace de PayPal por email para completar el pago de forma segura.",
+                faqQ7: "¿Cuándo recibiré mi texto?",
+                faqA7: "En 24-72h tras el pago, salvo excepciones que se comunicarán.",
+                faqQ8: "¿Puedo pedir una modificación después de recibir el texto?",
+                faqA8: "Sí, puedes solicitar ajustes menores por email.",
+                faqQ9: "¿Se puede pagar con tarjeta sin tener cuenta PayPal?",
+                faqA9: "Sí, PayPal permite pago con tarjeta sin registrarse.",
+                faqQ10: "¿Por qué elegir esta web en lugar de hacerlo yo con IA?",
+                faqA10: "Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.",
+                faqQ11: "¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?",
+                faqA11: "No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.",
+
+                paymentSecure: "Pago Seguro",
+                paymentSecureDesc: "Protegido con PayPal y cifrado SSL.",
+                deliveryPdf: "Entrega en PDF",
+                deliveryPdfDesc: "Recibe tu texto por correo en alta calidad.",
+                deliveryTime: "Entrega 24-72h",
+                deliveryTimeDesc: "Recibirás tu encargo en máximo 3 días.",
+                personalAttention: "Atención Personalizada",
+                personalAttentionDesc: "Te respondo siempre por email personalmente.",
+                personalized: "100% Personalizado",
+                personalizedDesc: "Cada texto se adapta a tu historia y tono.",
+                satisfiedClients: "Clientes Satisfechos",
+                satisfiedClientsDesc: "Valoraciones reales que avalan nuestro trabajo.",
+
+                footerCopyright: "&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.",
+                footerDesign: "Diseñado con ❤️",
+                privacyPolicy: "Política de privacidad",
+                legalNotice: "Aviso legal",
+                ctaBannerText: "¿Tienes prisa? Pídelo en 2 minutos →",
+                ctaBannerButton: "Ir al Formulario",
+                // Removed cookie banner related translations
+                // cookieBannerText: "Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando aceptas su uso.",
+                // cookieAccept: "Aceptar",
+                // cookieReject: "Rechazar",
+
+                privacyPopupTitle: "Política de Privacidad",
+                privacyPopupResponsible: "Responsable del tratamiento:",
+                privacyPopupEmail: "Email de contacto:",
+                privacyPopupWeb: "Web:",
+                privacyPopupPurposeTitle: "1. Finalidad del tratamiento de datos",
+                privacyPopupPurposeText: "Recopilamos tus datos exclusivamente con el objetivo de poder prestarte el servicio solicitado (redacción de textos personalizados), realizar la facturación correspondiente y enviarte comunicaciones relacionadas con tu pedido.<br>No utilizamos tus datos con fines publicitarios ni los compartimos con terceros.",
+                privacyPopupLegitimationTitle: "2. Legitimación",
+                privacyPopupLegitimationText: "La base legal para el tratamiento de tus datos es el consentimiento explícito que otorgas al completar un formulario de contacto o al contratar un servicio en esta web.",
+                privacyPopupConservationTitle: "3. Conservación de datos",
+                privacyPopupConservationText: "Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legales, fiscales y contractuales, y nunca más allá de lo necesario para prestar el servicio.",
+                privacyPopupRightsTitle: "4. Derechos del usuario",
+                privacyPopupRightsText: "Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com<br>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.",
+                privacyPopupSecurityTitle: "5. Medidas de seguridad",
+                privacyPopupSecurityText: "Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.",
+                privacyPopupCookiesTitle: "6. Política de cookies",
+                privacyPopupCookiesText: "Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
+                
+                legalPopupTitle: "Aviso Legal",
+                legalPopupOwner: "Titular del sitio web:",
+                legalPopupEmail: "Email:",
+                legalPopupWeb: "Web:",
+                legalPopupObjectTitle: "1. Objeto y aceptación",
+                legalPopupObjectText: "El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.",
+                legalPopupConditionsTitle: "2. Condiciones de uso",
+                legalPopupConditionsText: "La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.",
+                legalPopupIntellectualTitle: "3. Propiedad intelectual e industrial",
+                legalPopupIntellectualText: "Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.<br>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.",
+                legalPopupResponsibilityTitle: "4. Responsabilidad",
+                legalPopupResponsibilityText: "No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.<br>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.",
+                legalPopupExternalLinksTitle: "5. Enlaces externos",
+                legalPopupExternalLinksText: "Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.",
+                legalPopupLegislationTitle: "6. Legislación aplicable y jurisdicción",
+                legalPopupLegislationText: "Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.",
+                closeButton: "Cerrar"
+            },
+            en: {
+                pageTitle: "YourDesignGPT", // Updated title
+                logoTitle: "YourDesignGPT",
+                headerTitle: "The Future of Design, Powered by AI",
+                headerSubtitle: "We transform your ideas into impactful visual realities with the most advanced artificial intelligence.",
+                viewServices: "View Services",
+                services: "Services",
+                howItWorks: "How It Works",
+                reviews: "Reviews",
+                faq: "FAQ",
+                contact: "Contact",
+                ourExclusiveServices: "Our Exclusive Services",
+                cartaPersonalizadaTitle: "Personalized Letter",
+                cartaPersonalizadaDesc: "Write a unique, emotional, or formal letter, completely adapted to your personal situation.",
+                cartaPersonalizadaExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Style to choose: romantic, formal, poetic or friendly</li>
+    <li>Adaptation to desired emotional tone</li>
+    <li>Original text without generic templates</li>
+    <li>Delivery in 24-72h in Word or PDF format</li>
+  </ul>
+`,
+                discursoTitle: "Speech for Events",
+                discursoDesc: "We write a professional and personalized speech for any special occasion.",
+                discursoExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Ideal for weddings, birthdays, retirements, presentations or awards</li>
+    <li>Text adaptable to desired duration (2-5 minutes)</li>
+    <li>Can include humor, emotion or motivational tone</li>
+    <li>Delivery in 24-72h and editable</li>
+  </ul>
+`,
+                minilibroTitle: "Your Personalized Mini Book",
+                minilibroDesc: "I create a mini book where you or your story are the protagonists.",
+                minilibroExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Approximately 20 pages</li>
+    <li>Simple cover and back cover included</li>
+    <li>Can be fiction, autobiographical or your original idea</li>
+    <li>Delivery in 24-72h in PDF ready to print or share</li>
+  </ul>
+`,
+                reclamacionTitle: "Text for Complaints",
+                reclamacionDesc: "Document written with clear and persuasive language to defend your rights. With us, it's like having your own personal lawyer.",
+                reclamacionExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Personalized writing for each case</li>
+    <li>Based on a firm, courteous and resolute tone</li>
+    <li>Editable format + version ready to send</li>
+    <li>Includes basic legal structure guidance</li>
+    <li>Delivery in 24-72h</li>
+  </ul>
+`,
+                cuentoTitle: "Personalized Story",
+                cuentoDesc: "A short story where you, your partner or a loved one are the protagonists.",
+                cuentoExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Custom story with real name(s)</li>
+    <li>Ideal for gifting on birthdays, anniversaries or special events</li>
+    <li>Magical, romantic or comical touches as preferred</li>
+    <li>Delivery in 24-72h in PDF format (3-5 pages)</li>
+  </ul>
+`,
+                picanteTitle: "Spicy or Romantic Text",
+                picanteDesc: "A daring or suggestive text to ignite the spark or surprise with elegance.",
+                picanteExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>Sexy, romantic or provocative style as per client</li>
+    <li>Use of careful or explicit language as desired</li>
+    <li>Discrete and anonymous format</li>
+    <li>Delivery in 24-72h by email or message</li>
+  </ul>
+`,
+                regaloTitle: "Creative Gift Ideas List",
+                regaloDesc: "Don't know what to give? I'll create a personalized and ingenious list for the occasion.",
+                regaloExample: `
+  <ul class="list-disc list-inside text-left text-sm text-gray-100">
+    <li>10 ideas with explanation and optional links</li>
+    <li>Based on tastes, age, relationship and occasion</li>
+    <li>Includes low-cost and original ideas</li>
+    <li>Delivery in 24-72h in table or visual list format</li>
+  </ul>
+`,
+                simpsonTitle: "The Simpsons Style Illustration",
+                simpsonDesc: "Turn your photo into an illustration with the most famous yellow humor.",
+                simpsonExample: `
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                        <div class="text-center">
+                            <p class="font-semibold text-gray-300 mb-2">Original photo</p>
+                            <img src="https://placehold.co/200x200/666/fff?text=Original" alt="Real photo" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                        </div>
+                        <div class="text-center">
+                            <p class="font-semibold text-yellow-300 mb-2">Simpsons style version</p>
+                            <img src="https://placehold.co/200x200/FDD835/000?text=Simpsons" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                        </div>
+                    </div>
+                `,
+                webCompletaTitle: "Complete Website",
+                webCompletaDesc: "We create your own professional website. You forget about everything, we manage it.",
+                webCompletaFeatures: [
+                    "Included .com domain (1 year)",
+                    "Included hosting (1 year)",
+                    "Responsive website like this one",
+                    "Active WhatsApp button",
+                    "Professional email with your domain",
+                    "Custom form",
+                    "Favicon, design and sections ready",
+                    "Full upload to the server",
+                    "Step-by-step user manual",
+                    "First month of maintenance included"
+                ],
+                webCompletaPriceNote: "Annual renewal: €150 (domain + server + management). If not renewed, the website will be automatically deactivated.",
+                viewExampleButton: "View example", // Added for service cards
+
+                howItWorksTitle: "How our service works?",
+                step1Title: "Step 1: Tell us your text idea!",
+                step1Desc: "Fill out our simple form with all the details. The more information, the better to create unique content!",
+                step2Title: "Step 2: Make the secure payment",
+                step2Desc: "Once we confirm the details, we will send you a PayPal link for a fast and totally secure payment.",
+                step3Title: "Step 3: Receive your masterpiece",
+                step3Desc: "In 24-72h you will receive your creative text in PDF directly in your email.",
+
+                ctaTitle: "Ready to transform your ideas into professional and unique texts?",
+                ctaSubtitle: "Don't wait any longer, with Pedro SC, your texts will be unforgettable. Contact me now and let's start creating magic!",
+                ctaButton: "I want my Personalized Text!",
+
+                orderTitle: "Place your Custom Order",
+                orderSubtitle: "Click the button below to fill out the form and request your unique text, tailor-made for you. It's quick and easy!",
+                orderButton: "Request your personalized text",
+
+                reviewsTitle: "Satisfied Customer Reviews",
+                review1Text: "“I ordered a *Simpsons*-style portrait with my partner and... it's as if Matt Groening himself drew us! Great for a gift.”",
+                review1Author: "— Javier and Laura",
+                review2Text: "“I requested a letter for my anniversary. Pedro SC captured exactly what I wanted to say. My partner cried with emotion. Thanks a million!”",
+                review2Author: "— Andrea M.",
+                review3Text: "“I needed an urgent complaint for an airline. They sent it to me in PDF and the next day I had a response. Fast, clear and effective.”",
+                review3Author: "— Sergio T.",
+
+                faqTitle: "Frequently Asked Questions",
+                faqQ1: "What kind of texts do you offer?",
+                faqA1: "Letters, speeches, stories, complaints, resumes and more, delivered in PDF.",
+                faqQ2: "How do I place an order?",
+                faqA2: "Fill out the form with your details. We'll take care of the rest.",
+                faqQ3: "How do I receive my order?",
+                faqA3: "By email in PDF, once completed and paid.",
+                faqQ4: "How much does each service cost?",
+                faqA4: "Between €10 and €15, depending on the type of text.",
+                faqQ5: "Can I order something not on the list?",
+                faqA5: "Yes, select “Other” and describe what you need.",
+                faqQ6: "How is payment made?",
+                faqA6: "We will send you a PayPal link by email to complete the payment securely.",
+                faqQ7: "When will I receive my text?",
+                faqA7: "In 24-72h after payment, except for exceptions that will be communicated.",
+                faqQ8: "Can I request a modification after receiving the text?",
+                faqA8: "Yes, you can request minor adjustments by email.",
+                faqQ9: "Can I pay by card without a PayPal account?",
+                faqA9: "Yes, PayPal allows card payment without registration.",
+                faqQ10: "Why choose this website in place of doing it myself with AI?",
+                faqA10: "Because here you save time, errors and tests. We give you everything ready and well written by professional writers.",
+                faqQ11: "Are the examples in the pop-ups the actual size of the text I receive?",
+                faqA11: "No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.",
+
+                paymentSecure: "Secure Payment",
+                paymentSecureDesc: "Protected with PayPal and SSL encryption.",
+                deliveryPdf: "PDF Delivery",
+                deliveryPdfDesc: "Receive your text by email in high quality.",
+                deliveryTime: "24-72h Delivery",
+                deliveryTimeDesc: "You will receive your order in a maximum of 3 days.",
+                personalAttention: "Personalized Attention",
+                personalAttentionDesc: "I answer you personally by email.",
+                personalized: "100% Personalized",
+                personalizedDesc: "Each text adapts to your story and tone.",
+                satisfiedClients: "Satisfied Clients",
+                satisfiedClientsDesc: "Real ratings that endorse our work.",
+
+                footerCopyright: "&copy; 2025 Pedro SC · Texts by Order. All rights reserved.",
+                footerDesign: "Designed with ❤️",
+                privacyPolicy: "Privacy Policy",
+                legalNotice: "Legal Notice",
+                ctaBannerText: "In a hurry? Order in 2 minutes →",
+                ctaBannerButton: "Go to Form",
+                // Removed cookie banner related translations
+                // cookieBannerText: "This site uses cookies to improve your experience. By continuing to browse, you accept their use.",
+                // cookieAccept: "Accept",
+                // cookieReject: "Reject",
+
+                privacyPopupTitle: "Privacy Policy",
+                privacyPopupResponsible: "Data controller:",
+                privacyPopupEmail: "Contact email:",
+                privacyPopupWeb: "Website:",
+                privacyPopupPurposeTitle: "1. Purpose of data processing",
+                privacyPopupPurposeText: "We collect your data exclusively in order to provide you with the requested service (writing personalized texts), carry out the corresponding invoicing and send you communications related to your order.<br>We do not use your data for advertising purposes or share it with third parties.",
+                privacyPopupLegitimationTitle: "2. Legitimation",
+                privacyPopupLegitimationText: "The legal basis for the processing of your data is the explicit consent you grant by completing a contact form or by contracting a service on this website.",
+                privacyPopupConservationTitle: "3. Data retention",
+                privacyPopupConservationText: "The personal data provided will be kept for the time strictly necessary to comply with the obligations legal, fiscal and contractual, and never beyond what is necessary to provide the service.",
+                privacyPopupRightsTitle: "4. User rights",
+                privacyPopupRightsText: "You can exercise your rights of access, rectification, cancellation, opposition, portability and limitation of processing at any time by sending an email to: textosporencargo@gmail.com<br>You also have the right to file a complaint with the Spanish Data Protection Agency if you consider that your rights have been violated.",
+                privacyPopupSecurityTitle: "5. Security measures",
+                privacyPopupSecurityText: "We adopt appropriate technical and organizational security measures to guarantee the confidentiality, integrity and availability of your personal information.",
+                privacyPopupCookiesTitle: "6. Cookie Policy",
+                privacyPopupCookiesText: "This site website does not use third-party cookies or tracking technologies. It is a static and informative website. If cookies are included in the future, you will be informed and consent will be requested in accordance with current regulations.",
+                
+                legalPopupTitle: "Legal Notice",
+                legalPopupOwner: "Website owner:",
+                legalPopupEmail: "Email:",
+                legalPopupWeb: "Website:",
+                legalPopupObjectTitle: "1. Object and acceptance",
+                legalPopupObjectText: "This legal notice regulates the use of the website textosporencargo.com, owned by Pedro S.C. By accessing this website, it is understood that the user accepts and undertakes to comply with the conditions set forth herein.",
+                legalPopupConditionsTitle: "2. Terms of use",
+                legalPopupConditionsText: "The website offers personalized text writing services, such as letters, speeches, stories, complaints, among others. The use of the information contained on this page is the sole responsibility of the user.<br>Any use for illicit purposes or that infringes the rights or interests of third parties.",
+                legalPopupIntellectualTitle: "3. Intellectual and industrial property",
+                legalPopupIntellectualText: "All content on the website, including texts, images, logos, graphic design and code source, are protected by copyright and intellectual property rights.<br>Total or partial reproduction is prohibited without the express consent of the owner.",
+                legalPopupResponsibilityTitle: "4. Responsibility",
+                legalPopupResponsibilityText: "The absence of errors in the contents is not guaranteed, nor that they are permanently updated, although every effort will be made to keep them updated.<br>The owner is not responsible for the use that users make of the information published or for the direct or indirect damages that may arise from its utilization.",
+                legalPopupExternalLinksTitle: "5. External links",
+                legalPopupExternalLinksText: "This website may contain links to external pages. The owner is not responsible for the content of these sites, nor for the privacy policies or conditions of use that may apply.",
+                legalPopupLegislationTitle: "6. Applicable law and jurisdiction",
+                legalPopupLegislationText: "This website is governed by Spanish law. For the resolution of any conflict that pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.",
+                closeButton: "Close"
+            }
+        };
+
+        // Service data (now includes both languages for dynamic rendering)
+        const serviceData = {
+            es: [
+                {
+                    id: "popupCarta",
+                    icon: '<i class="fas fa-envelope-open-text"></i>',
+                    price: '10 €',
+                    dataKeys: {
+                        titulo: "cartaPersonalizadaTitle",
+                        descripcion: "cartaPersonalizadaDesc",
+                        ejemplo: "cartaPersonalizadaExample"
+                    }
+                },
+                {
+                    id: "popupDiscurso",
+                    icon: '<i class="fas fa-microphone-alt"></i>',
+                    price: '15 €',
+                    dataKeys: {
+                        titulo: "discursoTitle",
+                        descripcion: "discursoDesc",
+                        ejemplo: "discursoExample"
+                    }
+                },
+                {
+                    id: "popupMinilibro",
+                    icon: '📖',
+                    price: '50 €',
+                    dataKeys: {
+                        titulo: "minilibroTitle",
+                        descripcion: "minilibroDesc",
+                        ejemplo: "minilibroExample"
+                    }
+                },
+                {
+                    id: "popupReclamacion",
+                    icon: '<i class="fas fa-gavel"></i>',
+                    price: '10 €',
+                    dataKeys: {
+                        titulo: "reclamacionTitle",
+                        descripcion: "reclamacionDesc",
+                        ejemplo: "reclamacionExample"
+                    }
+                },
+                {
+                    id: "popupCuento",
+                    icon: '<i class="fas fa-book-open"></i>',
+                    price: '20 €',
+                    dataKeys: {
+                        titulo: "cuentoTitle",
+                        descripcion: "cuentoDesc",
+                        ejemplo: "cuentoExample"
+                    }
+                },
+                {
+                    id: "popupPicante",
+                    icon: '<i class="fas fa-heart"></i>',
+                    price: '10 €',
+                    dataKeys: {
+                        titulo: "picanteTitle",
+                        descripcion: "picanteDesc",
+                        ejemplo: "picanteExample"
+                    }
+                },
+                {
+                    id: "popupRegalo",
+                    icon: '<i class="fas fa-gift"></i>',
+                    price: '10 €',
+                    dataKeys: {
+                        titulo: "regaloTitle",
+                        descripcion: "regaloDesc",
+                        ejemplo: "regaloExample"
+                    }
+                },
+                {
+                    id: "popupSimpson",
+                    icon: '<i class="fas fa-user-astronaut"></i>',
+                    price: '30 €',
+                    dataKeys: {
+                        titulo: "simpsonTitle",
+                        descripcion: "simpsonDesc",
+                        ejemplo: "simpsonExample"
+                    }
+                }
+            ],
+            en: [
+                {
+                    id: "popupCarta",
+                    icon: '<i class="fas fa-envelope-open-text"></i>',
+                    price: '€10',
+                    dataKeys: {
+                        titulo: "cartaPersonalizadaTitle",
+                        descripcion: "cartaPersonalizadaDesc",
+                        ejemplo: "cartaPersonalizadaExample"
+                    }
+                },
+                {
+                    id: "popupDiscurso",
+                    icon: '<i class="fas fa-microphone-alt"></i>',
+                    price: '€15',
+                    dataKeys: {
+                        titulo: "discursoTitle",
+                        descripcion: "discursoDesc",
+                        ejemplo: "discursoExample"
+                    }
+                },
+                {
+                    id: "popupMinilibro",
+                    icon: '📖',
+                    price: '€50',
+                    dataKeys: {
+                        titulo: "minilibroTitle",
+                        descripcion: "minilibroDesc",
+                        ejemplo: "minilibroExample"
+                    }
+                },
+                {
+                    id: "popupReclamacion",
+                    icon: '<i class="fas fa-gavel"></i>',
+                    price: '€10',
+                    dataKeys: {
+                        titulo: "reclamacionTitle",
+                        descripcion: "reclamacionDesc",
+                        ejemplo: "reclamacionExample"
+                    }
+                },
+                {
+                    id: "popupCuento",
+                    icon: '<i class="fas fa-book-open"></i>',
+                    price: '€20',
+                    dataKeys: {
+                        titulo: "cuentoTitle",
+                        descripcion: "cuentoDesc",
+                        ejemplo: "cuentoExample"
+                    }
+                },
+                {
+                    id: "popupPicante",
+                    icon: '<i class="fas fa-heart"></i>',
+                    price: '€10',
+                    dataKeys: {
+                        titulo: "picanteTitle",
+                        descripcion: "picanteDesc",
+                        ejemplo: "picanteExample"
+                    }
+                },
+                {
+                    id: "popupRegalo",
+                    icon: '<i class="fas fa-gift"></i>',
+                    price: '€10',
+                    dataKeys: {
+                        titulo: "regaloTitle",
+                        descripcion: "regaloDesc",
+                        ejemplo: "regaloExample"
+                    }
+                },
+                {
+                    id: "popupSimpson",
+                    icon: '<i class="fas fa-user-astronaut"></i>',
+                    price: '€30',
+                    dataKeys: {
+                        titulo: "simpsonTitle",
+                        descripcion: "simpsonDesc",
+                        ejemplo: "simpsonExample"
+                    }
+                }
+            ]
+        };
+
+
+        function togglePopup(id) {
+            const popup = document.getElementById(id);
+            const popupBox = popup.querySelector('.popup-box'); // Get the inner popup-box div
+
+            if (popup.classList.contains("hidden")) {
+                // Opening the popup
+                popup.classList.remove("hidden");
+                if (popupBox) {
+                    // Remove any existing sparkle effect to re-trigger
+                    popupBox.classList.remove('sparkle-effect');
+                    // Force reflow to restart animation
+                    void popupBox.offsetWidth; // Trigger reflow
+                    popupBox.classList.add('sparkle-effect');
+                }
+            } else {
+                // Closing the popup
+                popup.classList.add("hidden");
+                if (popupBox) {
+                    popupBox.classList.remove('sparkle-effect'); // Clean up on close
+                }
+            }
+        }
+
+        function renderServiceCards(lang) {
+            const container = document.getElementById('service-cards-container');
+            container.innerHTML = ''; // Clear existing cards
+
+            serviceData[lang].forEach(service => {
+                // Access the translated title for the includes check
+                const serviceTitle = translations[lang][service.dataKeys.titulo];
+
+                const borderColorClass = serviceTitle.includes("Simpson") ? 'border-yellow-500' : 'border-gray-700';
+                const iconColorClass = serviceTitle.includes("Simpson") ? 'text-yellow-400' : 'text-teal-400';
+                const titleColorClass = serviceTitle.includes("Simpson") ? 'text-yellow-300' : 'text-teal-300';
+
+                const cardHtml = `
+                    <div class='bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border ${borderColorClass}'>
+                        <div class="text-5xl ${iconColorClass} mb-4 text-center">
+                            ${service.icon}
+                        </div>
+                        <h3 class='text-2xl font-semibold ${titleColorClass} mb-3 text-center' data-key="${service.dataKeys.titulo}">${translations[lang][service.dataKeys.titulo]}</h3>
+                        <p class='text-gray-300 mb-4 text-center' data-key="${service.dataKeys.descripcion}">${translations[lang][service.dataKeys.descripcion]}</p>
+                        <p class="text-3xl font-bold text-green-400 text-center">${service.price}</p>
+                        <div class="text-center mt-4">
+                            <button onclick="togglePopup('${service.id}')" class='bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105'>${translations[lang].viewExampleButton}</button>
+                        </div>
+                    </div>
+                    <div id='${service.id}' class='hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
+                        <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'>
+                            <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="togglePopup('${service.id}')">×</span>
+                            <h3 class='text-2xl font-bold mb-4 text-teal-600'>${translations[lang].example}: <span data-key="${service.dataKeys.titulo}">${translations[lang][service.dataKeys.titulo]}</span></h3>
+                            <div class='text-base mb-4 whitespace-pre-line'>${translations[lang][service.dataKeys.ejemplo]}</div>
+                            <button onclick="togglePopup('${service.id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600' data-key="closeButton">${translations[lang].closeButton}</button>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+
+            // Add the "Página web completa" card separately as it's static in the original structure
+            const webCompletaCard = `
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 service-card-hover border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-teal-300 mb-3 text-center flex items-center justify-center">
+                        <span class="text-5xl mr-3 text-teal-400">🌐</span><span data-key="webCompletaTitle">${translations[lang].webCompletaTitle}</span>
+                    </h3>
+                    <p class="text-gray-300 mb-4 text-center" data-key="webCompletaDesc">${translations[lang].webCompletaDesc}</p>
+                    <ul class="text-left text-sm text-gray-300 list-disc pl-4 space-y-1 mb-3">
+                        ${translations[lang].webCompletaFeatures.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <p class="text-3xl font-bold text-green-400 text-center">300 €</p>
+                    <p class="text-xs italic text-gray-400 text-center" data-key="webCompletaPriceNote">
+                        ${translations[lang].webCompletaPriceNote}
+                    </p>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', webCompletaCard);
+        }
+
+        function applyTranslations(lang) {
+            const currentTranslations = translations[lang];
+            document.documentElement.lang = lang; // Update HTML lang attribute
+
+            // Update elements with data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (currentTranslations[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = currentTranslations[key];
+                    } else if (element.tagName === 'IMG') {
+                        element.alt = currentTranslations[key];
+                    } else {
+                        element.innerHTML = currentTranslations[key];
+                    }
+                }
+            });
+
+            // Manually update the footerDesign text because it contains HTML
+            const footerDesignElement = document.querySelector('[data-key="footerDesign"]');
+            if (footerDesignElement) {
+                footerDesignElement.innerHTML = currentTranslations.footerDesign;
+            }
+
+            // Re-render service cards for the new language
+            renderServiceCards(lang);
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            applyTranslations(currentLang);
+        }
+
+        // Initial load: apply default language
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTranslations(currentLang);
+        });
+
         window.addEventListener('scroll', function () {
             const banner = document.getElementById('cta-banner');
-            if (window.scrollY > 250) { // Show banner after scrolling 250px
+            // Show banner after scrolling 250px, but only if it's not already visible
+            if (window.scrollY > 250 && banner.classList.contains('hidden')) {
                 banner.classList.remove('hidden');
-            } else {
+            } else if (window.scrollY <= 250 && !banner.classList.contains('hidden')) {
                 banner.classList.add('hidden');
             }
         });
@@ -736,19 +1316,9 @@
             document.getElementById(id).style.display = 'none';
         }
 
-        // Funciones para aceptar o rechazar cookies
-        function acceptCookies() {
-            document.getElementById('cookie-banner').style.display = 'none';
-            // Aquí podrías añadir lógica para establecer una cookie de aceptación
-            console.log('Cookies aceptadas');
-        }
-
-        function rejectCookies() {
-            document.getElementById('cookie-banner').style.display = 'none';
-            // Aquí podrías añadir lógica para establecer una cookie de rechazo o no seguimiento
-            console.log('Cookies rechazadas');
-        }
+        // Removed cookie banner functions: acceptCookies() and rejectCookies()
     </script>
 
 </body>
 </html>
+
