@@ -141,22 +141,7 @@
         .popup-close:hover {
             color: #000; /* Black on hover */
         }
-        .popup-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-        .popup-links a {
-            text-decoration: underline;
-            cursor: pointer;
-            font-weight: bold;
-            color: #000080; /* Dark blue color for links */
-            transition: color 0.2s ease-in-out;
-        }
-        .popup-links a:hover {
-            color: #0000CD; /* Medium blue on hover */
-        }
+        /* Removed .popup-links a and .popup-links a:hover from here to use Tailwind classes */
 
         /* Specific styles for Privacy and Legal popups (reverting to dark theme) */
         #privacy .popup-box,
@@ -580,8 +565,8 @@
             </a>
         </div>
         <div class="mt-4 popup-links">
-            <a onclick="openPopup('privacy')" data-key="privacyPolicy">Política de privacidad</a> |
-            <a onclick="openPopup('legal')" data-key="legalNotice">Aviso legal</a>
+            <a onclick="openPopup('privacy')" data-key="privacyPolicy" class="text-gray-500 hover:text-gray-400 transition-colors duration-300">Política de privacidad</a> |
+            <a onclick="openPopup('legal')" data-key="legalNotice" class="text-gray-500 hover:text-gray-400 transition-colors duration-300">Aviso legal</a>
         </div>
     </footer>
 
@@ -1227,17 +1212,17 @@
                 privacyPopupTitle: "Privacy Policy",
                 privacyPopupResponsible: "Data controller: Pedro S.C.<br>Contact email: textosporencargo@gmail.com<br>Website: www.textosporencargo.com",
                 privacyPopupPurposeTitle: "1. Purpose of data processing",
-                privacyPopupPurposeText: "We collect your data exclusively with the objective of poder prestarte el servicio solicitado (redacción de textos personalizados), realizar la facturación correspondiente y enviarte communications relacionadas con tu pedido.<br>No utilizamos tus datos con fines publicitarios ni los compartimos con terceros.",
+                privacyPopupPurposeText: "We collect your data exclusively in order to provide you with the requested service (writing personalized texts), carry out the corresponding invoicing and send you communications related to your order.<br>We do not use your data for advertising purposes or share it with third parties.",
                 privacyPopupLegitimationTitle: "2. Legitimation",
-                privacyPopupLegitimationText: "La base legal para el tratamiento de tus datos es el consentimiento explícito que otorgas al completar un formulario de contacto o al contratar un servicio en esta web.",
+                privacyPopupLegitimationText: "The legal basis for the processing of your data is the explicit consent you grant by completing a contact form or by contracting a service on this website.",
                 privacyPopupConservationTitle: "3. Data retention",
-                privacyPopupConservationText: "Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legal, fiscal y contractual, y never más allá de lo necesario para prestar el servicio.",
+                privacyPopupConservationText: "The personal data provided will be kept for the time strictly necessary to comply with the obligations legal, fiscal and contractual, and never more beyond what is necessary to provide the service.",
                 privacyPopupRightsTitle: "4. User rights",
-                privacyPopupRightsText: "Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com<br>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.",
+                privacyPopupRightsText: "You can exercise your rights of access, rectification, cancellation, opposition, portability and limitation of processing at any time by sending an email to: textosporencargo@gmail.com<br>You also have the right to file a complaint with the Spanish Data Protection Agency if you consider that your rights have been violated.",
                 privacyPopupSecurityTitle: "5. Medidas de seguridad",
                 privacyPopupSecurityText: "Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.",
                 privacyPopupCookiesTitle: "6. Cookie Policy",
-                privacyPopupCookiesText: "Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
+                privacyPopupCookiesText: "This website does not use cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
                 
                 legalPopupTitle: "Aviso Legal",
                 legalPopupOwner: "Website owner: Pedro S.C.<br>Email: textosporencargo@gmail.com<br>Website: www.textosporencargo.com",
@@ -1607,4 +1592,3 @@
 
 </body>
 </html>
-
