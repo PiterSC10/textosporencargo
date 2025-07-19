@@ -6,7 +6,7 @@
     <!-- Metaetiqueta de verificación de Google -->
     <meta name="google-site-verification" content="vxXhWIlAV8oBEOjLwRsoTAuYVDDPiCFCyG1HtZJ3LhQ" />
     <!-- Título y descripción (meta etiquetas SEO) -->
-    <title>Textos por Encargo | Cartas, Discursos y Reclamaciones Personalizadas</title>
+    <title>PeterWeb 2.0</title>
     <meta name="description" content="Crea textos únicos y emotivos con Pedro S.C. Cartas de recomendación, discursos, relatos personalizados y más, hechos con alma.">
     <meta name="keywords" content="textos por encargo, redacción personalizada, escribir textos a medida, cartas de recomendación, discursos por encargo, relatos personalizados, reclamaciones escritas, textos emocionales, redactado por humanos, textos creativos, redactores profesionales, contenido único, textos con sentimiento, textos para particulares, textos para empresas, textos para sorprender, textos para regalar, redactor en España, servicio de redacción desde Málaga, textos escritos por españoles">
     <meta name="author" content="Pedro SC">
@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://pitersc10.github.io/textosporencargo/" />
 
     <!-- Etiquetas Open Graph (para WhatsApp, redes, etc.) -->
-    <meta property="og:title" content="Textos por Encargo | Tu texto personalizado en PDF" />
+    <meta property="og:title" content="PeterWeb 2.0" />
     <meta property="og:description" content="Haz tu pedido en minutos y recibe tu texto original por email. Ahorra tiempo, deja que lo escribamos por ti." />
     <meta property="og:image" content="https://pitersc10.github.io/textosporencargo/assets/favicon.png" />
     <meta property="og:url" content="https://pitersc10.github.io/textosporencargo/" />
@@ -93,7 +93,7 @@
             z-index: 9999;
         }
         .popup-box {
-            background: #ADD8E6; /* Light blue background for popup */
+            background: #ADD8E6; /* Light blue background for service popups */
             max-width: 700px;
             padding: 2rem;
             border-radius: 12px;
@@ -101,25 +101,25 @@
             max-height: 90vh;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Darker shadow */
             position: relative;
-            color: #000; /* Black text for popup */
+            color: #000; /* Black text for service popups */
         }
         .popup-box h2 {
             margin-top: 0;
             font-size: 1.5rem;
-            color: #000; /* Black color for headings */
+            color: #000; /* Black color for headings in service popups */
             margin-bottom: 1rem;
         }
         .popup-box p {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #000; /* Black for paragraphs */
+            color: #000; /* Black for paragraphs in service popups */
             margin-bottom: 0.8rem;
         }
         .popup-box ul { /* Added style for ul within popup */
-            color: #000; /* Black for list items */
+            color: #000; /* Black for list items in service popups */
         }
         .popup-box li { /* Added style for li within popup */
-            color: #000; /* Black for list items */
+            color: #000; /* Black for list items in service popups */
         }
         .popup-close {
             position: absolute;
@@ -148,6 +148,44 @@
         .popup-links a:hover {
             color: #0000CD; /* Medium blue on hover */
         }
+
+        /* Specific styles for Privacy and Legal popups (reverting to dark theme) */
+        #privacy .popup-box,
+        #legal .popup-box {
+            background: #222; /* Dark background */
+            color: #eee; /* Light text */
+        }
+
+        #privacy .popup-box h2,
+        #legal .popup-box h2 {
+            color: #4fd1c5; /* Teal color for headings */
+        }
+
+        #privacy .popup-box p,
+        #legal .popup-box p {
+            color: #ccc; /* Lighter gray for paragraphs */
+        }
+
+        #privacy .popup-box strong,
+        #legal .popup-box strong {
+            color: #eee; /* Ensure strong text is light */
+        }
+
+        #privacy .popup-box a,
+        #legal .popup-box a {
+            color: #4fd1c5; /* Teal color for links */
+        }
+
+        #privacy .popup-close,
+        #legal .popup-close {
+            color: #999; /* Gray for close button */
+        }
+
+        #privacy .popup-close:hover,
+        #legal .popup-close:hover {
+            color: #eee; /* White on hover */
+        }
+
 
         /* Estilos para el efecto de destello */
         .sparkle-effect {
@@ -370,11 +408,11 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Foto original</p>
-                            <img src="assets/img/simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="assets/img/simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `, '30 €');
