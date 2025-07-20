@@ -34,39 +34,39 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#0f172a">
 
+    <!-- Preconnect para Google Fonts para una carga más rápida -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com" defer></script>
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom CSS for animations and overrides */
+        /* CSS personalizado para animaciones y anulaciones */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111; /* Dark background */
-            color: #eee; /* Light text */
+            background-color: #111; /* Fondo oscuro */
+            color: #eee; /* Texto claro */
             line-height: 1.6;
-            opacity: 0; /* Initially hidden for fade-in effect */
-            animation: fadeIn 1s ease-in-out forwards; /* Fade-in animation */
+            /* Se eliminó la animación de fade-in para un arranque más rápido */
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        /* Se eliminó @keyframes fadeIn */
 
-        /* Gradient for header */
+        /* Gradiente para el encabezado */
         .header-gradient {
             background: linear-gradient(to right, #222, #000);
         }
-        /* Sticky navigation */
+        /* Navegación pegajosa */
         .sticky-nav {
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        /* Service card hover effect */
+        /* Efecto hover de la tarjeta de servicio */
         .service-card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 255, 213, 0.2);
@@ -90,143 +90,142 @@
             background: #38b2ac; /* Color al pasar el cursor */
         }
 
-        /* POP-UP STYLES (Adjusted for dark theme) */
+        /* Estilos de POP-UP (ajustados para tema oscuro) */
         .popup-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8); /* Darker overlay */
-            display: none;
+            background: rgba(0,0,0,0.8); /* Superposición más oscura */
+            display: none; /* Oculto por defecto para un arranque ligero */
             justify-content: center;
             align-items: center;
             z-index: 9999;
         }
         .popup-box {
-            background: #ADD8E6; /* Light blue background for general service popups */
+            background: #ADD8E6; /* Fondo azul claro para pop-ups de servicio general */
             max-width: 700px;
             padding: 2rem;
             border-radius: 12px;
             overflow-y: auto;
             max-height: 90vh;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Darker shadow */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Sombra más oscura */
             position: relative;
-            color: #000; /* Black text for general service popups */
+            color: #000; /* Texto negro para pop-ups de servicio general */
         }
         .popup-box h2 {
             margin-top: 0;
             font-size: 1.5rem;
-            color: #000; /* Black color for headings in general service popups */
+            color: #000; /* Color negro para los encabezados en pop-ups de servicio general */
             margin-bottom: 1rem;
         }
         .popup-box p {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #000; /* Black for paragraphs in general service popups */
+            color: #000; /* Negro para párrafos en pop-ups de servicio general */
             margin-bottom: 0.8rem;
         }
-        .popup-box ul { /* Added style for ul within popup */
-            color: #000; /* Black for list items in general service popups */
+        .popup-box ul { /* Estilo añadido para ul dentro del pop-up */
+            color: #000; /* Negro para elementos de lista en pop-ups de servicio general */
         }
-        .popup-box li { /* Added style for li within popup */
-            color: #000; /* Black for list items in general service popups */
+        .popup-box li { /* Estilo añadido para li dentro del pop-up */
+            color: #000; /* Negro para elementos de lista en pop-ups de servicio general */
         }
         .popup-close {
             position: absolute;
             top: 10px; right: 20px;
-            font-size: 1.8rem; /* Slightly larger for better tap target */
+            font-size: 1.8rem; /* Ligeramente más grande para un mejor objetivo táctil */
             cursor: pointer;
-            color: #333; /* Darker gray for close button */
+            color: #333; /* Gris más oscuro para el botón de cerrar */
             transition: color 0.2s ease-in-out;
         }
         .popup-close:hover {
-            color: #000; /* Black on hover */
+            color: #000; /* Negro al pasar el cursor */
         }
-        /* Removed .popup-links a and .popup-links a:hover from here to use Tailwind classes */
 
-        /* Specific styles for Privacy and Legal popups (reverting to dark theme) */
+        /* Estilos específicos para pop-ups de privacidad y legales (volviendo al tema oscuro) */
         #privacy .popup-box,
         #legal .popup-box {
-            background: #222; /* Dark background */
-            color: #eee; /* Light text */
+            background: #222; /* Fondo oscuro */
+            color: #eee; /* Texto claro */
         }
 
         #privacy .popup-box h2,
         #legal .popup-box h2 {
-            color: #4fd1c5; /* Teal color for headings */
+            color: #4fd1c5; /* Color teal para los encabezados */
         }
 
         #privacy .popup-box p,
         #legal .popup-box p {
-            color: #ccc; /* Lighter gray for paragraphs */
+            color: #ccc; /* Gris más claro para los párrafos */
         }
 
         #privacy .popup-box strong,
         #legal .popup-box strong {
-            color: #eee; /* Ensure strong text is light */
+            color: #eee; /* Asegura que el texto en negrita sea claro */
         }
 
         #privacy .popup-box a,
         #legal .popup-box a {
-            color: #4fd1c5; /* Teal color for links */
+            color: #4fd1c5; /* Color teal para los enlaces */
         }
 
         #privacy .popup-close,
         #legal .popup-close {
-            color: #999; /* Gray for close button */
+            color: #999; /* Gris para el botón de cerrar */
         }
 
         #privacy .popup-close:hover,
         #legal .popup-close:hover {
-            color: #eee; /* White on hover */
+            color: #eee; /* Blanco al pasar el cursor */
         }
 
-        /* Specific styles for WEB DETAILS popup (white background, dark text) */
+        /* Estilos específicos para el pop-up de DETALLES DE LA WEB (fondo blanco, texto oscuro) */
         #popupWebDetails .popup-box {
-            background: #FFFFFF; /* White background */
-            color: #333; /* Dark text for general content */
+            background: #FFFFFF; /* Fondo blanco */
+            color: #333; /* Texto oscuro para contenido general */
         }
 
         #popupWebDetails .popup-box h2 {
-            color: #00796B; /* Darker Teal for main title */
-            font-size: 1.8rem; /* Slightly larger for main title */
+            color: #00796B; /* Teal más oscuro para el título principal */
+            font-size: 1.8rem; /* Ligeramente más grande para el título principal */
         }
 
         #popupWebDetails .popup-box p {
-            color: #444; /* Slightly lighter dark for paragraphs */
+            color: #444; /* Oscuro ligeramente más claro para los párrafos */
             font-size: 1rem;
         }
 
         #popupWebDetails .popup-box strong {
-            color: #222; /* Even darker for strong text */
+            color: #222; /* Aún más oscuro para el texto en negrita */
         }
 
         #popupWebDetails .popup-box ul {
-            color: #444; /* Dark text for list items */
+            color: #444; /* Texto oscuro para elementos de lista */
         }
 
         #popupWebDetails .popup-box li {
-            color: #444; /* Dark text for list items */
-            margin-bottom: 0.3rem; /* Small spacing for list items */
+            color: #444; /* Texto oscuro para elementos de lista */
+            margin-bottom: 0.3rem; /* Pequeño espaciado para elementos de lista */
         }
 
         #popupWebDetails .popup-box h3 {
-            color: #00897B; /* Teal for subheadings */
-            font-size: 1.3rem; /* Adjusted size for subheadings */
-            margin-top: 1.5rem; /* Spacing above subheadings */
+            color: #00897B; /* Teal para subtítulos */
+            font-size: 1.3rem; /* Tamaño ajustado para subtítulos */
+            margin-top: 1.5rem; /* Espaciado encima de los subtítulos */
         }
 
         #popupWebDetails .popup-close {
-            color: #666; /* Darker gray for close button on white background */
+            color: #666; /* Gris más oscuro para el botón de cerrar sobre fondo blanco */
         }
 
         #popupWebDetails .popup-close:hover {
-            color: #000; /* Black on hover for close button */
+            color: #000; /* Negro al pasar el cursor para el botón de cerrar */
         }
 
         /* Estilos para el efecto de destello */
         .sparkle-effect {
-            position: relative; /* Needed for pseudo-element positioning */
-            overflow: hidden; /* Hide overflow of the sparkle */
+            position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+            overflow: hidden; /* Oculta el desbordamiento del destello */
         }
         .sparkle-effect::before {
             content: '';
@@ -273,7 +272,7 @@
         .animate-fade-in-up-2 {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 1s ease-out forwards 0.5s; /* Delay for subtitle */
+            animation: fadeInUp 1s ease-out forwards 0.5s; /* Retraso para el subtítulo */
         }
 
         @keyframes fadeInUp {
@@ -291,20 +290,20 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigation Bar (moved to top and centered links) -->
+    <!-- Barra de Navegación (movida a la parte superior y enlaces centrados) -->
     <nav class="bg-gray-900 py-2 px-4 shadow-md sticky-nav">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <!-- Left: Logo -->
+            <!-- Izquierda: Logo -->
             <a href="#inicio" class="text-2xl font-bold text-white" data-key="logoTitle">YourDesignGPT</a>
 
-            <!-- Hamburger menu icon for mobile -->
+            <!-- Icono de menú de hamburguesa para móvil -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-teal-400 hover:text-teal-200 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
 
-            <!-- Center: Navigation Links (hidden on small screens, flex on medium and larger) -->
+            <!-- Centro: Enlaces de Navegación (ocultos en pantallas pequeñas, flex en medianas y grandes) -->
             <div id="main-nav-links" class="hidden md:flex justify-center space-x-2">
                 <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
                     <i class="fas fa-clipboard-list mr-1"></i><span data-key="services">Servicios</span>
@@ -323,20 +322,20 @@
                 </a>
             </div>
 
-            <!-- Right: Language Flags (hidden on small, flex on medium+) -->
+            <!-- Derecha: Banderas de Idioma (ocultas en pequeñas, flex en medianas+) -->
             <div class="hidden md:flex flex-col items-center space-y-1">
                 <div class="flex items-center space-x-1 cursor-pointer" onclick="switchLanguage('es')">
                     <span class="text-sm text-white font-semibold">ES</span>
-                    <span role="img" aria-label="Spanish Flag">🇪🇸</span>
+                    <span role="img" aria-label="Bandera de España">🇪🇸</span>
                 </div>
                 <div class="flex items-center space-x-1 cursor-pointer" onclick="switchLanguage('en')">
                     <span class="text-sm text-white font-semibold">EN</span>
-                    <span role="img" aria-label="United Kingdom Flag">🇬🇧</span>
+                    <span role="img" aria-label="Bandera del Reino Unido">🇬🇧</span>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu (initially hidden) -->
+        <!-- Menú Móvil (inicialmente oculto) -->
         <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-950 z-40 flex flex-col items-center justify-center space-y-6 text-2xl">
             <a href="#servicios" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
                 <i class="fas fa-clipboard-list mr-1"></i><span data-key="services">Servicios</span>
@@ -356,11 +355,11 @@
             <div class="flex flex-col items-center space-y-2 mt-4">
                 <div class="flex items-center space-x-1 cursor-pointer text-white" onclick="switchLanguage('es'); toggleMobileMenu();">
                     <span class="text-lg font-semibold">ES</span>
-                    <span role="img" aria-label="Spanish Flag">🇪🇸</span>
+                    <span role="img" aria-label="Bandera de España">🇪🇸</span>
                 </div>
                 <div class="flex items-center space-x-1 cursor-pointer text-white" onclick="switchLanguage('en'); toggleMobileMenu();">
                     <span class="text-lg font-semibold">EN</span>
-                    <span role="img" aria-label="United Kingdom Flag">🇬🇧</span>
+                    <span role="img" aria-label="Bandera del Reino Unido">🇬🇧</span>
                 </div>
             </div>
             <button class="absolute top-4 right-4 text-white text-4xl focus:outline-none" onclick="toggleMobileMenu()">
@@ -369,7 +368,7 @@
         </div>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Sección de Encabezado -->
     <header id="inicio" class="header-gradient py-24 px-4 text-center rounded-b-xl shadow-lg">
         <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in-up-1 pt-4" data-key="headerTitle">
             El Diseño del Futuro, Impulsado por IA
@@ -384,14 +383,14 @@
         </div>
     </header>
 
-    <!-- Services Section -->
+    <!-- Sección de Servicios -->
     <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto pt-10 scroll-mt-20">
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500" data-key="ourExclusiveServices">
             <i class="fas fa-gem mr-3"></i>Nuestros Servicios Exclusivos
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="service-cards-container">
-            <!-- Dynamic Service Cards will be injected here by JavaScript -->
+            <!-- Las tarjetas de servicio dinámicas se inyectarán aquí mediante JavaScript -->
         </div>
     </section>
 
@@ -429,7 +428,7 @@
         </div>
     </section>
 
-    <!-- Call to Action Section -->
+    <!-- Sección de Llamada a la Acción -->
     <section class="py-16 px-4 bg-gray-900 text-center rounded-xl shadow-inner max-w-6xl mx-auto mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500" data-key="ctaTitle">
             ¿Listo para transformar tus ideas en textos profesionales y únicos?
@@ -444,7 +443,7 @@
         </a>
     </section>
 
-    <!-- Contact Section with Redirect Button -->
+    <!-- Sección de Contacto con Botón de Redirección -->
     <section id="contacto" class="py-16 px-4 max-w-4xl mx-auto text-center scroll-mt-20">
         <h2 class="text-4xl md:text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500" data-key="orderTitle">
             <i class="fas fa-file-signature mr-3"></i>Haz tu Pedido Personalizado
@@ -501,69 +500,46 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-16 px-4 max-w-4xl mx-auto scroll-mt-20">
-        <div class="mt-16 bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
-            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-6 text-center" data-key="faqTitle">
-                Preguntas Frecuentes
-            </h3>
-
-            <ul class="space-y-6 text-gray-300 text-lg text-left">
-                <li><strong data-key="faqQ1">¿Qué tipo de textos ofrecéis?</strong><br/><span data-key="faqA1">Cartas, discursos, cuentos, reclamaciones, currículums y más, entregados en PDF.</span></li>
-                <li><strong data-key="faqQ2">¿Cómo hago un pedido?</strong><br/><span data-key="faqA2">Rellena el formulario con tus detalles. Nosotros nos encargamos del resto.</span></li>
-                <li><strong data-key="faqQ3">¿Cómo recibo mi encargo?</strong><br/><span data-key="faqA3">Por email en PDF, una vez completado y pagado.</span></li>
-                <li><strong data-key="faqQ4">¿Cuánto cuesta cada servicio?</strong><br/><span data-key="faqA4">Entre 10€ y 15€, según el tipo de texto.</span></li>
-                <li><strong data-key="faqQ5">¿Puedo pedir algo que no aparece en la lista?</strong><br/><span data-key="faqA5">Sí, selecciona “Otro” y describe lo que necesitas.</span></li>
-                <li><strong data-key="faqQ6">¿Cómo se realiza el pago?</strong><br/><span data-key="faqA6">Te enviaremos un enlace de PayPal por email para completar el pago de forma segura.</span></li>
-                <li><strong data-key="faqQ7">¿Cuándo recibiré mi texto?</strong><br/><span data-key="faqA7">En 24-72h tras el pago, salvo excepciones que se comunicarán.</span></li>
-                <li><strong data-key="faqQ8">¿Puedo pedir una modificación después de recibir el texto?</strong><br/><span data-key="faqA8">Sí, puedes solicitar ajustes menores por email.</span></li>
-                <li><strong data-key="faqQ9">¿Se puede pagar con tarjeta sin tener cuenta PayPal?</strong><br/><span data-key="faqA9">Sí, PayPal permite pago con tarjeta sin registrarse.</span></li>
-                <li><strong data-key="faqQ10">¿Por qué elegir esta web en lugar de hacerlo yo con IA?</strong><br/><span data-key="faqA10">Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.</span></li>
-                <li><strong data-key="faqQ11">¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?</strong><br/><span data-key="faqA11">No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.</span></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Trust Badges Section -->
+    <!-- Sección de Sellos de Confianza -->
     <section class="bg-gray-900 py-10 px-4 border-t border-gray-800">
         <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center text-gray-300">
             
-            <!-- Badge 1 -->
+            <!-- Sello 1 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-lock text-4xl text-green-400 mb-3"></i>
                 <h3 class="text-lg font-semibold" data-key="paymentSecure">Pago Seguro</h3>
                 <p class="text-sm text-gray-400" data-key="paymentSecureDesc">Protegido con PayPal y cifrado SSL.</p>
             </div>
 
-            <!-- Badge 2 -->
+            <!-- Sello 2 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-file-pdf text-4xl text-teal-400 mb-3"></i>
                 <h3 class="text-lg font-semibold" data-key="deliveryPdf">Entrega en PDF</h3>
                 <p class="text-sm text-gray-400" data-key="deliveryPdfDesc">Recibe tu texto por correo en alta calidad.</p>
             </div>
 
-            <!-- Badge 3 -->
+            <!-- Sello 3 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-clock text-4xl text-blue-400 mb-3"></i>
                 <h3 class="text-lg font-semibold" data-key="deliveryTime">Entrega 24-72h</h3>
                 <p class="text-sm text-gray-400" data-key="deliveryTimeDesc">Recibirás tu encargo en máximo 3 días.</p>
             </div>
 
-            <!-- Badge 4 -->
+            <!-- Sello 4 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-headset text-4xl text-yellow-400 mb-3"></i>
                 <h3 class="text-lg font-semibold" data-key="personalAttention">Atención Personalizada</h3>
                 <p class="text-sm text-gray-400" data-key="personalAttentionDesc">Te respondo siempre por email personalmente.</p>
             </div>
 
-            <!-- Badge 5 -->
+            <!-- Sello 5 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-check-circle text-4xl text-purple-400 mb-3"></i>
                 <h3 class="text-lg font-semibold" data-key="personalized">100% Personalizado</h3>
                 <p class="text-sm text-gray-400" data-key="personalizedDesc">Cada texto se adapta a tu historia y tono.</p>
             </div>
 
-            <!-- Badge 6 -->
+            <!-- Sello 6 -->
             <div class="flex flex-col items-center">
                 <i class="fas fa-star text-4xl text-pink-400 mb-3"></i>
                 <h3 class="text-lg font-semibold" data-key="satisfiedClients">Clientes Satisfechos</h3>
@@ -573,20 +549,20 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Pie de Página -->
     <footer class="bg-gray-950 py-8 pb-24 px-4 text-center text-gray-500 rounded-t-xl shadow-inner mt-16">
         <p data-key="footerCopyright">&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.</p>
-        <p class="text-sm mt-2" data-key="footerDesign"></p> <!-- Content moved to JS for translation -->
-        <!-- Social Media Icons -->
+        <p class="text-sm mt-2" data-key="footerDesign"></p> <!-- El contenido se mueve a JS para traducción -->
+        <!-- Iconos de Redes Sociales -->
         <div class="flex space-x-4 justify-center mt-6">
             <a href="https://www.instagram.com/petersoriano10" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram text-purple-500 text-2xl"></i> <!-- Font Awesome Instagram icon -->
+                <i class="fab fa-instagram text-purple-500 text-2xl"></i> <!-- Icono de Instagram de Font Awesome -->
             </a>
             <a href="https://www.youtube.com/@pasaportedemano" target="_blank" aria-label="YouTube">
-                <i class="fab fa-youtube text-red-600 text-2xl"></i> <!-- Font Awesome YouTube icon -->
+                <i class="fab fa-youtube text-red-600 text-2xl"></i> <!-- Icono de YouTube de Font Awesome -->
             </a>
             <a href="https://www.paypal.es" target="_blank" class="text-blue-500 hover:text-blue-400" aria-label="PayPal">
-                <i class="fab fa-paypal text-blue-500 text-2xl"></i> <!-- Font Awesome PayPal icon -->
+                <i class="fab fa-paypal text-blue-500 text-2xl"></i> <!-- Icono de PayPal de Font Awesome -->
             </a>
         </div>
         <div class="mt-4 popup-links">
@@ -703,7 +679,7 @@
       </div>
     </div>
 
-    <!-- NEW POP-UP FOR WEB DETAILS -->
+    <!-- NUEVO POP-UP PARA DETALLES DE LA WEB -->
     <div class="popup-overlay" id="popupWebDetails">
         <div class="popup-box">
             <span class="popup-close" onclick="closePopup('popupWebDetails')">×</span>
@@ -841,13 +817,13 @@
     </script>
     <!-- Script para mostrar solo al hacer scroll -->
     <script type="text/javascript">
-        // Global variable for current language
-        let currentLang = 'es'; // Default language
+        // Variable global para el idioma actual
+        let currentLang = 'es'; // Idioma por defecto
 
-        // Translations object
+        // Objeto de traducciones
         const translations = {
             es: {
-                pageTitle: "YourDesignGPT · Tu web lista en 72h + Textos por Encargo", // Updated title
+                pageTitle: "YourDesignGPT · Tu web lista en 72h + Textos por Encargo", // Título actualizado
                 logoTitle: "YourDesignGPT",
                 headerTitle: "El Diseño del Futuro, Impulsado por IA",
                 headerSubtitle: "Transformamos tus ideas en realidades visuales impactantes con la inteligencia artificial más avanzada.",
@@ -935,15 +911,15 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Foto original</p>
-                            <img src="simpson-original.jpg" alt="Foto real" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="simpson-original.jpg" alt="Foto real" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `,
-                webCompletaTitle: "Creamos tu web", // Updated title
+                webCompletaTitle: "Creamos tu web", // Título actualizado
                 webCompletaDesc: "Creamos tu propia web profesional. Tú olvídate de todo, nosotros lo gestionamos.",
                 webCompletaFeatures: [
                     "Web responsive como esta",
@@ -954,11 +930,11 @@
                     "Subida completa al servidor",
                     "Manual de uso paso a paso"
                 ],
-                webCompletaPriceNote: "Precio anual mantenimiento: 150 € (dominio + servidor + gestión). Si no se renueva, la web se desactiva automáticamente.", // Updated text
+                webCompletaPriceNote: "Precio anual mantenimiento: 150 € (dominio + servidor + gestión). Si no se renueva, la web se desactiva automáticamente.", // Texto actualizado
                 viewExampleButton: "Ver ejemplo",
-                tarifasButton: "Info", // Changed to "Info"
+                tarifasButton: "Info", // Cambiado a "Info"
                 
-                // New translations for web details popup
+                // Nuevas traducciones para el pop-up de detalles de la web
                 webDetailsPopupTitle: "Tu Web Profesional por 495 €",
                 webDetailsPopupSubtitle: "Creada en 72h · Diseño a medida · Sin complicaciones",
                 webDetailsPopupIncludesTitle: "✅ ¿Qué incluye el servicio de creación web?",
@@ -1028,7 +1004,7 @@
                 faqA10: "Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.",
                 faqQ11: "¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?",
                 faqA11: "No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.",
-                example: "Ejemplo", /* Added for popup titles */
+                example: "Ejemplo", /* Añadido para títulos de pop-up */
 
                 paymentSecure: "Pago Seguro",
                 paymentSecureDesc: "Protegido con PayPal y cifrado SSL.",
@@ -1050,7 +1026,7 @@
                 ctaBannerText: "¿Tienes prisa? Pídelo en 2 minutos →",
                 ctaBannerButton: "Ir al Formulario",
 
-                // New and updated Privacy Policy translations
+                // Nuevas y actualizadas traducciones de la Política de Privacidad
                 privacyPopupTitle: "🛡️ Política de Privacidad – YourDesignGPT",
                 privacyPopupLastUpdate: "Última actualización: 20 de julio de 2025",
                 privacyPopupIntro: "En cumplimiento del Reglamento (UE) 2016/679 (RGPD), la Ley Orgánica 3/2018 de Protección de Datos (LOPDGDD) y demás normativa vigente, te informamos de forma clara y detallada sobre cómo tratamos tus datos personales en esta web.",
@@ -1080,7 +1056,7 @@
                 privacyPopupAcceptanceTitle: "✅ Aceptación de la política",
                 privacyPopupAcceptanceText: "El uso de esta web implica la lectura y aceptación expresa de esta Política de Privacidad. Si no estás de acuerdo, por favor, no utilices nuestros formularios ni nos proporciones tus datos personales.",
 
-                // New and updated Legal Notice translations
+                // Nuevas y actualizadas traducciones del Aviso Legal
                 legalPopupTitle: "⚖️ Aviso Legal – YourDesignGPT",
                 legalPopupLastUpdate: "Última actualización: 20 de julio de 2025",
                 legalPopupIntro: "En cumplimiento de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSICE), este documento regula el uso del sitio web https://www.yourdesigngpt.com, del que es titular Pedro Soriano Calderón (en adelante, “el titular”).<br>El acceso, navegación y uso de este sitio web implica la aceptación expresa de las condiciones recogidas en el presente Aviso Legal.",
@@ -1117,7 +1093,7 @@
                 closeButton: "Cerrar"
             },
             en: {
-                pageTitle: "YourDesignGPT · Your website ready in 72h + Texts on Demand", // Updated title
+                pageTitle: "YourDesignGPT · Your website ready in 72h + Texts on Demand", // Título actualizado
                 logoTitle: "YourDesignGPT",
                 headerTitle: "The Future of Design, Powered by AI",
                 headerSubtitle: "We transform your ideas into impactful visual realities with the most advanced artificial intelligence.",
@@ -1205,15 +1181,15 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Original photo</p>
-                            <img src="simpson-original.jpg" alt="Real photo" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="simpson-original.jpg" alt="Real photo" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `,
-                webCompletaTitle: "Create your website", // Updated title
+                webCompletaTitle: "Create your website", // Título actualizado
                 webCompletaDesc: "We create your own professional website. You forget about everything, we manage it.",
                 webCompletaFeatures: [
                     "Responsive website like this one",
@@ -1224,11 +1200,11 @@
                     "Full upload to the server",
                     "Step-by-step user manual"
                 ],
-                webCompletaPriceNote: "Annual maintenance price: €150 (domain + server + management). If not renewed, the website will be automatically deactivated.", // Updated text
+                webCompletaPriceNote: "Annual maintenance price: €150 (domain + server + management). If not renewed, the website will be automatically deactivated.", // Texto actualizado
                 viewExampleButton: "View example",
-                tarifasButton: "Info", // Changed to "Info"
+                tarifasButton: "Info", // Cambiado a "Info"
 
-                // New translations for web details popup
+                // Nuevas traducciones para el pop-up de detalles de la web
                 webDetailsPopupTitle: "Your Professional Website for €495",
                 webDetailsPopupSubtitle: "Created in 72h · Custom design · Hassle-free",
                 webDetailsPopupIncludesTitle: "✅ What does the website creation service include?",
@@ -1297,7 +1273,7 @@
                 faqA10: "Because here you save time, errors and tests. We give you everything ready and well written by professional writers.",
                 faqQ11: "Are the examples in the pop-ups the actual size of the text I receive?",
                 faqA11: "No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.",
-                example: "Example", /* Added for popup titles */
+                example: "Example", /* Añadido para títulos de pop-up */
 
                 paymentSecure: "Secure Payment",
                 paymentSecureDesc: "Protected with PayPal and SSL encryption.",
@@ -1319,7 +1295,7 @@
                 ctaBannerText: "In a hurry? Order in 2 minutes →",
                 ctaBannerButton: "Go to Form",
 
-                // New and updated Privacy Policy translations
+                // Nuevas y actualizadas traducciones de la Política de Privacidad
                 privacyPopupTitle: "🛡️ Privacy Policy – YourDesignGPT",
                 privacyPopupLastUpdate: "Last updated: July 20, 2025",
                 privacyPopupIntro: "In compliance with Regulation (EU) 2016/679 (GDPR), Organic Law 3/2018 on Data Protection (LOPDGDD) and other current regulations, we inform you clearly and in detail about how we process your personal data on this website.",
@@ -1349,7 +1325,7 @@
                 privacyPopupAcceptanceTitle: "✅ Acceptance of the policy",
                 privacyPopupAcceptanceText: "The use of this website implies the reading and express acceptance of this Privacy Policy. If you do not agree, please do not use our forms or provide us with your personal data.",
                 
-                // New and updated Legal Notice translations
+                // Nuevas y actualizadas traducciones del Aviso Legal
                 legalPopupTitle: "⚖️ Legal Notice – YourDesignGPT",
                 legalPopupLastUpdate: "Last updated: July 20, 2025",
                 legalPopupIntro: "In compliance with the provisions of Law 34/2002, of July 11, on information society services and electronic commerce (LSSICE), this document regulates the use of the website https://www.yourdesigngpt.com, owned by Pedro Soriano Calderón (hereinafter, “the owner”).<br>Access, browsing and use of this website implies express acceptance of the conditions contained in this Legal Notice.",
@@ -1368,13 +1344,13 @@
                 legalPopupPaymentLargeTitle: "Larger orders, such as websites or personalized mini books:",
                 legalPopupPaymentLargeText: "50% will be paid in advance to start the project.<br><br>The remaining 50% is paid upon delivery of the complete project.<br>Once payment is confirmed, the order is processed within the agreed period. Complete versions are not delivered without full payment.",
                 legalPopupIntellectualTitle: "4. 🖋️ Intellectual and industrial property",
-                legalPopupIntellectualText: "All texts, designs, logos, images, videos, source code and other content on this website are the exclusive property of the owner, or they have licenses for their use.<br>Their reproduction, distribution, transformation or public communication is prohibited without express authorization. Any unauthorized use may be considered a legal infringement.",
+                legalPopupIntellectualText: "All texts, designs, logos, images, videos, code source and other content on this website are the exclusive property of the owner, or they have licenses for their use.<br>Their reproduction, distribution, transformation or public communication is prohibited without express authorization. Any unauthorized use may be considered a legal infringement.",
                 legalPopupExternalLinksTitle: "5. 🌐 External links",
                 legalPopupExternalLinksText: "This website may contain links to third-party sites (Instagram, YouTube, PayPal, etc.). The owner is not responsible for the content, policies or privacy practices of these external platforms.",
                 legalPopupDataProtectionTitle: "6. 🔐 Data protection",
                 legalPopupDataProtectionText: "The use of this site implies the processing of personal data, regulated in the corresponding Privacy Policy, which details how the data provided by the user is collected, processed and protected.",
                 legalPopupResponsibilityTitle: "7. 🚫 Limitation of liability",
-                legalPopupResponsibilityText: "The owner does not guarantee continuous access to the website or the absence of errors. They are not responsible for:<br><br>Damages derived from the improper use of the site or its contents<br>Third-party errors (payment platforms, forms, etc.)<br>Technical failures beyond the owner's control<br>However, reasonable security measures are applied to guarantee the correct functioning of the site.",
+                legalPopupResponsibilityText: "The owner does not guarantee continuous access to the website or the absence of errors. They are not responsible for:<br><br>Damages derived from the improper use of the site or its contents<br>Third-party errors (plataformas de pago, formularios, etc.)<br>Caídas técnicas ajenas al control del titular<br>No obstante, se aplican medidas de seguridad razonables para garantizar el correcto funcionamiento del sitio.",
                 legalPopupUsageRulesTitle: "8. 🛠️ Usage rules",
                 legalPopupUsageRulesText: "The user agrees to:<br><br>Not use the site for fraudulent, offensive or illegal purposes<br>Not damage systems or interfere with their proper functioning<br>Not impersonate identities or falsify information<br>Not use bots or automatic tools without consent<br>The owner reserves the right to restrict or cancel access to any user who violates these rules.",
                 legalPopupBillingTitle: "9. 🧾 Billing and receipts",
@@ -1383,22 +1359,22 @@
                 legalPopupLegislationText: "The relationship between the owner and the users will be governed by Spanish law. For the resolution of any conflict that may arise from accessing or using the website, both parties submit to the Courts and Tribunals of Málaga, waiving any other jurisdiction.",
                 legalPopupAcceptanceTitle: "✅ Acceptance",
                 legalPopupAcceptanceText: "The use of this website implies acceptance of this Legal Notice. If the user does not agree with any of its conditions, they must refrain from using the services offered.",
-                closeButton: "Close"
+                closeButton: "Cerrar"
             }
         };
 
-        // Service data (now includes both languages for dynamic rendering)
+        // Datos de servicio (ahora incluye ambos idiomas para renderizado dinámico)
         const serviceData = {
             es: [
                 {
-                    id: "popupWebCompleta", // Changed ID for consistency
+                    id: "popupWebCompleta", // ID cambiado para consistencia
                     icon: '🌐',
-                    price: '495 €', // Updated price
+                    price: '495 €', // Precio actualizado
                     dataKeys: {
                         titulo: "webCompletaTitle",
                         descripcion: "webCompletaDesc",
-                        features: "webCompletaFeatures", // New key for features
-                        priceNote: "webCompletaPriceNote" // New key for price note
+                        features: "webCompletaFeatures", // Nueva clave para características
+                        priceNote: "webCompletaPriceNote" // Nueva clave para nota de precio
                     }
                 },
                 {
@@ -1484,9 +1460,9 @@
             ],
             en: [
                 {
-                    id: "popupWebCompleta", // Changed ID for consistency
+                    id: "popupWebCompleta", // ID cambiado para consistencia
                     icon: '🌐',
-                    price: '€495', // Updated price
+                    price: '€495', // Precio actualizado
                     dataKeys: {
                         titulo: "webCompletaTitle",
                         descripcion: "webCompletaDesc",
@@ -1578,34 +1554,36 @@
         };
 
 
+        // Función para alternar la visibilidad de un pop-up
         function togglePopup(id) {
             const popup = document.getElementById(id);
-            const popupBox = popup.querySelector('.popup-box'); // Get the inner popup-box div
+            const popupBox = popup.querySelector('.popup-box'); // Obtener el div interno popup-box
 
-            if (popup.classList.contains("hidden")) {
-                // Opening the popup
-                popup.classList.remove("hidden");
+            if (popup.style.display === 'none' || popup.style.display === '') {
+                // Abriendo el pop-up
+                popup.style.display = 'flex';
                 if (popupBox) {
-                    // Remove any existing sparkle effect to re-trigger
+                    // Eliminar cualquier efecto de destello existente para volver a activarlo
                     popupBox.classList.remove('sparkle-effect');
-                    // Force reflow to restart animation
-                    void popupBox.offsetWidth; // Trigger reflow
+                    // Forzar el redibujado para reiniciar la animación
+                    void popupBox.offsetWidth; // Activar el redibujado
                     popupBox.classList.add('sparkle-effect');
                 }
             } else {
-                // Closing the popup
-                popup.classList.add("hidden");
+                // Cerrando el pop-up
+                popup.style.display = 'none';
                 if (popupBox) {
-                    popupBox.classList.remove('sparkle-effect'); // Clean up on close
+                    popupBox.classList.remove('sparkle-effect'); // Limpiar al cerrar
                 }
             }
         }
 
+        // Función para renderizar las tarjetas de servicio según el idioma
         function renderServiceCards(lang) {
             const container = document.getElementById('service-cards-container');
-            container.innerHTML = ''; // Clear existing cards
+            container.innerHTML = ''; // Limpiar las tarjetas existentes
 
-            // Render "Creamos tu web" card first
+            // Renderizar la tarjeta "Creamos tu web" primero
             const webService = serviceData[lang].find(service => service.id === "popupWebCompleta");
             if (webService) {
                 const webCardHtml = `
@@ -1632,7 +1610,7 @@
             }
 
 
-            // Render other service cards
+            // Renderizar otras tarjetas de servicio
             serviceData[lang].filter(service => service.id !== "popupWebCompleta").forEach(service => {
                 const serviceTitle = translations[lang][service.dataKeys.titulo];
 
@@ -1652,12 +1630,12 @@
                             <button onclick="togglePopup('${service.id}')" class='bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105'>${translations[lang].viewExampleButton}</button>
                         </div>
                     </div>
-                    <div id='${service.id}' class='hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
+                    <div id='${service.id}' class='popup-overlay'>
                         <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'>
-                            <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="togglePopup('${service.id}')">×</span>
+                            <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="closePopup('${service.id}')">×</span>
                             <h3 class='text-2xl font-bold mb-4 text-teal-600'><span data-key="${service.dataKeys.titulo}">${translations[lang][service.dataKeys.titulo]}</span></h3>
                             <div class='text-base mb-4 whitespace-pre-line'>${translations[lang][service.dataKeys.ejemplo]}</div>
-                            <button onclick="togglePopup('${service.id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600' data-key="closeButton">${translations[lang].closeButton}</button>
+                            <button onclick="closePopup('${service.id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600' data-key="closeButton">${translations[lang].closeButton}</button>
                         </div>
                     </div>
                 `;
@@ -1665,11 +1643,12 @@
             });
         }
 
+        // Función para aplicar las traducciones a los elementos de la página
         function applyTranslations(lang) {
             const currentTranslations = translations[lang];
-            document.documentElement.lang = lang; // Update HTML lang attribute
+            document.documentElement.lang = lang; // Actualizar el atributo lang del HTML
 
-            // Update elements with data-key
+            // Actualizar elementos con data-key
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (currentTranslations[key]) {
@@ -1683,16 +1662,16 @@
                 }
             });
 
-            // Manually update the footerDesign text because it contains HTML
+            // Actualizar manualmente el texto de footerDesign porque contiene HTML
             const footerDesignElement = document.querySelector('[data-key="footerDesign"]');
             if (footerDesignElement) {
                 footerDesignElement.innerHTML = currentTranslations.footerDesign;
             }
 
-            // Re-render service cards for the new language
+            // Volver a renderizar las tarjetas de servicio para el nuevo idioma
             renderServiceCards(lang);
 
-            // Update privacy policy content dynamically as it's now more structured
+            // Actualizar el contenido de la política de privacidad dinámicamente
             const privacyPopup = document.getElementById('privacy');
             if (privacyPopup) {
                 privacyPopup.querySelector('[data-key="privacyPopupTitle"]').innerHTML = currentTranslations.privacyPopupTitle;
@@ -1736,7 +1715,7 @@
                 privacyPopup.querySelector('[data-key="privacyPopupAcceptanceText"]').innerHTML = currentTranslations.privacyPopupAcceptanceText;
             }
 
-            // Update legal notice content dynamically
+            // Actualizar el contenido del aviso legal dinámicamente
             const legalPopup = document.getElementById('legal');
             if (legalPopup) {
                 legalPopup.querySelector('[data-key="legalPopupTitle"]').innerHTML = currentTranslations.legalPopupTitle;
@@ -1787,31 +1766,33 @@
             }
         }
 
+        // Función para cambiar el idioma
         function switchLanguage(lang) {
             currentLang = lang;
             applyTranslations(currentLang);
         }
 
-        // Function to toggle the mobile menu visibility
+        // Función para alternar la visibilidad del menú móvil
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         }
 
-        // Initial load: apply default language and set up event listeners
+        // Carga inicial: aplicar idioma por defecto y configurar listeners de eventos
         document.addEventListener('DOMContentLoaded', () => {
             applyTranslations(currentLang);
 
-            // Add event listener for the mobile menu button
+            // Añadir listener de eventos para el botón del menú móvil
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             if (mobileMenuButton) {
                 mobileMenuButton.addEventListener('click', toggleMobileMenu);
             }
         });
 
+        // Listener de scroll para el banner CTA
         window.addEventListener('scroll', function () {
             const banner = document.getElementById('cta-banner');
-            // Show banner after scrolling 250px, but only if it's not already visible
+            // Mostrar el banner después de hacer scroll 250px, pero solo si no está ya visible
             if (window.scrollY > 250 && banner.classList.contains('hidden')) {
                 banner.classList.remove('hidden');
             } else if (window.scrollY <= 250 && !banner.classList.contains('hidden')) {
@@ -1822,13 +1803,24 @@
         // Funciones para abrir y cerrar pop-ups
         function openPopup(id) {
             document.getElementById(id).style.display = 'flex';
+            // Añadir efecto de destello si es necesario
+            const popupBox = document.getElementById(id).querySelector('.popup-box');
+            if (popupBox) {
+                popupBox.classList.remove('sparkle-effect');
+                void popupBox.offsetWidth; // Forzar el redibujado
+                popupBox.classList.add('sparkle-effect');
+            }
         }
 
         function closePopup(id) {
             document.getElementById(id).style.display = 'none';
+            // Eliminar efecto de destello al cerrar
+            const popupBox = document.getElementById(id).querySelector('.popup-box');
+            if (popupBox) {
+                popupBox.classList.remove('sparkle-effect');
+            }
         }
     </script>
 
 </body>
 </html>
-
