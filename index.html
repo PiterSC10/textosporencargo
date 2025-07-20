@@ -20,7 +20,7 @@
     <!-- OPEN GRAPH (para compartir en redes y WhatsApp) -->
     <meta property="og:title" content="YourDesignGPT · Tu Web Profesional en 72h" />
     <meta property="og:description" content="Diseño web completo por 495 €. Entrega rápida, dominio y correo incluidos. Pide la tuya en solo 2 minutos." />
-    <meta property="og:image" content="https://pitersc10.github.io/textosporencargo/og-yourdesigngpt-72h.png" />
+    <meta property="og:image" content="https://pitersc10.github.io/textosporencargo/og-yourdesigngpt-72h.jpg" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -262,6 +262,31 @@
                 transform: translate(-50%, -50%) scale(1.2);
             }
         }
+
+        /* Animaciones para el título y subtítulo del header */
+        .animate-fade-in-up-1 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .animate-fade-in-up-2 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards 0.5s; /* Delay for subtitle */
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -346,10 +371,10 @@
 
     <!-- Header Section -->
     <header id="inicio" class="header-gradient py-24 px-4 text-center rounded-b-xl shadow-lg">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in pt-4" data-key="headerTitle">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500 animate-fade-in-up-1 pt-4" data-key="headerTitle">
             El Diseño del Futuro, Impulsado por IA
         </h1>
-        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto" data-key="headerSubtitle">
+        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto animate-fade-in-up-2" data-key="headerSubtitle">
             Transformamos tus ideas en realidades visuales impactantes con la inteligencia artificial más avanzada.
         </p>
         <div class="mt-2">
@@ -584,23 +609,45 @@
     <div class="popup-overlay" id="privacy">
       <div class="popup-box">
         <span class="popup-close" onclick="closePopup('privacy')">×</span>
-        <h2 data-key="privacyPopupTitle">Política de Privacidad</h2>
-        <p><strong data-key="privacyPopupResponsible">Responsable del tratamiento:</strong> Pedro S.C.<br>
-        <strong data-key="privacyPopupEmail">Email de contacto:</strong> textosporencargo@gmail.com<br>
-        <strong data-key="privacyPopupWeb">Web:</strong> www.textosporencargo.com</p>
+        <h2 data-key="privacyPopupTitle"></h2>
+        <p data-key="privacyPopupLastUpdate"></p>
+        <p data-key="privacyPopupIntro"></p>
 
-        <p><strong data-key="privacyPopupPurposeTitle">1. Finalidad del tratamiento de datos</strong></p>
-        <p data-key="privacyPopupPurposeText">Recopilamos tus datos exclusivamente con el objetivo de poder prestarte el servicio solicitado (redacción de textos personalizados), realizar la facturación correspondiente y enviarte comunicaciones relacionadas con tu pedido.<br>No utilizamos tus datos con fines publicitarios ni los compartimos con terceros.</p>
-        <p><strong data-key="privacyPopupLegitimationTitle">2. Legitimación</strong></p>
-        <p data-key="privacyPopupLegitimationText">La base legal para el tratamiento de tus datos es el consentimiento explícito que otorgas al completar un formulario de contacto o al contratar un servicio en esta web.</p>
-        <p><strong data-key="privacyPopupConservationTitle">3. Conservación de datos</strong></p>
-        <p data-key="privacyPopupConservationText">Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legales, fiscales y contractuales, y nunca más allá de lo necesario para prestar el servicio.</p>
-        <p><strong data-key="privacyPopupRightsTitle">4. Derechos del usuario</strong></p>
-        <p data-key="privacyPopupRightsText">Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com<br>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.</p>
-        <p><strong data-key="privacyPopupSecurityTitle">5. Medidas de seguridad</strong></p>
-        <p data-key="privacyPopupSecurityText">Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.</p>
-        <p><strong data-key="privacyPopupCookiesTitle">6. Política de cookies</strong></p>
-        <p data-key="privacyPopupCookiesText">Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.</p>
+        <p><strong data-key="privacyPopupResponsibleTitle"></strong><br>
+        <span data-key="privacyPopupResponsibleName"></span><br>
+        <span data-key="privacyPopupResponsibleEmail"></span><br>
+        <span data-key="privacyPopupResponsibleWeb"></span><br>
+        <span data-key="privacyPopupResponsibleLocation"></span></p>
+
+        <p><strong data-key="privacyPopupDataCollectionTitle"></strong></p>
+        <p data-key="privacyPopupDataCollectionText"></p>
+        
+        <p><strong data-key="privacyPopupPurposeTitle"></strong></p>
+        <p data-key="privacyPopupPurposeText"></p>
+
+        <p><strong data-key="privacyPopupLegitimationTitle"></strong></p>
+        <p data-key="privacyPopupLegitimationText"></p>
+
+        <p><strong data-key="privacyPopupDataRecipientsTitle"></strong></p>
+        <p data-key="privacyPopupDataRecipientsText"></p>
+
+        <p><strong data-key="privacyPopupDataRetentionTitle"></strong></p>
+        <p data-key="privacyPopupDataRetentionText"></p>
+
+        <p><strong data-key="privacyPopupRightsTitle"></strong></p>
+        <p data-key="privacyPopupRightsText"></p>
+        
+        <p><strong data-key="privacyPopupCookiesTitle"></strong></p>
+        <p data-key="privacyPopupCookiesText"></p>
+
+        <p><strong data-key="privacyPopupExternalLinksTitle"></strong></p>
+        <p data-key="privacyPopupExternalLinksText"></p>
+
+        <p><strong data-key="privacyPopupModificationsTitle"></strong></p>
+        <p data-key="privacyPopupModificationsText"></p>
+
+        <p><strong data-key="privacyPopupAcceptanceTitle"></strong></p>
+        <p data-key="privacyPopupAcceptanceText"></p>
       </div>
     </div>
 
@@ -608,23 +655,51 @@
     <div class="popup-overlay" id="legal">
       <div class="popup-box">
         <span class="popup-close" onclick="closePopup('legal')">×</span>
-        <h2 data-key="legalPopupTitle">Aviso Legal</h2>
-        <p><strong data-key="legalPopupOwner">Titular del sitio web:</strong> Pedro S.C.<br>
-        <strong data-key="legalPopupEmail">Email:</strong> textosporencargo@gmail.com<br>
-        <strong data-key="legalPopupWeb">Web:</strong> www.textosporencargo.com</p>
+        <h2 data-key="legalPopupTitle"></h2>
+        <p data-key="legalPopupLastUpdate"></p>
+        <p data-key="legalPopupIntro"></p>
 
-        <p><strong data-key="legalPopupObjectTitle">1. Objeto y aceptación</strong></p>
-        <p data-key="legalPopupObjectText">El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.</p>
-        <p><strong data-key="legalPopupConditionsTitle">2. Condiciones de uso</strong></p>
-        <p data-key="legalPopupConditionsText">La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.</p>
-        <p><strong data-key="legalPopupIntellectualTitle">3. Propiedad intelectual e industrial</strong></p>
-        <p data-key="legalPopupIntellectualText">Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.<br>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.</p>
-        <p><strong data-key="legalPopupResponsibilityTitle">4. Responsabilidad</strong></p>
-        <p data-key="legalPopupResponsibilityText">No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.<br>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.</p>
-        <p><strong data-key="legalPopupExternalLinksTitle">5. Enlaces externos</strong></p>
-        <p data-key="legalPopupExternalLinksText">Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.</p>
-        <p><strong data-key="legalPopupLegislationTitle">6. Legislación aplicable y jurisdicción</strong></p>
-        <p data-key="legalPopupLegislationText">Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.</p>
+        <p><strong data-key="legalPopupInfoTitle"></strong><br>
+        <span data-key="legalPopupInfoName"></span><br>
+        <span data-key="legalPopupInfoOwner"></span><br>
+        <span data-key="legalPopupInfoAddress"></span><br>
+        <span data-key="legalPopupInfoEmail"></span><br>
+        <span data-key="legalPopupInfoWeb"></span></p>
+
+        <p><strong data-key="legalPopupObjectTitle"></strong></p>
+        <p data-key="legalPopupObjectText"></p>
+        
+        <p><strong data-key="legalPopupPaymentTitle"></strong></p>
+        <p data-key="legalPopupPaymentIntro"></p>
+        <p data-key="legalPopupPaymentStandardTitle"></p>
+        <p data-key="legalPopupPaymentStandardText"></p>
+        <p data-key="legalPopupPaymentLargeTitle"></p>
+        <p data-key="legalPopupPaymentLargeText"></p>
+        <p data-key="legalPopupPaymentFinalNote"></p>
+
+        <p><strong data-key="legalPopupIntellectualTitle"></strong></p>
+        <p data-key="legalPopupIntellectualText"></p>
+
+        <p><strong data-key="legalPopupExternalLinksTitle"></strong></p>
+        <p data-key="legalPopupExternalLinksText"></p>
+
+        <p><strong data-key="legalPopupDataProtectionTitle"></strong></p>
+        <p data-key="legalPopupDataProtectionText"></p>
+
+        <p><strong data-key="legalPopupResponsibilityTitle"></strong></p>
+        <p data-key="legalPopupResponsibilityText"></p>
+
+        <p><strong data-key="legalPopupUsageRulesTitle"></strong></p>
+        <p data-key="legalPopupUsageRulesText"></p>
+
+        <p><strong data-key="legalPopupBillingTitle"></strong></p>
+        <p data-key="legalPopupBillingText"></p>
+
+        <p><strong data-key="legalPopupLegislationTitle"></strong></p>
+        <p data-key="legalPopupLegislationText"></p>
+        
+        <p><strong data-key="legalPopupAcceptanceTitle"></strong></p>
+        <p data-key="legalPopupAcceptanceText"></p>
       </div>
     </div>
 
@@ -943,7 +1018,7 @@
                 faqA5: "Sí, selecciona “Otro” y describe lo que necesitas.",
                 faqQ6: "¿Cómo se realiza el pago?",
                 faqA6: "Te enviaremos un enlace de PayPal por email para completar el pago de forma segura.",
-                faqQ7: "¿Cuándo recibiré mi texto?",
+                faqQ7: "¿Cuándo recibiré mi texto? ",
                 faqA7: "En 24-72h tras el pago, salvo excepciones que se comunicarán.",
                 faqQ8: "¿Puedo pedir una modificación después de recibir el texto? ",
                 faqA8: "Sí, puedes solicitar ajustes menores por email.",
@@ -975,35 +1050,70 @@
                 ctaBannerText: "¿Tienes prisa? Pídelo en 2 minutos →",
                 ctaBannerButton: "Ir al Formulario",
 
-                privacyPopupTitle: "Política de Privacidad",
-                privacyPopupResponsible: "Responsable del tratamiento: Pedro S.C.<br>Email de contacto: textosporencargo@gmail.com<br>Web: www.textosporencargo.com",
-                privacyPopupPurposeTitle: "1. Finalidad del tratamiento de datos",
-                privacyPopupPurposeText: "Recopilamos tus datos exclusivamente con el objetivo de poder prestarte el servicio solicitado (redacción de textos personalizados), realizar la facturación correspondiente y enviarte comunicaciones relacionadas con tu pedido.<br>No utilizamos tus datos con fines publicitarios ni los compartimos con terceros.",
-                privacyPopupLegitimationTitle: "2. Legitimación",
-                privacyPopupLegitimationText: "La base legal para el tratamiento de tus datos es el consentimiento explícito que otorgas al completar un formulario de contacto o al contratar un servicio en esta web.",
-                privacyPopupConservationTitle: "3. Conservación de datos",
-                privacyPopupConservationText: "Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para cumplir con las obligaciones legales, fiscales y contractuales, y nunca más allá de lo necesario para prestar el servicio.",
-                privacyPopupRightsTitle: "4. Derechos del usuario",
-                privacyPopupRightsText: "Puedes ejercer en cualquier momento tus derechos de acceso, rectificación, cancelación, oposición, portabilidad y limitación del tratamiento enviando un correo electrónico a: textosporencargo@gmail.com<br>También tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos si consideras que se han vulnerado tus derechos.",
-                privacyPopupSecurityTitle: "5. Medidas de seguridad",
-                privacyPopupSecurityText: "Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.",
-                privacyPopupCookiesTitle: "6. Política de cookies",
-                privacyPopupCookiesText: "Este sitio web no utiliza cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
-                
-                legalPopupTitle: "Aviso Legal",
-                legalPopupOwner: "Titular del sitio web: Pedro S.C.<br>Email: textosporencargo@gmail.com<br>Web: www.textosporencargo.com",
-                legalPopupObjectTitle: "1. Objeto y aceptación",
-                legalPopupObjectText: "El presente aviso legal regula el uso del sitio web textosporencargo.com, titularidad de Pedro S.C. Al acceder a esta web, se entiende que el usuario acepta y se compromete a cumplir con las condiciones aquí expuestas.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.",
-                legalPopupConditionsTitle: "2. Condiciones de uso",
-                legalPopupConditionsText: "La web ofrece servicios de redacción de textos personalizados, como cartas, discursos, cuentos, reclamaciones, entre otros. El uso de la información contenida en esta página es responsabilidad exclusiva del usuario.<br>Está prohibida cualquier utilización con fines ilícitos o que infrinjan derechos o intereses de terceros.",
-                legalPopupIntellectualTitle: "3. Propiedad intelectual e industrial",
-                legalPopupIntellectualText: "Todos los contenidos del sitio web, incluyendo textos, imágenes, logos, diseño gráfico y código fuente, están protegidos por derechos de autor y propiedad intelectual.<br>Está prohibida la reproducción total o parcial sin el consentimiento expreso del titular.",
-                legalPopupResponsibilityTitle: "4. Responsabilidad",
-                legalPopupResponsibilityText: "No se garantiza la inexistencia de errores en los contenidos ni que estos estén actualizados de forma permanente, aunque se hará todo lo posible por mantenerlos actualizados.<br>El titular no se hace responsable del uso que los usuarios hagan de la información publicada ni de los daños directos o indirectos que puedan derivarse de su utilización.",
-                legalPopupExternalLinksTitle: "5. Enlaces externos",
-                legalPopupExternalLinksText: "Este sitio web puede contener enlaces a páginas externas. El titular no se hace responsable de los contenidos de dichos sitios, ni de las políticas de privacidad o condiciones de uso que puedan aplicar.",
-                legalPopupLegislationTitle: "6. Legislación aplicable y jurisdicción",
-                legalPopupLegislationText: "Este sitio web se rige por la legislación española. Para la resolución de cualquier conflicto que pudiera surgir del acceso o uso del sitio web, ambas partes se someten a los Juzgados y Tribunales de Málaga.",
+                // New and updated Privacy Policy translations
+                privacyPopupTitle: "🛡️ Política de Privacidad – YourDesignGPT",
+                privacyPopupLastUpdate: "Última actualización: 20 de julio de 2025",
+                privacyPopupIntro: "En cumplimiento del Reglamento (UE) 2016/679 (RGPD), la Ley Orgánica 3/2018 de Protección de Datos (LOPDGDD) y demás normativa vigente, te informamos de forma clara y detallada sobre cómo tratamos tus datos personales en esta web.",
+                privacyPopupResponsibleTitle: "1. 📌 Responsable del tratamiento",
+                privacyPopupResponsibleName: "Nombre comercial: YourDesignGPT<br>Titular: Pedro Soriano Calderón",
+                privacyPopupResponsibleEmail: "Email de contacto: contacto@yourdesigngpt.com",
+                privacyPopupResponsibleWeb: "Web: https://www.yourdesigngpt.com",
+                privacyPopupResponsibleLocation: "Ubicación: Málaga, España",
+                privacyPopupDataCollectionTitle: "2. 📥 Qué datos recopilamos",
+                privacyPopupDataCollectionText: "A través de nuestros formularios y comunicaciones podrás proporcionarnos los siguientes datos:<br><br>Nombre y apellidos<br>Correo electrónico<br>Contenido del proyecto solicitado<br>Datos para la facturación (si aplica)<br>Método y confirmación de pago (a través de PayPal u otro gateway)<br>Datos técnicos como IP, navegador, cookies y otros identificadores",
+                privacyPopupPurposeTitle: "3. 🎯 Finalidad del tratamiento",
+                privacyPopupPurposeText: "Utilizamos tus datos para:<br><br>Gestionar y entregar los servicios de diseño web, redacción y otros encargos personalizados<br>Enviar comunicaciones relacionadas con tu pedido<br>Emitir facturas si corresponde<br>Ofrecer soporte y resolver incidencias<br>Cumplir con nuestras obligaciones legales<br>Mejorar la experiencia del usuario en la web (cookies analíticas, si son aceptadas)",
+                privacyPopupLegitimationTitle: "4. 🔒 Legitimación del tratamiento",
+                privacyPopupLegitimationText: "La base legal que nos permite tratar tus datos es:<br><br>Tu consentimiento explícito, al rellenar los formularios o contactar por correo<br>La ejecución de un contrato, al solicitar nuestros servicios<br>El cumplimiento de obligaciones legales, especialmente fiscales y contables<br>El interés legítimo de mejorar la calidad del servicio y prevenir abusos",
+                privacyPopupDataRecipientsTitle: "5. 📤 Destinatarios de los datos",
+                privacyPopupDataRecipientsText: "Tus datos no serán vendidos ni cedidos a terceros, salvo en los siguientes casos necesarios:<br><br>Proveedores de hosting y correo profesional, que garantizan cumplimiento con el RGPD<br>Plataformas de pago como PayPal, que operan como encargados del tratamiento externo<br>Google (para formularios y servicios analíticos)<br>Administración pública, cuando sea obligatorio por normativa fiscal u otra exigencia legal<br>Todos los proveedores y plataformas utilizadas cuentan con medidas de protección de datos acordes al Reglamento Europeo.",
+                privacyPopupDataRetentionTitle: "6. ⏳ Plazo de conservación",
+                privacyPopupDataRetentionText: "Tus datos se conservarán:<br><br>Mientras exista relación comercial o contractual<br>Hasta que nos solicites su eliminación<br>Por los plazos establecidos por ley (por ejemplo, 6 años para datos contables)",
+                privacyPopupRightsTitle: "7. 👤 Derechos del usuario",
+                privacyPopupRightsText: "Puedes ejercer gratuitamente tus derechos enviando un email a contacto@yourdesigngpt.com. Tienes derecho a:<br><br>Acceder a tus datos personales<br>Rectificar datos inexactos<br>Solicitar su supresión<br>Limitar el tratamiento<br>Oponerte al tratamiento<br>Solicitar la portabilidad a otro proveedor<br>Retirar tu consentimiento en cualquier momento<br>Si consideras que se han vulnerado tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos: www.aepd.es",
+                privacyPopupCookiesTitle: "8. 🍪 Política de cookies",
+                privacyPopupCookiesText: "Esta web puede utilizar cookies técnicas y analíticas propias o de terceros para mejorar tu experiencia de navegación. No se emplean cookies publicitarias sin tu consentimiento. Puedes consultar más detalles en nuestra Política de Cookies.",
+                privacyPopupExternalLinksTitle: "9. 🌐 Enlaces externos",
+                privacyPopupExternalLinksText: "Esta web puede contener enlaces a plataformas externas (como Instagram o YouTube). No somos responsables de sus políticas de privacidad ni del tratamiento que realicen fuera de nuestra plataforma.",
+                privacyPopupModificationsTitle: "10. 🔄 Modificaciones de esta política",
+                privacyPopupModificationsText: "Esta política puede actualizarse en cualquier momento para adaptarse a cambios legales o técnicos. Te recomendamos revisarla periódicamente. Cualquier cambio significativo será notificado en la web.",
+                privacyPopupAcceptanceTitle: "✅ Aceptación de la política",
+                privacyPopupAcceptanceText: "El uso de esta web implica la lectura y aceptación expresa de esta Política de Privacidad. Si no estás de acuerdo, por favor, no utilices nuestros formularios ni nos proporciones tus datos personales.",
+
+                // New and updated Legal Notice translations
+                legalPopupTitle: "⚖️ Aviso Legal – YourDesignGPT",
+                legalPopupLastUpdate: "Última actualización: 20 de julio de 2025",
+                legalPopupIntro: "En cumplimiento de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSICE), este documento regula el uso del sitio web https://www.yourdesigngpt.com, del que es titular Pedro Soriano Calderón (en adelante, “el titular”).<br>El acceso, navegación y uso de este sitio web implica la aceptación expresa de las condiciones recogidas en el presente Aviso Legal.",
+                legalPopupInfoTitle: "1. 🧾 Información del titular",
+                legalPopupInfoName: "Nombre comercial: YourDesignGPT",
+                legalPopupInfoOwner: "Titular: Pedro Soriano Calderón",
+                legalPopupInfoAddress: "Domicilio: Málaga, España",
+                legalPopupInfoEmail: "Email de contacto: contacto@yourdesigngpt.com",
+                legalPopupInfoWeb: "Web oficial: https://www.yourdesigngpt.com",
+                legalPopupObjectTitle: "2. 📌 Objeto del sitio web",
+                legalPopupObjectText: "Este sitio tiene como finalidad ofrecer servicios personalizados de:<br><br>Diseño web profesional<br>Redacción creativa y técnica<br>Cartas, discursos, mini libros y otros textos por encargo<br>Productos creativos digitales<br>A través del sitio, el usuario puede informarse sobre los servicios ofrecidos, realizar solicitudes mediante formularios y contactar con el titular.",
+                legalPopupPaymentTitle: "3. 💳 Formas de pago y condiciones",
+                legalPopupPaymentIntro: "Todos los encargos se gestionan a través de pago anticipado mediante PayPal, una plataforma de pago segura que permite al cliente pagar con tarjeta sin necesidad de tener cuenta.",
+                legalPopupPaymentStandardTitle: "💸 Condiciones según el tipo de servicio:",
+                legalPopupPaymentStandardText: "Encargos estándar (cartas, textos, discursos, etc.):<br><br>Se abonará el 100 % del importe al confirmar el pedido.<br><br>No se inicia ningún trabajo sin haber recibido el pago.",
+                legalPopupPaymentLargeTitle: "Encargos de mayor envergadura, como páginas web o mini libros personalizados:",
+                legalPopupPaymentLargeText: "Se abonará un 50 % por adelantado para comenzar el proyecto.<br><br>El 50 % restante se abona al entregar el proyecto completo.<br>Una vez confirmado el pago, el encargo se procesa en el plazo acordado. No se entregan versiones completas sin abono del total.",
+                legalPopupIntellectualTitle: "4. 🖋️ Propiedad intelectual e industrial",
+                legalPopupIntellectualText: "Todos los textos, diseños, logotipos, imágenes, vídeos, código fuente y demás contenido de esta web son propiedad exclusiva del titular, o dispone de licencias para su uso.<br>Queda prohibida su reproducción, distribución, transformación o comunicación pública sin autorización expresa. Cualquier uso no autorizado puede ser considerado infracción legal.",
+                legalPopupExternalLinksTitle: "5. 🌐 Enlaces externos",
+                legalPopupExternalLinksText: "Este sitio web puede contener enlaces a sitios de terceros (Instagram, YouTube, PayPal, etc.). El titular no se responsabiliza del contenido, políticas o prácticas de privacidad de dichas plataformas externas.",
+                legalPopupDataProtectionTitle: "6. 🔐 Protección de datos",
+                legalPopupDataProtectionText: "El uso de este sitio implica el tratamiento de datos personales, regulado en la correspondiente Política de Privacidad, donde se detalla cómo se recogen, procesan y protegen los datos facilitados por el usuario.",
+                legalPopupResponsibilityTitle: "7. 🚫 Limitación de responsabilidad",
+                legalPopupResponsibilityText: "El titular no garantiza la continuidad del acceso a la web ni la ausencia de errores. No se responsabiliza de:<br><br>Daños derivados del uso indebido del sitio o sus contenidos<br>Errores de terceros (plataformas de pago, formularios, etc.)<br>Caídas técnicas ajenas al control del titular<br>No obstante, se aplican medidas de seguridad razonables para garantizar el correcto funcionamiento del sitio.",
+                legalPopupUsageRulesTitle: "8. 🛠️ Normas de uso",
+                legalPopupUsageRulesText: "El usuario se compromete a:<br><br>No utilizar el sitio con fines fraudulentos, ofensivos o ilegales<br>No dañar los sistemas o interferir en su correcto funcionamiento<br>No suplantar identidades ni falsear información<br>No usar bots o herramientas automáticas sin consentimiento<br>El titular se reserva el derecho a restringir o cancelar el acceso a cualquier usuario que incumpla estas normas.",
+                legalPopupBillingTitle: "9. 🧾 Facturación y comprobantes",
+                legalPopupBillingText: "Si el usuario desea factura o justificante fiscal del servicio adquirido, podrá solicitarlo expresamente por correo. Se emitirán conforme a la normativa española vigente.",
+                legalPopupLegislationTitle: "10. ⚖️ Legislación aplicable y jurisdicción",
+                legalPopupLegislationText: "La relación entre el titular y los usuarios se regirá por la legislación española. Para la resolución de conflictos, ambas partes se someten a los Juzgados y Tribunales de Málaga, renunciando a cualquier otro fuero.",
+                legalPopupAcceptanceTitle: "✅ Aceptación",
+                legalPopupAcceptanceText: "El uso de esta web implica la aceptación de este Aviso Legal. Si el usuario no está de acuerdo con alguna de sus condiciones, debe abstenerse de utilizar los servicios ofrecidos.",
                 closeButton: "Cerrar"
             },
             en: {
@@ -1209,35 +1319,70 @@
                 ctaBannerText: "In a hurry? Order in 2 minutes →",
                 ctaBannerButton: "Go to Form",
 
-                privacyPopupTitle: "Privacy Policy",
-                privacyPopupResponsible: "Data controller: Pedro S.C.<br>Contact email: textosporencargo@gmail.com<br>Website: www.textosporencargo.com",
-                privacyPopupPurposeTitle: "1. Purpose of data processing",
-                privacyPopupPurposeText: "We collect your data exclusively in order to provide you with the requested service (writing personalized texts), carry out the corresponding invoicing and send you communications related to your order.<br>We do not use your data for advertising purposes or share it with third parties.",
-                privacyPopupLegitimationTitle: "2. Legitimation",
-                privacyPopupLegitimationText: "The legal basis for the processing of your data is the explicit consent you grant by completing a contact form or by contracting a service on this website.",
-                privacyPopupConservationTitle: "3. Data retention",
-                privacyPopupConservationText: "The personal data provided will be kept for the time strictly necessary to comply with the obligations legal, fiscal and contractual, and never more beyond what is necessary to provide the service.",
-                privacyPopupRightsTitle: "4. User rights",
-                privacyPopupRightsText: "You can exercise your rights of access, rectification, cancellation, opposition, portability and limitation of processing at any time by sending an email to: textosporencargo@gmail.com<br>You also have the right to file a complaint with the Spanish Data Protection Agency if you consider that your rights have been violated.",
-                privacyPopupSecurityTitle: "5. Medidas de seguridad",
-                privacyPopupSecurityText: "Adoptamos las medidas de seguridad técnicas y organizativas adecuadas para garantizar la confidencialidad, integridad y disponibilidad de tu información personal.",
-                privacyPopupCookiesTitle: "6. Cookie Policy",
-                privacyPopupCookiesText: "This website does not use cookies de terceros ni tecnologías de seguimiento. Se trata de una web estática e informativa. En caso de incluir cookies en el futuro, se informará y solicitará consentimiento conforme a la normativa vigente.",
+                // New and updated Privacy Policy translations
+                privacyPopupTitle: "🛡️ Privacy Policy – YourDesignGPT",
+                privacyPopupLastUpdate: "Last updated: July 20, 2025",
+                privacyPopupIntro: "In compliance with Regulation (EU) 2016/679 (GDPR), Organic Law 3/2018 on Data Protection (LOPDGDD) and other current regulations, we inform you clearly and in detail about how we process your personal data on this website.",
+                privacyPopupResponsibleTitle: "1. 📌 Data Controller",
+                privacyPopupResponsibleName: "Trade name: YourDesignGPT<br>Owner: Pedro Soriano Calderón",
+                privacyPopupResponsibleEmail: "Contact email: contacto@yourdesigngpt.com",
+                privacyPopupResponsibleWeb: "Web: https://www.yourdesigngpt.com",
+                privacyPopupResponsibleLocation: "Location: Málaga, Spain",
+                privacyPopupDataCollectionTitle: "2. 📥 What data we collect",
+                privacyPopupDataCollectionText: "Through our forms and communications you can provide us with the following data:<br><br>Name and surname<br>Email address<br>Content of the requested project<br>Billing data (if applicable)<br>Payment method and confirmation (via PayPal or other gateway)<br>Data technical such as IP, browser, cookies and other identifiers",
+                privacyPopupPurposeTitle: "3. 🎯 Purpose of processing",
+                privacyPopupPurposeText: "We use your data to:<br><br>Manage and deliver web design, writing and other personalized services<br>Send communications related to your order<br>Issue invoices if applicable<br>Offer support and resolve incidents<br>Comply with our legal obligations<br>Improve user experience on the web (analytical cookies, if accepted)",
+                privacyPopupLegitimationTitle: "4. 🔒 Legitimation of processing",
+                privacyPopupLegitimationText: "The legal basis that allows us to process your data is:<br><br>Your explicit consent, by filling out the forms or contacting by email<br>The execution of a contract, by requesting our services<br>Compliance with legal obligations, especially tax and accounting<br>The legitimate interest of improving service quality and preventing abuse",
+                privacyPopupDataRecipientsTitle: "5. 📤 Data Recipients",
+                privacyPopupDataRecipientsText: "Your data will not be sold or transferred to third parties, except in the following necessary cases:<br><br>Hosting and professional email providers, who guarantee compliance with the GDPR<br>Payment platforms such as PayPal, which operate as external data processors<br>Google (for forms and analytical services)<br>Public administration, when mandatory by tax regulations or other legal requirements<br>All providers and platforms used have data protection measures in accordance with the European Regulation.",
+                privacyPopupDataRetentionTitle: "6. ⏳ Retention period",
+                privacyPopupDataRetentionText: "Your data will be kept:<br><br>While there is a commercial or contractual relationship<br>Until you request its deletion<br>For the periods established by law (for example, 6 years for accounting data)",
+                privacyPopupRightsTitle: "7. 👤 User Rights",
+                privacyPopupRightsText: "You can exercise your rights free of charge by sending an email to contacto@yourdesigngpt.com. You have the right to:<br><br>Access your personal data<br>Rectify inaccurate data<br>Request its deletion<br>Limit processing<br>Object to processing<br>Request portability to another provider<br>Withdraw your consent at any time<br>If you consider that your rights have been violated, you can file a complaint with the Spanish Data Protection Agency: www.aepd.es",
+                privacyPopupCookiesTitle: "8. 🍪 Cookie Policy",
+                privacyPopupCookiesText: "This website may use technical and analytical cookies, both first-party and third-party, to improve your browsing experience. Advertising cookies are not used without your consent. You can consult more details in our Cookie Policy.",
+                privacyPopupExternalLinksTitle: "9. 🌐 External links",
+                privacyPopupExternalLinksText: "This website may contain links to external platforms (such as Instagram or YouTube). We are not responsible for their privacy policies or the processing they carry out outside our platform.",
+                privacyPopupModificationsTitle: "10. 🔄 Modifications to this policy",
+                privacyPopupModificationsText: "This policy may be updated at any time to adapt to legal or technical changes. We recommend you review it periodically. Any significant changes will be notified on the website.",
+                privacyPopupAcceptanceTitle: "✅ Acceptance of the policy",
+                privacyPopupAcceptanceText: "The use of this website implies the reading and express acceptance of this Privacy Policy. If you do not agree, please do not use our forms or provide us with your personal data.",
                 
-                legalPopupTitle: "Aviso Legal",
-                legalPopupOwner: "Website owner: Pedro S.C.<br>Email: textosporencargo@gmail.com<br>Website: www.textosporencargo.com",
-                legalPopupObjectTitle: "1. Purpose and acceptance",
-                legalPopupObjectText: "This legal notice regulates the use of the website textosporencargo.com, owned by Pedro S.C. By accessing this website, it is understood that the user accepts and undertakes to comply with the conditions set forth herein.<br>Any use for illicit purposes or that infringes on the rights or interests of third parties is prohibited.",
-                legalPopupConditionsTitle: "2. Terms of use",
-                legalPopupConditionsText: "The website offers personalized text writing services, such as letters, speeches, stories, complaints, among others. The use of the information contained in this page is the sole responsibility of the user.<br>Any use for illicit purposes or that infringes on the rights or interests of third parties is prohibited.",
-                legalPopupIntellectualTitle: "3. Intellectual and industrial property",
-                legalPopupIntellectualText: "All content on the website, including texts, images, logos, graphic design and source code, are protected by copyright and intellectual property rights.<br>Total or partial reproduction is prohibited without the express consent of the owner.",
-                legalPopupResponsibilityTitle: "4. Responsibility",
-                legalPopupResponsibilityText: "The absence of errors in the contents is not guaranteed, nor that they are permanently updated, although every effort will be made to keep them updated.<br>The owner is not responsible for the use that users make of the published information or for direct or indirect damages that may arise from its use.",
-                legalPopupExternalLinksTitle: "5. External links",
-                legalPopupExternalLinksText: "This website may contain links to external pages. The owner is not responsible for the content of said sites, nor for the privacy policies or terms of use that may apply.",
-                legalPopupLegislationTitle: "6. Applicable legislation and jurisdiction",
-                legalPopupLegislationText: "This website is governed by Spanish law. For the resolution of any conflict that might arise from the access or use of the website, both parties submit to the Courts and Tribunals of Málaga.",
+                // New and updated Legal Notice translations
+                legalPopupTitle: "⚖️ Legal Notice – YourDesignGPT",
+                legalPopupLastUpdate: "Last updated: July 20, 2025",
+                legalPopupIntro: "In compliance with the provisions of Law 34/2002, of July 11, on information society services and electronic commerce (LSSICE), this document regulates the use of the website https://www.yourdesigngpt.com, owned by Pedro Soriano Calderón (hereinafter, “the owner”).<br>Access, browsing and use of this website implies express acceptance of the conditions contained in this Legal Notice.",
+                legalPopupInfoTitle: "1. 🧾 Owner information",
+                legalPopupInfoName: "Trade name: YourDesignGPT",
+                legalPopupInfoOwner: "Owner: Pedro Soriano Calderón",
+                legalPopupInfoAddress: "Address: Málaga, Spain",
+                legalPopupInfoEmail: "Contact email: contacto@yourdesigngpt.com",
+                legalPopupInfoWeb: "Official website: https://www.yourdesigngpt.com",
+                legalPopupObjectTitle: "2. 📌 Website purpose",
+                legalPopupObjectText: "This site aims to offer personalized services of:<br><br>Professional web design<br>Creative and technical writing<br>Letters, speeches, mini books and other texts on demand<br>Digital creative products<br>Through the site, the user can find out about the services offered, make requests through forms and contact the owner.",
+                legalPopupPaymentTitle: "3. 💳 Payment methods and conditions",
+                legalPopupPaymentIntro: "All orders are managed through advance payment via PayPal, a secure payment platform that allows the client to pay by card without needing an account.",
+                legalPopupPaymentStandardTitle: "💸 Conditions according to the type of service:",
+                legalPopupPaymentStandardText: "Standard orders (letters, texts, speeches, etc.):<br><br>100% of the amount will be paid upon order confirmation.<br><br>No work begins without having received payment.",
+                legalPopupPaymentLargeTitle: "Larger orders, such as websites or personalized mini books:",
+                legalPopupPaymentLargeText: "50% will be paid in advance to start the project.<br><br>The remaining 50% is paid upon delivery of the complete project.<br>Once payment is confirmed, the order is processed within the agreed period. Complete versions are not delivered without full payment.",
+                legalPopupIntellectualTitle: "4. 🖋️ Intellectual and industrial property",
+                legalPopupIntellectualText: "All texts, designs, logos, images, videos, source code and other content on this website are the exclusive property of the owner, or they have licenses for their use.<br>Their reproduction, distribution, transformation or public communication is prohibited without express authorization. Any unauthorized use may be considered a legal infringement.",
+                legalPopupExternalLinksTitle: "5. 🌐 External links",
+                legalPopupExternalLinksText: "This website may contain links to third-party sites (Instagram, YouTube, PayPal, etc.). The owner is not responsible for the content, policies or privacy practices of these external platforms.",
+                legalPopupDataProtectionTitle: "6. 🔐 Data protection",
+                legalPopupDataProtectionText: "The use of this site implies the processing of personal data, regulated in the corresponding Privacy Policy, which details how the data provided by the user is collected, processed and protected.",
+                legalPopupResponsibilityTitle: "7. 🚫 Limitation of liability",
+                legalPopupResponsibilityText: "The owner does not guarantee continuous access to the website or the absence of errors. They are not responsible for:<br><br>Damages derived from the improper use of the site or its contents<br>Third-party errors (payment platforms, forms, etc.)<br>Technical failures beyond the owner's control<br>However, reasonable security measures are applied to guarantee the correct functioning of the site.",
+                legalPopupUsageRulesTitle: "8. 🛠️ Usage rules",
+                legalPopupUsageRulesText: "The user agrees to:<br><br>Not use the site for fraudulent, offensive or illegal purposes<br>Not damage systems or interfere with their proper functioning<br>Not impersonate identities or falsify information<br>Not use bots or automatic tools without consent<br>The owner reserves the right to restrict or cancel access to any user who violates these rules.",
+                legalPopupBillingTitle: "9. 🧾 Billing and receipts",
+                legalPopupBillingText: "If the user wishes an invoice or tax receipt for the acquired service, they may expressly request it by email. They will be issued in accordance with current Spanish regulations.",
+                legalPopupLegislationTitle: "10. ⚖️ Applicable legislation and jurisdiction",
+                legalPopupLegislationText: "The relationship between the owner and the users will be governed by Spanish law. For the resolution of any conflict that may arise from accessing or using the website, both parties submit to the Courts and Tribunals of Málaga, waiving any other jurisdiction.",
+                legalPopupAcceptanceTitle: "✅ Acceptance",
+                legalPopupAcceptanceText: "The use of this website implies acceptance of this Legal Notice. If the user does not agree with any of its conditions, they must refrain from using the services offered.",
                 closeButton: "Close"
             }
         };
@@ -1546,6 +1691,100 @@
 
             // Re-render service cards for the new language
             renderServiceCards(lang);
+
+            // Update privacy policy content dynamically as it's now more structured
+            const privacyPopup = document.getElementById('privacy');
+            if (privacyPopup) {
+                privacyPopup.querySelector('[data-key="privacyPopupTitle"]').innerHTML = currentTranslations.privacyPopupTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupLastUpdate"]').innerHTML = currentTranslations.privacyPopupLastUpdate;
+                privacyPopup.querySelector('[data-key="privacyPopupIntro"]').innerHTML = currentTranslations.privacyPopupIntro;
+                
+                privacyPopup.querySelector('[data-key="privacyPopupResponsibleTitle"]').innerHTML = currentTranslations.privacyPopupResponsibleTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupResponsibleName"]').innerHTML = currentTranslations.privacyPopupResponsibleName;
+                privacyPopup.querySelector('[data-key="privacyPopupResponsibleEmail"]').innerHTML = currentTranslations.privacyPopupResponsibleEmail;
+                privacyPopup.querySelector('[data-key="privacyPopupResponsibleWeb"]').innerHTML = currentTranslations.privacyPopupResponsibleWeb;
+                privacyPopup.querySelector('[data-key="privacyPopupResponsibleLocation"]').innerHTML = currentTranslations.privacyPopupResponsibleLocation;
+
+                privacyPopup.querySelector('[data-key="privacyPopupDataCollectionTitle"]').innerHTML = currentTranslations.privacyPopupDataCollectionTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupDataCollectionText"]').innerHTML = currentTranslations.privacyPopupDataCollectionText;
+                
+                privacyPopup.querySelector('[data-key="privacyPopupPurposeTitle"]').innerHTML = currentTranslations.privacyPopupPurposeTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupPurposeText"]').innerHTML = currentTranslations.privacyPopupPurposeText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupLegitimationTitle"]').innerHTML = currentTranslations.privacyPopupLegitimationTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupLegitimationText"]').innerHTML = currentTranslations.privacyPopupLegitimationText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupDataRecipientsTitle"]').innerHTML = currentTranslations.privacyPopupDataRecipientsTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupDataRecipientsText"]').innerHTML = currentTranslations.privacyPopupDataRecipientsText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupDataRetentionTitle"]').innerHTML = currentTranslations.privacyPopupDataRetentionTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupDataRetentionText"]').innerHTML = currentTranslations.privacyPopupDataRetentionText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupRightsTitle"]').innerHTML = currentTranslations.privacyPopupRightsTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupRightsText"]').innerHTML = currentTranslations.privacyPopupRightsText;
+                
+                privacyPopup.querySelector('[data-key="privacyPopupCookiesTitle"]').innerHTML = currentTranslations.privacyPopupCookiesTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupCookiesText"]').innerHTML = currentTranslations.privacyPopupCookiesText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupExternalLinksTitle"]').innerHTML = currentTranslations.privacyPopupExternalLinksTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupExternalLinksText"]').innerHTML = currentTranslations.privacyPopupExternalLinksText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupModificationsTitle"]').innerHTML = currentTranslations.privacyPopupModificationsTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupModificationsText"]').innerHTML = currentTranslations.privacyPopupModificationsText;
+
+                privacyPopup.querySelector('[data-key="privacyPopupAcceptanceTitle"]').innerHTML = currentTranslations.privacyPopupAcceptanceTitle;
+                privacyPopup.querySelector('[data-key="privacyPopupAcceptanceText"]').innerHTML = currentTranslations.privacyPopupAcceptanceText;
+            }
+
+            // Update legal notice content dynamically
+            const legalPopup = document.getElementById('legal');
+            if (legalPopup) {
+                legalPopup.querySelector('[data-key="legalPopupTitle"]').innerHTML = currentTranslations.legalPopupTitle;
+                legalPopup.querySelector('[data-key="legalPopupLastUpdate"]').innerHTML = currentTranslations.legalPopupLastUpdate;
+                legalPopup.querySelector('[data-key="legalPopupIntro"]').innerHTML = currentTranslations.legalPopupIntro;
+
+                legalPopup.querySelector('[data-key="legalPopupInfoTitle"]').innerHTML = currentTranslations.legalPopupInfoTitle;
+                legalPopup.querySelector('[data-key="legalPopupInfoName"]').innerHTML = currentTranslations.legalPopupInfoName;
+                legalPopup.querySelector('[data-key="legalPopupInfoOwner"]').innerHTML = currentTranslations.legalPopupInfoOwner;
+                legalPopup.querySelector('[data-key="legalPopupInfoAddress"]').innerHTML = currentTranslations.legalPopupInfoAddress;
+                legalPopup.querySelector('[data-key="legalPopupInfoEmail"]').innerHTML = currentTranslations.legalPopupInfoEmail;
+                legalPopup.querySelector('[data-key="legalPopupInfoWeb"]').innerHTML = currentTranslations.legalPopupInfoWeb;
+
+                legalPopup.querySelector('[data-key="legalPopupObjectTitle"]').innerHTML = currentTranslations.legalPopupObjectTitle;
+                legalPopup.querySelector('[data-key="legalPopupObjectText"]').innerHTML = currentTranslations.legalPopupObjectText;
+                
+                legalPopup.querySelector('[data-key="legalPopupPaymentTitle"]').innerHTML = currentTranslations.legalPopupPaymentTitle;
+                legalPopup.querySelector('[data-key="legalPopupPaymentIntro"]').innerHTML = currentTranslations.legalPopupPaymentIntro;
+                legalPopup.querySelector('[data-key="legalPopupPaymentStandardTitle"]').innerHTML = currentTranslations.legalPopupPaymentStandardTitle;
+                legalPopup.querySelector('[data-key="legalPopupPaymentStandardText"]').innerHTML = currentTranslations.legalPopupPaymentStandardText;
+                legalPopup.querySelector('[data-key="legalPopupPaymentLargeTitle"]').innerHTML = currentTranslations.legalPopupPaymentLargeTitle;
+                legalPopup.querySelector('[data-key="legalPopupPaymentLargeText"]').innerHTML = currentTranslations.legalPopupPaymentLargeText;
+                legalPopup.querySelector('[data-key="legalPopupPaymentFinalNote"]').innerHTML = currentTranslations.legalPopupPaymentFinalNote;
+
+                legalPopup.querySelector('[data-key="legalPopupIntellectualTitle"]').innerHTML = currentTranslations.legalPopupIntellectualTitle;
+                legalPopup.querySelector('[data-key="legalPopupIntellectualText"]').innerHTML = currentTranslations.legalPopupIntellectualText;
+
+                legalPopup.querySelector('[data-key="legalPopupExternalLinksTitle"]').innerHTML = currentTranslations.legalPopupExternalLinksTitle;
+                legalPopup.querySelector('[data-key="legalPopupExternalLinksText"]').innerHTML = currentTranslations.legalPopupExternalLinksText;
+
+                legalPopup.querySelector('[data-key="legalPopupDataProtectionTitle"]').innerHTML = currentTranslations.legalPopupDataProtectionTitle;
+                legalPopup.querySelector('[data-key="legalPopupDataProtectionText"]').innerHTML = currentTranslations.legalPopupDataProtectionText;
+
+                legalPopup.querySelector('[data-key="legalPopupResponsibilityTitle"]').innerHTML = currentTranslations.legalPopupResponsibilityTitle;
+                legalPopup.querySelector('[data-key="legalPopupResponsibilityText"]').innerHTML = currentTranslations.legalPopupResponsibilityText;
+
+                legalPopup.querySelector('[data-key="legalPopupUsageRulesTitle"]').innerHTML = currentTranslations.legalPopupUsageRulesTitle;
+                legalPopup.querySelector('[data-key="legalPopupUsageRulesText"]').innerHTML = currentTranslations.legalPopupUsageRulesText;
+
+                legalPopup.querySelector('[data-key="legalPopupBillingTitle"]').innerHTML = currentTranslations.legalPopupBillingTitle;
+                legalPopup.querySelector('[data-key="legalPopupBillingText"]').innerHTML = currentTranslations.legalPopupBillingText;
+
+                legalPopup.querySelector('[data-key="legalPopupLegislationTitle"]').innerHTML = currentTranslations.legalPopupLegislationTitle;
+                legalPopup.querySelector('[data-key="legalPopupLegislationText"]').innerHTML = currentTranslations.legalPopupLegislationText;
+                
+                legalPopup.querySelector('[data-key="legalPopupAcceptanceTitle"]').innerHTML = currentTranslations.legalPopupAcceptanceTitle;
+                legalPopup.querySelector('[data-key="legalPopupAcceptanceText"]').innerHTML = currentTranslations.legalPopupAcceptanceText;
+            }
         }
 
         function switchLanguage(lang) {
@@ -1592,3 +1831,4 @@
 
 </body>
 </html>
+
