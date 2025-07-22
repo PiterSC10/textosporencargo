@@ -303,6 +303,100 @@
             }
             
         }
+
+        /* ✅ ESTILOS CHATBOX INTERACTIVO */
+        #chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50%;
+            font-size: 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 9999;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #chatbot-box {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 360px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 9998;
+            overflow-y: auto;
+            max-height: 80vh;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chatbot-box header {
+            background: #1e40af;
+            color: white;
+            padding: 12px 16px;
+            font-weight: bold;
+            font-size: 16px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        #chat-messages {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+            font-size: 15px;
+            color: #333;
+        }
+
+        #chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        #chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #chat-input button {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-bottom-right-radius: 16px;
+        }
+
+        .msg-user, .msg-bot {
+            margin-bottom: 12px;
+        }
+
+        .msg-user {
+            text-align: right;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .msg-bot {
+            text-align: left;
+            color: #333;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -676,7 +770,7 @@
 
     <!-- Pie de Página -->
     <footer class="bg-gray-950 py-8 pb-24 px-4 text-center text-gray-500 rounded-t-xl shadow-inner mt-16">
-        <p data-key="footerCopyright">&copy; 2025 Pedro SC · YourDesignGPT. Todos los derechos reservados.</p>
+        <p data-key="footerCopyright">&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.</p>
         <p class="text-sm mt-2" data-key="footerDesign"></p> <!-- El contenido se mueve a JS para traducción -->
         <!-- Iconos de Redes Sociales -->
         <div class="flex space-x-4 justify-center mt-6">
@@ -747,7 +841,7 @@
         <p><strong data-key="privacyPopupModificationsTitle"></strong></p>
         <p data-key="privacyPopupModificationsText"></p>
 
-        <p><strong data-key="privacyPopupAcceptanceTitle"></strong></p>
+        <p><strong data-key="privacyPopupAcceptanceTitle"></b></p>
         <p data-key="privacyPopupAcceptanceText"></p>
       </div>
     </div>
@@ -772,9 +866,9 @@
         
         <p><strong data-key="legalPopupPaymentTitle"></strong></p>
         <p data-key="legalPopupPaymentIntro"></p>
-        <p data-key="legalPopupPaymentStandardTitle"></p>
+        <p data-key="legalPopupPaymentStandardTitle">></p>
         <p data-key="legalPopupPaymentStandardText"></p>
-        <p data-key="legalPopupPaymentLargeTitle"></p>
+        <p data-key="legalPopupPaymentLargeTitle">></p>
         <p data-key="legalPopupPaymentLargeText"></p>
         <p data-key="legalPopupPaymentFinalNote"></p>
 
@@ -1214,276 +1308,7 @@
                 legalPopupLegislationTitle: "10. ⚖️ Legislación aplicable y jurisdicción",
                 legalPopupLegislationText: "La relación entre el titular y los usuarios se regirá por la legislación española. Para la resolución de conflictos, ambas partes se someten a los Juzgados y Tribunales de Málaga, renunciando a cualquier otro fuero.",
                 legalPopupAcceptanceTitle: "✅ Aceptación",
-                legalPopupAcceptanceText: "El uso de esta web implica la aceptación de este Aviso Legal. Si el usuario no está de acuerdo con alguna de sus condiciones, debe abstenerse de utilizar los servicios ofrecidos.",
-                closeButton: "Cerrar"
-            },
-            en: {
-                pageTitle: "YourDesignGPT · Your website ready in 72h + Texts on Demand", // Título actualizado
-                logoTitle: "YourDesignGPT",
-                headerTitle: "The Future of Design, Powered by AI",
-                headerSubtitle: "We transform your ideas into impactful visual realities with the most advanced artificial intelligence.",
-                viewServices: "View Services",
-                services: "Services",
-                howItWorks: "How It Works",
-                reviews: "Reviews",
-                faq: "FAQ",
-                contact: "Contact",
-                ourExclusiveServices: "Our Exclusive Services",
-                cartaPersonalizadaTitle: "Personalized Letter",
-                cartaPersonalizadaDesc: "Write a unique, emotional, or formal letter, completely adapted to your personal situation.",
-                cartaPersonalizadaExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Style to choose: romantic, formal, poetic or friendly</li>
-    <li>Adaptation to desired emotional tone</li>
-    <li>Original text without generic templates</li>
-    <li>Delivery in 24-72h in Word or PDF format</li>
-  </ul>
-`,
-                discursoTitle: "Speech for Events",
-                discursoDesc: "We write a professional and personalized speech for any special occasion.",
-                discursoExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Ideal for weddings, birthdays, retirements, presentations or awards</li>
-    <li>Text adaptable to desired duration (2-5 minutes)</li>
-    <li>Can include humor, emotion or motivational tone</li>
-    <li>Delivery in 24-72h and editable</li>
-  </ul>
-`,
-                minilibroTitle: "Your Personalized Mini Book",
-                minilibroDesc: "I create a mini book where you or your story are the protagonists.",
-                minilibroExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Approximately 20 pages</li>
-    <li>Simple cover and back cover included</li>
-    <li>Can be fiction, autobiographical or your original idea</li>
-    <li>Delivery in 24-72h in PDF ready to print or share</li>
-  </ul>
-`,
-                reclamacionTitle: "Text for Complaints",
-                reclamacionDesc: "Document written with clear and persuasive language to defend your rights. With us, it's like having your own personal lawyer.",
-                reclamacionExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Personalized writing for each case</li>
-    <li>Based on a firm, courteous and resolute tone</li>
-    <li>Editable format + version ready to send</li>
-    <li>Includes basic legal structure guidance</li>
-    <li>Delivery in 24-72h</li>
-  </ul>
-`,
-                cuentoTitle: "Personalized Story",
-                cuentoDesc: "A short story where you, your partner or a loved one are the protagonists.",
-                cuentoExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Custom story with real name(s)</li>
-    <li>Ideal for gifting on birthdays, anniversaries or special events</li>
-    <li>Magical, romantic or comical touches as preferred</li>
-    <li>Delivery in 24-72h in PDF format (3-5 pages)</li>
-  </ul>
-`,
-                picanteTitle: "Spicy or Romantic Text",
-                picanteDesc: "A daring or suggestive text to ignite the spark or surprise with elegance.",
-                picanteExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>Sexy, romantic or provocative style as per client</li>
-    <li>Use of careful or explicit language as desired</li>
-    <li>Discrete and anonymous format</li>
-    <li>Delivery in 24-72h by email or message</li>
-  </ul>
-`,
-                regaloTitle: "Creative Gift Ideas List",
-                regaloDesc: "Don't know what to give? I'll create a personalized and ingenious list for the occasion.",
-                regaloExample: `
-  <ul class="list-disc list-inside text-left text-sm text-gray-100">
-    <li>10 ideas with explanation and optional links</li>
-    <li>Based on tastes, age, relationship and occasion</li>
-    <li>Includes low-cost and original ideas</li>
-    <li>Delivery in 24-72h in table or visual list format</li>
-  </ul>
-`,
-                simpsonTitle: "The Simpsons Style Illustration",
-                simpsonDesc: "Turn your photo into an illustration with the most famous yellow humor.",
-                simpsonExample: `
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
-                        <div class="text-center">
-                            <p class="font-semibold text-gray-300 mb-2">Original photo</p>
-                            <img src="image_e87826.png" alt="Original photo" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
-                        </div>
-                        <div class="text-center">
-                            <p class="font-semibold text-yellow-300 mb-2">Simpsons style version</p>
-                            <img src="image_de0302.png" alt="Simpsons illustration" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
-                        </div>
-                    </div>
-                `,
-                webCompletaTitle: "Create your website", // Título actualizado
-                webCompletaDesc: "We create your own professional website. You forget about everything, we manage it.",
-                webCompletaFeatures: [
-                    "Responsive website like this one",
-                    "Active WhatsApp button",
-                    "Professional email with your domain",
-                    "Custom form",
-                    "Favicon, design and sections ready",
-                    "Full upload to the server",
-                    "Step-by-step user manual"
-                ],
-                webCompletaPriceNote: "Annual maintenance price: €150 (domain + server + management). If not renewed, the website will be automatically deactivated.", // Texto actualizado
-                viewExampleButton: "View example",
-                tarifasButton: "Info", // Cambiado a "Info"
-
-                // Nuevas traducciones para el pop-up de detalles de la web
-                webDetailsPopupTitle: "Your Professional Website for €495",
-                webDetailsPopupSubtitle: "Created in 72h · Custom design · Hassle-free",
-                webDetailsPopupIncludesTitle: "✅ What does the website creation service include?",
-                webDetailsPopupFeature1: "100% personalized web design with your style, logo, and colors.",
-                webDetailsPopupFeature2: "Responsive design for mobiles, tablets, and computers.",
-                webDetailsPopupFeature3: "Contact form that goes directly to your email.",
-                webDetailsPopupFeature4: "WhatsApp button linked to your professional number.",
-                webDetailsPopupFeature5: "Basic SEO optimization with fast loading, tags, and Open Graph.",
-                webDetailsPopupFeature6: "Google indexing, sitemap, and Search Console.",
-                webDetailsPopupFeature7: "Custom email like contact@yourcompany.com (with instructions).",
-                webDetailsPopupFeature8: "Favicon, icons, Open Graph, and professional visual style.",
-                webDetailsPopupFeature9: "Total adaptation to mobiles, tablets, and modern browsers.",
-                webDetailsPopupPrice: "Website creation price: €495",
-                webDetailsPopupPriceNote: "*This price exclusively covers the complete creation of your website.",
-                webDetailsPopupDomainTitle: "🌐 Domain, Hosting, and Annual Maintenance",
-                webDetailsPopupDomainDesc: "For your website to be visible on the internet, you need a domain and hosting. We manage it for you.",
-                webDetailsPopupDomainFeature1: "Personalized domain (.com or equivalent) managed by us.",
-                webDetailsPopupDomainFeature2: "Professional hosting with SSL and high speed.",
-                webDetailsPopupDomainFeature3: "Basic technical support and maintenance during the year.",
-                webDetailsPopupAnnualPrice: "Annual price for domain + hosting + maintenance: €150",
-                webDetailsPopupAnnualPriceNote: "*This payment is made in the first year along with the creation, and is repeated every year if you decide to renew.",
-
-                howItWorksTitle: "How our service works?",
-                step1Title: "Step 1: Tell us your text idea!",
-                step1Desc: "Fill out our simple form with all the details. The more information, the better to create unique content!",
-                step2Title: "Step 2: Make the secure payment",
-                step2Desc: "Once we confirm the details, we will send you a PayPal link for a fast and totally secure payment.",
-                step3Title: "Step 3: Receive your masterpiece",
-                step3Desc: "In 24-72h you will receive your creative text in PDF directly in your email.",
-
-                ctaTitle: "Ready to transform your ideas into professional and unique texts?",
-                ctaSubtitle: "Don't wait any longer, with Pedro SC, your texts will be unforgettable. Contact me now and let's start creating magic!",
-                ctaButton: "I want my Personalized Text!",
-
-                orderTitle: "Place your Custom Order",
-                orderSubtitle: "Click the button below to fill out the form and request your unique text, tailor-made for you. It's quick and easy!",
-                orderButton: "Request your personalized text",
-
-                reviewsTitle: "Satisfied Customer Reviews",
-                review1Text: "“I ordered a *Simpsons*-style portrait with my partner and... ¡es como si Matt Groening nos hubiera dibujado él mismo! Genial para regalar.”",
-                review1Author: "— Javier and Laura",
-                review2Text: "“Solicité una carta para mi aniversario. Pedro SC captó exactamente lo que quería decir. Mi pareja lloró de emoción. ¡Gracias infinitas!”",
-                review2Author: "— Andrea M.",
-                review3Text: "“Necesitaba una reclamación urgente para una aerolínea. Me la enviaron en PDF y al día siguiente tenía respuesta. Rápido, claro y eficaz.”",
-                review3Author: "“Necesitaba una reclamación urgente para una aerolínea. Me la enviaron en PDF y al día siguiente tenía respuesta. Rápido, claro y eficaz.”",
-                faqTitle: "Frequently Asked Questions",
-                faqQ1: "What kind of texts do you offer?",
-                faqA1: "Letters, speeches, stories, complaints, resumes and more, delivered in PDF.",
-                faqQ2: "How do I place an order?",
-                faqA2: "Fill out the form with your details. We'll take care of the rest.",
-                faqQ3: "How do I receive my order?",
-                faqA3: "By email in PDF, once completed and paid.",
-                faqQ4: "How much does each service cost?",
-                faqA4: "Between €10 and €15, depending on the type of text.",
-                faqQ5: "Can I order something not on the list?",
-                faqA5: "Yes, select “Other” and describe what you need.",
-                faqQ6: "How is payment made?",
-                faqA6: "We will send you a PayPal link by email to complete the payment securely.",
-                faqQ7: "When will I receive my text?",
-                faqA7: "In 24-72h after payment, except for exceptions that will be communicated.",
-                faqQ8: "Can I request a modification after receiving the text?",
-                faqA8: "Yes, you can request minor adjustments by email.",
-                faqQ9: "Can I pay by card without a PayPal account?",
-                faqA9: "Yes, PayPal allows card payment without registration.",
-                faqQ10: "Why choose this website in place of doing it myself with AI?",
-                faqA10: "Because here you save time, errors and tests. We give you everything ready and well written by professional writers.",
-                faqQ11: "Are the examples in the pop-ups the actual size of the text I receive?",
-                faqA11: "No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.",
-                example: "Example", /* Añadido para títulos de pop-up */
-
-                paymentSecure: "Secure Payment",
-                paymentSecureDesc: "Protected with PayPal and SSL encryption.",
-                deliveryPdf: "PDF Delivery",
-                deliveryPdfDesc: "Receive your text by email in high quality.",
-                deliveryTime: "24-72h Delivery",
-                deliveryTimeDesc: "You will receive your order in a maximum of 3 days.",
-                personalAttention: "Personalized Attention",
-                personalAttentionDesc: "I answer you personally by email.",
-                personalized: "100% Personalized",
-                personalizedDesc: "Each text adapts to your story and tone.",
-                satisfiedClients: "Satisfied Clients",
-                satisfiedClientsDesc: "Real ratings that endorse our work.",
-
-                footerCopyright: "&copy; 2025 Pedro SC · Texts by Order. All rights reserved.",
-                footerDesign: "Designed with ❤️",
-                privacyPolicy: "Privacy Policy",
-                legalNotice: "Legal Notice",
-                ctaBannerText: "In a hurry? Order in 2 minutes →",
-                ctaBannerButton: "Go to Form",
-
-                // Nuevas y actualizadas traducciones de la Política de Privacidad
-                privacyPopupTitle: "🛡️ Privacy Policy – YourDesignGPT",
-                privacyPopupLastUpdate: "Last updated: 20 de julio de 2025",
-                privacyPopupIntro: "In compliance with Regulation (EU) 2016/679 (GDPR), Organic Law 3/2018 on Data Protection (LOPDGDD) and other current regulations, we inform you clearly and in detail about how we process your personal data on this website.",
-                privacyPopupResponsibleTitle: "1. 📌 Data Controller",
-                privacyPopupResponsibleName: "Trade name: YourDesignGPT<br>Owner: Pedro Soriano Calderón",
-                privacyPopupResponsibleEmail: "Contact email: contacto@yourdesigngpt.com",
-                privacyPopupResponsibleWeb: "Website: https://www.yourdesigngpt.com",
-                privacyPopupResponsibleLocation: "Location: Málaga, Spain",
-                privacyPopupDataCollectionTitle: "2. 📥 What data do we collect",
-                privacyPopupDataCollectionText: "Through our forms and communications you can provide us with the following data:<br><br>Name and surname<br>Email<br>Content of the requested project<br>Billing data (if applicable)<br>Payment method and confirmation (through PayPal or other gateway)<br>Technical data such as IP, browser, cookies and other identifiers",
-                privacyPopupPurposeTitle: "3. 🎯 Purpose of processing",
-                privacyPopupPurposeText: "We use your data to:<br><br>Manage and deliver web design, writing and other personalized services<br>Send communications related to your order<br>Issue invoices if applicable<br>Offer support and resolve incidents<br>Comply with our legal obligations<br>Improve user experience on the website (analytical cookies, if accepted)",
-                privacyPopupLegitimationTitle: "4. 🔒 Legitimation of processing",
-                privacyPopupLegitimationText: "The legal basis that allows us to process your data is:<br><br>Your explicit consent, by filling out the forms or contacting by email<br>The execution of a contract, when requesting our services<br>Compliance with legal obligations, especially tax and accounting<br>The legitimate interest of improving service quality and preventing abuse",
-                privacyPopupDataRecipientsTitle: "5. 📤 Data recipients",
-                privacyPopupDataRecipientsText: "Your data will not be sold or transferred to third parties, except in the following necessary cases:<br><br>Hosting and professional email providers, who guarantee compliance with the GDPR<br>Payment platforms such as PayPal, which operate as external data processors<br>Google (for forms and analytical services)<br>Public administration, when mandatory by tax regulations or other legal requirement<br>All providers and platforms used have data protection measures in accordance with the European Regulation.",
-                privacyPopupDataRetentionTitle: "6. ⏳ Retention period",
-                privacyPopupDataRetentionText: "Your data will be kept:<br><br>As long as there is a commercial or contractual relationship<br>Until you request its deletion<br>For the periods established by law (for example, 6 years for accounting data)",
-                privacyPopupRightsTitle: "7. 👤 User rights",
-                privacyPopupRightsText: "You can exercise your rights free of charge by sending an email to contacto@yourdesigngpt.com. You have the right to:<br><br>Access your personal data<br>Rectify inaccurate data<br>Request its deletion<br>Limit processing<br>Oppose processing<br>Request portability to another provider<br>Withdraw your consent at any time<br>If you consider that your rights have been violated, you can file a claim with the Spanish Data Protection Agency: www.aepd.es",
-                privacyPopupCookiesTitle: "8. 🍪 Cookie policy",
-                privacyPopupCookiesText: "This website may use its own or third-party technical and analytical cookies to improve your browsing experience. No advertising cookies are used without your consent. You can find more details in our Cookie Policy.",
-                privacyPopupExternalLinksTitle: "9. 🌐 External links",
-                privacyPopupExternalLinksText: "This website may contain links to external platforms (such as Instagram or YouTube). We are not responsible for their privacy policies or the processing they carry out outside our platform.",
-                privacyPopupModificationsTitle: "10. 🔄 Modifications to this policy",
-                privacyPopupModificationsText: "This policy may be updated at any time to adapt to legal or technical changes. We recommend you review it periodically. Any significant change will be notified on the website.",
-                privacyPopupAcceptanceTitle: "✅ Acceptance of the policy",
-                privacyPopupAcceptanceText: "The use of this website implies reading and express acceptance of this Privacy Policy. If you do not agree, please do not use our forms or provide us with your personal data.",
-
-                // Nuevas y actualizadas traducciones del Aviso Legal
-                legalPopupTitle: "⚖️ Legal Notice – YourDesignGPT",
-                legalPopupLastUpdate: "Last updated: 20 de julio de 2025",
-                legalPopupIntro: "In compliance with the provisions of Law 34/2002, of July 11, on information society services and electronic commerce (LSSICE), this document regulates the use of the website https://www.yourdesigngpt.com, which is owned by Pedro Soriano Calderón (hereinafter, “the owner”).<br>Access, browsing and use of this website implies express acceptance of the conditions contained in this Legal Notice.",
-                legalPopupInfoTitle: "1. 🧾 Owner information",
-                legalPopupInfoName: "Trade name: YourDesignGPT",
-                legalPopupInfoOwner: "Owner: Pedro Soriano Calderón",
-                legalPopupInfoAddress: "Address: Málaga, Spain",
-                legalPopupInfoEmail: "Contact email: contacto@yourdesigngpt.com",
-                legalPopupInfoWeb: "Official website: https://www.yourdesigngpt.com",
-                legalPopupObjectTitle: "2. 📌 Purpose of the website",
-                legalPopupObjectText: "This site aims to offer personalized services of:<br><br>Professional web design<br>Creative and technical writing<br>Letters, speeches, mini books and other texts on demand<br>Digital creative products<br>Through the site, the user can find out about the services offered, make requests through forms and contact the owner.",
-                legalPopupPaymentTitle: "3. 💳 Payment methods and conditions",
-                legalPopupPaymentIntro: "All orders are managed through advance payment via PayPal, a secure payment platform that allows the client to pay by card without needing a PayPal account.",
-                legalPopupPaymentStandardTitle: "💸 Conditions according to the type of service:",
-                legalPopupPaymentStandardText: "Standard orders (letters, texts, speeches, etc.):<br><br>100% of the amount will be paid upon order confirmation.<br><br>No work begins without having received payment.",
-                legalPopupPaymentLargeTitle: "Larger orders, such as personalized web pages or mini books:",
-                legalPopupPaymentLargeText: "50% will be paid in advance to start the project.<br><br>The remaining 50% will be paid upon delivery of the complete project.<br>Once payment is confirmed, the order is processed within the agreed period. Complete versions are not delivered without full payment.",
-                legalPopupIntellectualTitle: "4. 🖋️ Intellectual and industrial property",
-                legalPopupIntellectualText: "All texts, designs, logos, images, videos, source code and other content of this website are the exclusive property of the owner, or have licenses for their use.<br>Their reproduction, distribution, transformation or public communication is prohibited without express authorization. Any unauthorized use may be considered a legal infringement.",
-                legalPopupExternalLinksTitle: "5. 🌐 External links",
-                legalPopupExternalLinksText: "This website may contain links to third-party sites (Instagram, YouTube, PayPal, etc.). The owner is not responsible for their privacy policies or the processing they carry out outside our platform.",
-                legalPopupDataProtectionTitle: "6. 🔐 Data protection",
-                legalPopupDataProtectionText: "The use of this site implies the processing of personal data, regulated in the corresponding Privacy Policy, which details how the data provided by the user is collected, processed and protected.",
-                legalPopupResponsibilityTitle: "7. 🚫 Limitation of liability",
-                legalPopupResponsibilityText: "The owner does not guarantee continuous access to the website or the absence of errors. He is not responsible for:<br><br>Damages derived from improper use of the site or its contents<br>Errors of third parties (payment platforms, forms, etc.)<br>Technical failures beyond the owner's control<br>However, reasonable security measures are applied to ensure the proper functioning of the site.",
-                legalPopupUsageRulesTitle: "8. 🛠️ Usage rules",
-                legalPopupUsageRulesText: "The user agrees to:<br><br>Not use the site for fraudulent, offensive or illegal purposes<br>Not damage the systems or interfere with their proper functioning<br>Not impersonate identities or falsify information<br>Not use bots or automatic tools without consent<br>The owner reserves the right to restrict or cancel access to any user who breaches these rules.",
-                legalPopupBillingTitle: "9. 🧾 Billing and receipts",
-                legalPopupBillingText: "If the user wishes an invoice or tax receipt for the service acquired, they may expressly request it by email. They will be issued in accordance with current Spanish regulations.",
-                legalPopupLegislationTitle: "10. ⚖️ Applicable legislation and jurisdiction",
-                legalPopupLegislationText: "The relationship between the owner and the users will be governed by Spanish law. For the resolution of conflicts, both parties submit to the Courts and Tribunals of Málaga, waiving any other jurisdiction.",
-                legalPopupAcceptanceTitle: "✅ Acceptance",
-                legalPopupAcceptanceText: "The use of this website implies acceptance of this Legal Notice. If the user does not agree with any of its conditions, they must refrain from using the services offered."
+                legalPopupAcceptanceText: "El uso de esta web implica la aceptación de este Aviso Legal. Si el usuario no está de acuerdo con alguna de sus condiciones, debe abstenerse de utilizar los servicios ofrecidos."
             }
         };
 
@@ -1960,6 +1785,89 @@
             if (popupBox) {
                 popupBox.classList.remove('sparkle-effect');
             }
+        }
+    </script>
+
+    <!-- ✅ BOTÓN FLOTANTE (robot) -->
+    <button id="chatbot-toggle">🤖</button>
+
+    <!-- ✅ CUADRO DE CHATBOX INTERACTIVO -->
+    <div id="chatbot-box">
+        <header>🤖 ¿Tienes dudas? Pregunta</header>
+        <div id="chat-messages"></div>
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- ✅ SCRIPT DE FUNCIONAMIENTO -->
+    <script>
+        const toggleBtn = document.getElementById("chatbot-toggle");
+        const chatBox = document.getElementById("chatbot-box");
+        const chatMessages = document.getElementById("chat-messages");
+        const userInput = document.getElementById("user-input");
+
+        toggleBtn.onclick = () => {
+            chatBox.style.display = (chatBox.style.display === "none" || chatBox.style.display === "") ? "flex" : "none";
+            // Si se abre el chat, desplazar al final de los mensajes
+            if (chatBox.style.display === "flex") {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        };
+
+        userInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === '') return;
+
+            const userMsg = document.createElement("div");
+            userMsg.className = "msg-user";
+            userMsg.innerText = message;
+            chatMessages.appendChild(userMsg);
+            userInput.value = "";
+
+            const response = generateResponse(message);
+            const botMsg = document.createElement("div");
+            botMsg.className = "msg-bot";
+            botMsg.innerHTML = response; // Usar innerHTML para permitir enlaces
+            chatMessages.appendChild(botMsg);
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function generateResponse(msg) {
+            const text = msg.toLowerCase();
+
+            if (text.includes("precio") || text.includes("cuánto cuesta") || text.includes("coste")) return "El precio base es 495 € para la creación de la web, más 150 € anuales por hosting y mantenimiento. Y entre tú y yo... si Messi fuera diseñador, haría webs tan buenas como las nuestras 😉";
+            if (text.includes("qué incluye") || text.includes("que ofrece")) return "Nuestra web incluye diseño responsive, hosting, email profesional, mantenimiento y soporte personalizado. Vamos, todo lo que necesitas para despegar 🚀";
+            if (text.includes("tiempo") || text.includes("tardar") || text.includes("entrega") || text.includes("cuanto tiempo")) return "Tu web estará lista en solo 72 horas desde que nos envíes toda la información necesaria. ¡Rápido, como un pase filtrado de Messi! 🐐";
+            if (text.includes("pagar") || text.includes("formas de pago") || text.includes("pago")) return "Puedes pagar por PayPal, Bizum o transferencia bancaria. Se abona el 50 % al inicio y el resto al entregar el proyecto. Fácil y sin líos.";
+            if (text.includes("seo") || text.includes("posicionamiento")) return "Sí, tu web estará optimizada para aparecer en Google, con buena velocidad y estructura básica de SEO. Messi lo tendría claro si buscara diseñadores.";
+            if (text.includes("redes") || text.includes("sociales") || text.includes("whatsapp")) return "Integramos tu web con Instagram, WhatsApp, Facebook… y si quieres TikTok, también. Estarás conectado y en buenas manos 📱";
+            if (text.includes("soporte") || text.includes("mantenimiento") || text.includes("ayuda")) return "Tienes soporte durante todo el año. ¿Un problema? Lo resolvemos. ¿Una duda? Aquí estamos para ayudarte.";
+            if (text.includes("tienda") || text.includes("ecommerce") || text.includes("vender online")) return "Creamos tiendas online desde 650 €, según la cantidad de productos y las funciones que necesites. Ya hemos ayudado a varios emprendedores a vender desde cero.";
+            if (text.includes("responsive") || text.includes("adaptada") || text.includes("móvil") || text.includes("tablet")) return "Tu web será 100 % adaptable a móviles, tablets y ordenadores. Como debe ser en 2025 📱💻";
+            if (text.includes("chiste") || text.includes("messi") || text.includes("cristiano") || text.includes("futbol")) return "¿Un chiste? Claro: ¿Por qué Cristiano nunca puede jugar en mi equipo web? Porque aquí solo hay espacio para GOATs (Greatest Of All Time)... como Messi y tu proyecto 😉🐐✨";
+            if (text.includes("hola") || text.includes("buenas")) return "¡Hola! Soy tu asistente de YourDesignGPT. ¿En qué puedo ayudarte hoy?";
+            if (text.includes("gracias") || text.includes("muchas gracias")) return "De nada, ¡estamos para servirte! Si tienes más preguntas, no dudes en consultarme.";
+            if (text.includes("contacto") || text.includes("hablar con alguien")) return "Claro, puedes contactarnos a través de nuestro <a href='#formulario-contacto' class='text-blue-600 underline'>formulario de contacto</a>. Estaremos encantados de atenderte personalmente.";
+            if (text.includes("simpsons") || text.includes("ilustracion")) return "Nuestras ilustraciones estilo Los Simpsons son un regalo genial. Convertimos tu foto en un divertido dibujo amarillo. ¡Imagina la cara de Homer al verla! 🖼️";
+            if (text.includes("carta") || text.includes("escribir carta")) return "Podemos redactar cualquier tipo de carta: romántica, formal, de agradecimiento... ¡lo que necesites para expresar tus sentimientos o ideas de forma perfecta! 💌";
+            if (text.includes("discurso") || text.includes("escribir discurso")) return "Preparamos discursos memorables para bodas, cumpleaños, jubilaciones o cualquier evento. ¡Deja a todos boquiabiertos con un discurso profesional! 🎤";
+            if (text.includes("cuento") || text.includes("escribir cuento")) return "Creamos cuentos personalizados donde tú o tus seres queridos son los protagonistas. ¡Un regalo mágico y único que perdurará en el tiempo! 📚";
+            if (text.includes("reclamacion") || text.includes("escribir reclamacion")) return "Redactamos reclamaciones formales y efectivas para defender tus derechos ante cualquier situación. ¡Con un buen texto, la justicia está más cerca! ⚖️";
+            if (text.includes("mini libro") || text.includes("libro personalizado")) return "Un mini libro de unas 20 páginas con tu historia o la de quien tú quieras. Incluye portada. ¡Un detalle literario que sorprenderá! 📖";
+            if (text.includes("ideas regalo") || text.includes("que regalar")) return "Te damos 10 ideas de regalo creativas y personalizadas, con explicación y enlaces. ¡Nunca más te quedarás sin ideas para sorprender! 🎁";
+            if (text.includes("texto picante") || text.includes("texto romantico")) return "Creamos textos picantes o románticos a medida, con el tono y la elegancia que desees. ¡Perfectos para avivar la llama o sorprender a tu pareja! 🔥❤️";
+
+
+            return "No tengo una respuesta exacta 😅. Pero puedes escribirnos desde el <a href='#formulario-contacto' class='text-blue-600 underline'>formulario de contacto</a> y te respondemos con cariño humano.";
         }
     </script>
 
