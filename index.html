@@ -54,7 +54,20 @@
             /* Se eliminó la animación de fade-in para un arranque más rápido */
         }
 
-        /* Se eliminó @keyframes fadeIn */
+        /* Simple bounce animation for the SVG icon */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
 
         /* Gradiente para el encabezado */
         .header-gradient {
@@ -106,7 +119,7 @@
             max-width: 700px;
             padding: 2rem;
             border-radius: 12px;
-            overflow-y: auto;
+            overflow-y: auto; /* Habilitado para scroll */
             max-height: 90vh;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Sombra más oscura */
             position: relative;
@@ -147,6 +160,8 @@
         #legal .popup-box {
             background: #222; /* Fondo oscuro */
             color: #eee; /* Texto claro */
+            overflow-y: auto; /* Asegurar el scroll para estos popups */
+            max-height: 90vh; /* Asegurar la altura máxima para estos popups */
         }
 
         #privacy .popup-box h2,
@@ -319,7 +334,7 @@
                 <a href="#faq" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
                     <i class="fas fa-question-circle mr-1"></i><span data-key="faq">FAQ</span>
                 </a>
-                <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
+                <a href="#formulario-contacto" class="text-teal-400 hover:text-teal-200 font-semibold text-lg transition-colors duration-300 py-2 px-2 rounded-md hover:bg-gray-800 flex items-center">
                     <i class="fas fa-envelope mr-1"></i><span data-key="contact">Contacto</span>
                 </a>
             </div>
@@ -351,7 +366,7 @@
             <a href="#faq" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
                 <i class="fas fa-question-circle mr-1"></i><span data-key="faq">FAQ</span>
             </a>
-            <a href="#contacto" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
+            <a href="#formulario-contacto" class="text-teal-400 hover:text-teal-200 font-semibold py-2 px-4 rounded-md" onclick="toggleMobileMenu()">
                 <i class="fas fa-envelope mr-1"></i><span data-key="contact">Contacto</span>
             </a>
             <div class="flex flex-col items-center space-y-2 mt-4">
@@ -498,6 +513,114 @@
                 </div>
                 <p class="text-gray-700 italic" data-key="review3Text">“Necesitaba una reclamación urgente para una aerolínea. Me la enviaron en PDF y al día siguiente tenía respuesta. Rápido, claro y eficaz.”</p>
                 <div class="mt-4 text-right text-sm text-gray-600" data-key="review3Author">— Sergio T.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Mensaje de Confirmación (oculta por defecto) -->
+    <!-- Esta sección está oculta por defecto y puede mostrarse con JavaScript después de una acción del usuario (ej: envío de formulario). -->
+    <section id="confirmation-message" class="py-16 px-4 max-w-4xl mx-auto text-center hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center max-w-md w-full mx-auto">
+            <div class="w-20 h-20 mx-auto mb-6">
+                <!-- SVG Checkmark Icon with bounce animation -->
+                <svg class="w-full h-full text-green-500 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">¡Mensaje enviado con éxito!</h1>
+            <p class="text-gray-600 mb-6">Gracias por ponerte en contacto. Te responderemos lo antes posible.</p>
+            <!-- Button to return to the home page -->
+            <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md">Volver al inicio</a>
+        </div>
+    </section>
+
+    <!-- Sección de Formulario de Contacto (estilizada para el tema oscuro) -->
+    <section class="bg-gray-800 py-10 px-4 rounded-xl shadow-inner mx-auto max-w-3xl mb-16" id="formulario-contacto">
+        <div class="text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500">
+                📩 Envíanos tu mensaje
+            </h2>
+            <p class="mb-6 text-gray-300">Rellena el formulario y nos pondremos en contacto contigo.</p>
+            
+            <form action="https://formsubmit.co/pedrosorianocalderon@gmail.com" method="POST" class="space-y-4">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://pitersc10.github.io/textosporencargo/gracias.html">
+
+                <input type="text" name="name" placeholder="Tu nombre" required
+                       class="w-full bg-gray-700 text-gray-100 border border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200">
+                <input type="email" name="email" placeholder="Tu correo electrónico" required
+                       class="w-full bg-gray-700 text-gray-100 border border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200">
+                <textarea name="message" rows="5" placeholder="Escribe tu mensaje..." required
+                          class="w-full bg-gray-700 text-gray-100 border border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-200"></textarea>
+                
+                <button type="submit"
+                        class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 text-lg">
+                    Enviar mensaje <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="py-16 px-4 max-w-4xl mx-auto scroll-mt-20">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-500" data-key="faqTitle">
+            <i class="fas fa-question-circle mr-3"></i>Preguntas Frecuentes
+        </h2>
+        <div class="space-y-6">
+            <!-- FAQ Item 1 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ1"></h3>
+                <p class="text-gray-300" data-key="faqA1"></p>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ2"></h3>
+                <p class="text-gray-300" data-key="faqA2"></p>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ3"></h3>
+                <p class="text-gray-300" data-key="faqA3"></p>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ4"></h3>
+                <p class="text-gray-300" data-key="faqA4"></p>
+            </div>
+            <!-- FAQ Item 5 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ5"></h3>
+                <p class="text-gray-300" data-key="faqA5"></p>
+            </div>
+            <!-- FAQ Item 6 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ6"></h3>
+                <p class="text-gray-300" data-key="faqA6"></p>
+            </div>
+            <!-- FAQ Item 7 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ7"></h3>
+                <p class="text-gray-300" data-key="faqA7"></p>
+            </div>
+            <!-- FAQ Item 8 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ8"></h3>
+                <p class="text-gray-300" data-key="faqA8"></p>
+            </div>
+            <!-- FAQ Item 9 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ9"></h3>
+                <p class="text-gray-300" data-key="faqA9"></p>
+            </div>
+            <!-- FAQ Item 10 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ10"></h3>
+                <p class="text-gray-300" data-key="faqA10"></p>
+            </div>
+            <!-- FAQ Item 11 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
+                <h3 class="text-xl font-semibold text-teal-300 mb-2" data-key="faqQ11"></h3>
+                <p class="text-gray-300" data-key="faqA11"></p>
             </div>
         </div>
     </section>
@@ -913,11 +1036,11 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Foto original</p>
-                            <img src="simpson-original.jpg" alt="Foto real" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="image_e87826.png" alt="Foto real" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
                             <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <img src="image_de0302.png" alt="Ilustración Simpsons" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `,
@@ -1183,11 +1306,11 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                         <div class="text-center">
                             <p class="font-semibold text-gray-300 mb-2">Original photo</p>
-                            <img src="simpson-original.jpg" alt="Real photo" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
+                            <img src="image_e87826.png" alt="Original photo" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border border-gray-600">
                         </div>
                         <div class="text-center">
-                            <p class="font-semibold text-yellow-300 mb-2">Versión estilo Simpsons</p>
-                            <img src="simpson-ilustracion.jpg" alt="Ilustración Simpsons" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
+                            <p class="font-semibold text-yellow-300 mb-2">Simpsons style version</p>
+                            <img src="image_de0302.png" alt="Simpsons illustration" width="200" height="200" loading="lazy" class="rounded-lg shadow-md w-full max-w-[200px] mx-auto border-4 border-yellow-500">
                         </div>
                     </div>
                 `,
@@ -1299,69 +1422,68 @@
 
                 // Nuevas y actualizadas traducciones de la Política de Privacidad
                 privacyPopupTitle: "🛡️ Privacy Policy – YourDesignGPT",
-                privacyPopupLastUpdate: "Last updated: July 20, 2025",
+                privacyPopupLastUpdate: "Last updated: 20 de julio de 2025",
                 privacyPopupIntro: "In compliance with Regulation (EU) 2016/679 (GDPR), Organic Law 3/2018 on Data Protection (LOPDGDD) and other current regulations, we inform you clearly and in detail about how we process your personal data on this website.",
                 privacyPopupResponsibleTitle: "1. 📌 Data Controller",
                 privacyPopupResponsibleName: "Trade name: YourDesignGPT<br>Owner: Pedro Soriano Calderón",
                 privacyPopupResponsibleEmail: "Contact email: contacto@yourdesigngpt.com",
-                privacyPopupResponsibleWeb: "Web: https://www.yourdesigngpt.com",
+                privacyPopupResponsibleWeb: "Website: https://www.yourdesigngpt.com",
                 privacyPopupResponsibleLocation: "Location: Málaga, Spain",
-                privacyPopupDataCollectionTitle: "2. 📥 What data we collect",
-                privacyPopupDataCollectionText: "Through our forms and communications you can provide us with the following data:<br><br>Name and surname<br>Email address<br>Content of the requested project<br>Billing data (if applicable)<br>Payment method and confirmation (via PayPal or other gateway)<br>Data technical such as IP, browser, cookies and other identifiers",
+                privacyPopupDataCollectionTitle: "2. 📥 What data do we collect",
+                privacyPopupDataCollectionText: "Through our forms and communications you can provide us with the following data:<br><br>Name and surname<br>Email<br>Content of the requested project<br>Billing data (if applicable)<br>Payment method and confirmation (through PayPal or other gateway)<br>Technical data such as IP, browser, cookies and other identifiers",
                 privacyPopupPurposeTitle: "3. 🎯 Purpose of processing",
-                privacyPopupPurposeText: "We use your data to:<br><br>Manage and deliver web design, writing and other personalized services<br>Send communications related to your order<br>Issue invoices if applicable<br>Offer support and resolve incidents<br>Comply with our legal obligations<br>Improve user experience on the web (analytical cookies, if accepted)",
+                privacyPopupPurposeText: "We use your data to:<br><br>Manage and deliver web design, writing and other personalized services<br>Send communications related to your order<br>Issue invoices if applicable<br>Offer support and resolve incidents<br>Comply with our legal obligations<br>Improve user experience on the website (analytical cookies, if accepted)",
                 privacyPopupLegitimationTitle: "4. 🔒 Legitimation of processing",
-                privacyPopupLegitimationText: "The legal basis that allows us to process your data is:<br><br>Your explicit consent, by filling out the forms or contacting by email<br>The execution of a contract, by requesting our services<br>Compliance with legal obligations, especially tax and accounting<br>The legitimate interest of improving service quality and preventing abuse",
-                privacyPopupDataRecipientsTitle: "5. 📤 Data Recipients",
-                privacyPopupDataRecipientsText: "Your data will not be sold or transferred to third parties, except in the following necessary cases:<br><br>Hosting and professional email providers, who guarantee compliance with the GDPR<br>Payment platforms such as PayPal, which operate as external data processors<br>Google (for forms and analytical services)<br>Public administration, when mandatory by tax regulations or other legal requirements<br>All providers and platforms used have data protection measures in accordance with the European Regulation.",
+                privacyPopupLegitimationText: "The legal basis that allows us to process your data is:<br><br>Your explicit consent, by filling out the forms or contacting by email<br>The execution of a contract, when requesting our services<br>Compliance with legal obligations, especially tax and accounting<br>The legitimate interest of improving service quality and preventing abuse",
+                privacyPopupDataRecipientsTitle: "5. 📤 Data recipients",
+                privacyPopupDataRecipientsText: "Your data will not be sold or transferred to third parties, except in the following necessary cases:<br><br>Hosting and professional email providers, who guarantee compliance with the GDPR<br>Payment platforms such as PayPal, which operate as external data processors<br>Google (for forms and analytical services)<br>Public administration, when mandatory by tax regulations or other legal requirement<br>All providers and platforms used have data protection measures in accordance with the European Regulation.",
                 privacyPopupDataRetentionTitle: "6. ⏳ Retention period",
-                privacyPopupDataRetentionText: "Your data will be kept:<br><br>While there is a commercial or contractual relationship<br>Until you request its deletion<br>For the periods established by law (for example, 6 years for accounting data)",
-                privacyPopupRightsTitle: "7. 👤 User Rights",
-                privacyPopupRightsText: "You can exercise your rights free of charge by sending an email to contacto@yourdesigngpt.com. You have the right to:<br><br>Access your personal data<br>Rectify inaccurate data<br>Request its deletion<br>Limit processing<br>Object to processing<br>Request portability to another provider<br>Withdraw your consent in any moment<br>If you consider that your rights have been violated, you can file a complaint with the Spanish Data Protection Agency: www.aepd.es",
-                privacyPopupCookiesTitle: "8. 🍪 Cookie Policy",
-                privacyPopupCookiesText: "This website may use technical and analytical cookies, both first-party and third-party, to improve your browsing experience. Advertising cookies are not used without your consent. You can consult more details in our Cookie Policy.",
+                privacyPopupDataRetentionText: "Your data will be kept:<br><br>As long as there is a commercial or contractual relationship<br>Until you request its deletion<br>For the periods established by law (for example, 6 years for accounting data)",
+                privacyPopupRightsTitle: "7. 👤 User rights",
+                privacyPopupRightsText: "You can exercise your rights free of charge by sending an email to contacto@yourdesigngpt.com. You have the right to:<br><br>Access your personal data<br>Rectify inaccurate data<br>Request its deletion<br>Limit processing<br>Oppose processing<br>Request portability to another provider<br>Withdraw your consent at any time<br>If you consider that your rights have been violated, you can file a claim with the Spanish Data Protection Agency: www.aepd.es",
+                privacyPopupCookiesTitle: "8. 🍪 Cookie policy",
+                privacyPopupCookiesText: "This website may use its own or third-party technical and analytical cookies to improve your browsing experience. No advertising cookies are used without your consent. You can find more details in our Cookie Policy.",
                 privacyPopupExternalLinksTitle: "9. 🌐 External links",
                 privacyPopupExternalLinksText: "This website may contain links to external platforms (such as Instagram or YouTube). We are not responsible for their privacy policies or the processing they carry out outside our platform.",
-                privacyPopupModificationsTitle: "10. 🔄 Modificaciones de esta política",
-                privacyPopupModificationsText: "This policy may be updated at any time to adapt to legal or technical changes. We recommend you review it periodically. Any significant changes will be notified on the website.",
-                privacyPopupAcceptanceTitle: "✅ Aceptación de la política",
-                privacyPopupAcceptanceText: "El uso de esta web implica la lectura y aceptación expresa de esta Política de Privacidad. Si no estás de acuerdo, por favor, no utilices nuestros formularios ni nos proporciones tus datos personales.",
+                privacyPopupModificationsTitle: "10. 🔄 Modifications to this policy",
+                privacyPopupModificationsText: "This policy may be updated at any time to adapt to legal or technical changes. We recommend you review it periodically. Any significant change will be notified on the website.",
+                privacyPopupAcceptanceTitle: "✅ Acceptance of the policy",
+                privacyPopupAcceptanceText: "The use of this website implies reading and express acceptance of this Privacy Policy. If you do not agree, please do not use our forms or provide us with your personal data.",
 
                 // Nuevas y actualizadas traducciones del Aviso Legal
-                legalPopupTitle: "⚖️ Aviso Legal – YourDesignGPT",
-                legalPopupLastUpdate: "Última actualización: 20 de julio de 2025",
-                legalPopupIntro: "En cumplimiento de lo dispuesto en la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSICE), este documento regula el uso del sitio web https://www.yourdesigngpt.com, del que es titular Pedro Soriano Calderón (en adelante, “el titular”).<br>El acceso, navegación y uso de este sitio web implica la aceptación expresa de las condiciones recogidas en el presente Aviso Legal.",
-                legalPopupInfoTitle: "1. 🧾 Información del titular",
-                legalPopupInfoName: "Nombre comercial: YourDesignGPT",
-                legalPopupInfoOwner: "Titular: Pedro Soriano Calderón",
-                legalPopupInfoAddress: "Domicilio: Málaga, España",
-                legalPopupInfoEmail: "Email de contacto: contacto@yourdesigngpt.com",
-                legalPopupInfoWeb: "Web oficial: https://www.yourdesigngpt.com",
-                legalPopupObjectTitle: "2. 📌 Objeto del sitio web",
-                legalPopupObjectText: "Este sitio tiene como finalidad ofrecer servicios personalizados de:<br><br>Diseño web profesional<br>Redacción creativa y técnica<br>Cartas, discursos, mini libros y otros textos por encargo<br>Productos creativos digitales<br>A través del sitio, el usuario puede informarse sobre los servicios ofrecidos, realizar solicitudes mediante formularios y contactar con el titular.",
-                legalPopupPaymentTitle: "3. 💳 Formas de pago y condiciones",
-                legalPopupPaymentIntro: "Todos los encargos se gestionan a través de pago anticipado mediante PayPal, una plataforma de pago segura que permite al cliente pagar con tarjeta sin necesidad de tener cuenta.",
-                legalPopupPaymentStandardTitle: "💸 Condiciones según el tipo de servicio:",
-                legalPopupPaymentStandardText: "Encargos estándar (cartas, textos, discursos, etc.):<br><br>100% of the amount will be paid upon order confirmation.<br><br>No work begins without having received payment.",
-                legalPopupPaymentLargeTitle: "Encargos de mayor envergadura, como páginas web o mini libros personalizados:",
-                legalPopupPaymentLargeText: "Se abonará un 50 % por adelantado para comenzar el proyecto.<br><br>El 50 % restante se abona al entregar el proyecto completo.<br>Una vez confirmado el pago, el encargo se procesa en el plazo acordado. No se entregan versiones completas sin abono del total.",
-                legalPopupIntellectualTitle: "4. 🖋️ Propiedad intelectual e industrial",
-                legalPopupIntellectualText: "Todos los textos, diseños, logotipos, imágenes, vídeos, código fuente y demás contenido de esta web son propiedad exclusiva del titular, o dispone de licencias para su uso.<br>Queda prohibida su reproducción, distribución, transformación o comunicación pública sin autorización expresa. Cualquier uso no autorizado puede ser considerado infracción legal.",
-                legalPopupExternalLinksTitle: "5. 🌐 Enlaces externos",
-                legalPopupExternalLinksText: "Este sitio web puede contener enlaces a sitios de terceros (Instagram, YouTube, PayPal, etc.). El titular no se responsabiliza del contenido, políticas o prácticas de privacidad de dichas plataformas externas.",
-                legalPopupDataProtectionTitle: "6. 🔐 Protección de datos",
-                legalPopupDataProtectionText: "El uso de este sitio implica el tratamiento de datos personales, regulado en la correspondiente Política de Privacidad, donde se detalla cómo se recogen, procesan y protegen los datos facilitados por el usuario.",
-                legalPopupResponsibilityTitle: "7. 🚫 Limitación de responsabilidad",
-                legalPopupResponsibilityText: "El titular no garantiza la continuidad del acceso a la web ni la ausencia de errores. No se responsabiliza de:<br><br>Daños derivados del uso indebido del sitio o sus contenidos<br>Errores de terceros (plataformas de pago, formularios, etc.)<br>Caídas técnicas ajenas al control del titular<br>No obstante, se aplican medidas de seguridad razonables para garantizar el correcto funcionamiento del sitio.",
-                legalPopupUsageRulesTitle: "8. 🛠️ Normas de uso",
-                legalPopupUsageRulesText: "El usuario se compromete a:<br><br>No utilizar el sitio con fines fraudulentos, ofensivos o ilegales<br>No dañar los sistemas o interferir en su correcto funcionamiento<br>No suplantar identidades ni falsear información<br>No usar bots o herramientas automáticas sin consentimiento<br>El titular se reserva el derecho a restringir o cancelar el acceso a cualquier usuario que incumpla estas normas.",
-                legalPopupBillingTitle: "9. 🧾 Facturación y comprobantes",
-                legalPopupBillingText: "Si el usuario desea factura o justificante fiscal del servicio adquirido, podrá solicitarlo expresamente por correo. Se emitirán conforme a la normativa española vigente.",
-                legalPopupLegislationTitle: "10. ⚖️ Legislación aplicable y jurisdicción",
-                legalPopupLegislationText: "La relación entre el titular y los usuarios se regirá por la legislación española. Para la resolución de conflictos, ambas partes se someten a los Juzgados y Tribunales de Málaga, renunciando a cualquier otro fuero.",
-                legalPopupAcceptanceTitle: "✅ Aceptación",
-                legalPopupAcceptanceText: "El uso de esta web implica la aceptación de este Aviso Legal. Si el usuario no está de acuerdo con alguna de sus condiciones, debe abstenerse de utilizar los servicios ofrecidos.",
-                closeButton: "Cerrar"
+                legalPopupTitle: "⚖️ Legal Notice – YourDesignGPT",
+                legalPopupLastUpdate: "Last updated: 20 de julio de 2025",
+                legalPopupIntro: "In compliance with the provisions of Law 34/2002, of July 11, on information society services and electronic commerce (LSSICE), this document regulates the use of the website https://www.yourdesigngpt.com, which is owned by Pedro Soriano Calderón (hereinafter, “the owner”).<br>Access, browsing and use of this website implies express acceptance of the conditions contained in this Legal Notice.",
+                legalPopupInfoTitle: "1. 🧾 Owner information",
+                legalPopupInfoName: "Trade name: YourDesignGPT",
+                legalPopupInfoOwner: "Owner: Pedro Soriano Calderón",
+                legalPopupInfoAddress: "Address: Málaga, Spain",
+                legalPopupInfoEmail: "Contact email: contacto@yourdesigngpt.com",
+                legalPopupInfoWeb: "Official website: https://www.yourdesigngpt.com",
+                legalPopupObjectTitle: "2. 📌 Purpose of the website",
+                legalPopupObjectText: "This site aims to offer personalized services of:<br><br>Professional web design<br>Creative and technical writing<br>Letters, speeches, mini books and other texts on demand<br>Digital creative products<br>Through the site, the user can find out about the services offered, make requests through forms and contact the owner.",
+                legalPopupPaymentTitle: "3. 💳 Payment methods and conditions",
+                legalPopupPaymentIntro: "All orders are managed through advance payment via PayPal, a secure payment platform that allows the client to pay by card without needing a PayPal account.",
+                legalPopupPaymentStandardTitle: "💸 Conditions according to the type of service:",
+                legalPopupPaymentStandardText: "Standard orders (letters, texts, speeches, etc.):<br><br>100% of the amount will be paid upon order confirmation.<br><br>No work begins without having received payment.",
+                legalPopupPaymentLargeTitle: "Larger orders, such as personalized web pages or mini books:",
+                legalPopupPaymentLargeText: "50% will be paid in advance to start the project.<br><br>The remaining 50% will be paid upon delivery of the complete project.<br>Once payment is confirmed, the order is processed within the agreed period. Complete versions are not delivered without full payment.",
+                legalPopupIntellectualTitle: "4. 🖋️ Intellectual and industrial property",
+                legalPopupIntellectualText: "All texts, designs, logos, images, videos, source code and other content of this website are the exclusive property of the owner, or have licenses for their use.<br>Their reproduction, distribution, transformation or public communication is prohibited without express authorization. Any unauthorized use may be considered a legal infringement.",
+                legalPopupExternalLinksTitle: "5. 🌐 External links",
+                legalPopupExternalLinksText: "This website may contain links to third-party sites (Instagram, YouTube, PayPal, etc.). The owner is not responsible for their privacy policies or the processing they carry out outside our platform.",
+                legalPopupDataProtectionTitle: "6. 🔐 Data protection",
+                legalPopupDataProtectionText: "The use of this site implies the processing of personal data, regulated in the corresponding Privacy Policy, which details how the data provided by the user is collected, processed and protected.",
+                legalPopupResponsibilityTitle: "7. 🚫 Limitation of liability",
+                legalPopupResponsibilityText: "The owner does not guarantee continuous access to the website or the absence of errors. He is not responsible for:<br><br>Damages derived from improper use of the site or its contents<br>Errors of third parties (payment platforms, forms, etc.)<br>Technical failures beyond the owner's control<br>However, reasonable security measures are applied to ensure the proper functioning of the site.",
+                legalPopupUsageRulesTitle: "8. 🛠️ Usage rules",
+                legalPopupUsageRulesText: "The user agrees to:<br><br>Not use the site for fraudulent, offensive or illegal purposes<br>Not damage the systems or interfere with their proper functioning<br>Not impersonate identities or falsify information<br>Not use bots or automatic tools without consent<br>The owner reserves the right to restrict or cancel access to any user who breaches these rules.",
+                legalPopupBillingTitle: "9. 🧾 Billing and receipts",
+                legalPopupBillingText: "If the user wishes an invoice or tax receipt for the service acquired, they may expressly request it by email. They will be issued in accordance with current Spanish regulations.",
+                legalPopupLegislationTitle: "10. ⚖️ Applicable legislation and jurisdiction",
+                legalPopupLegislationText: "The relationship between the owner and the users will be governed by Spanish law. For the resolution of conflicts, both parties submit to the Courts and Tribunals of Málaga, waiving any other jurisdiction.",
+                legalPopupAcceptanceTitle: "✅ Acceptance",
+                legalPopupAcceptanceText: "The use of this website implies acceptance of this Legal Notice. If the user does not agree with any of its conditions, they must refrain from using the services offered."
             }
         };
 
@@ -1594,7 +1716,7 @@
                             <span class="text-5xl mr-3 text-teal-400">${webService.icon}</span><span data-key="${webService.dataKeys.titulo}">${translations[lang][webService.dataKeys.titulo]}</span>
                         </h3>
                         <p class="text-gray-300 mb-4 text-center" data-key="${webService.dataKeys.descripcion}">${translations[lang][webService.dataKeys.descripcion]}</p>
-                        <ul class="text-left text-sm text-gray-300 list-disc pl-4 space-y-1 mb-3">
+                        <ul class="list-disc list-inside text-left text-sm text-gray-300 pl-4 space-y-1 mb-3">
                             ${translations[lang][webService.dataKeys.features].map(feature => `<li>${feature}</li>`).join('')}
                         </ul>
                         <p class="text-3xl font-bold text-green-400 text-center">${webService.price}</p>
@@ -1616,6 +1738,9 @@
             serviceData[lang].filter(service => service.id !== "popupWebCompleta").forEach(service => {
                 const serviceTitle = translations[lang][service.dataKeys.titulo];
 
+                // Use placeholder images for Simpson example
+                const simpsonExampleHtml = service.id === 'popupSimpson' ? translations[lang][service.dataKeys.ejemplo] : '';
+
                 const borderColorClass = serviceTitle.includes("Simpson") ? 'border-yellow-500' : 'border-gray-700';
                 const iconColorClass = serviceTitle.includes("Simpson") ? 'text-yellow-400' : 'text-teal-400';
                 const titleColorClass = serviceTitle.includes("Simpson") ? 'text-yellow-300' : 'text-teal-300';
@@ -1636,7 +1761,7 @@
                         <div class='bg-white p-6 rounded-xl max-w-lg overflow-y-auto max-h-[90vh] popup-box relative'>
                             <span class="popup-close absolute top-2 right-4 text-3xl cursor-pointer text-gray-600 hover:text-gray-900" onclick="closePopup('${service.id}')">×</span>
                             <h3 class='text-2xl font-bold mb-4 text-teal-600'><span data-key="${service.dataKeys.titulo}">${translations[lang][service.dataKeys.titulo]}</span></h3>
-                            <div class='text-base mb-4 whitespace-pre-line'>${translations[lang][service.dataKeys.ejemplo]}</div>
+                            <div class='text-base mb-4 whitespace-pre-line'>${service.id === 'popupSimpson' ? simpsonExampleHtml : translations[lang][service.dataKeys.ejemplo]}</div>
                             <button onclick="closePopup('${service.id}')" class='mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600' data-key="closeButton">${translations[lang].closeButton}</button>
                         </div>
                     </div>
@@ -1657,8 +1782,10 @@
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = currentTranslations[key];
                     } else if (element.tagName === 'IMG') {
+                        // For images, update alt attribute
                         element.alt = currentTranslations[key];
-                    } else {
+                    }
+                    else {
                         element.innerHTML = currentTranslations[key];
                     }
                 }
@@ -1766,6 +1893,18 @@
                 legalPopup.querySelector('[data-key="legalPopupAcceptanceTitle"]').innerHTML = currentTranslations.legalPopupAcceptanceTitle;
                 legalPopup.querySelector('[data-key="legalPopupAcceptanceText"]').innerHTML = currentTranslations.legalPopupAcceptanceText;
             }
+
+            // Actualizar el contenido de la sección FAQ dinámicamente
+            const faqSection = document.getElementById('faq');
+            if (faqSection) {
+                faqSection.querySelector('[data-key="faqTitle"]').innerHTML = currentTranslations.faqTitle;
+                for (let i = 1; i <= 11; i++) {
+                    const qElement = faqSection.querySelector(`[data-key="faqQ${i}"]`);
+                    const aElement = faqSection.querySelector(`[data-key="faqA${i}"]`);
+                    if (qElement) qElement.innerHTML = currentTranslations[`faqQ${i}`];
+                    if (aElement) aElement.innerHTML = currentTranslations[`faqA${i}`];
+                }
+            }
         }
 
         // Función para cambiar el idioma
@@ -1826,4 +1965,3 @@
 
 </body>
 </html>
-
