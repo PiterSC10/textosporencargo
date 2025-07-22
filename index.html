@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Removed defer from here -->
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts - Inter -->
@@ -1462,9 +1462,9 @@
                             ${translations[lang][webService.dataKeys.priceNote]}
                         </p>
                         <div class="text-center mt-4">
-                            <button onclick="openPopup('popupWebDetails')" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105" data-key="tarifasButton">
+                            <a href="#formulario-contacto" class="inline-block bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105" data-key="tarifasButton">
                                 ${translations[lang].tarifasButton} <i class="fas fa-tags ml-2"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 `;
