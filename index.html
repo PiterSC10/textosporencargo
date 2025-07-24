@@ -29,7 +29,7 @@
             color: #e2e8f0; /* Color de texto claro */
             margin: 0; /* Elimina el margen predeterminado del body */
             /* Ajusta el padding superior para el header fijo */
-            padding-top: 4rem; /* Aproximadamente 64px para acomodar el header */
+            padding-top: 3.5rem; /* Ajustado para reducir el espacio superior */
             /* Ajusta el padding inferior para la barra flotante inferior y el footer */
             padding-bottom: 10rem; /* Aproximadamente 160px para acomodar la barra inferior y el footer */
         }
@@ -216,7 +216,9 @@
     <!-- Header Section -->
     <header class="bg-[#0d1117] text-white py-4 px-6 shadow-lg fixed w-full z-50 top-0">
         <nav class="container mx-auto flex justify-between items-center flex-wrap">
-            <div class="text-2xl font-bold">YourDesignGPT</div>
+            <div class="text-2xl font-bold">
+                <a href="#hero-section" class="text-white hover:text-gray-300">YourDesignGPT</a>
+            </div>
             <div class="block lg:hidden">
                 <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
                     <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v15z"/></svg>
@@ -233,14 +235,14 @@
                 <div class="mt-4 lg:mt-0 flex items-center">
                     <button id="lang-es" class="text-gray-400 font-bold hover:text-white flex items-center">ES <span class="ml-1">🇪🇸</span></button>
                     <span class="text-gray-600 mx-2">|</span>
-                    <button id="lang-en" class="text-gray-600 hover:text-white flex items-center">EN GB <span class="ml-1">🇬🇧</span></button>
+                    <button id="lang-en" class="text-gray-600 hover:text-white flex items-center">EN <span class="ml-1">🇬🇧</span></button>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-20 px-4">
+    <section id="hero-section" class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-20 px-4">
         <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6 leading-tight animate-fade-in-up" data-lang-key="hero-title">
             El Diseño del Futuro, Impulsado por IA
         </h1>
@@ -653,12 +655,34 @@
             <p class="text-lg text-gray-300 mb-10" data-lang-key="contact-desc">
                 Rellena el formulario y nos pondremos en contacto contigo.
             </p>
-            <form action="https://form.to/pedrosorianocalderon@gmail.com" method="POST" class="space-y-6">
-                <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-name">
-                <input type="email" name="email" placeholder="Tu correo electrónico" required class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-email">
-                <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="6" required class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-message"></textarea>
+            <form action="https://formsubmit.io/send/pedrosorianocalderon@gmail.com" method="POST" class="space-y-6">
+                <!-- Redirección tras envío -->
                 <input type="hidden" name="_redirect" value="https://pitersc10.github.io/textosporencargo/gracias.html">
-                <input type="text" name="_honey" style="display:none"> <!-- Campo honeypot anti-spam -->
+                <!-- Campo honeypot anti-spam -->
+                <input type="text" name="_honey" style="display:none">
+
+                <!-- Campo Nombre -->
+                <label for="nombre" class="sr-only">Nombre:</label>
+                <input type="text" id="nombre" name="name" required
+                       placeholder="Tu nombre"
+                       class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"
+                       data-lang-placeholder-key="your-name">
+
+                <!-- Campo Email -->
+                <label for="email" class="sr-only">Email:</label>
+                <input type="email" id="email" name="email" required
+                       placeholder="Tu correo electrónico"
+                       class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"
+                       data-lang-placeholder-key="your-email">
+
+                <!-- Campo Mensaje -->
+                <label for="mensaje" class="sr-only">Mensaje:</label>
+                <textarea id="mensaje" name="message" rows="6" required
+                          placeholder="Escribe tu mensaje..."
+                          class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"
+                          data-lang-placeholder-key="your-message"></textarea>
+
+                <!-- Botón de Enviar -->
                 <button type="submit" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="send-message">
                     Enviar mensaje
                 </button>
@@ -901,156 +925,156 @@
                 'privacy-policy': 'Política de privacidad',
                 'legal-notice': 'Aviso legal',
                 'scroll-to-top': 'Scroll to top',
-                'faq-title': 'Frequently Asked Questions',
-                'faq-q1': 'What kind of texts do you offer?',
-                'faq-a1': 'Letters, speeches, stories, claims, resumes, and more, delivered in PDF.',
-                'faq-q2': 'How do I place an order?',
-                'faq-a2': 'Fill out our simple form with all the details. We\'ll take care of the rest.',
-                'faq-q3': 'How do I receive my order?',
-                'faq-a3': 'By email in PDF, once completed and paid.',
-                'faq-q4': 'How much does each service cost?',
-                'faq-a4': 'Between €10 and €15, depending on the type of text.',
-                'faq-q5': 'Can I order something not on the list?',
-                'faq-a5': 'Yes, select "Other" and describe what you need.',
-                'faq-q6': 'How is payment made?',
-                'faq-a6': 'We will send you a PayPal link by email to complete the payment securely.',
-                'faq-q7': 'When will I receive my text?',
-                'faq-a7': 'Within 24-72 hours after payment, with exceptions communicated.',
-                'faq-q8': 'Can I request a modification after receiving the text?',
-                'faq-a8': 'Yes, you can request minor adjustments by email.',
-                'faq-q9': 'Can I pay by card without a PayPal account?',
-                'faq-a9': 'Yes, PayPal allows card payment without registration.',
-                'faq-q10': 'Why choose this website instead of doing it myself with AI?',
-                'faq-a10': 'Because here you save time, errors, and trials. We provide everything ready and well-written by professional writers.',
-                'faq-q11': 'Are the pop-up examples the actual size of the text I receive?',
-                'faq-a11': 'No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.',
-                'floating-bar-text': 'Ready for your personalized text?',
-                'floating-bar-button': 'Order now!',
-                'simpsons-modal-title': 'Simpsons Style Illustration - Examples',
+                'faq-title': 'Preguntas Frecuentes',
+                'faq-q1': '¿Qué tipo de textos ofrecéis?',
+                'faq-a1': 'Cartas, discursos, cuentos, reclamaciones, currículums y más, entregados en PDF.',
+                'faq-q2': '¿Cómo hago un pedido?',
+                'faq-a2': 'Rellena el formulario con tus detalles. Nosotros nos encargamos del resto.',
+                'faq-q3': '¿Cómo recibo mi encargo?',
+                'faq-a3': 'Por email en PDF, una vez completado y pagado.',
+                'faq-q4': '¿Cuánto cuesta cada servicio?',
+                'faq-a4': 'Entre 10€ y 15€, según el tipo de texto.',
+                'faq-q5': '¿Puedo pedir algo que no aparece en la lista?',
+                'faq-a5': 'Sí, selecciona “Otro” y describe lo que necesitas.',
+                'faq-q6': '¿Cómo se realiza el pago?',
+                'faq-a6': 'Te enviaremos un enlace de PayPal por email para completar el pago de forma segura.',
+                'faq-q7': '¿Cuándo recibiré mi texto?',
+                'faq-a7': 'En 24-72h tras el pago, salvo excepciones que se comunicarán.',
+                'faq-q8': '¿Puedo pedir una modificación después de recibir el texto?',
+                'faq-a8': 'Sí, puedes solicitar ajustes menores por email.',
+                'faq-q9': '¿Se puede pagar con tarjeta sin tener cuenta PayPal?',
+                'faq-a9': 'Sí, PayPal permite pago con tarjeta sin registrarse.',
+                'faq-q10': '¿Por qué elegir esta web en lugar de hacerlo yo con IA?',
+                'faq-a10': 'Porque aquí te ahorras tiempo, errores y pruebas. Te lo damos todo listo y bien escrito por redactores profesionales.',
+                'faq-q11': '¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?',
+                'faq-a11': 'No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.',
+                'floating-bar-text': '¿Listo para tu texto personalizado?',
+                'floating-bar-button': '¡Haz tu pedido ahora!',
+                'simpsons-modal-title': 'Ilustración estilo Los Simpsons - Ejemplos',
                 'simpsons-modal-content': `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="Original Image" class="rounded-lg w-full">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Simpsons Illustration" class="rounded-lg w-full">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="Imagen Original" class="rounded-lg w-full">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg w-full">
                     </div>
                 `,
-                'web-info-modal-title': 'Information about "We create your website"',
+                'web-info-modal-title': 'Información sobre "Creamos tu web"',
                 'web-info-modal-content': `
-                    <p>This service includes the complete design, development, and management of your professional website. We take care of everything so you don't have to worry about a thing.</p>
+                    <p>Este servicio incluye el diseño, desarrollo y gestión completa de tu sitio web profesional. Nos encargamos de todo para que no tengas que preocuparte por nada.</p>
                     <ul class="list-disc list-inside mt-4 space-y-2">
-                        <li>Responsive and modern web design.</li>
-                        <li>WhatsApp button integration.</li>
-                        <li>Professional email setup with your domain.</li>
-                        <li>Custom contact form.</li>
-                        <li>Favicon and basic SEO optimization.</li>
-                        <li>Upload and configuration on the server.</li>
-                        <li>User manual so you can manage your content.</li>
+                        <li>Diseño web responsive y moderno.</li>
+                        <li>Integración de botón de WhatsApp.</li>
+                        <li>Configuración de correo profesional con tu dominio.</li>
+                        <li>Formulario de contacto personalizado.</li>
+                        <li>Favicon y optimización SEO básica.</li>
+                        <li>Subida y configuración en el servidor.</li>
+                        <li>Manual de uso para que puedas gestionar tu contenido.</li>
                     </ul>
-                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
+                    <p class="mt-4"><strong>Tiempo de entrega estimado:</strong> 24-72 horas.</p>
                 `,
-                'carta-ejemplo-modal-title': 'Personalized Letter Conditions',
+                'carta-ejemplo-modal-title': 'Condiciones de Carta Personalizada',
                 'carta-ejemplo-modal-content': `
-                    <p>The personalized letter will have a length of <strong>1 to 2 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The tone and content will be fully adapted to your personal situation (romantic, formal, etc.).</p>
+                    <p>La carta personalizada tendrá una extensión de <strong>1 a 2 hojas</strong>.</p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">Se adaptará el tono y el contenido a tus necesidades específicas (romántica, formal, etc.).</p>
                 `,
-                'discurso-ejemplo-modal-title': 'Speech for Events Conditions',
+                'discurso-ejemplo-modal-title': 'Condiciones de Discurso para Eventos',
                 'discurso-ejemplo-modal-content': `
-                    <p>The speech will have an approximate reading time of <strong>up to 5 minutes</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">It will be professionally and personally written for the specific occasion.</p>
+                    <p>El discurso tendrá una duración aproximada de <strong>hasta 5 minutos</strong> de lectura.</p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">Se redactará de forma profesional y personalizada para la ocasión específica.</p>
                 `,
-                'minilibro-ejemplo-modal-title': 'Personalized Mini Book Conditions',
+                'minilibro-ejemplo-modal-title': 'Condiciones de Mini Libro Personalizado',
                 'minilibro-ejemplo-modal-content': `
-                    <p>The mini book will have a length of <strong>a minimum of 25 hours of reading.</strong></p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The story will be created exclusively for you or the person you choose, with your story as the protagonist.</p>
+                    <p>El mini libro tendrá una extensión de <strong>un mínimo de 25 horas de lectura.</strong></p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">La historia será creada exclusivamente para ti o para la persona que elijas, con tu historia como protagonista.</p>
                 `,
-                'reclamaciones-ejemplo-modal-title': 'Claim Text Conditions',
+                'reclamaciones-ejemplo-modal-title': 'Condiciones de Texto para Reclamaciones',
                 'reclamaciones-ejemplo-modal-content': `
-                    <p>The claim text will have a length of <strong>2 to 5 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">It will be written in clear and persuasive language to defend your rights.</p>
+                    <p>El texto para reclamaciones tendrá una extensión de <strong>2 a 5 hojas</strong>.</p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">Se redactará con lenguaje claro y persuasivo para defender tus derechos.</p>
                 `,
-                'cuento-ejemplo-modal-title': 'Personalized Story Conditions',
+                'cuento-ejemplo-modal-title': 'Condiciones de Cuento Personalizado',
                 'cuento-ejemplo-modal-content': `
-                    <p>The personalized story will have a length of <strong>5 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The protagonists will be the people you choose, in a unique and magical story.</p>
+                    <p>El cuento personalizado tendrá una extensión de <strong>5 hojas</strong>.</p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">Los protagonistas serán las personas que tú elijas, en una historia única y mágica.</p>
                 `,
-                'picante-romantico-ejemplo-modal-title': 'Spicy or Romantic Text Conditions',
+                'picante-romantico-ejemplo-modal-title': 'Condiciones de Texto Picante o Romántico',
                 'picante-romantico-ejemplo-modal-content': `
-                    <p>The text will have a length of <strong>1 to 2 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The perfect text will be created to express your deepest feelings or to add a touch of spice.</p>
+                    <p>El texto tendrá una extensión de <strong>1 a 2 hojas</strong>.</p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">Se creará el texto perfecto para expresar tus sentimientos más profundos o para añadir un toque de picardía.</p>
                 `,
-                'ideas-regalo-ejemplo-modal-title': 'Creative Gift Ideas List Conditions',
+                'ideas-regalo-ejemplo-modal-title': 'Condiciones de Lista de Ideas para Regalar',
                 'ideas-regalo-ejemplo-modal-content': `
-                    <p>The gift ideas list will include creative and original proposals.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The list will be adapted to the tastes and personality of the person you want to surprise.</p>
+                    <p>La lista de ideas para regalar incluirá propuestas creativas y originales.</p>
+                    <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
+                    <p class="mt-4">La lista será adaptada a los gustos y personalidad de la persona a la que quieres sorprender.</p>
                 `,
-                'privacy-policy-modal-title': 'Privacy Policy',
+                'privacy-policy-modal-title': 'Política de Privacidad',
                 'privacy-policy-modal-content': `
-                    <h3 class="text-xl font-bold mb-4">1. Data Controller</h3>
-                    <p>Pedro Soriano Calderón is responsible for the personal data you provide when browsing or contacting through this website.</p>
-                    <p class="mt-2">Contact email: textosporencargo@gmail.com</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of data processing</h3>
-                    <p>Data will be used exclusively to manage contracted services, answer queries, prepare budgets, and send communications related to your order or project.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">3. Legitimacy for processing</h3>
-                    <p>Processing is based on your express consent, by filling out the form, and/or on the execution of a service contract when you formalize an order.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">4. Data processed</h3>
-                    <p>Collected data may include:</p>
+                    <h3 class="text-xl font-bold mb-4">1. Responsable del tratamiento</h3>
+                    <p>Pedro Soriano Calderón es el responsable de los datos personales que proporciones al navegar o contactar a través de esta web.</p>
+                    <p class="mt-2">Correo de contacto: textosporencargo@gmail.com</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">2. Finalidad del tratamiento de datos</h3>
+                    <p>Los datos serán utilizados exclusivamente para gestionar los servicios contratados, responder consultas, realizar presupuestos y enviar comunicaciones relacionadas con tu pedido o proyecto.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">3. Legitimación para el tratamiento</h3>
+                    <p>El tratamiento se basa en tu consentimiento expreso, al rellenar el formulario, y/o en la ejecución de un contrato de servicios cuando formalizas un pedido.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">4. Datos tratados</h3>
+                    <p>Los datos recogidos pueden incluir:</p>
                     <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>Full name</li>
-                        <li>Email address</li>
-                        <li>Information voluntarily provided through the form</li>
+                        <li>Nombre y apellidos</li>
+                        <li>Correo electrónico</li>
+                        <li>Información facilitada voluntariamente a través del formulario</li>
                     </ul>
-                    <h3 class="text-xl font-bold mt-6 mb-4">5. Data retention</h3>
-                    <p>Your data will be retained as long as the commercial relationship lasts or for the time necessary to comply with legal obligations.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">6. Recipients</h3>
-                    <p>No data will be transferred to third parties, except by legal obligation or essential technical assignment (e.g., Google Forms for forms).</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">7. User rights</h3>
-                    <p>You have the right to:</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">5. Conservación de los datos</h3>
+                    <p>Tus datos se conservarán mientras dure la relación comercial o durante el tiempo necesario para cumplir con obligaciones legales.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">6. Destinatarios</h3>
+                    <p>No se cederán datos a terceros, salvo obligación legal o por encargo técnico imprescindible (por ejemplo, Google Forms para formularios).</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">7. Derechos del usuario</h3>
+                    <p>Tienes derecho a:</p>
                     <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>Access your data</li>
-                        <li>Request its rectification or deletion</li>
-                        <li>Request the limitation of its processing</li>
-                        <li>Object to processing</li>
-                        <li>Request data portability</li>
+                        <li>Acceder a tus datos</li>
+                        <li>Solicitar su rectificación o supresión</li>
+                        <li>Solicitar la limitación de su tratamiento</li>
+                        <li>Oponerte al tratamiento</li>
+                        <li>Solicitar la portabilidad de tus datos</li>
                     </ul>
-                    <h3 class="text-xl font-bold mt-6 mb-4">8. Security measures</h3>
-                    <p>Appropriate security measures are applied to protect your data against unauthorized access, alteration, or accidental loss.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">9. Use of cookies</h3>
-                    <p>This website does not use analytical or advertising cookies. Only technical cookies are used if the embedded form requires them to function.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">10. Updates</h3>
-                    <p>The data controller may modify this policy to adapt it to legislative or technical changes. The current version will always be available on the website.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">8. Medidas de seguridad</h3>
+                    <p>Se aplican medidas de seguridad adecuadas para proteger tus datos frente a accesos no autorizados, alteraciones o pérdidas accidentales.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">9. Uso de cookies</h3>
+                    <p>Esta web no utiliza cookies de análisis ni publicitarias. Solo se usan cookies técnicas si el formulario embebido lo requiere para funcionar.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">10. Actualizaciones</h3>
+                    <p>El responsable puede modificar esta política para adaptarla a cambios legislativos o técnicos. La versión vigente estará siempre disponible en la web.</p>
                 `,
-                'legal-notice-modal-title': 'Legal Notice',
+                'legal-notice-modal-title': 'Aviso Legal',
                 'legal-notice-modal-content': `
-                    <h3 class="text-xl font-bold mb-4">1. Owner's details</h3>
-                    <p>This website is owned by Pedro Soriano Calderón (hereinafter, "the owner"), with professional address in Malaga, Spain.</p>
-                    <p class="mt-2">Contact email: textosporencargo@gmail.com</p>
-                    <p class="mt-2">Trade name: YourDesignGPT</p>
-                    <p class="mt-2">Website: https://pitersc10.github.io/textosporencargo</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of the website</h3>
-                    <p>The purpose of this site is to offer digital services of personalized writing, letters, claims, speeches, mini-books, professional web design, and other related services.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">3. Terms of use</h3>
-                    <p>The use of this website grants the status of user and implies full acceptance of the provisions included in this Legal Notice. If you do not agree with any of the conditions, you should not use this website.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">4. Intellectual and industrial property</h3>
-                    <p>All content on the website, including texts, images, logos, graphics, source code, design, and structure, are protected by current legislation on intellectual and industrial property.</p>
-                    <p class="mt-2">Its reproduction, distribution, or modification without the owner's authorization is expressly prohibited.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">5. Content responsibility</h3>
-                    <p>The owner is not responsible for the misuse of the content of the website. Nor does it guarantee that the content is free of errors or that it is permanently updated, although efforts will be made to ensure this.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">6. External links</h3>
-                    <p>This website may contain links to third-party websites. The owner is not responsible for the content or privacy practices of these sites.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">7. Limitation of liability</h3>
-                    <p>The owner will not be responsible for direct or indirect damages derived from the use of this website or possible interruptions in the service, viruses, or other elements that could cause damage to the user.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">8. Modifications</h3>
-                    <p>The owner reserves the right to modify any information present on the website without prior notice.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">9. Applicable law and jurisdiction</h3>
-                    <p>The relationship between the owner and the user will be governed by Spanish law. Any dispute will be submitted to the courts of Malaga, expressly waiving any other jurisdiction.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">10. Contact</h3>
-                    <p>For any questions related to the Legal Notice, you can write to us at: textosporencargo@gmail.com</p>
+                    <h3 class="text-xl font-bold mb-4">1. Datos del titular</h3>
+                    <p>Esta web es titularidad de Pedro Soriano Calderón (en adelante, “el titular”), con domicilio profesional en Málaga, España.</p>
+                    <p class="mt-2">Correo electrónico de contacto: textosporencargo@gmail.com</p>
+                    <p class="mt-2">Nombre comercial: YourDesignGPT</p>
+                    <p class="mt-2">Web: https://pitersc10.github.io/textosporencargo</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">2. Objeto del sitio web</h3>
+                    <p>El presente sitio tiene como finalidad ofrecer servicios digitales de redacción personalizada, cartas, reclamaciones, discursos, minilibros, diseño web profesional y otros servicios relacionados.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">3. Condiciones de uso</h3>
+                    <p>La utilización de esta web atribuye la condición de usuario e implica la aceptación plena de las disposiciones incluidas en este Aviso Legal. Si no estás de acuerdo con alguna de las condiciones, no debes usar esta web.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">4. Propiedad intelectual e industrial</h3>
+                    <p>Todos los contenidos de la web, incluyendo textos, imágenes, logos, gráficos, código fuente, diseño y estructura, están protegidos por la legislación vigente en materia de propiedad intelectual e industrial.</p>
+                    <p class="mt-2">Queda expresamente prohibida su reproducción, distribución o modificación sin autorización del titular.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">5. Responsabilidad del contenido</h3>
+                    <p>El titular no se responsabiliza del mal uso que se realice de los contenidos de la web. Tampoco garantiza que los contenidos estén libres de errores ni que estén actualizados de forma permanente, aunque se procurará que así sea.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">6. Enlaces externos</h3>
+                    <p>Esta web puede contener enlaces a sitios web de terceros. El titular no se responsabiliza del contenido ni de las prácticas de privacidad de dichos sitios.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">7. Limitación de responsabilidad</h3>
+                    <p>El titular no será responsable de daños directos o indirectos derivados del uso de esta web ni de posibles interrupciones en el servicio, virus u otros elementos que pudieran causar daños al usuario.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">8. Modificaciones</h3>
+                    <p>El titular se reserva el derecho a modificar cualquier información presente en el sitio web sin previo aviso.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">9. Legislación aplicable y jurisdicción</h3>
+                    <p>La relación entre el titular y el usuario se regirá por la legislación española. Cualquier disputa se someterá a los juzgados de Málaga, renunciando expresamente a cualquier otro fuero.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">10. Contacto</h3>
+                    <p>Para cualquier duda relacionada con el Aviso Legal, puedes escribirnos a: textosporencargo@gmail.com</p>
                 `,
             },
             'en': {
@@ -1224,34 +1248,7 @@
                     <p class="mt-2">Contact email: textosporencargo@gmail.com</p>
                     <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of data processing</h3>
                     <p>Data will be used exclusively to manage contracted services, answer queries, prepare budgets, and send communications related to your order or project.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">3. Legitimacy for processing</h3>
-                    <p>Processing is based on your express consent, by filling out the form, and/or on the execution of a service contract when you formalize an order.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">4. Data processed</h3>
-                    <p>Collected data may include:</p>
-                    <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>Full name</li>
-                        <li>Email address</li>
-                        <li>Information voluntarily provided through the form</li>
-                    </ul>
-                    <h3 class="text-xl font-bold mt-6 mb-4">5. Data retention</h3>
-                    <p>Your data will be retained as long as the commercial relationship lasts or for the time necessary to comply with legal obligations.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">6. Recipients</h3>
-                    <p>No data will be transferred to third parties, except by legal obligation or essential technical assignment (e.g., Google Forms for forms).</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">7. User rights</h3>
-                    <p>You have the right to:</p>
-                    <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>Access your data</li>
-                        <li>Request its rectification or deletion</li>
-                        <li>Request the limitation of its processing</li>
-                        <li>Object to processing</li>
-                        <li>Request data portability</li>
-                    </ul>
-                    <h3 class="text-xl font-bold mt-6 mb-4">8. Security measures</h3>
-                    <p>Appropriate security measures are applied to protect your data against unauthorized access, alteration, or accidental loss.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">9. Use of cookies</h3>
-                    <p>This website does not use analytical or advertising cookies. Only technical cookies are used if the embedded form requires them to function.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">10. Updates</h3>
-                    <p>The data controller may modify this policy to adapt it to legislative or technical changes. The current version will always be available on the website.</p>
+                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
                 `,
                 'legal-notice-modal-title': 'Legal Notice',
                 'legal-notice-modal-content': `
@@ -1262,23 +1259,7 @@
                     <p class="mt-2">Website: https://pitersc10.github.io/textosporencargo</p>
                     <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of the website</h3>
                     <p>The purpose of this site is to offer digital services of personalized writing, letters, claims, speeches, mini-books, professional web design, and other related services.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">3. Terms of use</h3>
-                    <p>The use of this website grants the status of user and implies full acceptance of the provisions included in this Legal Notice. If you do not agree with any of the conditions, you should not use this website.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">4. Intellectual and industrial property</h3>
-                    <p>All content on the website, including texts, images, logos, graphics, source code, design, and structure, are protected by current legislation on intellectual and industrial property.</p>
-                    <p class="mt-2">Its reproduction, distribution, or modification without the owner's authorization is expressly prohibited.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">5. Content responsibility</h3>
-                    <p>The owner is not responsible for the misuse of the content of the website. Nor does it guarantee that the content is free of errors or that it is permanently updated, although efforts will be made to ensure this.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">6. External links</h3>
-                    <p>This website may contain links to third-party websites. The owner is not responsible for the content or privacy practices of these sites.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">7. Limitation of liability</h3>
-                    <p>The owner will not be responsible for direct or indirect damages derived from the use of this website or possible interruptions in the service, viruses, or other elements that could cause damage to the user.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">8. Modifications</h3>
-                    <p>The owner reserves the right to modify any information present on the website without prior notice.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">9. Applicable law and jurisdiction</h3>
-                    <p>The relationship between the owner and the user will be governed by Spanish law. Any dispute will be submitted to the courts of Malaga, expressly waiving any other jurisdiction.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">10. Contact</h3>
-                    <p>For any questions related to the Legal Notice, you can write to us at: textosporencargo@gmail.com</p>
+                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
                 `,
             }
         };
@@ -1305,24 +1286,32 @@
 
             // Actualizar título del botón de scroll-to-top
             document.getElementById('scrollToTopBtn').title = translations[currentLang]['scroll-to-top'];
+
+            // Actualizar clases de los botones de idioma
+            const langEsBtn = document.getElementById('lang-es');
+            const langEnBtn = document.getElementById('lang-en');
+
+            if (currentLang === 'es') {
+                langEsBtn.classList.add('font-bold', 'text-gray-400');
+                langEsBtn.classList.remove('text-gray-600');
+                langEnBtn.classList.remove('font-bold', 'text-gray-400');
+                langEnBtn.classList.add('text-gray-600');
+            } else { // currentLang === 'en'
+                langEnBtn.classList.add('font-bold', 'text-gray-400');
+                langEnBtn.classList.remove('text-gray-600');
+                langEsBtn.classList.remove('font-bold', 'text-gray-400');
+                langEsBtn.classList.add('text-gray-600');
+            }
         }
 
         // Event listeners para botones de idioma
         document.getElementById('lang-es').addEventListener('click', () => {
             currentLang = 'es';
-            document.getElementById('lang-es').classList.add('font-bold', 'text-gray-400');
-            document.getElementById('lang-es').classList.remove('text-gray-600');
-            document.getElementById('lang-en').classList.remove('font-bold', 'text-gray-400');
-            document.getElementById('lang-en').classList.add('text-gray-600');
             updateLanguage();
         });
 
         document.getElementById('lang-en').addEventListener('click', () => {
             currentLang = 'en';
-            document.getElementById('lang-en').classList.add('font-bold', 'text-gray-400');
-            document.getElementById('lang-en').classList.remove('text-gray-600');
-            document.getElementById('lang-es').classList.remove('font-bold', 'text-gray-400');
-            document.getElementById('lang-es').classList.add('text-gray-600');
             updateLanguage();
         });
 
