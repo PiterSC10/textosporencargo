@@ -25,11 +25,13 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background */
-            color: #e2e8f0; /* Light text color */
-            /* Removed global body border */
-            margin: 0; /* Remove default body margin */
-            padding-bottom: 8rem; /* Increased padding at the bottom for floating bar and footer visibility */
+            background-color: #0d1117; /* Fondo oscuro */
+            color: #e2e8f0; /* Color de texto claro */
+            margin: 0; /* Elimina el margen predeterminado del body */
+            /* Ajusta el padding superior para el header fijo */
+            padding-top: 4rem; /* Aproximadamente 64px para acomodar el header */
+            /* Ajusta el padding inferior para la barra flotante inferior y el footer */
+            padding-bottom: 10rem; /* Aproximadamente 160px para acomodar la barra inferior y el footer */
         }
         .gradient-text {
             background: linear-gradient(to right, #6EE7B7, #3B82F6);
@@ -46,8 +48,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
         .card {
-            background-color: #1a202c; /* Slightly lighter dark for cards */
-            border-radius: 1rem; /* Rounded corners */
+            background-color: #1a202c; /* Oscuro ligeramente más claro para las tarjetas */
+            border-radius: 1rem; /* Esquinas redondeadas */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
             display: flex;
@@ -55,46 +57,49 @@
             align-items: center;
             text-align: center;
             transition: transform 0.2s ease-in-out;
+            /* Borde turquesa y efecto hover para cada tarjeta */
+            border: 2px solid #2dd4bf; /* Borde turquesa */
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.6); /* Resplandor turquesa al pasar el ratón */
         }
         .nav-link:hover {
-            color: #6EE7B7; /* Highlight on hover */
+            color: #6EE7B7; /* Resaltar al pasar el ratón */
         }
         .icon-svg {
-            width: 2.5rem; /* Standard icon size */
+            width: 2.5rem; /* Tamaño estándar del icono */
             height: 2.5rem;
             margin-bottom: 1rem;
         }
-        /* Custom scroll-to-top button */
+        /* Botón personalizado de scroll-to-top */
         #scrollToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed position */
-            bottom: 20px; /* Place at the bottom */
-            right: 20px; /* Place at the right */
-            z-index: 99; /* Ensure it's on top */
-            background-color: #3B82F6; /* Blue background */
-            color: white; /* White text */
-            border: none; /* No border */
-            border-radius: 50%; /* Circular shape */
-            width: 50px; /* Size */
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Posición fija */
+            bottom: 20px; /* Colocar en la parte inferior */
+            right: 20px; /* Colocar a la derecha */
+            z-index: 99; /* Asegurar que esté encima */
+            background-color: #3B82F6; /* Fondo azul */
+            color: white; /* Texto blanco */
+            border: none; /* Sin borde */
+            border-radius: 50%; /* Forma circular */
+            width: 50px; /* Tamaño */
             height: 50px;
-            font-size: 1.5rem; /* Icon size */
-            cursor: pointer; /* Pointer on hover */
+            font-size: 1.5rem; /* Tamaño del icono */
+            cursor: pointer; /* Puntero al pasar el ratón */
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             transition: background-color 0.3s ease;
         }
         #scrollToTopBtn:hover {
-            background-color: #10B981; /* Green on hover */
+            background-color: #10B981; /* Verde al pasar el ratón */
         }
-        /* Modal specific styling */
+        /* Estilo específico del modal */
         .modal-content-scroll {
-            max-height: 70vh; /* Limit height for scrollable content */
+            max-height: 70vh; /* Limitar altura para contenido desplazable */
             overflow-y: auto;
-            padding-right: 1rem; /* Space for scrollbar */
+            padding-right: 1rem; /* Espacio para la barra de desplazamiento */
         }
-        /* FAQ accordion styling */
+        /* Estilo de acordeón FAQ */
         .faq-question {
             background-color: #1a202c;
             color: #e2e8f0;
@@ -124,7 +129,7 @@
             margin-bottom: 0.5rem;
         }
         .faq-answer.active {
-            max-height: 500px; /* Adjust as needed for content */
+            max-height: 500px; /* Ajustar según sea necesario para el contenido */
             padding: 1.5rem;
         }
         .faq-icon {
@@ -134,47 +139,44 @@
             transform: rotate(180deg);
         }
 
-        /* Floating bottom bar */
-        .floating-bar {
+        /* Barra flotante inferior */
+        .floating-bar-bottom {
             position: fixed;
-            bottom: 20px; /* Adjusted to be above the footer */
+            bottom: 0; /* Anclado al borde inferior */
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 2rem); /* Account for body margin */
-            max-width: 800px; /* Limit width on larger screens */
+            width: 100%; /* Ocupa todo el ancho */
+            max-width: 800px; /* Limitar ancho en pantallas grandes */
             background: linear-gradient(to right, #10B981, #3B82F6);
             color: white;
-            padding: 0.75rem 1.5rem; /* Reduced padding for smaller height */
+            padding: 0.75rem 1.5rem; /* Padding reducido para menor altura */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem; /* Reduced gap */
-            z-index: 40; /* Below modal */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border-radius: 1rem;
+            gap: 0.5rem; /* Espacio reducido */
+            z-index: 40; /* Debajo del modal */
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3); /* Sombra superior */
+            border-top-left-radius: 1rem; /* Esquinas superiores redondeadas */
+            border-top-right-radius: 1rem;
         }
         @media (min-width: 768px) {
-            .floating-bar {
+            .floating-bar-bottom {
                 flex-direction: row;
                 justify-content: space-between;
                 padding: 0.75rem 2rem;
             }
         }
 
-        /* Section specific styling for border and hover effect */
+        /* Estilo específico de la sección para el borde (solo si no es una tarjeta) */
         section {
-            border: 2px solid #2dd4bf; /* Turquoise border for sections */
-            border-radius: 1rem; /* Rounded corners for sections */
-            margin: 1rem; /* Margin between sections and body border */
-            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+            /* Eliminado el borde directo de section para que lo tengan las cards */
+            border-radius: 1rem; /* Esquinas redondeadas para las secciones */
+            margin: 1rem; /* Margen entre secciones */
+            transition: box-shadow 0.3s ease-in-out; /* Transición suave para la sombra */
         }
 
-        section:hover {
-            box-shadow: 0 0 20px rgba(45, 212, 191, 0.6); /* Turquoise glow on hover */
-        }
-
-        /* Entrance Animation for Hero Title and Subtitle */
+        /* Animación de entrada para el Título y Subtítulo de la Hero Section */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -191,7 +193,7 @@
         }
 
         .animate-fade-in-up-delay-1 {
-            animation: fadeInUp 1s ease-out forwards 0.3s; /* Slight delay for subtitle */
+            animation: fadeInUp 1s ease-out forwards 0.3s; /* Ligero retraso para el subtítulo */
         }
     </style>
 </head>
@@ -212,7 +214,7 @@
     </div>
 
     <!-- Header Section -->
-    <header class="bg-[#0d1117] text-white py-4 px-6 shadow-lg fixed w-full z-50">
+    <header class="bg-[#0d1117] text-white py-4 px-6 shadow-lg fixed w-full z-50 top-0">
         <nav class="container mx-auto flex justify-between items-center flex-wrap">
             <div class="text-2xl font-bold">YourDesignGPT</div>
             <div class="block lg:hidden">
@@ -221,15 +223,17 @@
                 </button>
             </div>
             <div id="nav-content" class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden">
-                <div class="text-sm lg:flex-grow mt-4 lg:mt-0">
+                <div class="text-sm lg:flex-grow mt-4 lg:mt-0 lg:ml-auto"> <!-- Añadido lg:ml-auto para empujar a la derecha -->
                     <a href="#servicios" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-services">Servicios</a>
                     <a href="#como-funciona" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-how-it-works">Cómo Funciona</a>
                     <a href="#opiniones" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-reviews">Reseñas</a>
                     <a href="#faq" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-faq">FAQ</a>
                     <a href="#contacto" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" data-lang-key="nav-contact">Contacto</a>
                 </div>
-                <div class="mt-4 lg:mt-0">
-                    <button id="lang-es" class="text-gray-400 font-bold hover:text-white">ES</button> | <button id="lang-en" class="text-gray-600 hover:text-white">EN GB</button>
+                <div class="mt-4 lg:mt-0 flex items-center">
+                    <button id="lang-es" class="text-gray-400 font-bold hover:text-white flex items-center">ES <span class="ml-1">🇪🇸</span></button>
+                    <span class="text-gray-600 mx-2">|</span>
+                    <button id="lang-en" class="text-gray-600 hover:text-white flex items-center">EN GB <span class="ml-1">🇬🇧</span></button>
                 </div>
             </div>
         </nav>
@@ -649,16 +653,12 @@
             <p class="text-lg text-gray-300 mb-10" data-lang-key="contact-desc">
                 Rellena el formulario y nos pondremos en contacto contigo.
             </p>
-            <!-- 
-                Para que el formulario envíe un email real, se necesita un script en el servidor (ej. PHP, Node.js).
-                En este entorno de Canvas, la acción 'gracias.html' simula el flujo de la web.
-                Si se usara 'mailto:pedrosorianocalderon@gmail.com', el navegador intentaría abrir el cliente de correo del usuario,
-                y la redirección a 'gracias.html' no ocurriría automáticamente.
-            -->
-            <form action="gracias.html" method="GET" class="space-y-6">
-                <input type="text" placeholder="Tu nombre" class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-name">
-                <input type="email" placeholder="Tu correo electrónico" class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-email">
-                <textarea placeholder="Escribe tu mensaje..." rows="6" class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-message"></textarea>
+            <form action="https://form.to/pedrosorianocalderon@gmail.com" method="POST" class="space-y-6">
+                <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-name">
+                <input type="email" name="email" placeholder="Tu correo electrónico" required class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-email">
+                <textarea name="mensaje" placeholder="Escribe tu mensaje..." rows="6" required class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white" data-lang-placeholder-key="your-message"></textarea>
+                <input type="hidden" name="_redirect" value="https://pitersc10.github.io/textosporencargo/gracias.html">
+                <input type="text" name="_honey" style="display:none"> <!-- Campo honeypot anti-spam -->
                 <button type="submit" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="send-message">
                     Enviar mensaje
                 </button>
@@ -722,16 +722,34 @@
             <p class="mb-2 text-white font-bold">YourDesignGPT | Textos por encargo</p>
             <p class="mb-2" data-lang-key="footer-copyright">&copy; 2025 Pedro SC · Textos por Encargo. Todos los derechos reservados.</p>
             <p class="mb-4" data-lang-key="footer-design">Diseñado con ❤️</p>
-            <div class="flex justify-center space-x-4">
+            <div class="flex justify-center space-x-4 mb-4"> <!-- Added mb-4 for spacing -->
                 <a href="#" id="privacy-policy-link" class="hover:text-white" data-lang-key="privacy-policy">Política de privacidad</a>
                 <span class="text-gray-600">|</span>
                 <a href="#" id="legal-notice-link" class="hover:text-white" data-lang-key="legal-notice">Aviso legal</a>
             </div>
+            <!-- Social Media and Payment Icons -->
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.instagram.com/petersoriano10" target="_blank" aria-label="Instagram">
+                    <svg class="w-8 h-8 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A4.8 4.8 0 0 0 3 7.6v8.8C3 19.4 4.6 21 7.6 21h8.8c3 0 4.6-1.6 4.6-4.6V7.6C21 4.6 19.4 3 16.4 3H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/pasaportedemano" target="_blank" aria-label="YouTube">
+                    <svg class="w-8 h-8 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.543 6.498c-.28-.94-.96-1.62-1.9-1.9C18.17 4 12 4 12 4s-6.17 0-7.643.598c-.94.28-1.62 1.02-1.9 1.9-1.02 3.6-1.02 11.02 0 14.62.28.94.96 1.62 1.9 1.9C5.83 20 12 20 12 20s6.17 0 7.643-.598c.94-.28 1.62-1.02 1.9-1.9 1.02-3.6 1.02-11.02 0-14.62zM9.545 15.5V8.5L15.5 12l-5.955 3.5z"/>
+                    </svg>
+                </a>
+                <a href="https://www.paypal.es" target="_blank" aria-label="PayPal">
+                    <svg class="w-8 h-8 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13.25 2.25H9.75c-1.1 0-2 .9-2 2v1.5H5.5c-.83 0-1.5.67-1.5 1.5v12c0 .83.67 1.5 1.5 1.5h13c.83 0 1.5-.67 1.5-1.5v-12c0-.83-.67-1.5-1.5-1.5h-1.5V4.25c0-1.1-.9-2-2-2zM12 18H6.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H12c.28 0 .5.22.5.5s-.22.5-.5.5zm0-3H6.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H12c.28 0 .5.22.5.5s-.22.5-.5.5zm0-3H6.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H12c.28 0 .5.22.5.5s-.22.5-.5.5zm7-6.5c0-.28-.22-.5-.5-.5h-2.5V4.25c0-.28-.22-.5-.5-.5h-3.5c-.28 0-.5.22-.5.5v2.75h-2.5c-.28 0-.5.22-.5.5v1.5c0 .28.22.5.5.5h2.5v2.5H6.5c-.28 0-.5.22-.5.5v1.5c0 .28.22.5.5.5h5.5v2.5H6.5c-.28 0-.5.22-.5.5v1.5c0 .28.22.5.5.5h11c.28 0 .5-.22.5-.5V8.5c0-.28-.22-.5-.5-.5z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- Floating Bottom Bar -->
-    <div class="floating-bar">
+    <!-- Barra Flotante Inferior -->
+    <div class="floating-bar-bottom">
         <p class="text-lg font-semibold" data-lang-key="floating-bar-text">¿Listo para tu texto personalizado?</p>
         <a href="https://forms.gle/cqh3neMS4vK5kiXt9" target="_blank" class="bg-white text-blue-600 font-bold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors" data-lang-key="floating-bar-button">
             ¡Haz tu pedido ahora!
@@ -739,14 +757,14 @@
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling para enlaces de navegación
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Close mobile menu after clicking a link
+                // Cerrar menú móvil después de hacer clic en un enlace
                 const navContent = document.getElementById('nav-content');
                 if (navContent.classList.contains('flex')) {
                     navContent.classList.remove('flex');
@@ -755,7 +773,7 @@
             });
         });
 
-        // Toggle mobile menu
+        // Alternar menú móvil
         const navToggle = document.getElementById('nav-toggle');
         const navContent = document.getElementById('nav-content');
         navToggle.addEventListener('click', () => {
@@ -763,10 +781,10 @@
             navContent.classList.toggle('flex');
         });
 
-        // Scroll to top button functionality
+        // Funcionalidad del botón de scroll-to-top
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-        // When the user scrolls down 20px from the top of the document, show the button
+        // Cuando el usuario se desplaza 20px hacia abajo desde la parte superior del documento, muestra el botón
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
@@ -777,13 +795,13 @@
             }
         }
 
-        // When the user clicks on the button, scroll to the top of the document
+        // Cuando el usuario hace clic en el botón, se desplaza a la parte superior del documento
         scrollToTopBtn.addEventListener('click', function() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
         });
 
-        // Modal Logic
+        // Lógica del Modal
         const modal = document.getElementById('modal');
         const closeModalBtn = document.getElementById('closeModal');
         const modalTitle = document.getElementById('modalTitle');
@@ -805,7 +823,7 @@
             }
         });
 
-        // Translations Object
+        // Objeto de Traducciones
         const translations = {
             'es': {
                 'page-title': 'Pedro SC · Textos por Encargo',
@@ -1034,241 +1052,14 @@
                     <h3 class="text-xl font-bold mt-6 mb-4">10. Contacto</h3>
                     <p>Para cualquier duda relacionada con el Aviso Legal, puedes escribirnos a: textosporencargo@gmail.com</p>
                 `,
-            },
-            'en': {
-                'page-title': 'Pedro SC · Texts by Order',
-                'nav-services': 'Services',
-                'nav-how-it-works': 'How It Works',
-                'nav-reviews': 'Reviews',
-                'nav-faq': 'FAQ',
-                'nav-contact': 'Contact',
-                'hero-title': 'The Future of Design, Powered by AI',
-                'hero-subtitle': 'We transform your ideas into impactful visual realities with the most advanced artificial intelligence.',
-                'hero-button': 'See Services',
-                'services-title': 'Our Exclusive Services',
-                'web-title': 'We Create Your Website',
-                'web-desc': 'We create your own professional website. You forget about everything, we manage it.',
-                'web-list-1': 'Responsive website like this one',
-                'web-list-2': 'Active WhatsApp button',
-                'web-list-3': 'Professional email with your domain',
-                'web-list-4': 'Customized form',
-                'web-list-5': 'Favicon, design, and ready sections',
-                'web-list-6': 'Complete server upload',
-                'web-list-7': 'Step-by-step user manual',
-                'web-price-note': 'Annual maintenance price: €150 (domain + server + management). If not renewed, the website is automatically deactivated.',
-                'info-button': 'Info',
-                'letter-title': 'Personalized Letter',
-                'letter-desc': 'Write a unique, emotional, or formal letter, completely adapted to your personal situation.',
-                'speech-title': 'Speech for Events',
-                'speech-desc': 'We draft a professional and personalized speech for any special occasion.',
-                'book-title': 'Your Personalized Mini Book',
-                'book-desc': 'I create a mini book where you or your story are the protagonists.',
-                'claim-title': 'Text for Claims',
-                'claim-desc': 'Document drafted with clear and persuasive language to defend your rights. With us, it\'s like having your own personal lawyer.',
-                'story-title': 'Personalized Story',
-                'story-desc': 'A short story where you, your partner, or a loved one are the protagonists.',
-                'spicy-text-title': 'Spicy or Romantic Text',
-                'spicy-text-desc': 'A daring or suggestive text to ignite the spark or surprise with elegance.',
-                'gift-ideas-title': 'Creative Gift Ideas List',
-                'gift-ideas-desc': 'Don\'t know what to give? I create a personalized and ingenious list for you according to the occasion.',
-                'simpsons-title': 'The Simpsons Style Illustration',
-                'simpsons-desc': 'Turn your photo into an illustration with the most famous yellow humor.',
-                'see-example': 'See example',
-                'how-it-works-title': 'How Our Service Works?',
-                'step1-title': 'Step 1: Tell us your idea for the text!',
-                'step1-desc': 'Fill out our simple form with all the details. The more information, the better to create unique content!',
-                'step2-title': 'Step 2: Make a secure payment',
-                'step2-desc': 'Once we confirm the details, we will send you a PayPal link for a quick and completely secure payment.',
-                'step3-title': 'Step 3: Receive your masterpiece',
-                'step3-desc': 'In 24-72h you will receive your creative text in PDF directly in your email.',
-                'cta-title': 'Ready to transform your ideas into professional and unique texts?',
-                'cta-desc': 'Don\'t wait any longer, with Pedro SC, your texts will be unforgettable. Contact me now and let\'s start creating magic!',
-                'cta-button': 'I Want My Personalized Text!',
-                'order-title': 'Place Your Personalized Order',
-                'order-desc': 'Click the button below to fill out the form and request your unique, custom-made text. It\'s fast and simple!',
-                'order-button': 'Request your personalized text',
-                'testimonials-title': 'Satisfied Customer Reviews',
-                'contact-title': 'Send us your message',
-                'contact-desc': 'Fill out the form and we will contact you.',
-                'your-name': 'Your name',
-                'your-email': 'Your email',
-                'your-message': 'Write your message...',
-                'send-message': 'Send message',
-                'secure-payment-title': 'Secure Payment',
-                'secure-payment-desc': 'Protected with PayPal and SSL encryption.',
-                'pdf-delivery-title': 'PDF Delivery',
-                'pdf-delivery-desc': 'Receive your text by email in high quality.',
-                'delivery-time-title': 'Delivery 24-72h',
-                'delivery-time-desc': 'You will receive your order in a maximum of 3 days.',
-                'personalized-attention-title': 'Personalized Attention',
-                'personalized-attention-desc': 'I respond to you personally by email.',
-                '100-personalized-title': '100% Personalized',
-                '100-personalized-desc': 'Each text adapts to your story and tone.',
-                'satisfied-customers-title': 'Satisfied Customers',
-                'satisfied-customers-desc': 'Real reviews that support our work.',
-                'footer-copyright': '&copy; 2025 Pedro SC · Texts by Order. All rights reserved.',
-                'footer-design': 'Designed with ❤️',
-                'privacy-policy': 'Privacy Policy',
-                'legal-notice': 'Legal Notice',
-                'scroll-to-top': 'Scroll to top',
-                'faq-title': 'Frequently Asked Questions',
-                'faq-q1': 'What types of texts do you offer?',
-                'faq-a1': 'Letters, speeches, stories, claims, resumes, and more, delivered in PDF.',
-                'faq-q2': 'How do I place an order?',
-                'faq-a2': 'Fill out the form with your details. We\'ll take care of the rest.',
-                'faq-q3': 'How do I receive my order?',
-                'a3': 'By email in PDF, once completed and paid.',
-                'faq-q4': 'How much does each service cost?',
-                'faq-a4': 'Between €10 and €15, depending on the type of text.',
-                'faq-q5': 'Can I order something not on the list?',
-                'faq-a5': 'Yes, select "Other" and describe what you need.',
-                'faq-q6': 'How is payment made?',
-                'faq-a6': 'We will send you a PayPal link by email to complete the payment securely.',
-                'faq-q7': 'When will I receive my text?',
-                'faq-a7': 'Within 24-72h after payment, except for exceptions that will be communicated.',
-                'faq-q8': 'Can I request a modification after receiving the text?',
-                'faq-a8': 'Yes, you can request minor adjustments by email.',
-                'faq-q9': 'Can I pay by card without a PayPal account?',
-                'faq-a9': 'Yes, PayPal allows card payment without registration.',
-                'faq-q10': 'Why choose this website instead of doing it myself with AI?',
-                'faq-a10': 'Because here you save time, errors, and trials. We give you everything ready and well-written by professional writers.',
-                'faq-q11': 'Are the pop-up examples the actual size of the text I receive?',
-                'faq-a11': 'No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.',
-                'floating-bar-text': 'Ready for your personalized text?',
-                'floating-bar-button': 'Order now!',
-                'simpsons-modal-title': 'The Simpsons Style Illustration - Examples',
-                'simpsons-modal-content': `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="Original Image" class="rounded-lg w-full">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Simpsons Illustration" class="rounded-lg w-full">
-                    </div>
-                `,
-                'web-info-modal-title': 'Information about "We Create Your Website"',
-                'web-info-modal-content': `
-                    <p>This service includes the design, development, and complete management of your professional website. We take care of everything so you don't have to worry about anything.</p>
-                    <ul class="list-disc list-inside mt-4 space-y-2">
-                        <li>Responsive and modern web design.</li>
-                        <li>WhatsApp button integration.</li>
-                        <li>Professional email setup with your domain.</li>
-                        <li>Custom contact form.</li>
-                        <li>Favicon and basic SEO optimization.</li>
-                        <li>Server upload and configuration.</li>
-                        <li>User manual so you can manage your content.</li>
-                    </ul>
-                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
-                `,
-                'carta-ejemplo-modal-title': 'Personalized Letter Conditions',
-                'carta-ejemplo-modal-content': `
-                    <p>The personalized letter will have a length of <strong>1 to 2 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The tone and content will be adapted to your specific needs (romantic, formal, etc.).</p>
-                `,
-                'discurso-ejemplo-modal-title': 'Speech for Events Conditions',
-                'discurso-ejemplo-modal-content': `
-                    <p>The speech will have an approximate duration of <strong>up to 5 minutes</strong> of reading.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">It will be professionally and personally drafted for the specific occasion.</p>
-                `,
-                'minilibro-ejemplo-modal-title': 'Personalized Mini Book Conditions',
-                'minilibro-ejemplo-modal-content': `
-                    <p>The mini book will have a length of <strong>a minimum of 25 hours of reading.</strong></p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The story will be created exclusively for you or for the person you choose, with your story as the protagonist.</p>
-                `,
-                'reclamaciones-ejemplo-modal-title': 'Text for Claims Conditions',
-                'reclamaciones-ejemplo-modal-content': `
-                    <p>The text for claims will have a length of <strong>2 to 5 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">It will be drafted with clear and persuasive language to defend your rights.</p>
-                `,
-                'cuento-ejemplo-modal-title': 'Personalized Story Conditions',
-                'cuento-ejemplo-modal-content': `
-                    <p>The personalized story will have a length of <strong>5 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The protagonists will be the people you choose, in a unique and magical story.</p>
-                `,
-                'picante-romantico-ejemplo-modal-title': 'Spicy or Romantic Text Conditions',
-                'picante-romantico-ejemplo-modal-content': `
-                    <p>The text will have a length of <strong>1 to 2 pages</strong>.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The perfect text will be created to express your deepest feelings or to add a touch of mischief to your special moments.</p>
-                `,
-                'ideas-regalo-ejemplo-modal-title': 'Gift Ideas List Conditions',
-                'ideas-regalo-ejemplo-modal-content': `
-                    <p>The gift ideas list will include creative and original proposals.</p>
-                    <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The list will be adapted to the tastes and personality of the person you want to surprise.</p>
-                `,
-                'privacy-policy-modal-title': 'Privacy Policy',
-                'privacy-policy-modal-content': `
-                    <h3 class="text-xl font-bold mb-4">1. Data Controller</h3>
-                    <p>Pedro Soriano Calderón is responsible for the personal data you provide when browsing or contacting through this website.</p>
-                    <p class="mt-2">Contact email: textosporencargo@gmail.com</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of Data Processing</h3>
-                    <p>The data will be used exclusively to manage the contracted services, answer queries, prepare budgets, and send communications related to your order or project.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">3. Legitimacy for Processing</h3>
-                    <p>Processing is based on your express consent, by filling out the form, and/or on the execution of a service contract when you formalize an order.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">4. Data Processed</h3>
-                    <p>Collected data may include:</p>
-                    <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>Name and surname</li>
-                        <li>Email address</li>
-                        <li>Information voluntarily provided through the form</li>
-                    </ul>
-                    <h3 class="text-xl font-bold mt-6 mb-4">5. Data Retention</h3>
-                    <p>Your data will be retained for the duration of the commercial relationship or for the time necessary to comply with legal obligations.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">6. Recipients</h3>
-                    <p>Data will not be transferred to third parties, except for legal obligation or essential technical assignment (e.g., Google Forms for forms).</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">7. User Rights</h3>
-                    <p>You have the right to:</p>
-                    <ul class="list-disc list-inside ml-4 mt-2">
-                        <li>Access your data</li>
-                        <li>Request its rectification or deletion</li>
-                        <li>Request the limitation of its processing</li>
-                        <li>Object to the processing</li>
-                        <li>Request data portability</li>
-                    </ul>
-                    <h3 class="text-xl font-bold mt-6 mb-4">8. Security Measures</h3>
-                    <p>Appropriate security measures are applied to protect your data against unauthorized access, alteration, or accidental loss.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">9. Use of Cookies</h3>
-                    <p>This website does not use analytical or advertising cookies. Only technical cookies are used if the embedded form requires them to function.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">10. Updates</h3>
-                    <p>The data controller may modify this policy to adapt it to legislative or technical changes. The current version will always be available on the website.</p>
-                `,
-                'legal-notice-modal-title': 'Legal Notice',
-                'legal-notice-modal-content': `
-                    <h3 class="text-xl font-bold mb-4">1. Owner\'s Data</h3>
-                    <p>This website is owned by Pedro Soriano Calderón (hereinafter, "the owner"), with professional domicile in Malaga, Spain.</p>
-                    <p class="mt-2">Contact email: textosporencargo@gmail.com</p>
-                    <p class="mt-2">Trade name: YourDesignGPT</p>
-                    <p class="mt-2">Website: https://pitersc10.github.io/textosporencargo</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of the Website</h3>
-                    <p>The purpose of this site is to offer digital services of personalized writing, letters, claims, speeches, mini-books, professional web design, and other related services.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">3. Terms of Use</h3>
-                    <p>The use of this website attributes the status of user and implies full acceptance of the provisions included in this Legal Notice. If you do not agree with any of the conditions, you should not use this website.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">4. Intellectual and Industrial Property</h3>
-                    <p>All contents of the website, including texts, images, logos, graphics, source code, design, and structure, are protected by current legislation on intellectual and industrial property.</p>
-                    <p class="mt-2">Their reproduction, distribution, or modification is expressly prohibited without the owner\'s authorization.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">5. Content Responsibility</h3>
-                    <p>The owner is not responsible for the misuse of the contents of the website. Nor does it guarantee that the contents are free of errors or that they are permanently updated, although efforts will be made to ensure this.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">6. External Links</h3>
-                    <p>This website may contain links to third-party websites. The owner is not responsible for the content or privacy practices of these sites.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">7. Limitation of Liability</h3>
-                    <p>The owner will not be responsible for direct or indirect damages derived from the use of this website or for possible interrupciones in the service, viruses, or other elements that could cause damage to the user.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">8. Modifications</h3>
-                    <p>The owner reserves the right to modify any information present on the website without prior notice.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">9. Applicable Law and Jurisdiction</h3>
-                    <p>The relationship between the owner and the user will be governed by Spanish law. Any dispute will be submitted to the courts of Malaga, renunciando expresamente a cualquier otro fuero.</p>
-                    <h3 class="text-xl font-bold mt-6 mb-4">10. Contact</h3>
-                    <p>Para cualquier duda relacionada con el Aviso Legal, puedes escribirnos a: textosporencargo@gmail.com</p>
-                `,
             }
         };
 
-        let currentLang = 'es'; // Default language
+        let currentLang = 'es'; // Idioma por defecto
 
+        // Función para actualizar el idioma de la página
         function updateLanguage() {
-            // Update text content
+            // Actualizar contenido de texto
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.dataset.langKey;
                 if (translations[currentLang][key]) {
@@ -1276,7 +1067,7 @@
                 }
             });
 
-            // Update placeholder texts
+            // Actualizar textos de marcador de posición
             document.querySelectorAll('[data-lang-placeholder-key]').forEach(element => {
                 const key = element.dataset.langPlaceholderKey;
                 if (translations[currentLang][key]) {
@@ -1284,10 +1075,11 @@
                 }
             });
 
-            // Update scroll to top button title
+            // Actualizar título del botón de scroll-to-top
             document.getElementById('scrollToTopBtn').title = translations[currentLang]['scroll-to-top'];
         }
 
+        // Event listeners para botones de idioma
         document.getElementById('lang-es').addEventListener('click', () => {
             currentLang = 'es';
             document.getElementById('lang-es').classList.add('font-bold', 'text-gray-400');
@@ -1306,16 +1098,16 @@
             updateLanguage();
         });
 
-        // Event listeners for service buttons
+        // Event listeners para botones de servicio
         document.querySelectorAll('.service-button').forEach(button => {
             button.addEventListener('click', function() {
                 const serviceType = this.dataset.service;
-                // Use keys from translations object for modal content
+                // Usar claves del objeto de traducciones para el contenido del modal
                 openModal(`${serviceType}-modal-title`, `${serviceType}-modal-content`);
             });
         });
 
-        // Event listeners for legal and privacy links
+        // Event listeners para enlaces legales y de privacidad
         const privacyPolicyLink = document.getElementById('privacy-policy-link');
         const legalNoticeLink = document.getElementById('legal-notice-link');
 
@@ -1329,14 +1121,14 @@
             openModal('legal-notice-modal-title', 'legal-notice-modal-content');
         });
 
-        // FAQ accordion logic
+        // Lógica del acordeón FAQ
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.closest('.faq-item');
                 const answer = faqItem.querySelector('.faq-answer');
                 const icon = button.querySelector('.faq-icon');
 
-                // Close all other open answers
+                // Cerrar todas las otras respuestas abiertas
                 document.querySelectorAll('.faq-answer.active').forEach(openAnswer => {
                     if (openAnswer !== answer) {
                         openAnswer.classList.remove('active');
@@ -1344,13 +1136,13 @@
                     }
                 });
 
-                // Toggle the clicked answer
+                // Alternar la respuesta clicada
                 answer.classList.toggle('active');
                 button.classList.toggle('active');
             });
         });
 
-        // Initial language update on load
+        // Actualización inicial del idioma al cargar
         document.addEventListener('DOMContentLoaded', updateLanguage);
     </script>
 </body>
