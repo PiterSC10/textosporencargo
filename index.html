@@ -207,7 +207,7 @@
         <div class="bg-[#1a202c] rounded-xl shadow-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
             <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
             <h3 id="modalTitle" class="text-2xl font-bold gradient-text mb-4"></h3>
-            <div id="modalContent" class="text-gray-300 modal-content-scroll">
+            <div id="modalContent" class="text-gray-300 modal-content-scroll text-center">
                 <!-- Content will be injected here -->
             </div>
         </div>
@@ -266,21 +266,8 @@
                     <!-- Globe icon SVG -->
                     <svg class="icon-svg text-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
                     <h3 class="text-2xl font-semibold mb-4 text-white" data-lang-key="web-title">Creamos tu web</h3>
-                    <p class="text-gray-300 mb-4" data-lang-key="web-desc">
-                        Creamos tu propia web profesional. Te olvídate de todo, nosotros lo gestionamos.
-                    </p>
-                    <ul class="text-left text-gray-400 space-y-2 mb-6 w-full">
-                        <li data-lang-key="web-list-1">• Web responsive como esta</li>
-                        <li data-lang-key="web-list-2">• Botón de WhatsApp activo</li>
-                        <li data-lang-key="web-list-3">• Correo profesional con tu dominio</li>
-                        <li data-lang-key="web-list-4">• Formulario personalizado</li>
-                        <li data-lang-key="web-list-5">• Favicon, diseño y apartados listos</li>
-                        <li data-lang-key="web-list-6">• Subida completa al servidor</li>
-                        <li data-lang-key="web-list-7">• Manual de uso paso a paso</li>
-                    </ul>
-                    <p class="text-4xl font-bold text-green-400 mb-4">495 €</p>
-                    <p class="text-sm text-gray-500 mb-6" data-lang-key="web-price-note">
-                        Precio anual mantenimiento: 150 € (dominio + servidor + gestión). Si no se renueva, la web se desactiva automáticamente.
+                    <p class="text-gray-300 mb-6" data-lang-key="web-desc">
+                        Creamos tu propia web profesional. Te olvidas de todo, nosotros lo gestionamos.
                     </p>
                     <button class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded-full shadow-md service-button" data-service="web-info" data-lang-key="info-button">
                         Info
@@ -646,7 +633,7 @@
         </div>
     </section>
 
-    <!-- Envíanos tu mensaje Section (Contact Form) -->
+    <!-- Envíanos tu mensaje Section (Contact) -->
     <section id="contacto" class="py-16 bg-[#0d1117] px-4">
         <div class="container mx-auto text-center bg-[#1a202c] rounded-xl p-8 shadow-lg max-w-2xl">
             <h2 class="text-4xl font-extrabold gradient-text mb-6" data-lang-key="contact-title">
@@ -655,38 +642,7 @@
             <p class="text-lg text-gray-300 mb-10" data-lang-key="contact-desc">
                 Rellena el formulario y nos pondremos en contacto contigo.
             </p>
-            <form action="https://formsubmit.io/send/pedrosorianocalderon@gmail.com" method="POST" class="space-y-6">
-                <!-- Redirección tras envío -->
-                <input type="hidden" name="_redirect" value="https://pitersc10.github.io/textosporencargo/gracias.html">
-                <!-- Campo honeypot anti-spam -->
-                <input type="text" name="_honey" style="display:none">
-
-                <!-- Campo Nombre -->
-                <label for="nombre" class="sr-only">Nombre:</label>
-                <input type="text" id="nombre" name="name" required
-                       placeholder="Tu nombre"
-                       class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"
-                       data-lang-placeholder-key="your-name">
-
-                <!-- Campo Email -->
-                <label for="email" class="sr-only">Email:</label>
-                <input type="email" id="email" name="email" required
-                       placeholder="Tu correo electrónico"
-                       class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"
-                       data-lang-placeholder-key="your-email">
-
-                <!-- Campo Mensaje -->
-                <label for="mensaje" class="sr-only">Mensaje:</label>
-                <textarea id="mensaje" name="message" rows="6" required
-                          placeholder="Escribe tu mensaje..."
-                          class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"
-                          data-lang-placeholder-key="your-message"></textarea>
-
-                <!-- Botón de Enviar -->
-                <button type="submit" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="send-message">
-                    Enviar mensaje
-                </button>
-            </form>
+            <!-- No form here as per user request -->
         </div>
     </section>
 
@@ -861,15 +817,7 @@
                 'hero-button': 'Ver Servicios',
                 'services-title': 'Nuestros Servicios Exclusivos',
                 'web-title': 'Creamos tu web',
-                'web-desc': 'Creamos tu propia web profesional. Te olvídate de todo, nosotros lo gestionamos.',
-                'web-list-1': 'Web responsive como esta',
-                'web-list-2': 'Botón de WhatsApp activo',
-                'web-list-3': 'Correo profesional con tu dominio',
-                'web-list-4': 'Formulario personalizado',
-                'web-list-5': 'Favicon, diseño y apartados listos',
-                'web-list-6': 'Subida completa al servidor',
-                'web-list-7': 'Manual de uso paso a paso',
-                'web-price-note': 'Precio anual mantenimiento: 150 € (dominio + servidor + gestión). Si no se renueva, la web se desactiva automáticamente.',
+                'web-desc': 'Creamos tu propia web profesional. Te olvidas de todo, nosotros lo gestionamos.',
                 'info-button': 'Info',
                 'letter-title': 'Carta personalizada',
                 'letter-desc': 'Escribe una carta única, emotiva o formal, adaptada completamente a tu situación personal.',
@@ -957,19 +905,42 @@
                         <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg w-full">
                     </div>
                 `,
-                'web-info-modal-title': 'Información sobre "Creamos tu web"',
+                'web-info-modal-title': '💻 Creamos tu web profesional en 72h',
                 'web-info-modal-content': `
-                    <p>Este servicio incluye el diseño, desarrollo y gestión completa de tu sitio web profesional. Nos encargamos de todo para que no tengas que preocuparte por nada.</p>
-                    <ul class="list-disc list-inside mt-4 space-y-2">
-                        <li>Diseño web responsive y moderno.</li>
-                        <li>Integración de botón de WhatsApp.</li>
-                        <li>Configuración de correo profesional con tu dominio.</li>
-                        <li>Formulario de contacto personalizado.</li>
-                        <li>Favicon y optimización SEO básica.</li>
-                        <li>Subida y configuración en el servidor.</li>
-                        <li>Manual de uso para que puedas gestionar tu contenido.</li>
-                    </ul>
-                    <p class="mt-4"><strong>Tiempo de entrega estimado:</strong> 24-72 horas.</p>
+                    <p class="mb-4">Página web moderna, rápida y lista en solo 3 días. Ideal para negocios, marcas personales o cualquier proyecto.</p>
+                    <div class="flex flex-col items-center justify-center space-y-4 mb-6">
+                        <div class="bg-green-600 text-white font-bold py-2 px-4 rounded-full text-xl shadow-md">
+                            💸 495 € (pago único)
+                        </div>
+                        <p class="text-gray-300">Incluye:</p>
+                        <ul class="text-white text-lg space-y-2">
+                            <li>✨ Diseño personalizado a tu estilo</li>
+                            <li>🔍 Optimización SEO para aparecer en Google</li>
+                            <li>💬 Botón directo a WhatsApp</li>
+                            <li>📱 Diseño responsive (móvil, tablet, PC)</li>
+                            <li>📧 Formulario de contacto conectado a tu correo</li>
+                        </ul>
+                        <p class="text-gray-400 text-sm italic">
+                            (No incluye dominio, hosting ni mantenimiento)
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-4 mb-6">
+                        <div class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-xl shadow-md">
+                            🛠️ 150 € al año
+                        </div>
+                        <p class="text-gray-300">Incluye:</p>
+                        <ul class="text-white text-lg space-y-2">
+                            <li>🌐 Dominio propio .com o .es</li>
+                            <li>⚡ Hosting profesional</li>
+                            <li>🔧 Mantenimiento técnico completo</li>
+                        </ul>
+                    </div>
+                    <p class="text-lg text-gray-300 mb-4">
+                        El primer año se pagan 495 € + 150 €. A partir del segundo año, solo 150 € anuales. Si no se renueva, la web se desactiva automáticamente.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        📩 Rellena el formulario y comenzamos tu web.
+                    </p>
                 `,
                 'carta-ejemplo-modal-title': 'Condiciones de Carta Personalizada',
                 'carta-ejemplo-modal-content': `
@@ -984,7 +955,7 @@
                     <p class="mt-4">Se redactará de forma profesional y personalizada para la ocasión específica.</p>
                 `,
                 'minilibro-ejemplo-modal-title': 'Condiciones de Mini Libro Personalizado',
-                'minilibro-ejemplo-modal-content': `
+                'minilibro-ejemplo-content': `
                     <p>El mini libro tendrá una extensión de <strong>un mínimo de 25 horas de lectura.</strong></p>
                     <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
                     <p class="mt-4">La historia será creada exclusivamente para ti o para la persona que elijas, con tu historia como protagonista.</p>
@@ -1090,14 +1061,6 @@
                 'services-title': 'Our Exclusive Services',
                 'web-title': 'We create your website',
                 'web-desc': 'We create your own professional website. You forget about everything, we manage it.',
-                'web-list-1': 'Responsive website like this one',
-                'web-list-2': 'Active WhatsApp button',
-                'web-list-3': 'Professional email with your domain',
-                'web-list-4': 'Custom form',
-                'web-list-5': 'Favicon, design, and sections ready',
-                'web-list-6': 'Complete upload to the server',
-                'web-list-7': 'Step-by-step user manual',
-                'web-price-note': 'Annual maintenance price: €150 (domain + server + management). If not renewed, the website is automatically deactivated.',
                 'info-button': 'Info',
                 'letter-title': 'Personalized letter',
                 'letter-desc': 'Write a unique, emotional, or formal letter, completely adapted to your personal situation.',
@@ -1185,19 +1148,42 @@
                         <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Simpsons Illustration" class="rounded-lg w-full">
                     </div>
                 `,
-                'web-info-modal-title': 'Information about "We create your website"',
+                'web-info-modal-title': '💻 We create your professional website in 72h',
                 'web-info-modal-content': `
-                    <p>This service includes the complete design, development, and management of your professional website. We take care of everything so you don't have to worry about a thing.</p>
-                    <ul class="list-disc list-inside mt-4 space-y-2">
-                        <li>Responsive and modern web design.</li>
-                        <li>WhatsApp button integration.</li>
-                        <li>Professional email setup with your domain.</li>
-                        <li>Custom contact form.</li>
-                        <li>Favicon and basic SEO optimization.</li>
-                        <li>Upload and configuration on the server.</li>
-                        <li>User manual so you can manage your content.</li>
-                    </ul>
-                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
+                    <p class="mb-4">Modern, fast, and ready website in just 3 days. Ideal for businesses, personal brands, or any project.</p>
+                    <div class="flex flex-col items-center justify-center space-y-4 mb-6">
+                        <div class="bg-green-600 text-white font-bold py-2 px-4 rounded-full text-xl shadow-md">
+                            💸 495 € (one-time payment)
+                        </div>
+                        <p class="text-gray-300">Includes:</p>
+                        <ul class="text-white text-lg space-y-2">
+                            <li>✨ Custom design to your style</li>
+                            <li>🔍 SEO optimization to appear on Google</li>
+                            <li>💬 Direct WhatsApp button</li>
+                            <li>📱 Responsive design (mobile, tablet, PC)</li>
+                            <li>📧 Contact form connected to your email</li>
+                        </ul>
+                        <p class="text-gray-400 text-sm italic">
+                            (Does not include domain, hosting, or maintenance)
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center space-y-4 mb-6">
+                        <div class="bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-xl shadow-md">
+                            🛠️ 150 € per year
+                        </div>
+                        <p class="text-gray-300">Includes:</p>
+                        <ul class="text-white text-lg space-y-2">
+                            <li>🌐 Own .com or .es domain</li>
+                            <li>⚡ Professional hosting</li>
+                            <li>🔧 Full technical maintenance</li>
+                        </ul>
+                    </div>
+                    <p class="text-lg text-gray-300 mb-4">
+                        The first year, you pay 495 € + 150 €. From the second year onwards, only 150 € annually. If not renewed, the website is automatically deactivated.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        📩 Fill out the form and we'll start your website.
+                    </p>
                 `,
                 'carta-ejemplo-modal-title': 'Personalized Letter Conditions',
                 'carta-ejemplo-modal-content': `
@@ -1248,7 +1234,34 @@
                     <p class="mt-2">Contact email: textosporencargo@gmail.com</p>
                     <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of data processing</h3>
                     <p>Data will be used exclusively to manage contracted services, answer queries, prepare budgets, and send communications related to your order or project.</p>
-                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">3. Legitimization for processing</h3>
+                    <p>The processing is based on your express consent, by filling out the form, and/or on the execution of a service contract when you formalize an order.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">4. Data processed</h3>
+                    <p>Collected data may include:</p>
+                    <ul class="list-disc list-inside ml-4 mt-2">
+                        <li>Name and surname</li>
+                        <li>Email address</li>
+                        <li>Information voluntarily provided through the form</li>
+                    </ul>
+                    <h3 class="text-xl font-bold mt-6 mb-4">5. Data retention</h3>
+                    <p>Your data will be retained for the duration of the commercial relationship or for the time necessary to comply with legal obligations.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">6. Recipients</h3>
+                    <p>No data will be transferred to third parties, except for legal obligation or essential technical assignment (e.g., Google Forms for forms).</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">7. User rights</h3>
+                    <p>You have the right to:</p>
+                    <ul class="list-disc list-inside ml-4 mt-2">
+                        <li>Access your data</li>
+                        <li>Request its rectification or deletion</li>
+                        <li>Request the limitation of its processing</li>
+                        <li>Object to the processing</li>
+                        <li>Request the portability of your data</li>
+                    </ul>
+                    <h3 class="text-xl font-bold mt-6 mb-4">8. Security measures</h3>
+                    <p>Appropriate security measures are applied to protect your data against unauthorized access, alteration, or accidental loss.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">9. Use of cookies</h3>
+                    <p>This website does not use analytical or advertising cookies. Only technical cookies are used if the embedded form requires them to function.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">10. Updates</h3>
+                    <p>The controller may modify this policy to adapt it to legislative or technical changes. The current version will always be available on the website.</p>
                 `,
                 'legal-notice-modal-title': 'Legal Notice',
                 'legal-notice-modal-content': `
@@ -1259,7 +1272,23 @@
                     <p class="mt-2">Website: https://pitersc10.github.io/textosporencargo</p>
                     <h3 class="text-xl font-bold mt-6 mb-4">2. Purpose of the website</h3>
                     <p>The purpose of this site is to offer digital services of personalized writing, letters, claims, speeches, mini-books, professional web design, and other related services.</p>
-                    <p class="mt-4"><strong>Estimated delivery time:</strong> 24-72 hours.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">3. Conditions of use</h3>
+                    <p>The use of this website attributes the status of user and implies full acceptance of the provisions included in this Legal Notice. If you do not agree with any of the conditions, you should not use this website.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">4. Intellectual and industrial property</h3>
+                    <p>All contents of the website, including texts, images, logos, graphics, source code, design, and structure, are protected by current legislation on intellectual and industrial property.</p>
+                    <p class="mt-2">Their reproduction, distribution, or modification is expressly prohibited without the owner's authorization.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">5. Content responsibility</h3>
+                    <p>The owner is not responsible for the misuse of the website's contents. Nor does it guarantee that the contents are free of errors or that they are permanently updated, although efforts will be made to ensure this.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">6. External links</h3>
+                    <p>This website may contain links to third-party websites. The owner is not responsible for the content or privacy practices of such sites.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">7. Limitation of liability</h3>
+                    <p>The owner will not be liable for direct or indirect damages derived from the use of this website or possible interruptions in the service, viruses, or other elements that could cause damage to the user.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">8. Modifications</h3>
+                    <p>The owner reserves the right to modify any information present on the website without prior notice.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">9. Applicable law and jurisdiction</h3>
+                    <p>The relationship between the owner and the user will be governed by Spanish law. Any dispute will be submitted to the courts of Malaga, expressly waiving any other jurisdiction.</p>
+                    <h3 class="text-xl font-bold mt-6 mb-4">10. Contact</h3>
+                    <p>For any questions related to the Legal Notice, you can write to us at: textosporencargo@gmail.com</p>
                 `,
             }
         };
