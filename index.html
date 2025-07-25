@@ -242,11 +242,11 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero-section" class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-20 px-4">
-        <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6 leading-tight animate-fade-in-up" data-lang-key="hero-title">
+    <section id="hero-section" class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-12 px-4">
+        <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4 leading-tight animate-fade-in-up" data-lang-key="hero-title">
             El Diseño del Futuro, Impulsado por IA
         </h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-10 animate-fade-in-up-delay-1" data-lang-key="hero-subtitle">
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 animate-fade-in-up-delay-1" data-lang-key="hero-subtitle">
             Transformamos tus ideas en realidades visuales impactantes con la inteligencia artificial más avanzada.
         </p>
         <a href="#servicios" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="hero-button">
@@ -266,9 +266,11 @@
                     <!-- Globe icon SVG -->
                     <svg class="icon-svg text-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
                     <h3 class="text-2xl font-semibold mb-4 text-white" data-lang-key="web-title">Creamos tu web</h3>
-                    <p class="text-gray-300 mb-6" data-lang-key="web-desc">
+                    <p class="text-gray-300 mb-4" data-lang-key="web-desc">
                         Creamos tu propia web profesional. Te olvidas de todo, nosotros lo gestionamos.
                     </p>
+                    <p class="text-4xl font-bold text-green-400 mb-1">495 €</p>
+                    <p class="text-sm text-gray-400 mb-6">150€ dominio, mantenimiento y hosting</p>
                     <button class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded-full shadow-md service-button" data-service="web-info" data-lang-key="info-button">
                         Info
                     </button>
@@ -373,8 +375,9 @@
                 </div>
 
                 <!-- Card: Ilustración estilo Los Simpsons -->
-                <div class="card">
+                <div class="card" style="border: 2px solid #FCD34D;">
                     <!-- Removed image from card, it will only appear in the modal -->
+                    <svg class="icon-svg text-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-2.5 5.5L2 8l4 4-1 6 7-3 7 3-1-6 4-4-7.5-0.5L12 2z"/></svg>
                     <h3 class="text-2xl font-semibold mb-4 text-white" data-lang-key="simpsons-title">Ilustración estilo Los Simpsons</h3>
                     <p class="text-gray-300 mb-6" data-lang-key="simpsons-desc">
                         Convierte tu foto en una ilustración con el humor amarillo más famoso.
@@ -450,8 +453,8 @@
             <p class="text-lg text-gray-300 mb-10" data-lang-key="order-desc">
                 Haz clic en el botón a continuación para rellenar el formulario y solicitar tu texto único, hecho a medida para ti. ¡Es rápido y sencillo!
             </p>
-            <a href="https://forms.gle/cqh3neMS4vK5kiXt9" target="_blank" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="order-button">
-                Solicita tu texto personalizado
+            <a href="https://forms.gle/cqh3neMS4vK5kiXt9" target="_blank" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg sm:text-base md:text-lg" data-lang-key="order-button">
+                Solicítalo aquí
             </a>
         </div>
     </section>
@@ -459,7 +462,7 @@
     <!-- Opiniones de Clientes Satisfechos Section -->
     <section id="opiniones" class="py-16 bg-[#1a202c] px-4">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-extrabold text-yellow-500 mb-12" data-lang-key="testimonials-title">
+            <h2 class="text-4xl font-extrabold gradient-text mb-12" data-lang-key="testimonials-title">
                 Opiniones de Clientes Satisfechos
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -642,7 +645,40 @@
             <p class="text-lg text-gray-300 mb-10" data-lang-key="contact-desc">
                 Rellena el formulario y nos pondremos en contacto contigo.
             </p>
-            <!-- No form here as per user request -->
+            <!-- Contact Form -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="max-w-xl mx-auto flex flex-col space-y-4">
+                <!-- Tu clave de Web3Forms -->
+                <input type="hidden" name="access_key" value="ccb009f5-dbb7-4c5f-84c2-7e23d7624a7d">
+
+                <!-- Redirección tras envío -->
+                <input type="hidden" name="redirect" value="https://pitersc10.github.io/textosporencargo/gracias.html">
+
+                <!-- Protección contra bots -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
+                <!-- Campo Nombre -->
+                <label for="name" class="text-left text-white font-semibold">Nombre:</label>
+                <input type="text" id="name" name="name" required
+                       placeholder="Escribe tu nombre"
+                       class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white">
+
+                <!-- Campo Email -->
+                <label for="email" class="text-left text-white font-semibold">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required
+                       placeholder="tucorreo@email.com"
+                       class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white">
+
+                <!-- Campo Mensaje -->
+                <label for="message" class="text-left text-white font-semibold">Mensaje:</label>
+                <textarea id="message" name="message" rows="6" required
+                          placeholder="Escribe tu mensaje..."
+                          class="w-full p-4 rounded-lg bg-[#2d3748] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"></textarea>
+
+                <!-- Botón de Enviar -->
+                <button type="submit" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg">
+                    Enviar mensaje
+                </button>
+            </form>
         </div>
     </section>
 
@@ -714,7 +750,7 @@
                         <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A4.8 4.8 0 0 0 3 7.6v8.8C3 19.4 4.6 21 7.6 21h8.8c3 0 4.6-1.6 4.6-4.6V7.6C21 4.6 19.4 3 16.4 3H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
                     </svg>
                 </a>
-                <a href="https://www.youtube.com/pasaportedemano" target="_blank" aria-label="YouTube">
+                <a href="https://www.youtube.com/@pasaportedemano" target="_blank" aria-label="YouTube">
                     <svg class="w-8 h-8 text-gray-400 hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M21.543 6.498c-.28-.94-.96-1.62-1.9-1.9C18.17 4 12 4 12 4s-6.17 0-7.643.598c-.94.28-1.62 1.02-1.9 1.9-1.02 3.6-1.02 11.02 0 14.62.28.94.96 1.62 1.9 1.9C5.83 20 12 20 12 20s6.17 0 7.643-.598c.94-.28 1.62-1.02 1.9-1.9 1.02-3.6 1.02-11.02 0-14.62zM9.545 15.5V8.5L15.5 12l-5.955 3.5z"/>
                     </svg>
@@ -732,7 +768,7 @@
     <div class="floating-bar-bottom">
         <p class="text-lg font-semibold" data-lang-key="floating-bar-text">¿Listo para tu texto personalizado?</p>
         <a href="https://forms.gle/cqh3neMS4vK5kiXt9" target="_blank" class="bg-white text-blue-600 font-bold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors" data-lang-key="floating-bar-button">
-            ¡Haz tu pedido ahora!
+            Solicítalo aquí
         </a>
     </div>
 
@@ -838,7 +874,7 @@
                 'see-example': 'Ver ejemplo',
                 'how-it-works-title': '¿Cómo funciona nuestro servicio?',
                 'step1-title': 'Paso 1: ¡Cuéntanos tu idea para el texto!',
-                'step1-desc': 'Rellena nuestro sencillo formulario con todos los detalles. ¡Cuanta más información, mejor para crear contenido único!',
+                'step1-desc': 'Rellena nuestro sencillo formulario con todos los detalles. ¡Cuanta más información, mejor para crear contenido único!.',
                 'step2-title': 'Paso 2: Realiza el pago seguro',
                 'step2-desc': 'Una vez confirmemos los detalles, te enviaremos un enlace de PayPal para un pago rápido y totalmente seguro.',
                 'step3-title': 'Paso 3: Recibe tu obra maestra',
@@ -848,7 +884,7 @@
                 'cta-button': '¡Quiero mi Texto Personalizado!',
                 'order-title': 'Haz tu Pedido Personalizado',
                 'order-desc': 'Haz clic en el botón a continuación para rellenar el formulario y solicitar tu texto único, hecho a medida para ti. ¡Es rápido y sencillo!',
-                'order-button': 'Solicita tu texto personalizado',
+                'order-button': 'Solicítalo aquí',
                 'testimonials-title': 'Opiniones de Clientes Satisfechos',
                 'contact-title': 'Envíanos tu mensaje',
                 'contact-desc': 'Rellena el formulario y nos pondremos en contacto contigo.',
@@ -897,12 +933,12 @@
                 'faq-q11': '¿Los ejemplos de los pop-ups son el tamaño real del texto que recibo?',
                 'faq-a11': 'No, todos los ejemplos mostrados son versiones minimizadas. El tamaño final del texto dependerá del servicio contratado, pudiendo ocupar un mínimo de 2 hojas.',
                 'floating-bar-text': '¿Listo para tu texto personalizado?',
-                'floating-bar-button': '¡Haz tu pedido ahora!',
+                'floating-bar-button': 'Solicítalo aquí',
                 'simpsons-modal-title': 'Ilustración estilo Los Simpsons - Ejemplos',
                 'simpsons-modal-content': `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="Imagen Original" class="rounded-lg w-full">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Ilustración Simpsons" class="rounded-lg w-full">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="" class="rounded-lg w-full">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="" class="rounded-lg w-full">
                     </div>
                 `,
                 'web-info-modal-title': '💻 Creamos tu web profesional en 72h',
@@ -913,13 +949,13 @@
                             💸 495 € (pago único)
                         </div>
                         <p class="text-gray-300">Incluye:</p>
-                        <ul class="text-white text-lg space-y-2">
-                            <li>✨ Diseño personalizado a tu estilo</li>
-                            <li>🔍 Optimización SEO para aparecer en Google</li>
-                            <li>💬 Botón directo a WhatsApp</li>
-                            <li>📱 Diseño responsive (móvil, tablet, PC)</li>
-                            <li>📧 Formulario de contacto conectado a tu correo</li>
-                        </ul>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white text-lg">
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">✨</span><span>Diseño personalizado a tu estilo</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">🔍</span><span>Optimización SEO para aparecer en Google</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">💬</span><span>Botón directo a WhatsApp</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">📱</span><span>Diseño responsive (móvil, tablet, PC)</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">📧</span><span>Formulario de contacto conectado a tu correo</span></div>
+                        </div>
                         <p class="text-gray-400 text-sm italic">
                             (No incluye dominio, hosting ni mantenimiento)
                         </p>
@@ -929,11 +965,11 @@
                             🛠️ 150 € al año
                         </div>
                         <p class="text-gray-300">Incluye:</p>
-                        <ul class="text-white text-lg space-y-2">
-                            <li>🌐 Dominio propio .com o .es</li>
-                            <li>⚡ Hosting profesional</li>
-                            <li>🔧 Mantenimiento técnico completo</li>
-                        </ul>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white text-lg">
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">🌐</span><span>Dominio propio .com o .es</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">⚡</span><span>Hosting profesional</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">🔧</span><span>Mantenimiento técnico completo</span></div>
+                        </div>
                     </div>
                     <p class="text-lg text-gray-300 mb-4">
                         El primer año se pagan 495 € + 150 €. A partir del segundo año, solo 150 € anuales. Si no se renueva, la web se desactiva automáticamente.
@@ -1091,7 +1127,7 @@
                 'cta-button': 'I want my Personalized Text!',
                 'order-title': 'Place your Custom Order',
                 'order-desc': 'Click the button below to fill out the form and request your unique text, custom-made for you. It\'s quick and easy!',
-                'order-button': 'Request your personalized text',
+                'order-button': 'Order here',
                 'testimonials-title': 'Satisfied Customer Reviews',
                 'contact-title': 'Send us your message',
                 'contact-desc': 'Fill out the form and we will get in touch with you.',
@@ -1140,12 +1176,12 @@
                 'faq-q11': 'Are the pop-up examples the actual size of the text I receive?',
                 'faq-a11': 'No, all examples shown are minimized versions. The final text size will depend on the contracted service, being a minimum of 2 pages.',
                 'floating-bar-text': 'Ready for your personalized text?',
-                'floating-bar-button': 'Order now!',
+                'floating-bar-button': 'Order here',
                 'simpsons-modal-title': 'Simpsons Style Illustration - Examples',
                 'simpsons-modal-content': `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="Original Image" class="rounded-lg w-full">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Simpsons Illustration" class="rounded-lg w-full">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="" class="rounded-lg w-full">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="" class="rounded-lg w-full">
                     </div>
                 `,
                 'web-info-modal-title': '💻 We create your professional website in 72h',
@@ -1156,13 +1192,13 @@
                             💸 495 € (one-time payment)
                         </div>
                         <p class="text-gray-300">Includes:</p>
-                        <ul class="text-white text-lg space-y-2">
-                            <li>✨ Custom design to your style</li>
-                            <li>🔍 SEO optimization to appear on Google</li>
-                            <li>💬 Direct WhatsApp button</li>
-                            <li>📱 Responsive design (mobile, tablet, PC)</li>
-                            <li>📧 Contact form connected to your email</li>
-                        </ul>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white text-lg">
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">✨</span><span>Custom design to your style</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">🔍</span><span>SEO optimization to appear on Google</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">💬</span><span>Direct WhatsApp button</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">📱</span><span>Responsive design (mobile, tablet, PC)</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">📧</span><span>Contact form connected to your email</span></div>
+                        </div>
                         <p class="text-gray-400 text-sm italic">
                             (Does not include domain, hosting, or maintenance)
                         </p>
@@ -1172,11 +1208,11 @@
                             🛠️ 150 € per year
                         </div>
                         <p class="text-gray-300">Includes:</p>
-                        <ul class="text-white text-lg space-y-2">
-                            <li>🌐 Own .com or .es domain</li>
-                            <li>⚡ Professional hosting</li>
-                            <li>🔧 Full technical maintenance</li>
-                        </ul>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white text-lg">
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">🌐</span><span>Own .com or .es domain</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">⚡</span><span>Professional hosting</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-yellow-400">🔧</span><span>Full technical maintenance</span></div>
+                        </div>
                     </div>
                     <p class="text-lg text-gray-300 mb-4">
                         The first year, you pay 495 € + 150 €. From the second year onwards, only 150 € annually. If not renewed, the website is automatically deactivated.
