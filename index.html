@@ -212,6 +212,50 @@
         .animate-fade-in-up-delay-1 {
             animation: fadeInUp 1s ease-out forwards 0.3s; /* Ligero retraso para el subtítulo */
         }
+
+        /* Cookie banner specific styles */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a202c; /* Color de fondo oscuro */
+            color: #e2e8f0; /* Color de texto claro */
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 60; /* Asegurar que esté por encima de la barra flotante inferior */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            #cookie-banner {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        #cookie-banner button {
+            background-color: #3B82F6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #cookie-banner button:hover {
+            background-color: #10B981;
+        }
+
+        #cookie-banner .text-link {
+            color: #6EE7B7;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -779,7 +823,7 @@
                     </svg>
                 </a>
                 <!-- PayPal Icon (Image) -->
-                <a href="https://www.paypal.es" target="_blank" aria-label="PayPal">
+                <a href="https://paypal.me/YourDesignGPT/645" target="_blank" aria-label="PayPal">
                     <img src="https://pngimg.com/uploads/paypal/paypal_PNG7.png" alt="PayPal Logo" class="social-icon" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/32x32/cccccc/444444?text=PP';">
                 </a>
                 <!-- Google Maps Icon (Coloured SVG) -->
@@ -797,6 +841,11 @@
                     </svg>
                 </a>
             </div>
+            <!-- Legal and Privacy Links -->
+            <div class="flex justify-center space-x-4 text-sm mt-4">
+                <a href="#" id="privacy-policy-link" class="text-gray-400 hover:text-white" data-lang-key="privacy-policy">Política de privacidad</a>
+                <a href="#" id="legal-notice-link" class="text-gray-400 hover:text-white" data-lang-key="legal-notice">Aviso legal</a>
+            </div>
         </div>
     </footer>
 
@@ -806,6 +855,19 @@
         <a href="https://forms.gle/cqh3neMS4vK5kiXt9" target="_blank" class="bg-white text-blue-600 font-bold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors" data-lang-key="floating-bar-button">
             Solicítalo aquí
         </a>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="hidden">
+        <p class="text-base text-center md:text-left">
+            Usamos cookies propias y de terceros para fines técnicos, analíticos y de personalización.
+            Puedes aceptarlas, rechazarlas o configurarlas en cualquier momento.
+            Más información en nuestra <span id="open-cookie-policy" class="text-link">Política de Cookies</span>.
+        </p>
+        <div class="flex space-x-4 mt-2 md:mt-0">
+            <button id="accept-cookies" class="gradient-button">Aceptar</button>
+            <button id="reject-cookies" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full shadow-md">Rechazar</button>
+        </div>
     </div>
 
     <script>
@@ -828,10 +890,13 @@
         // Alternar menú móvil
         const navToggle = document.getElementById('nav-toggle');
         const navContent = document.getElementById('nav-content');
-        navToggle.addEventListener('click', () => {
-            navContent.classList.toggle('hidden');
-            navContent.classList.toggle('flex');
-        });
+        if (navToggle && navContent) {
+            navToggle.addEventListener('click', () => {
+                navContent.classList.toggle('hidden');
+                navContent.classList.toggle('flex');
+            });
+        }
+
 
         // Funcionalidad del botón de scroll-to-top
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -840,18 +905,23 @@
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
+            if (scrollToTopBtn) {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
             }
         }
 
         // Cuando el usuario hace clic en el botón, se desplaza a la parte superior del documento
-        scrollToTopBtn.addEventListener('click', function() {
-            document.body.scrollTop = 0; // Para Safari
-            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
-        });
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', function() {
+                document.body.scrollTop = 0; // Para Safari
+                document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+            });
+        }
+
 
         // Lógica del Modal
         const modal = document.getElementById('modal');
@@ -860,25 +930,32 @@
         const modalContent = document.getElementById('modalContent');
 
         function openModal(titleKey, contentKey) {
-            modalTitle.innerHTML = translations[currentLang][titleKey];
-            modalContent.innerHTML = translations[currentLang][contentKey];
-            modal.classList.remove('hidden');
+            if (modal && modalTitle && modalContent) {
+                modalTitle.innerHTML = translations[currentLang][titleKey];
+                modalContent.innerHTML = translations[currentLang][contentKey];
+                modal.classList.remove('hidden');
+            }
         }
 
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => {
                 modal.classList.add('hidden');
-            }
-        });
+            });
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        }
+
 
         // Objeto de Traducciones
         const translations = {
             'es': {
-                'page-title': 'Pedro SC · Textos por Encargo',
+                'page-title': 'YourDesignGPT | Textos por Encargo y Diseño Web en 72h | ',
                 'nav-services': 'Servicios',
                 'nav-how-it-works': 'Cómo Funciona',
                 'nav-reviews': 'Reseñas',
@@ -1050,6 +1127,125 @@
                     <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
                     <p class="mt-4">La lista será adaptada a los gustos y personalidad de la persona a la que quieres sorprender.</p>
                 `,
+                'privacy-policy-modal-title': 'Política de privacidad',
+                'privacy-policy-modal-content': `
+                    <h3 class="text-xl font-bold mb-2 text-left">Política de Privacidad</h3>
+                    <p class="mb-4 text-left"><strong>Titular:</strong> Pedro Soriano Calderón<br>
+                    <strong>Domicilio:</strong> Málaga, España<br>
+                    <strong>Nombre comercial:</strong> YourDesignGPT</p>
+                    <p class="mb-4 text-left">En YourDesignGPT valoramos y respetamos tu privacidad. El tratamiento de tus datos personales se realiza de forma lícita, leal y transparente, y siempre de acuerdo con la normativa vigente: Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">1. Datos que recopilamos</h4>
+                    <p class="mb-4 text-left">Podemos recopilar y tratar las siguientes categorías de datos:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li><strong>Datos identificativos:</strong> nombre y apellidos.</li>
+                        <li><strong>Datos de contacto:</strong> correo electrónico, número de teléfono (si lo facilitas).</li>
+                        <li><strong>Datos de facturación:</strong> dirección postal, datos de pago (en caso de contratación de servicios).</li>
+                        <li><strong>Datos técnicos:</strong> dirección IP, navegador, sistema operativo y hábitos de navegación, mediante cookies o tecnologías similares.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">2. Finalidad del tratamiento</h4>
+                    <p class="mb-4 text-left">Tratamos tus datos con las siguientes finalidades:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li>Gestionar las solicitudes de información y presupuestos.</li>
+                        <li>Prestar los servicios contratados: textos por encargo, cartas, discursos, relatos, mini libros y diseño web.</li>
+                        <li>Enviar comunicaciones relacionadas con el servicio o con contenidos de interés (si lo has autorizado).</li>
+                        <li>Cumplir con obligaciones legales y fiscales derivadas de la prestación de servicios.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">3. Legitimación</h4>
+                    <p class="mb-4 text-left">La base legal para el tratamiento de tus datos es:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li>Ejecución de un contrato o medidas precontractuales (cuando contratas o solicitas un servicio).</li>
+                        <li>Consentimiento (cuando aceptas recibir comunicaciones comerciales o usas nuestros formularios).</li>
+                        <li>Obligación legal (en materia fiscal y contable).</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">4. Conservación de datos</h4>
+                    <p class="mb-4 text-left">Conservaremos tus datos únicamente durante el tiempo necesario para cumplir con la finalidad para la que se recopilaron y para cumplir con obligaciones legales.</p>
+                    <p class="mb-4 text-left">Una vez cumplidos esos plazos, serán eliminados de forma segura.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">5. Destinatarios de los datos</h4>
+                    <p class="mb-4 text-left">No cederemos tus datos personales a terceros, salvo obligación legal o cuando sea necesario para la prestación del servicio (por ejemplo, proveedores de hosting, pasarelas de pago o herramientas de email marketing, que actúan como encargados de tratamiento bajo contrato).</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">6. Derechos de los usuarios</h4>
+                    <p class="mb-4 text-left">Puedes ejercer en cualquier momento los siguientes derechos:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li>Acceso a tus datos personales.</li>
+                        <li>Rectificación de datos inexactos o incompletos.</li>
+                        <li>Supresión (derecho al olvido).</li>
+                        <li>Limitación del tratamiento.</li>
+                        <li>Portabilidad de tus datos a otro responsable.</li>
+                        <li>Oposición al tratamiento de tus datos.</li>
+                    </ul>
+                    <p class="mb-4 text-left">Para ejercer estos derechos, puedes dirigirte al titular mediante el medio de contacto habilitado en la web.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">7. Seguridad de los datos</h4>
+                    <p class="mb-4 text-left">Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos contra accesos no autorizados, alteraciones, pérdida o destrucción, incluyendo cifrado, control de accesos y copias de seguridad periódicas.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">8. Uso de cookies</h4>
+                    <p class="mb-4 text-left">Este sitio web utiliza cookies propias y de terceros con fines técnicos, analíticos y de personalización. Puedes consultar nuestra Política de Cookies para obtener más información y gestionar tu consentimiento.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">9. Menores de edad</h4>
+                    <p class="mb-4 text-left">No recopilamos deliberadamente datos de menores de 16 años. Si detectamos que hemos recopilado datos de un menor sin el consentimiento adecuado, procederemos a su eliminación inmediata.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">10. Cambios en esta política</h4>
+                    <p class="mb-4 text-left">Nos reservamos el derecho a modificar la presente Política de Privacidad para adaptarla a cambios legislativos o mejoras en nuestros procesos. Te informaremos de cualquier cambio relevante mediante aviso en la web o por correo electrónico, si procede.</p>
+                    <p class="text-sm italic text-gray-400 text-left">Última actualización: 14 de agosto de 2025</p>
+                `,
+                'legal-notice-modal-title': 'Aviso Legal',
+                'legal-notice-modal-content': `
+                    <h3 class="text-xl font-bold mb-2 text-left">Aviso Legal</h3>
+                    <h4 class="text-lg font-semibold mb-2 text-left">Titularidad del sitio web</h4>
+                    <p class="mb-4 text-left">En cumplimiento con lo dispuesto en la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), se informa que el presente sitio web, YourDesignGPT, es propiedad de Pedro Soriano Calderón, con domicilio en Málaga, España.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Objeto del sitio web</h4>
+                    <p class="mb-4 text-left">El presente portal tiene como finalidad ofrecer servicios de textos por encargo, cartas personalizadas, discursos, reclamaciones, relatos, mini libros y diseño web profesional en un plazo de 72 horas, así como proporcionar información sobre dichos servicios y facilitar el contacto con el titular.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Propiedad intelectual e industrial</h4>
+                    <p class="mb-4 text-left">Todos los contenidos, diseños, logotipos, imágenes, textos, vídeos, código fuente y demás elementos de la web son propiedad exclusiva de YourDesignGPT o cuentan con las licencias y autorizaciones necesarias de sus titulares legítimos.</p>
+                    <p class="mb-4 text-left">Queda prohibida su reproducción, distribución, comunicación pública o transformación, total o parcial, sin autorización expresa del titular.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Responsabilidad de los contenidos</h4>
+                    <p class="mb-4 text-left">YourDesignGPT no se hace responsable del mal uso que los usuarios realicen de los contenidos de la web, siendo responsabilidad exclusiva de la persona que accede o los utilice. Tampoco se garantiza que el sitio esté libre de errores o interrupciones, aunque se adoptarán medidas para minimizar incidencias técnicas.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Enlaces externos</h4>
+                    <p class="mb-4 text-left">En el caso de que en la web se incluyan enlaces a sitios de terceros, YourDesignGPT no será responsable de los contenidos, informaciones o servicios que pudieran aparecer en dichas páginas, que tendrán carácter meramente informativo.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Uso del sitio web</h4>
+                    <p class="mb-4 text-left">El acceso y/o uso de este portal atribuye la condición de usuario, quien acepta desde dicho acceso y/o uso las presentes condiciones de uso. El usuario se compromete a utilizar el sitio web, sus servicios y contenidos sin contravenir la legislación vigente, la buena fe y el orden público.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Modificaciones</h4>
+                    <p class="mb-4 text-left">YourDesignGPT se reserva el derecho de realizar modificaciones en la web sin previo aviso, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten como la forma en la que estos aparezcan presentados o localizados en el portal.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Legislación y jurisdicción aplicable</h4>
+                    <p class="mb-4 text-left">Para la resolución de cualquier controversia o cuestión relacionada con este sitio web o las actividades desarrolladas en él, será de aplicación la legislación española, a la que se someten expresamente las partes, siendo competentes para la resolución de todos los conflictos derivados o relacionados con su uso los Juzgados y Tribunales de Málaga, España.</p>
+                    <p class="text-sm italic text-gray-400 text-left">Última actualización: 14 de agosto de 2025</p>
+                `,
+                'cookie-policy-modal-title': 'Política de Cookies',
+                'cookie-policy-modal-content': `
+                    <h3 class="text-xl font-bold mb-2 text-left">Política de Cookies</h3>
+                    <p class="mb-4 text-left">Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia del usuario y ofrecer servicios personalizados. A continuación, te explicamos qué son las cookies, qué tipos utilizamos y cómo puedes gestionarlas.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">¿Qué son las cookies?</h4>
+                    <p class="mb-4 text-left">Las cookies son pequeños archivos de texto que los sitios web envían a tu navegador y que se almacenan en tu dispositivo (ordenador, teléfono, tablet, etc.). Sirven para recordar información sobre tu visita, como tus preferencias, idioma, o para ofrecerte contenidos relevantes.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Tipos de cookies que utilizamos:</h4>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li><strong>Cookies técnicas:</strong> Son esenciales para el funcionamiento básico del sitio web, permitiendo la navegación y el uso de sus diferentes opciones o servicios.</li>
+                        <li><strong>Cookies de análisis:</strong> Nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos o servicios que le ofrecemos.</li>
+                        <li><strong>Cookies de personalización:</strong> Permiten recordar información para que el usuario acceda al servicio con determinadas características que pueden diferenciar su experiencia de la de otros usuarios (ej. el idioma o el tipo de navegador).</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">¿Cómo puedes gestionar las cookies?</h4>
+                    <p class="mb-4 text-left">Puedes configurar tu navegador para que te notifique la recepción de cookies y para impedir la instalación de las mismas en tu equipo. La mayoría de los navegadores ofrecen opciones que te permiten controlar la aceptación de cookies. Puedes consultar las instrucciones y manuales de tu navegador para ampliar esta información.</p>
+                    <p class="mb-4 text-left">Ten en cuenta que si desactivas las cookies, algunas funcionalidades de la web podrían no funcionar correctamente o la experiencia de navegación podría ser menos satisfactoria.</p>
+
+                    <p class="text-sm italic text-gray-400 text-left">Última actualización: 14 de agosto de 2025</p>
+                `,
+                'cookie-banner-text': 'Usamos cookies propias y de terceros para fines técnicos, analíticos y de personalización. Puedes aceptarlas, rechazarlas o configurarlas en cualquier momento. Más información en nuestra <span id="open-cookie-policy" class="text-link">Política de Cookies</span>.',
+                'accept-cookies-button': 'Aceptar',
+                'reject-cookies-button': 'Rechazar'
             },
             'en': {
                 'page-title': 'YourDesignGPT | Custom Texts & Web Design in 72h | Pedro S.C.',
@@ -1147,8 +1343,8 @@
                 'simpsons-modal-title': 'Simpsons Style Illustration - Examples',
                 'simpsons-modal-content': `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="" class="rounded-lg w-full" loading="lazy">
-                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="" class="rounded-lg w-full" loading="lazy">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-original.jpg" alt="Original Image" class="rounded-lg w-full" loading="lazy">
+                        <img src="https://pitersc10.github.io/textosporencargo/simpson-ilustracion.jpg" alt="Simpsons Illustration" class="rounded-lg w-full" loading="lazy">
                     </div>
                 `,
                 'web-info-modal-title': '💻 We create your professional website in 72h',
@@ -1156,7 +1352,7 @@
                     <p class="mb-4 text-gray-300">Modern, fast, and ready website in just 3 days. Ideal for businesses, personal brands, or any project.</p>
 
                     <h4 class="text-xl font-bold gradient-text mb-2 mt-6 text-center">Price: <span class="text-green-400">495 €</span></h4>
-                    <p class="text-gray-300 mb-4"><strong>Includes:</strong></p>
+                    <p class="mb-4 text-gray-300"><strong>Includes:</strong></p>
                     <ul class="list-none p-0 m-0 text-left w-full max-w-sm mx-auto">
                         <li class="flex items-center space-x-2 mb-2"><span class="text-yellow-400">✨</span><span class="text-gray-300">Custom design to your style</span></li>
                         <li class="flex items-center space-x-2 mb-2"><span class="text-yellow-400">🔍</span><span class="text-gray-300">SEO optimization to appear on Google</span></li>
@@ -1165,11 +1361,11 @@
                         <li class="flex items-center space-x-2 mb-2"><span class="text-yellow-400">📧</span><span class="text-gray-300">Contact form connected to your email</span></li>
                     </ul>
                     <p class="text-gray-400 text-sm italic mt-4">
-                        (Does not include domain, hosting, or maintenance)
+                        (Does not include domain, hosting or maintenance)
                     </p>
 
                     <h4 class="text-xl font-bold gradient-text mb-2 mt-6 text-center">Annual Cost: <span class="text-blue-400">150 €</span></h4>
-                    <p class="text-gray-300 mb-4"><strong>Includes:</strong></p>
+                    <p class="mb-4 text-gray-300"><strong>Includes:</strong></p>
                     <ul class="list-none p-0 m-0 text-left w-full max-w-sm mx-auto">
                         <li class="flex items-center space-x-2 mb-2"><span class="text-yellow-400">🌐</span><span class="text-gray-300">Own .com or .es domain</span></li>
                         <li class="flex items-center space-x-2 mb-2"><span class="text-yellow-400">⚡</span><span class="text-gray-300">Professional hosting</span></li>
@@ -1217,7 +1413,7 @@
                 'picante-romantico-ejemplo-modal-content': `
                     <p>The text will have a length of <strong>1 to 2 pages</strong>.</p>
                     <p class="mt-4">The estimated delivery time is <strong>24 to 72 hours</strong>.</p>
-                    <p class="mt-4">The perfect text will be created to express your deepest feelings or to add a touch of picardía.</p>
+                    <p class="mt-4">The perfect text will be created to express your deepest feelings or to add a touch of spice.</p>
                 `,
                 'ideas-regalo-ejemplo-modal-title': 'Creative Gift Ideas List Conditions',
                 'ideas-regalo-ejemplo-modal-content': `
@@ -1225,6 +1421,96 @@
                     <p class="mt-4">El tiempo de entrega estimado es de <strong>24 a 72 horas</strong>.</p>
                     <p class="mt-4">La lista será adaptada a los gustos y personalidad de la persona a la que quieres sorprender.</p>
                 `,
+                'privacy-policy-modal-title': 'Privacy Policy',
+                'privacy-policy-modal-content': `
+                    <h3 class="text-xl font-bold mb-2 text-left">Privacy Policy</h3>
+                    <p class="mb-4 text-left"><strong>Owner:</strong> Pedro Soriano Calderón<br>
+                    <strong>Address:</strong> Málaga, Spain<br>
+                    <strong>Trade name:</strong> YourDesignGPT</p>
+                    <p class="mb-4 text-left">At YourDesignGPT, we value and respect your privacy. The processing of your personal data is carried out lawfully, fairly, and transparently, and always in accordance with current regulations: Regulation (EU) 2016/679 (GDPR) and Organic Law 3/2018 (LOPDGDD).</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">1. Data we collect</h4>
+                    <p class="mb-4 text-left">We may collect and process the following categories of data:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li><strong>Identifying data:</strong> first name and last name.</li>
+                        <li><strong>Contact data:</strong> email, phone number (if provided).</li>
+                        <li><strong>Billing data:</strong> postal address, payment details (in case of service contracting).</li>
+                        <li><strong>Technical data:</strong> IP address, browser, operating system, and browsing habits, through cookies or similar technologies.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">2. Purpose of processing</h4>
+                    <p class="mb-4 text-left">We process your data for the following purposes:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li>Manage requests for information and quotes.</li>
+                        <li>Provide contracted services: custom texts, letters, speeches, stories, mini books, and web design.</li>
+                        <li>Send communications related to the service or content of interest (if authorized).</li>
+                        <li>Comply with legal and tax obligations derived from the provision of services.</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">3. Legitimation</h4>
+                    <p class="mb-4 text-left">The legal basis for processing your data is:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li>Execution of a contract or pre-contractual measures (when you contract or request a service).</li>
+                        <li>Consent (when you agree to receive commercial communications or use our forms).</li>
+                        <li>Legal obligation (in tax and accounting matters).</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">4. Data retention</h4>
+                    <p class="mb-4 text-left">We will retain your data only for the time necessary to fulfill the purpose for which it was collected and to comply with legal obligations.</p>
+                    <p class="mb-4 text-left">Once these periods are met, they will be securely deleted.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">5. Data recipients</h4>
+                    <p class="mb-4 text-left">We will not transfer your personal data to third parties, except legal obligation or when necessary for the provision of the service (for example, hosting providers, payment gateways or email marketing tools, which act as data processors under contract).</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">6. User rights</h4>
+                    <p class="mb-4 text-left">You can exercise the following rights at any time:</p>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li>Access to your personal data.</li>
+                        <li>Rectification of inaccurate or incomplete data.</li>
+                        <li>Erasure (right to be forgotten).</li>
+                        <li>Restriction of processing.</li>
+                        <li>Data portability to another controller.</li>
+                        <li>Opposition to data processing.</li>
+                    </ul>
+                    <p class="mb-4 text-left">To exercise these rights, you can contact the owner through the contact method enabled on the website.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">7. Data security</h4>
+                    <p class="mb-4 text-left">We apply appropriate technical and organizational measures to protect your data against unauthorized access, alteration, loss, or destruction, including encryption, access control, and periodic backups.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">8. Use of cookies</h4>
+                    <p class="mb-4 text-left">This website uses its own and third-party cookies for technical, analytical, and personalization purposes. You can consult our Cookie Policy for more information and to manage your consent.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">9. Minors</h4>
+                    <p class="mb-4 text-left">We do not knowingly collect data from children under 16 years of age. If we detect that we have collected data from a minor without proper consent, we will proceed to its immediate deletion.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">10. Changes to this policy</h4>
+                    <p class="mb-4 text-left">We reserve the right to modify this Privacy Policy to adapt it to legislative changes or improvements in our processes. We will inform you of any relevant changes by notice on the website or by email, if applicable.</p>
+                    <p class="text-sm italic text-gray-400 text-left">Last updated: August 14, 2025</p>
+                `,
+                'cookie-policy-modal-title': 'Cookie Policy',
+                'cookie-policy-modal-content': `
+                    <h3 class="text-xl font-bold mb-2 text-left">Cookie Policy</h3>
+                    <p class="mb-4 text-left">This website uses its own and third-party cookies to improve user experience and offer personalized services. Below, we explain what cookies are, what types we use, and how you can manage them.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">What are cookies?</h4>
+                    <p class="mb-4 text-left">Cookies are small text files that websites send to your browser and are stored on your device (computer, phone, tablet, etc.). They serve to remember information about your visit, such as your preferences, language, or to offer relevant content.</p>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">Types of cookies we use:</h4>
+                    <ul class="list-disc list-inside text-left ml-4 mb-4">
+                        <li><strong>Technical cookies:</strong> These are essential for the basic functioning of the website, allowing navigation and the use of its different options or services.</li>
+                        <li><strong>Analytical cookies:</strong> They allow us to quantify the number of users and thus carry out the measurement and statistical analysis of the use made by users of the offered service. For this, their navigation on our website is analyzed in order to improve the offer of products or services that we offer.</li>
+                        <li><strong>Personalization cookies:</strong> These allow information to be remembered so that the user accesses the service with certain characteristics that can differentiate their experience from that of other users (e.g., language or browser type).</li>
+                    </ul>
+
+                    <h4 class="text-lg font-semibold mb-2 text-left">How can you manage cookies?</h4>
+                    <p class="mb-4 text-left">You can configure your browser to notify you of the reception of cookies and to prevent their installation on your computer. Most browsers offer options that allow you to control the acceptance of cookies. You can consult your browser's instructions and manuals for more information.</p>
+                    <p class="mb-4 text-left">Please note that if you disable cookies, some website functionalities may not work correctly or the browsing experience may be less satisfactory.</p>
+
+                    <p class="text-sm italic text-gray-400 text-left">Last updated: August 14, 2025</p>
+                `,
+                'cookie-banner-text': 'We use our own and third-party cookies for technical, analytical, and personalization purposes. You can accept, reject, or configure them at any time. More information in our <span id="open-cookie-policy" class="text-link">Cookie Policy</span>.',
+                'accept-cookies-button': 'Accept',
+                'reject-cookies-button': 'Reject'
             }
         };
 
@@ -1249,35 +1535,60 @@
             });
 
             // Actualizar título del botón de scroll-to-top
-            document.getElementById('scrollToTopBtn').title = translations[currentLang]['scroll-to-top'];
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.title = translations[currentLang]['scroll-to-top'];
+            }
 
             // Actualizar clases de los botones de idioma
             const langEsBtn = document.getElementById('lang-es');
             const langEnBtn = document.getElementById('lang-en');
 
-            if (currentLang === 'es') {
-                langEsBtn.classList.add('font-bold', 'text-gray-400');
-                langEsBtn.classList.remove('text-gray-600');
-                langEnBtn.classList.remove('font-bold', 'text-gray-400');
-                langEnBtn.classList.add('text-gray-600');
-            } else { // currentLang === 'en'
-                langEnBtn.classList.add('font-bold', 'text-gray-400');
-                langEnBtn.classList.remove('text-gray-600');
-                langEsBtn.classList.remove('font-bold', 'text-gray-400');
-                langEsBtn.classList.add('text-gray-600');
+            if (langEsBtn && langEnBtn) {
+                if (currentLang === 'es') {
+                    langEsBtn.classList.add('font-bold', 'text-gray-400');
+                    langEsBtn.classList.remove('text-gray-600');
+                    langEnBtn.classList.remove('font-bold', 'text-gray-400');
+                    langEnBtn.classList.add('text-gray-600');
+                } else { // currentLang === 'en'
+                    langEnBtn.classList.add('font-bold', 'text-gray-400');
+                    langEnBtn.classList.remove('text-gray-600');
+                    langEsBtn.classList.remove('font-bold', 'text-gray-400');
+                    langEsBtn.classList.add('text-gray-600');
+                }
+            }
+            // Update cookie banner text
+            const cookieBannerTextElement = document.querySelector('#cookie-banner p');
+            if (cookieBannerTextElement) {
+                cookieBannerTextElement.innerHTML = translations[currentLang]['cookie-banner-text'];
+            }
+            const acceptCookiesButton = document.getElementById('accept-cookies');
+            if (acceptCookiesButton) {
+                acceptCookiesButton.textContent = translations[currentLang]['accept-cookies-button'];
+            }
+            const rejectCookiesButton = document.getElementById('reject-cookies');
+            if (rejectCookiesButton) {
+                rejectCookiesButton.textContent = translations[currentLang]['reject-cookies-button'];
             }
         }
 
         // Event listeners para botones de idioma
-        document.getElementById('lang-es').addEventListener('click', () => {
-            currentLang = 'es';
-            updateLanguage();
-        });
+        const langEsBtn = document.getElementById('lang-es');
+        const langEnBtn = document.getElementById('lang-en');
 
-        document.getElementById('lang-en').addEventListener('click', () => {
-            currentLang = 'en';
-            updateLanguage();
-        });
+        if (langEsBtn) {
+            langEsBtn.addEventListener('click', () => {
+                currentLang = 'es';
+                updateLanguage();
+            });
+        }
+
+        if (langEnBtn) {
+            langEnBtn.addEventListener('click', () => {
+                currentLang = 'en';
+                updateLanguage();
+            });
+        }
 
         // Event listeners para botones de servicio
         document.querySelectorAll('.service-button').forEach(button => {
@@ -1292,15 +1603,21 @@
         const privacyPolicyLink = document.getElementById('privacy-policy-link');
         const legalNoticeLink = document.getElementById('legal-notice-link');
 
-        privacyPolicyLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal('privacy-policy-modal-title', 'privacy-policy-modal-content');
-        });
+        // Solo añadir el event listener si el elemento existe en el DOM
+        if (privacyPolicyLink) {
+            privacyPolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('privacy-policy-modal-title', 'privacy-policy-modal-content');
+            });
+        }
 
-        legalNoticeLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal('legal-notice-modal-title', 'legal-notice-modal-content');
-        });
+        // Solo añadir el event listener si el elemento existe en el DOM
+        if (legalNoticeLink) {
+            legalNoticeLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('legal-notice-modal-title', 'legal-notice-modal-content');
+            });
+        }
 
         // Lógica del acordeón FAQ
         document.querySelectorAll('.faq-question').forEach(button => {
@@ -1313,7 +1630,11 @@
                 document.querySelectorAll('.faq-answer.active').forEach(openAnswer => {
                     if (openAnswer !== answer) {
                         openAnswer.classList.remove('active');
-                        openAnswer.previousElementSibling.classList.remove('active');
+                        // Asegurarse de que el botón correspondiente también pierda la clase 'active'
+                        const prevButton = openAnswer.previousElementSibling;
+                        if (prevButton && prevButton.classList.contains('faq-question')) {
+                            prevButton.classList.remove('active');
+                        }
                     }
                 });
 
@@ -1322,6 +1643,48 @@
                 button.classList.toggle('active');
             });
         });
+
+        // Cookie Banner Logic
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+        const rejectCookiesButton = document.getElementById('reject-cookies');
+        const openCookiePolicyLink = document.getElementById('open-cookie-policy');
+
+        // Check if cookies have been accepted
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            if (cookieBanner) {
+                cookieBanner.style.display = 'none'; // Hide if already accepted
+            }
+        } else {
+            if (cookieBanner) {
+                cookieBanner.style.display = 'flex'; // Show if not accepted
+            }
+        }
+
+        // Event listener for "Accept" button
+        if (acceptCookiesButton) {
+            acceptCookiesButton.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                if (cookieBanner) {
+                    cookieBanner.style.display = 'none';
+                }
+            });
+        }
+
+        // Event listener for "Reject" button (banner remains)
+        if (rejectCookiesButton) {
+            rejectCookiesButton.addEventListener('click', () => {
+                // Do nothing, banner remains visible as per user request
+            });
+        }
+
+        // Event listener for "Más información" link in cookie banner
+        if (openCookiePolicyLink) {
+            openCookiePolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('cookie-policy-modal-title', 'cookie-policy-modal-content');
+            });
+        }
 
         // Actualización inicial del idioma al cargar
         document.addEventListener('DOMContentLoaded', updateLanguage);
