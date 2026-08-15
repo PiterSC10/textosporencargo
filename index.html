@@ -178,14 +178,103 @@
             height: 2.5rem;
             margin-bottom: 1rem;
         }
-        /* Estilos para los nuevos iconos a color */
-        .social-icon {
-            width: 32px; /* Tamaño unificado para los iconos sociales */
-            height: 32px;
-            transition: transform 0.2s ease-in-out;
+        /* Bloque Conecta conmigo */
+        .connect-block {
+            margin: 1.6rem auto 1.25rem;
+            padding: 1.5rem 1rem 1.25rem;
+            max-width: 620px;
+            border: 1px solid rgba(45, 212, 191, 0.22);
+            border-radius: 1.25rem;
+            background: rgba(13, 17, 23, 0.34);
+            transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
         }
-        .social-icon:hover {
-            transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+        .connect-block:hover {
+            border-color: rgba(45, 212, 191, 0.7);
+            box-shadow: 0 0 24px rgba(45, 212, 191, 0.16);
+        }
+        .connect-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: .35rem;
+        }
+        .connect-name {
+            font-weight: 700;
+            color: #6EE7B7;
+            margin-bottom: .2rem;
+        }
+        .connect-tagline {
+            font-size: .9rem;
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.15rem;
+            flex-wrap: wrap;
+        }
+        .social-link {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,.08);
+            background: rgba(255,255,255,.035);
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
+        }
+        .social-link:hover,
+        .social-link:focus-visible {
+            transform: translateY(-4px);
+            border-color: rgba(45, 212, 191, .75);
+            background: rgba(45, 212, 191, .06);
+            box-shadow: 0 0 20px rgba(45, 212, 191, .34);
+            outline: none;
+        }
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            transition: transform .25s ease;
+        }
+        .social-link:hover .social-icon,
+        .social-link:focus-visible .social-icon {
+            transform: scale(1.08);
+        }
+        .social-tooltip {
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 10px);
+            transform: translate(-50%, 6px);
+            padding: .38rem .62rem;
+            border-radius: .55rem;
+            background: #0d1117;
+            border: 1px solid rgba(45, 212, 191, .48);
+            color: #e6fffb;
+            font-size: .72rem;
+            font-weight: 700;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease, transform .2s ease;
+            box-shadow: 0 8px 26px rgba(0,0,0,.3);
+            z-index: 5;
+        }
+        .social-tooltip::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: rgba(45, 212, 191, .48);
+        }
+        .social-link:hover .social-tooltip,
+        .social-link:focus-visible .social-tooltip {
+            opacity: 1;
+            transform: translate(-50%, 0);
         }
 
         /* Botón personalizado de scroll-to-top */
@@ -448,6 +537,223 @@
             .portfolio-grid { grid-template-columns: 1fr; }
         }
 
+
+
+        /* ===== YourDesignGPT V3 · Premium FX Layer ===== */
+        :root { --fx-x: 50vw; --fx-y: 25vh; }
+
+        #fx-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(circle at 50% 44%, rgba(45,212,191,.10), transparent 30%),
+                radial-gradient(circle at 55% 52%, rgba(59,130,246,.08), transparent 34%),
+                #070b10;
+            overflow: hidden;
+            transition: opacity .85s ease, visibility .85s ease;
+        }
+        #fx-intro.fx-hide { opacity: 0; visibility: hidden; pointer-events: none; }
+        #fx-intro::before {
+            content: "";
+            position: absolute;
+            width: 52vw;
+            height: 1px;
+            max-width: 760px;
+            background: linear-gradient(90deg, transparent, rgba(110,231,183,.85), rgba(59,130,246,.95), transparent);
+            filter: drop-shadow(0 0 10px rgba(59,130,246,.7));
+            transform: scaleX(0);
+            animation: fxLine 1.45s cubic-bezier(.2,.8,.2,1) .28s forwards;
+        }
+        .fx-intro-inner {
+            position: relative;
+            width: min(96vw, 1100px);
+            text-align: center;
+            padding: 3rem 2.25rem;
+            overflow: visible;
+            isolation: isolate;
+        }
+        .fx-intro-inner::before {
+            content: "";
+            position: absolute;
+            left: 50%; top: 50%;
+            width: min(680px, 82vw); height: min(260px, 34vw);
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(45,212,191,.13) 0%, rgba(59,130,246,.07) 38%, transparent 72%);
+            filter: blur(24px);
+            z-index: -1;
+            opacity: 0;
+            animation: fxGlowIn 1.25s ease .2s forwards;
+        }
+        .fx-intro-brand {
+            display: inline-block;
+            max-width: 94vw;
+            padding: .14em .14em .20em;
+            white-space: nowrap;
+            overflow: visible;
+            font-size: clamp(2.15rem, 7vw, 5.35rem);
+            line-height: 1.16;
+            font-weight: 900;
+            letter-spacing: -.035em;
+            background: linear-gradient(105deg,#ffffff 10%,#dffcf5 27%,#6ee7b7 45%,#60a5fa 64%,#ffffff 88%);
+            background-size: 230% auto;
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            filter: drop-shadow(0 0 18px rgba(59,130,246,.12));
+            opacity: 0; transform: translateY(22px) scale(.975);
+            animation: fxIntroUp 1.05s cubic-bezier(.2,.8,.2,1) .42s forwards, fxShine 2.05s linear .88s 1;
+        }
+        .fx-intro-sub {
+            position: relative;
+            display: table;
+            margin: 12px auto 0;
+            padding-top: 18px;
+            color: #b8c5d3;
+            font-size: clamp(.78rem, 1.7vw, 1rem);
+            font-weight: 600;
+            letter-spacing: .105em;
+            text-transform: none;
+            opacity: 0; transform: translateY(10px);
+            animation: fxIntroUp .82s ease 1.20s forwards;
+        }
+        .fx-intro-sub::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 50%;
+            width: 0; height: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, #6ee7b7, #60a5fa, transparent);
+            box-shadow: 0 0 12px rgba(59,130,246,.48);
+            animation: fxSubLine 1.15s cubic-bezier(.2,.8,.2,1) 1.02s forwards;
+        }
+        @media (max-width: 520px) {
+            .fx-intro-inner { width: 100%; padding: 2.2rem .7rem; }
+            .fx-intro-brand {
+                max-width: 98vw;
+                padding-left: .08em;
+                padding-right: .08em;
+                font-size: clamp(1.95rem, 10.2vw, 3rem);
+                letter-spacing: -.045em;
+            }
+            .fx-intro-sub { font-size: .74rem; letter-spacing: .065em; }
+        }
+        @keyframes fxIntroUp { to { opacity:1; transform:translateY(0) scale(1); } }
+        @keyframes fxFade { to { opacity:1; } }
+        @keyframes fxGlowIn { to { opacity:1; transform:translate(-50%,-50%) scale(1.06); } }
+        @keyframes fxSubLine { to { width:min(360px,72vw); } }
+        @keyframes fxLine { 0%{transform:scaleX(0);opacity:0} 35%{opacity:1} 100%{transform:scaleX(1);opacity:.14} }
+        @keyframes fxShine { to { background-position: -120% center; } }
+
+        /* Hero ambient spotlight */
+        #hero-section { position: relative; overflow: hidden; isolation: isolate; }
+        #hero-section::before {
+            content: ""; position:absolute; inset:-20%; z-index:-1; pointer-events:none;
+            background: radial-gradient(520px circle at var(--fx-x) var(--fx-y), rgba(45,212,191,.10), rgba(59,130,246,.055) 24%, transparent 58%);
+            opacity:.9;
+        }
+        #hero-section::after {
+            content:""; position:absolute; left:50%; top:55%; width:min(760px,88vw); height:min(760px,88vw);
+            transform:translate(-50%,-50%); z-index:-2; pointer-events:none; border-radius:50%;
+            background: radial-gradient(circle, rgba(59,130,246,.075), transparent 66%);
+            filter: blur(18px);
+            animation: fxPulse 5.5s ease-in-out infinite;
+        }
+        @keyframes fxPulse { 50% { transform:translate(-50%,-50%) scale(1.08); opacity:.72; } }
+
+        /* One-off light sweep on main headline */
+        #hero-section h1 {
+            position: relative;
+            background-size: 220% auto;
+            animation: fadeInUp 1s ease-out forwards, fxHeroSweep 2.8s ease 1.15s 1;
+        }
+        @keyframes fxHeroSweep { 0%{background-position:100% center} 100%{background-position:-80% center} }
+
+        /* Scroll reveal */
+        .fx-reveal { opacity:0; transform:translateY(28px) scale(.985); filter:blur(5px); transition:opacity .72s cubic-bezier(.2,.8,.2,1), transform .72s cubic-bezier(.2,.8,.2,1), filter .72s ease; }
+        .fx-reveal.fx-visible { opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
+        .portfolio-card.fx-reveal { transition-delay: var(--fx-delay, 0ms); }
+        .portfolio-card.fx-visible:hover { transform: translateY(-8px); }
+
+        /* Tiny premium edge glow */
+        .portfolio-card { position:relative; overflow:hidden; }
+        .portfolio-card::before {
+            content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0;
+            background:linear-gradient(115deg,transparent 20%,rgba(110,231,183,.075) 48%,rgba(59,130,246,.07) 55%,transparent 78%);
+            transform:translateX(-85%); transition:opacity .25s ease;
+        }
+        .portfolio-card:hover::before { opacity:1; animation:fxCardSweep .95s ease forwards; }
+        @keyframes fxCardSweep { to { transform:translateX(85%); } }
+
+        @media (pointer: coarse), (max-width: 900px) {
+            #hero-section::before { background:radial-gradient(420px circle at 50% 30%,rgba(45,212,191,.08),rgba(59,130,246,.04) 26%,transparent 62%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #fx-intro { display:none !important; }
+            .fx-reveal { opacity:1 !important; transform:none !important; filter:none !important; transition:none !important; }
+            #hero-section::after, #hero-section h1, .portfolio-card:hover::before { animation:none !important; }
+        }
+
+
+        /* ===== V5 · Línea visual homogénea ===== */
+        html, body { background:#1a202c !important; }
+        main { background:#1a202c; }
+        main > section {
+            background:#1a202c !important;
+            box-shadow:none !important;
+        }
+
+        /* El hero queda limpio: sin spotlight, pulso ni barrido sobre el titular */
+        #hero-section::before,
+        #hero-section::after {
+            content:none !important;
+            display:none !important;
+            animation:none !important;
+        }
+        #hero-section h1,
+        #hero-section p {
+            animation:none !important;
+            transform:none !important;
+            opacity:1 !important;
+            filter:none !important;
+        }
+
+        /* Misma firma visual que “Creamos tu web” */
+        .card,
+        .portfolio-card,
+        .faq-question,
+        #contacto .container > div,
+        main section .container.mx-auto.text-center.bg-\[\#1a202c\],
+        main section .container.mx-auto.bg-\[\#1a202c\] {
+            border:2px solid #2dd4bf !important;
+            background:#1a202c !important;
+            box-shadow:0 4px 6px rgba(0,0,0,.10);
+            transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+        }
+
+        .card:hover,
+        .portfolio-card:hover,
+        .faq-question:hover,
+        #contacto .container > div:hover,
+        main section .container.mx-auto.text-center.bg-\[\#1a202c\]:hover,
+        main section .container.mx-auto.bg-\[\#1a202c\]:hover {
+            transform:translateY(-5px);
+            border-color:#2dd4bf !important;
+            background:#1a202c !important;
+            box-shadow:0 0 20px rgba(45,212,191,.60) !important;
+        }
+
+        /* Portfolio sin barrido interno: glow limpio y consistente */
+        .portfolio-card::before { display:none !important; }
+        .portfolio-card:hover::before { animation:none !important; }
+
+        /* FAQ conserva claridad al abrirse */
+        .faq-answer { background:#202938; }
+
+        /* Footer integrado en la misma paleta */
+        footer { background:#1a202c !important; }
+
     </style>
 
     <script type="application/ld+json">
@@ -466,6 +772,14 @@
 
 </head>
 <body class="antialiased">
+    <!-- Premium entrance FX -->
+    <div id="fx-intro" aria-hidden="true">
+        <div class="fx-intro-inner">
+            <div class="fx-intro-brand">YourDesignGPT</div>
+            <div class="fx-intro-sub">by Pedro Soriano Calderón</div>
+        </div>
+    </div>
+
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" title="Ir arriba">↑</button>
@@ -514,10 +828,10 @@
 
     <!-- Hero Section -->
     <section id="hero-section" class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-12 px-4">
-        <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4 leading-tight animate-fade-in-up" data-lang-key="hero-title">
+        <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4 leading-tight" data-lang-key="hero-title">
             Tu Web Profesional, Lista en 72 Horas
         </h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 animate-fade-in-up-delay-1" data-lang-key="hero-subtitle">
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8" data-lang-key="hero-subtitle">
             Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
@@ -968,58 +1282,71 @@
     <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
         <div class="container mx-auto">
             <p class="mb-2 text-white font-bold">YourDesignGPT | Diseño Web Profesional</p>
-            <p class="mb-2" data-lang-key="footer-copyright">&copy; 2026 Pedro SC · Diseño Web Profesional. Todos los derechos reservados.</p>
+            <p class="mb-2" data-lang-key="footer-copyright">&copy; 2025 Pedro Soriano Calderón · Diseño Web Profesional. Todos los derechos reservados.</p>
             <p class="mb-4" data-lang-key="footer-design">Diseñado con ❤️</p>
-            <div class="flex justify-center space-x-6 mb-4">
-                <!-- Instagram Icon (Coloured SVG) -->
-                <a href="https://www.instagram.com/petersoriano10" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#feda75;stop-opacity:1" />
-                            <stop offset="25%" style="stop-color:#fa7e1e;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#d62976;stop-opacity:1" />
-                            <stop offset="75%" style="stop-color:#962fbf;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#4f5bd5;stop-opacity:1" />
-                        </linearGradient>
-                        <rect width="24" height="24" rx="6" fill="url(#instagramGradient)"/>
-                        <path d="M12 7.218a4.782 4.782 0 1 0 0 9.564 4.782 4.782 0 0 0 0-9.564zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" fill="white"/>
-                        <circle cx="17.25" cy="6.75" r="1.25" fill="white"/>
-                    </svg>
-                </a>
-                <!-- YouTube Icon (Coloured SVG) -->
-                <a href="https://www.youtube.com/@pasaportedemano" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="24" height="24" rx="6" fill="#FF0000"/>
-                        <path d="M9.73 15.51a.6.6 0 0 1-.36-.07.56.56 0 0 1-.25-.49v-6a.56.56 0 0 1 .25-.49.6.6 0 0 1 .36-.07.6.6 0 0 1 .38.1l5.24 3a.56.56 0 0 1 0 .98l-5.24 3a.6.6 0 0 1-.38.1z" fill="white"/>
-                    </svg>
-                </a>
-                <!-- PayPal Icon (Image) -->
-                <a href="https://paypal.me/YourDesignGPT/645" target="_blank" rel="noopener noreferrer" aria-label="PayPal">
-                    <img src="https://pngimg.com/uploads/paypal/paypal_PNG7.png" alt="PayPal Logo" class="social-icon" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/32x32/cccccc/444444?text=PP';">
-                </a>
-                <!-- Google Maps Icon (Coloured SVG) -->
-                <a href="https://maps.app.goo.gl/kEtqLh8wtMBwhEms6?g_st=iw" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/>
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="url(#mapsGradient)"/>
-                        <defs>
-                            <linearGradient id="mapsGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#4285F4"/>
-                                <stop offset="0.5" stop-color="#34A853"/>
-                                <stop offset="1" stop-color="#FBBC04"/>
+
+            <div class="connect-block">
+<div class="social-links" aria-label="Enlaces personales de Pedro Soriano Calderón">
+                    <a class="social-link" href="https://www.instagram.com/petersoriano10" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Pedro Soriano Calderón">
+                        <span class="social-tooltip">Mi Instagram</span>
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#feda75;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#fa7e1e;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d62976;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#962fbf;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4f5bd5;stop-opacity:1" />
                             </linearGradient>
-                        </defs>
-                    </svg>
-                </a>
-                <!-- SoundCloud Icon -->
-                <a href="https://soundcloud.com/petersorian" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
-                    <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <rect width="24" height="24" rx="6" fill="#FF5500"/>
-                        <path fill="#FFFFFF" d="M5.6 14.3c0-.6.2-1.1.5-1.5v3c-.3-.4-.5-.9-.5-1.5zm1.3-2.7c.2-.1.4-.2.6-.3v5.9c-.2-.1-.4-.2-.6-.3v-5.3zm1.4-.7c.2 0 .4-.1.6-.1v6.7c-.2 0-.4 0-.6-.1v-6.5zm1.4-.1c.2 0 .4.1.6.2v6.4h-.6v-6.6zm1.4.5c.3-.9 1.2-1.6 2.3-1.6 1.3 0 2.4 1 2.5 2.3.3-.2.7-.3 1.1-.3 1.2 0 2.2 1 2.2 2.2s-1 2.2-2.2 2.2h-5.8v-4.8z"/>
-                    </svg>
-                </a>
+                            <rect width="24" height="24" rx="6" fill="url(#instagramGradient)"/>
+                            <path d="M12 7.218a4.782 4.782 0 1 0 0 9.564 4.782 4.782 0 0 0 0-9.564zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" fill="white"/>
+                            <circle cx="17.25" cy="6.75" r="1.25" fill="white"/>
+                        </svg>
+                    </a>
+
+                    <a class="social-link" href="https://www.youtube.com/@pasaportedemano" target="_blank" rel="noopener noreferrer" aria-label="YouTube de Pedro Soriano Calderón">
+                        <span class="social-tooltip">Mi canal de YouTube</span>
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="24" height="24" rx="6" fill="#FF0000"/>
+                            <path d="M9.73 15.51a.6.6 0 0 1-.36-.07.56.56 0 0 1-.25-.49v-6a.56.56 0 0 1 .25-.49.6.6 0 0 1 .36-.07.6.6 0 0 1 .38.1l5.24 3a.56.56 0 0 1 0 .98l-5.24 3a.6.6 0 0 1-.38.1z" fill="white"/>
+                        </svg>
+                    </a>
+
+                    <a class="social-link" href="https://maps.app.goo.gl/kEtqLh8wtMBwhEms6?g_st=iw" target="_blank" rel="noopener noreferrer" aria-label="Google Maps de Pedro Soriano Calderón">
+                        <span class="social-tooltip">Influencer de Google Maps</span>
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="url(#mapsGradient)"/>
+                            <defs>
+                                <linearGradient id="mapsGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#4285F4"/>
+                                    <stop offset="0.5" stop-color="#34A853"/>
+                                    <stop offset="1" stop-color="#FBBC04"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </a>
+
+                    <a class="social-link" href="https://soundcloud.com/petersorian" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud de Peter Sorian">
+                        <span class="social-tooltip">Producción musical</span>
+                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="24" height="24" rx="6" fill="#FF5500"/>
+                            <path fill="#FFFFFF" d="M5.6 14.3c0-.6.2-1.1.5-1.5v3c-.3-.4-.5-.9-.5-1.5zm1.3-2.7c.2-.1.4-.2.6-.3v5.9c-.2-.1-.4-.2-.6-.3v-5.3zm1.4-.7c.2 0 .4-.1.6-.1v6.7c-.2 0-.4 0-.6-.1v-6.5zm1.4-.1c.2 0 .4.1.6.2v6.4h-.6v-6.6zm1.4.5c.3-.9 1.2-1.6 2.3-1.6 1.3 0 2.4 1 2.5 2.3.3-.2.7-.3 1.1-.3 1.2 0 2.2 1 2.2 2.2s-1 2.2-2.2 2.2h-5.8v-4.8z"/>
+                        </svg>
+                    </a>
+
+                    <a class="social-link" href="mailto:iampetersc@gmail.com" aria-label="Correo electrónico de Pedro Soriano Calderón">
+                        <span class="social-tooltip">Mi correo</span>
+                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="24" height="24" rx="6" fill="#FFFFFF"/>
+                            <path d="M4 7.2v9.6c0 .66.54 1.2 1.2 1.2H7V9.2L4 7.2Z" fill="#4285F4"/>
+                            <path d="M17 9.2V18h1.8c.66 0 1.2-.54 1.2-1.2V7.2l-3 2Z" fill="#34A853"/>
+                            <path d="M4.65 6.27 12 11.17l7.35-4.9A1.2 1.2 0 0 0 18.8 6H5.2c-.2 0-.39.05-.55.27Z" fill="#EA4335"/>
+                            <path d="M7 9.2 12 12.53 17 9.2V18H7V9.2Z" fill="#FBBC04" opacity=".18"/>
+                            <path d="M4.65 6.27 12 11.17l7.35-4.9" fill="none" stroke="#EA4335" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <!-- Legal and Privacy Links -->
+
             <div class="flex justify-center space-x-4 text-sm mt-4">
                 <a href="#" id="privacy-policy-link" class="text-gray-400 hover:text-white" data-lang-key="privacy-policy">Política de privacidad</a>
                 <a href="#" id="legal-notice-link" class="text-gray-400 hover:text-white" data-lang-key="legal-notice">Aviso legal</a>
@@ -1197,7 +1524,9 @@
                 '100-personalized-desc': 'Cada web se diseña según tu actividad, imagen, contenido y objetivos.',
                 'satisfied-customers-title': 'Clientes Satisfechos',
                 'satisfied-customers-desc': 'Opiniones de clientes sobre nuestros proyectos web.',
-                'footer-copyright': '&copy; 2026 Pedro SC · Diseño Web Profesional. Todos los derechos reservados.',
+                'footer-copyright': '&copy; 2025 Pedro Soriano Calderón · Diseño Web Profesional. Todos los derechos reservados.',
+                'connect-title': '',
+                'connect-tagline': 'Diseño web · Proyectos digitales · Música · Experiencias',
                 'footer-design': 'Diseñado con ❤️',
                 'privacy-policy': 'Política de privacidad',
                 'legal-notice': 'Aviso legal',
@@ -1443,7 +1772,9 @@
                 '100-personalized-desc': 'Each website is tailored to your activity, brand, content and goals.',
                 'satisfied-customers-title': 'Satisfied Customers',
                 'satisfied-customers-desc': 'Customer feedback about our web projects.',
-                'footer-copyright': '&copy; 2026 Pedro SC · Professional Web Design. All rights reserved.',
+                'footer-copyright': '&copy; 2025 Pedro Soriano Calderón · Professional Web Design. All rights reserved.',
+                'connect-title': 'Connect with me',
+                'connect-tagline': 'Web design · Digital projects · Music · Experiences',
                 'footer-design': 'Designed with ❤️',
                 'privacy-policy': 'Privacy Policy',
                 'legal-notice': 'Legal Notice',
@@ -1773,5 +2104,62 @@
         // Actualización inicial del idioma al cargar
         document.addEventListener('DOMContentLoaded', updateLanguage);
     </script>
+
+    <script>
+    (() => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const intro = document.getElementById('fx-intro');
+
+        if (intro && !reduceMotion) {
+            document.documentElement.style.overflow = 'hidden';
+            window.setTimeout(() => {
+                intro.classList.add('fx-hide');
+                document.documentElement.style.overflow = '';
+                window.setTimeout(() => intro.remove(), 900);
+            }, 3400);
+        } else if (intro) {
+            intro.remove();
+        }
+
+        const selectors = [
+            '#servicios .container', '#portfolio .container > div:first-child',
+            '#como-funciona .container', '#opiniones .container', '#faq .container',
+            '#contacto .container', 'footer .container'
+        ];
+        selectors.forEach(sel => document.querySelectorAll(sel).forEach(el => el.classList.add('fx-reveal')));
+
+        document.querySelectorAll('.portfolio-card').forEach((card, i) => {
+            card.classList.add('fx-reveal');
+            card.style.setProperty('--fx-delay', `${i * 85}ms`);
+        });
+
+        if (!reduceMotion && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fx-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: .12, rootMargin: '0px 0px -5% 0px' });
+            document.querySelectorAll('.fx-reveal').forEach(el => observer.observe(el));
+        } else {
+            document.querySelectorAll('.fx-reveal').forEach(el => el.classList.add('fx-visible'));
+        }
+
+        if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+            let raf = 0;
+            window.addEventListener('pointermove', e => {
+                if (raf) return;
+                raf = requestAnimationFrame(() => {
+                    document.documentElement.style.setProperty('--fx-x', `${e.clientX}px`);
+                    document.documentElement.style.setProperty('--fx-y', `${e.clientY}px`);
+                    raf = 0;
+                });
+            }, { passive: true });
+        }
+    })();
+    </script>
+
 </body>
 </html>
