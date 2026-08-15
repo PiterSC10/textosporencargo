@@ -1,64 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="vxXhWIlAV8oBEOjLwRsoTAuYVDDPiCFCyG1HtZJ3LhQ">
-
-    <!-- SEO principal -->
-    <title>Diseño Web Profesional en Málaga | Web en 72h | YourDesignGPT</title>
-    <meta name="description" content="Creamos páginas web profesionales, rápidas y responsive para negocios, autónomos y marcas. Diseño web en Málaga y toda España, con objetivo de entrega en 72h.">
-    <meta name="author" content="Pedro Soriano Calderón">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="theme-color" content="#0d1117">
-    <meta name="format-detection" content="telephone=no">
-
-    <!-- URL canónica -->
-    <link rel="canonical" href="https://pitersc10.github.io/textosporencargo/">
-
-    <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="YourDesignGPT">
-    <meta property="og:locale" content="es_ES">
-    <meta property="og:locale:alternate" content="en_GB">
-    <meta property="og:title" content="Diseño Web Profesional en 72h | YourDesignGPT">
-    <meta property="og:description" content="Tu nueva web profesional, rápida y responsive. Diseño para negocios, autónomos y marcas en Málaga y toda España.">
-    <meta property="og:url" content="https://pitersc10.github.io/textosporencargo/">
-    <meta property="og:image" content="https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png">
-    <meta property="og:image:alt" content="YourDesignGPT - Diseño Web Profesional">
-
-    <!-- X / Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Diseño Web Profesional en 72h | YourDesignGPT">
-    <meta name="twitter:description" content="Creamos tu web profesional, responsive y lista para publicar. Diseño web en Málaga y toda España.">
-    <meta name="twitter:image" content="https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png">
-
-    <!-- Datos estructurados Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://pitersc10.github.io/textosporencargo/#website",
-          "url": "https://pitersc10.github.io/textosporencargo/",
-          "name": "YourDesignGPT",
-          "description": "Diseño web profesional para negocios, autónomos y marcas.",
-          "inLanguage": ["es", "en"],
-          "publisher": {"@id": "https://pitersc10.github.io/textosporencargo/#business"}
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://pitersc10.github.io/textosporencargo/#business",
-          "name": "YourDesignGPT",
-          "url": "https://pitersc10.github.io/textosporencargo/",
-          "logo": "https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png",
-          "image": "https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png",
-          "description": "Servicio de diseño y creación de páginas web profesionales, responsive y preparadas para publicar.",
-          "priceRange": "€€",
-          "areaServed": [
             {"@type": "City", "name": "Málaga"},
             {"@type": "Country", "name": "España"}
           ],
@@ -545,6 +484,10 @@
         #fx-intro {
             position: fixed;
             inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100svh;
+            height: 100dvh;
             z-index: 99999;
             display: grid;
             place-items: center;
@@ -639,6 +582,30 @@
             }
             .fx-intro-sub { font-size: .74rem; letter-spacing: .065em; }
         }
+        @supports (-webkit-touch-callout: none) {
+            /* Ajustes específicos de Safari/iOS */
+            #fx-intro { min-height: -webkit-fill-available; }
+            .fx-intro-inner { padding-left: 1rem; padding-right: 1rem; }
+            .fx-intro-brand {
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
+                max-width: 96vw;
+            }
+        }
+        @media (max-width: 430px) {
+            .fx-intro-brand {
+                font-size: clamp(1.72rem, 9.6vw, 2.65rem);
+                letter-spacing: -.035em;
+                white-space: nowrap;
+            }
+            .fx-intro-sub {
+                max-width: 90vw;
+                font-size: .68rem;
+                line-height: 1.45;
+            }
+        }
+
         @keyframes fxIntroUp { to { opacity:1; transform:translateY(0) scale(1); } }
         @keyframes fxFade { to { opacity:1; } }
         @keyframes fxGlowIn { to { opacity:1; transform:translate(-50%,-50%) scale(1.06); } }
@@ -690,10 +657,28 @@
             #hero-section::before { background:radial-gradient(420px circle at 50% 30%,rgba(45,212,191,.08),rgba(59,130,246,.04) 26%,transparent 62%); }
         }
         @media (prefers-reduced-motion: reduce) {
-            #fx-intro { display:none !important; }
+            /* La intro se mantiene también en iPhone/móvil.
+               Solo simplificamos el movimiento para respetar accesibilidad. */
+            #fx-intro { display:grid !important; }
+            #fx-intro::before { animation: fxLineMobile .9s ease .15s forwards !important; }
+            .fx-intro-inner::before { animation: fxGlowMobile .8s ease .1s forwards !important; }
+            .fx-intro-brand {
+                opacity:0;
+                transform:none;
+                animation: fxFadeMobile .75s ease .2s forwards !important;
+            }
+            .fx-intro-sub {
+                opacity:0;
+                transform:none;
+                animation: fxFadeMobile .65s ease .72s forwards !important;
+            }
+            .fx-intro-sub::before { animation: fxSubLine .8s ease .55s forwards !important; }
             .fx-reveal { opacity:1 !important; transform:none !important; filter:none !important; transition:none !important; }
             #hero-section::after, #hero-section h1, .portfolio-card:hover::before { animation:none !important; }
         }
+        @keyframes fxFadeMobile { to { opacity:1; } }
+        @keyframes fxGlowMobile { to { opacity:.9; } }
+        @keyframes fxLineMobile { to { transform:scaleX(1); opacity:.16; } }
 
 
         /* ===== V5 · Línea visual homogénea ===== */
@@ -2110,15 +2095,17 @@
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const intro = document.getElementById('fx-intro');
 
-        if (intro && !reduceMotion) {
+        // Mostrar la presentación SIEMPRE, también en iPhone/iPad y con “Reducir movimiento”.
+        if (intro) {
             document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            const introDuration = reduceMotion ? 3000 : 3400;
             window.setTimeout(() => {
                 intro.classList.add('fx-hide');
                 document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
                 window.setTimeout(() => intro.remove(), 900);
-            }, 3400);
-        } else if (intro) {
-            intro.remove();
+            }, introDuration);
         }
 
         const selectors = [
