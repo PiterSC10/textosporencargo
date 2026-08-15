@@ -1,3 +1,64 @@
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="vxXhWIlAV8oBEOjLwRsoTAuYVDDPiCFCyG1HtZJ3LhQ">
+
+    <!-- SEO principal -->
+    <title>Diseño Web Profesional en Málaga | Web en 72h | YourDesignGPT</title>
+    <meta name="description" content="Creamos páginas web profesionales, rápidas y responsive para negocios, autónomos y marcas. Diseño web en Málaga y toda España, con objetivo de entrega en 72h.">
+    <meta name="author" content="Pedro Soriano Calderón">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- URL canónica -->
+    <link rel="canonical" href="https://pitersc10.github.io/textosporencargo/">
+
+    <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="YourDesignGPT">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:title" content="Diseño Web Profesional en 72h | YourDesignGPT">
+    <meta property="og:description" content="Tu nueva web profesional, rápida y responsive. Diseño para negocios, autónomos y marcas en Málaga y toda España.">
+    <meta property="og:url" content="https://pitersc10.github.io/textosporencargo/">
+    <meta property="og:image" content="https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png">
+    <meta property="og:image:alt" content="YourDesignGPT - Diseño Web Profesional">
+
+    <!-- X / Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diseño Web Profesional en 72h | YourDesignGPT">
+    <meta name="twitter:description" content="Creamos tu web profesional, responsive y lista para publicar. Diseño web en Málaga y toda España.">
+    <meta name="twitter:image" content="https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png">
+
+    <!-- Datos estructurados Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://pitersc10.github.io/textosporencargo/#website",
+          "url": "https://pitersc10.github.io/textosporencargo/",
+          "name": "YourDesignGPT",
+          "description": "Diseño web profesional para negocios, autónomos y marcas.",
+          "inLanguage": ["es", "en"],
+          "publisher": {"@id": "https://pitersc10.github.io/textosporencargo/#business"}
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://pitersc10.github.io/textosporencargo/#business",
+          "name": "YourDesignGPT",
+          "url": "https://pitersc10.github.io/textosporencargo/",
+          "logo": "https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png",
+          "image": "https://pitersc10.github.io/textosporencargo/android-chrome-512x512.png",
+          "description": "Servicio de diseño y creación de páginas web profesionales, responsive y preparadas para publicar.",
+          "priceRange": "€€",
+          "areaServed": [
             {"@type": "City", "name": "Málaga"},
             {"@type": "Country", "name": "España"}
           ],
@@ -679,6 +740,25 @@
         @keyframes fxFadeMobile { to { opacity:1; } }
         @keyframes fxGlowMobile { to { opacity:.9; } }
         @keyframes fxLineMobile { to { transform:scaleX(1); opacity:.16; } }
+
+
+        /* ===== V11 · iPhone / Safari safe mode ===== */
+        @media (pointer: coarse), (max-width: 900px) {
+            /* Conservamos la intro, pero eliminamos efectos GPU pesados después. */
+            #hero-section::after { display:none !important; }
+            #hero-section h1 { animation: fadeInUp .8s ease-out forwards !important; }
+            .fx-reveal, .fx-reveal.fx-visible {
+                opacity:1 !important;
+                transform:none !important;
+                filter:none !important;
+                transition:none !important;
+            }
+            .portfolio-card::before { display:none !important; }
+            .portfolio-card.fx-visible:hover { transform:none; }
+            #fx-intro::before { filter:none; }
+            .fx-intro-brand { filter:none; }
+            .fx-intro-inner::before { filter:none; opacity:.65; }
+        }
 
 
         /* ===== V5 · Línea visual homogénea ===== */
@@ -2092,20 +2172,39 @@
 
     <script>
     (() => {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const intro = document.getElementById('fx-intro');
+        const coarsePointer = window.matchMedia ? window.matchMedia('(pointer: coarse)').matches : false;
+        const smallScreen = window.innerWidth <= 900;
+        const mobileSafe = coarsePointer || smallScreen;
+        const reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
 
-        // Mostrar la presentación SIEMPRE, también en iPhone/iPad y con “Reducir movimiento”.
+        function unlockPage() {
+            document.documentElement.style.overflow = '';
+            if (document.body) document.body.style.overflow = '';
+        }
+
+        function closeIntro() {
+            try {
+                if (intro) intro.classList.add('fx-hide');
+            } catch (e) {}
+            unlockPage();
+            window.setTimeout(() => {
+                try {
+                    if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+                } catch (e) {}
+            }, 950);
+        }
+
+        /* La presentación sale también en iPhone. Un fallback garantiza
+           que la web siempre se desbloquee aunque Safari interrumpa una animación. */
         if (intro) {
             document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-            const introDuration = reduceMotion ? 3000 : 3400;
-            window.setTimeout(() => {
-                intro.classList.add('fx-hide');
-                document.documentElement.style.overflow = '';
-                document.body.style.overflow = '';
-                window.setTimeout(() => intro.remove(), 900);
-            }, introDuration);
+            if (document.body) document.body.style.overflow = 'hidden';
+            const introDuration = mobileSafe ? 3300 : (reduceMotion ? 3000 : 3400);
+            window.setTimeout(closeIntro, introDuration);
+            window.setTimeout(unlockPage, 4800);
+        } else {
+            unlockPage();
         }
 
         const selectors = [
@@ -2117,10 +2216,14 @@
 
         document.querySelectorAll('.portfolio-card').forEach((card, i) => {
             card.classList.add('fx-reveal');
-            card.style.setProperty('--fx-delay', `${i * 85}ms`);
+            if (!mobileSafe) card.style.setProperty('--fx-delay', `${i * 85}ms`);
         });
 
-        if (!reduceMotion && 'IntersectionObserver' in window) {
+        /* En iPhone/móvil mostramos el contenido directamente.
+           Así evitamos filtros + observers que pueden forzar demasiado Safari. */
+        if (mobileSafe || reduceMotion) {
+            document.querySelectorAll('.fx-reveal').forEach(el => el.classList.add('fx-visible'));
+        } else if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2134,11 +2237,11 @@
             document.querySelectorAll('.fx-reveal').forEach(el => el.classList.add('fx-visible'));
         }
 
-        if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+        if (!mobileSafe && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
             let raf = 0;
             window.addEventListener('pointermove', e => {
                 if (raf) return;
-                raf = requestAnimationFrame(() => {
+                raf = window.requestAnimationFrame(() => {
                     document.documentElement.style.setProperty('--fx-x', `${e.clientX}px`);
                     document.documentElement.style.setProperty('--fx-y', `${e.clientY}px`);
                     raf = 0;
