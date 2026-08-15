@@ -355,7 +355,115 @@
             text-decoration: underline;
             cursor: pointer;
         }
+
+
+        /* Portfolio / trabajos */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .portfolio-card {
+            background: linear-gradient(180deg, rgba(30,41,59,.96), rgba(15,23,42,.96));
+            border: 1px solid rgba(45,212,191,.30);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 18px 50px rgba(0,0,0,.22);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(110,231,183,.65);
+            box-shadow: 0 24px 60px rgba(0,0,0,.32), 0 0 24px rgba(45,212,191,.12);
+        }
+        .portfolio-cover {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        .portfolio-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .45s ease;
+        }
+        .portfolio-card:hover .portfolio-cover img { transform: scale(1.045); }
+        .portfolio-cover::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(2,6,23,.62));
+            pointer-events: none;
+        }
+        .portfolio-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 2;
+            padding: .42rem .72rem;
+            border-radius: 999px;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: #ecfeff;
+            background: rgba(15,23,42,.78);
+            border: 1px solid rgba(255,255,255,.18);
+            backdrop-filter: blur(10px);
+        }
+        .portfolio-body { padding: 1.5rem; }
+        .portfolio-sector {
+            color: #5eead4;
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: .55rem;
+        }
+        .portfolio-title { color: #fff; font-size: 1.55rem; font-weight: 800; margin-bottom: .7rem; }
+        .portfolio-description { color: #cbd5e1; margin-bottom: 1.25rem; line-height: 1.65; }
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: #fff;
+            font-weight: 800;
+            padding: .72rem 1.05rem;
+            border-radius: 999px;
+            background: linear-gradient(to right, #10B981, #3B82F6);
+            transition: transform .25s ease, opacity .25s ease;
+        }
+        .portfolio-link:hover { transform: translateY(-2px); opacity: .92; }
+        .portfolio-note {
+            max-width: 850px;
+            margin: 1.75rem auto 0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: .88rem;
+        }
+        @media (max-width: 768px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"ItemList",
+      "name":"Portfolio de diseño web YourDesignGPT",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Áurea Málaga - Web para restaurante","url":"restaurante.html"},
+        {"@type":"ListItem","position":2,"name":"Voltio Málaga - Web para electricista","url":"electricista.html"},
+        {"@type":"ListItem","position":3,"name":"AquaFix Málaga - Web para fontanero","url":"fontanero.html"},
+        {"@type":"ListItem","position":4,"name":"Lúmina Estética Málaga - Web para centro de estética","url":"estetica.html"}
+      ]
+    }
+    </script>
+
 </head>
 <body class="antialiased">
 
@@ -387,6 +495,7 @@
             <div id="nav-content" class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden">
                 <div class="text-sm lg:flex-grow mt-4 lg:mt-0 lg:ml-auto"> <!-- Añadido lg:ml-auto para empujar a la derecha -->
                     <a href="#servicios" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-services">Servicios</a>
+                    <a href="#portfolio" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-portfolio">Proyectos</a>
                     <a href="#como-funciona" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-how-it-works">Cómo Funciona</a>
                     <a href="#opiniones" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-reviews">Reseñas</a>
                     <a href="#faq" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-faq">FAQ</a>
@@ -411,9 +520,14 @@
         <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 animate-fade-in-up-delay-1" data-lang-key="hero-subtitle">
             Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.
         </p>
-        <a href="#servicios" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="hero-button">
-            Ver nuestro servicio
-        </a>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <a href="#servicios" class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="hero-button">
+                Ver nuestro servicio
+            </a>
+            <a href="#portfolio" class="border border-teal-400/60 hover:border-teal-300 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition hover:-translate-y-0.5" data-lang-key="hero-portfolio-button">
+                Ver nuestros trabajos
+            </a>
+        </div>
     </section>
 
     <!-- Diseño Web Profesional Section -->
@@ -438,6 +552,72 @@
                     </button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Proyectos -->
+    <section id="portfolio" class="py-20 bg-[#0d1117] px-4" aria-labelledby="portfolio-title">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="portfolio-eyebrow">Portfolio</p>
+                <h2 id="portfolio-title" class="text-4xl md:text-5xl font-extrabold gradient-text mb-5" data-lang-key="portfolio-title">Nuestros trabajos realizados</h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto" data-lang-key="portfolio-subtitle">Diseños creados para mostrar cómo adaptamos cada web al sector, la identidad visual y los objetivos de cada negocio.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <a class="portfolio-cover" href="restaurante.html" target="_blank" rel="noopener" aria-label="Ver proyecto Restaurante Áurea Málaga">
+                        <span class="portfolio-badge" data-lang-key="portfolio-demo-badge">Proyecto conceptual</span>
+                        <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=82" alt="Vista del proyecto web Restaurante Áurea Málaga" loading="lazy" width="1200" height="675">
+                    </a>
+                    <div class="portfolio-body">
+                        <div class="portfolio-sector" data-lang-key="portfolio-restaurant-sector">Restauración · Web premium</div>
+                        <h3 class="portfolio-title">Áurea Málaga</h3>
+                        <p class="portfolio-description" data-lang-key="portfolio-restaurant-desc">Web gastronómica elegante con carta, especialidades, galería, reservas, contacto y una experiencia visual orientada a conversión.</p>
+                        <a class="portfolio-link" href="restaurante.html" target="_blank" rel="noopener" data-lang-key="portfolio-view">Ver proyecto →</a>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <a class="portfolio-cover" href="electricista.html" target="_blank" rel="noopener" aria-label="Ver proyecto Voltio Málaga">
+                        <span class="portfolio-badge" data-lang-key="portfolio-demo-badge">Proyecto conceptual</span>
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=82" alt="Vista del proyecto web Voltio Málaga" loading="lazy" width="1200" height="675">
+                    </a>
+                    <div class="portfolio-body">
+                        <div class="portfolio-sector" data-lang-key="portfolio-electrician-sector">Electricidad · Servicios locales</div>
+                        <h3 class="portfolio-title">Voltio Málaga</h3>
+                        <p class="portfolio-description" data-lang-key="portfolio-electrician-desc">Diseño profesional enfocado a averías, urgencias, instalaciones y captación local mediante llamadas, formularios y WhatsApp.</p>
+                        <a class="portfolio-link" href="electricista.html" target="_blank" rel="noopener" data-lang-key="portfolio-view">Ver proyecto →</a>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <a class="portfolio-cover" href="fontanero.html" target="_blank" rel="noopener" aria-label="Ver proyecto AquaFix Málaga">
+                        <span class="portfolio-badge" data-lang-key="portfolio-demo-badge">Proyecto conceptual</span>
+                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=82" alt="Vista del proyecto web AquaFix Málaga" loading="lazy" width="1200" height="675">
+                    </a>
+                    <div class="portfolio-body">
+                        <div class="portfolio-sector" data-lang-key="portfolio-plumber-sector">Fontanería · Captación local</div>
+                        <h3 class="portfolio-title">AquaFix Málaga</h3>
+                        <p class="portfolio-description" data-lang-key="portfolio-plumber-desc">Web de servicios con urgencias, fugas, atascos, zonas de trabajo, contacto inmediato y estructura preparada para SEO local.</p>
+                        <a class="portfolio-link" href="fontanero.html" target="_blank" rel="noopener" data-lang-key="portfolio-view">Ver proyecto →</a>
+                    </div>
+                </article>
+
+                <article class="portfolio-card">
+                    <a class="portfolio-cover" href="estetica.html" target="_blank" rel="noopener" aria-label="Ver proyecto Lúmina Estética Málaga">
+                        <span class="portfolio-badge" data-lang-key="portfolio-demo-badge">Proyecto conceptual</span>
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=82" alt="Vista del proyecto web Lúmina Estética Málaga" loading="lazy" width="1200" height="675">
+                    </a>
+                    <div class="portfolio-body">
+                        <div class="portfolio-sector" data-lang-key="portfolio-beauty-sector">Estética · Imagen premium</div>
+                        <h3 class="portfolio-title">Lúmina Estética Málaga</h3>
+                        <p class="portfolio-description" data-lang-key="portfolio-beauty-desc">Experiencia visual sofisticada para tratamientos, packs, galería, reservas y confianza de marca en un centro de estética.</p>
+                        <a class="portfolio-link" href="estetica.html" target="_blank" rel="noopener" data-lang-key="portfolio-view">Ver proyecto →</a>
+                    </div>
+                </article>
+            </div>
+            <p class="portfolio-note" data-lang-key="portfolio-note">Los proyectos mostrados son conceptos de portfolio con datos ficticios creados para enseñar distintos estilos, sectores y posibilidades de diseño.</p>
         </div>
     </section>
 
@@ -955,6 +1135,7 @@
             'es': {
                 'page-title': 'Diseño Web Profesional en Málaga | Web en 72h | YourDesignGPT',
                 'nav-services': 'Servicios',
+                'nav-portfolio': 'Proyectos',
                 'nav-how-it-works': 'Cómo Funciona',
                 'nav-reviews': 'Reseñas',
                 'nav-faq': 'FAQ',
@@ -962,6 +1143,21 @@
                 'hero-title': 'Tu Web Profesional, Lista en 72 Horas',
                 'hero-subtitle': 'Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.',
                 'hero-button': 'Ver nuestro servicio',
+                'hero-portfolio-button': 'Ver nuestros trabajos',
+                'portfolio-eyebrow': 'Portfolio',
+                'portfolio-title': 'Nuestros trabajos realizados',
+                'portfolio-subtitle': 'Diseños creados para mostrar cómo adaptamos cada web al sector, la identidad visual y los objetivos de cada negocio.',
+                'portfolio-demo-badge': 'Proyecto conceptual',
+                'portfolio-restaurant-sector': 'Restauración · Web premium',
+                'portfolio-restaurant-desc': 'Web gastronómica elegante con carta, especialidades, galería, reservas, contacto y una experiencia visual orientada a conversión.',
+                'portfolio-electrician-sector': 'Electricidad · Servicios locales',
+                'portfolio-electrician-desc': 'Diseño profesional enfocado a averías, urgencias, instalaciones y captación local mediante llamadas, formularios y WhatsApp.',
+                'portfolio-plumber-sector': 'Fontanería · Captación local',
+                'portfolio-plumber-desc': 'Web de servicios con urgencias, fugas, atascos, zonas de trabajo, contacto inmediato y estructura preparada para SEO local.',
+                'portfolio-beauty-sector': 'Estética · Imagen premium',
+                'portfolio-beauty-desc': 'Experiencia visual sofisticada para tratamientos, packs, galería, reservas y confianza de marca en un centro de estética.',
+                'portfolio-view': 'Ver proyecto →',
+                'portfolio-note': 'Los proyectos mostrados son conceptos de portfolio con datos ficticios creados para enseñar distintos estilos, sectores y posibilidades de diseño.',
                 'services-title': 'Diseño Web Profesional',
                 'web-title': 'Creamos tu web',
                 'web-desc': 'Creamos tu propia web profesional. Te olvidas de todo, nosotros lo gestionamos.',
@@ -1182,6 +1378,7 @@
             'en': {
                 'page-title': 'Professional Web Design in Málaga | Website in 72h | YourDesignGPT',
                 'nav-services': 'Services',
+                'nav-portfolio': 'Projects',
                 'nav-how-it-works': 'How It Works',
                 'nav-reviews': 'Reviews',
                 'nav-faq': 'FAQ',
@@ -1189,6 +1386,21 @@
                 'hero-title': 'Your Professional Website, Ready in 72 Hours',
                 'hero-subtitle': 'Professional web design for businesses, freelancers and brands in Málaga and across Spain. We create a modern, fast, responsive website and handle the design, setup and launch.',
                 'hero-button': 'View our service',
+                'hero-portfolio-button': 'View our work',
+                'portfolio-eyebrow': 'Portfolio',
+                'portfolio-title': 'Selected web projects',
+                'portfolio-subtitle': 'Design concepts showing how we adapt each website to its sector, visual identity and business goals.',
+                'portfolio-demo-badge': 'Concept project',
+                'portfolio-restaurant-sector': 'Restaurant · Premium website',
+                'portfolio-restaurant-desc': 'An elegant restaurant website with menu, signature dishes, gallery, reservations, contact and conversion-focused visuals.',
+                'portfolio-electrician-sector': 'Electrical · Local services',
+                'portfolio-electrician-desc': 'A professional design focused on repairs, emergencies, installations and local lead generation through calls, forms and WhatsApp.',
+                'portfolio-plumber-sector': 'Plumbing · Local leads',
+                'portfolio-plumber-desc': 'A service website for emergencies, leaks, blockages, service areas and immediate contact, structured for local SEO.',
+                'portfolio-beauty-sector': 'Beauty · Premium image',
+                'portfolio-beauty-desc': 'A sophisticated visual experience for treatments, packages, gallery, bookings and brand trust for a beauty centre.',
+                'portfolio-view': 'View project →',
+                'portfolio-note': 'The projects shown are portfolio concepts using fictional data to demonstrate different styles, sectors and design possibilities.',
                 'services-title': 'Professional Web Design',
                 'web-title': 'We create your website',
                 'web-desc': 'We create your own professional website. You forget about everything, we manage it.',
