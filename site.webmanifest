@@ -1,19 +1,25 @@
 {
   "name": "YourDesignGPT",
-  "short_name": "YDG",
+  "short_name": "YourDesignGPT",
+  "description": "Diseño web profesional para negocios, autónomos y marcas.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "orientation": "any",
   "icons": [
     {
-      "src": "android-chrome-192x192.png?v=13",
+      "src": "android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "android-chrome-512x512.png?v=13",
+      "src": "android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ],
-  "theme_color": "#0d1117",
-  "background_color": "#0d1117",
-  "display": "standalone"
+  ]
 }

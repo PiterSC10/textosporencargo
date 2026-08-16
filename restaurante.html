@@ -12,11 +12,11 @@
 
   
     <!-- Favicons / App Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=13">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=13">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=13">
-    <link rel="icon" href="favicon.ico?v=13">
-    <link rel="manifest" href="site.webmanifest?v=13">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=25">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=25">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=25">
+    <link rel="icon" href="favicon.ico?v=25">
+    <link rel="manifest" href="site.webmanifest?v=25">
 
 <meta property="og:type" content="restaurant">
   <meta property="og:title" content="Restaurante Áurea Málaga | Cocina Mediterránea Contemporánea">
@@ -56,7 +56,10 @@
     @media(max-width:980px){.nav-links{position:fixed;top:106px;left:18px;right:18px;display:none;flex-direction:column;align-items:stretch;gap:6px;padding:16px;border-radius:18px;background:#121418;border:1px solid var(--line);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:11px 10px}.menu-toggle{display:inline-grid;place-items:center}.navbar .btn{display:none}.grid-2,.contact-grid{grid-template-columns:1fr}.about-image{min-height:430px}.cards-3,.reviews{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:230px}.gallery img:first-child{grid-row:span 1;grid-column:span 2}.footer-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:680px){.section{padding:72px 0}.section-head{display:block}.section-head p{margin-top:16px}.hero{min-height:760px}.hero-content{padding-top:64px}.cards-3,.reviews,.gallery,.footer-grid{grid-template-columns:1fr}.gallery img:first-child{grid-column:auto}.gallery{grid-auto-rows:230px}form{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-bottom{flex-direction:column}.menu-content{padding:18px}.container{width:min(calc(100% - 24px),var(--max))}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
-  </style>
+  
+}
+
+</style>
 
   <script type="application/ld+json">
   {
@@ -94,7 +97,12 @@
   </script>
 </head>
 <body>
-  <div class="demo-bar" role="note">PROYECTO CONCEPTUAL / DEMO · Datos, precios, teléfono, dirección, enlaces e imágenes son ficticios y deben sustituirse antes de publicar.</div>
+
+<div id="ydg-nav-host"
+     style="position:fixed!important;bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px))!important;left:max(14px,env(safe-area-inset-left))!important;z-index:2147483647!important;display:block!important;width:auto!important;height:auto!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;min-width:140px!important;min-height:52px!important;"></div>
+
+
+<div class="demo-bar" role="note">PROYECTO CONCEPTUAL / DEMO · Datos, precios, teléfono, dirección, enlaces e imágenes son ficticios y deben sustituirse antes de publicar.</div>
 
   <header class="navbar-wrap">
     <div class="container navbar">
@@ -270,5 +278,156 @@
       form.addEventListener("submit",e=>{e.preventDefault();if(!form.checkValidity()){status.textContent="Revisa los campos obligatorios antes de continuar.";status.style.color="#f0cf8b";form.reportValidity();return}status.textContent="Solicitud preparada correctamente. En la versión real este paso se conectaría al sistema de reservas.";status.style.color="#bfe6c8";form.reset();dateInput.min=`${yyyy}-${mm}-${dd}`});
     })();
   </script>
+
+
+
+
+
+<script>
+(function(){
+  function initYDGNav(){
+    var host = document.getElementById('ydg-nav-host');
+    if(!host) return;
+
+    // Keep the host on top even if the demo manipulates its own header.
+    host.style.setProperty('position','fixed','important');
+    host.style.setProperty('z-index','2147483647','important');
+    host.style.setProperty('display','block','important');
+    host.style.setProperty('visibility','visible','important');
+    host.style.setProperty('opacity','1','important');
+    host.style.setProperty('pointer-events','auto','important');
+
+    var root = host.shadowRoot || host.attachShadow({mode:'open'});
+    if(root.childNodes.length) return;
+
+    root.innerHTML = `
+      <style>
+        :host{all:initial}
+        *{box-sizing:border-box}
+        .nav{
+          position:relative;
+          display:flex;
+          align-items:center;
+          gap:6px;
+          padding:7px;
+          border-radius:17px;
+          background:rgba(5,10,16,.97);
+          border:1px solid rgba(96,165,250,.58);
+          box-shadow:0 16px 42px rgba(0,0,0,.56),0 0 28px rgba(59,130,246,.22),0 0 16px rgba(45,212,191,.10);
+          -webkit-backdrop-filter:blur(18px) saturate(155%);
+          backdrop-filter:blur(18px) saturate(155%);
+          font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+        }
+        .nav:before{
+          content:"";
+          position:absolute;
+          left:12px;right:12px;top:-1px;
+          height:2px;border-radius:999px;
+          background:linear-gradient(90deg,#2dd4bf,#3b82f6,#a855f7);
+          box-shadow:0 0 12px rgba(59,130,246,.35);
+        }
+        button,a{
+          appearance:none;
+          -webkit-appearance:none;
+          border:1px solid rgba(148,163,184,.16);
+          outline:none;
+          min-width:42px;
+          height:40px;
+          padding:0 11px;
+          border-radius:11px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:7px;
+          background:rgba(255,255,255,.055);
+          color:#f8fbff;
+          text-decoration:none;
+          font:800 12px/1 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+          letter-spacing:.035em;
+          cursor:pointer;
+          white-space:nowrap;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+        }
+        button:hover,a:hover{
+          background:linear-gradient(135deg,rgba(45,212,191,.18),rgba(59,130,246,.20),rgba(168,85,247,.16));
+          border-color:rgba(96,165,250,.38);
+        }
+        .icon{font-size:18px;line-height:1}
+        .home{
+          border-color:rgba(96,165,250,.34);
+          background:linear-gradient(135deg,rgba(45,212,191,.14),rgba(59,130,246,.18),rgba(168,85,247,.14));
+          position:relative;
+        }
+        .home:after{
+          content:"";
+          position:absolute;
+          left:8px;right:8px;bottom:4px;height:2px;border-radius:999px;
+          background:linear-gradient(90deg,#2dd4bf,#3b82f6,#a855f7);
+        }
+        @media(max-width:700px){
+          .nav{gap:5px;padding:7px;border-radius:15px}
+          button,a{min-width:40px;height:40px;padding:0 9px;font-size:11px;border-radius:10px}
+          .label{display:none}
+          .icon{font-size:20px}
+        }
+      </style>
+      <div class="nav" role="navigation" aria-label="Controles de navegación">
+        <button id="back" type="button" aria-label="Volver atrás" title="Volver atrás">
+          <span class="icon">←</span><span class="label">ATRÁS</span>
+        </button>
+        <button id="forward" type="button" aria-label="Avanzar" title="Avanzar">
+          <span class="icon">→</span><span class="label">AVANZAR</span>
+        </button>
+        <a id="home" class="home" href="index.html#portfolio" aria-label="Volver a YourDesignGPT" title="Volver a YourDesignGPT">
+          <span class="icon">⌂</span><span class="label">YDG</span>
+        </a>
+      </div>
+    `;
+
+    var back = root.getElementById('back');
+    var forward = root.getElementById('forward');
+    var home = root.getElementById('home');
+
+    function goHome(){
+      window.location.href = 'index.html#portfolio';
+    }
+
+    back.addEventListener('click', function(){
+      if(window.history.length > 1){
+        window.history.back();
+      }else{
+        goHome();
+      }
+    });
+
+    forward.addEventListener('click', function(){
+      try{ window.history.forward(); }catch(e){}
+    });
+
+    home.addEventListener('click', function(e){
+      e.preventDefault();
+      goHome();
+    });
+
+    // Re-assert visibility if any demo script changes stacking/visibility.
+    var keepVisible = function(){
+      host.style.setProperty('z-index','2147483647','important');
+      host.style.setProperty('display','block','important');
+      host.style.setProperty('visibility','visible','important');
+      host.style.setProperty('opacity','1','important');
+    };
+    window.addEventListener('pageshow', keepVisible);
+    window.addEventListener('resize', keepVisible, {passive:true});
+    keepVisible();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initYDGNav, {once:true});
+  }else{
+    initYDGNav();
+  }
+})();
+</script>
+
 </body>
 </html>
