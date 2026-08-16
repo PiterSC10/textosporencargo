@@ -1601,6 +1601,433 @@ section h2.gradient-text{
 .install-modal.is-visible{display:flex}.install-modal-card{position:relative;width:min(94vw,520px);border:1px solid rgba(45,212,191,.30);border-radius:24px;background:#111827;padding:1.6rem;box-shadow:0 24px 80px rgba(0,0,0,.5),0 0 36px rgba(45,212,191,.09);text-align:left}.install-modal-card h3{color:#fff;font-size:1.45rem;font-weight:900;margin:0 2rem .65rem 0}.install-modal-card p{color:#cbd5e1;line-height:1.65}.install-modal-steps{margin:1rem 0 0;padding-left:1.25rem;color:#e5e7eb;line-height:1.75}.install-modal-steps strong{color:#6ee7b7}.install-modal-close{position:absolute;right:14px;top:12px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(148,163,184,.22);color:#cbd5e1;background:#0d1117;font-size:1.4rem;line-height:1}.install-modal-note{margin-top:1rem;font-size:.88rem;color:#94a3b8!important}
 @media(max-width:767px){.install-app-btn{width:100%;max-width:360px}.install-modal-card{padding:1.35rem;border-radius:21px}}
 
+
+/* ===== V52 · HERO CINEMATIC PREMIUM ===== */
+.hero-cinematic{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  width:min(100%, 1040px);
+  margin-inline:auto;
+  padding:2.9rem 2rem 2.15rem;
+  border-radius:32px;
+}
+
+/* subtle glass edge, nearly invisible */
+.hero-cinematic::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  border-radius:inherit;
+  border:1px solid rgba(148,163,184,.075);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,0) 35%),
+    radial-gradient(circle at 50% 0%,rgba(59,130,246,.035),transparent 48%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 22px 70px rgba(2,6,23,.10);
+  pointer-events:none;
+}
+
+.hero-aurora{
+  position:absolute;
+  inset:-45% -18%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 48%,rgba(45,212,191,.18),transparent 24%),
+    radial-gradient(ellipse at 50% 28%,rgba(59,130,246,.18),transparent 27%),
+    radial-gradient(ellipse at 82% 54%,rgba(168,85,247,.14),transparent 25%);
+  filter:blur(38px);
+  opacity:.72;
+  transform:translate3d(0,0,0) scale(1.02);
+  animation:ydgAurora 12s ease-in-out infinite alternate;
+}
+@keyframes ydgAurora{
+  0%{transform:translate3d(-2%,1%,0) scale(1.01);opacity:.58}
+  50%{transform:translate3d(2.5%,-1.5%,0) scale(1.08);opacity:.82}
+  100%{transform:translate3d(-1%,2%,0) scale(1.04);opacity:.66}
+}
+
+/* ultra-subtle digital grid */
+.hero-grid-fx{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.20;
+  background-image:
+    linear-gradient(rgba(96,165,250,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(45,212,191,.045) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(circle at 50% 46%,#000 0%,rgba(0,0,0,.62) 42%,transparent 78%);
+  mask-image:radial-gradient(circle at 50% 46%,#000 0%,rgba(0,0,0,.62) 42%,transparent 78%);
+  transform:perspective(700px) rotateX(62deg) translateY(31%);
+  transform-origin:center bottom;
+  animation:ydgGridDrift 14s linear infinite;
+}
+@keyframes ydgGridDrift{
+  from{background-position:0 0,0 0}
+  to{background-position:0 46px,46px 0}
+}
+
+/* cinematic scan once, then a restrained repeat */
+.hero-scan{
+  position:absolute;
+  left:8%;
+  right:8%;
+  top:-22%;
+  height:26%;
+  z-index:4;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(103,232,249,.02) 35%,
+    rgba(103,232,249,.16) 50%,
+    rgba(96,165,250,.07) 56%,
+    transparent 100%
+  );
+  filter:blur(.2px);
+  animation:ydgScan 7.8s cubic-bezier(.22,.72,.22,1) 1.15s infinite;
+}
+@keyframes ydgScan{
+  0%,58%{top:-22%;opacity:0}
+  62%{opacity:.72}
+  82%{opacity:.24}
+  100%{top:108%;opacity:0}
+}
+
+/* title stays dominant */
+.hero-cinematic-title{
+  position:relative;
+  z-index:5;
+  text-shadow:0 18px 45px rgba(2,6,23,.16);
+  animation:ydgHeroEnter .9s cubic-bezier(.18,.78,.22,1) both;
+}
+@keyframes ydgHeroEnter{
+  from{opacity:0;transform:translateY(16px) scale(.992);filter:blur(4px)}
+  to{opacity:1;transform:none;filter:none}
+}
+
+/* gently animate existing gradient without changing brand colors */
+.hero-cinematic-title span,
+.hero-cinematic-title strong{
+  background-size:180% 100%!important;
+}
+.hero-cinematic-title span{
+  animation:ydgGradientFlow 9.5s ease-in-out infinite alternate!important;
+}
+@keyframes ydgGradientFlow{
+  0%{background-position:0% 50%}
+  50%{background-position:55% 50%}
+  100%{background-position:100% 50%}
+}
+
+/* make 72 hours the brand moment */
+.hero-cinematic-title strong{
+  position:relative;
+  display:inline-block;
+  isolation:isolate;
+  animation:
+    ydgGradientFlow 7.8s ease-in-out infinite alternate!important,
+    ydg72Pulse 5.8s ease-in-out 1.8s infinite!important;
+}
+.hero-cinematic-title strong::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  width:116%;
+  bottom:-7px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,#5eead4 18%,#60a5fa 50%,#a78bfa 82%,transparent);
+  filter:blur(.15px);
+  box-shadow:
+    0 0 10px rgba(45,212,191,.28),
+    0 0 18px rgba(96,165,250,.20);
+  opacity:.78;
+  transform:translateX(-50%) scaleX(.88);
+  transform-origin:center center;
+  animation:ydg72Underline 2.6s ease-in-out .8s infinite;
+}
+@keyframes ydg72Pulse{
+  0%,100%{filter:drop-shadow(0 0 6px rgba(96,165,250,.10));transform:translateY(0)}
+  50%{filter:drop-shadow(0 0 18px rgba(45,212,191,.22)) drop-shadow(0 0 24px rgba(96,165,250,.24));transform:translateY(-1px)}
+}
+@keyframes ydg72Underline{
+  0%,100%{
+    opacity:.62;
+    transform:translateX(-50%) scaleX(.86);
+    box-shadow:0 0 8px rgba(45,212,191,.20),0 0 14px rgba(96,165,250,.14);
+  }
+  50%{
+    opacity:1;
+    transform:translateX(-50%) scaleX(1.04);
+    box-shadow:0 0 14px rgba(45,212,191,.40),0 0 24px rgba(96,165,250,.28),0 0 34px rgba(168,85,247,.12);
+  }
+}
+
+/* the original divider becomes an energy rail */
+.hero-energy-line{
+  position:relative!important;
+  z-index:5;
+  overflow:visible!important;
+  height:2px!important;
+  box-shadow:0 0 10px rgba(45,212,191,.06);
+}
+.hero-energy-line span{
+  position:absolute;
+  top:-1px;
+  left:-24%;
+  width:24%;
+  height:4px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,#5eead4,#60a5fa,#a78bfa,transparent);
+  box-shadow:
+    0 0 12px rgba(45,212,191,.33),
+    0 0 24px rgba(59,130,246,.21);
+  opacity:0;
+  animation:ydgEnergySweep 4.8s cubic-bezier(.4,.02,.45,.98) 1.3s infinite;
+}
+.hero-energy-line b{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:7px;
+  height:7px;
+  margin:-3.5px 0 0 -3.5px;
+  border-radius:50%;
+  background:#93c5fd;
+  box-shadow:
+    0 0 10px rgba(147,197,253,.72),
+    0 0 22px rgba(45,212,191,.32);
+  opacity:.18;
+  animation:ydgNodePulse 3.6s ease-in-out 1.6s infinite;
+}
+@keyframes ydgEnergySweep{
+  0%{left:-24%;opacity:0;transform:scaleX(.55)}
+  12%{opacity:.9}
+  62%{opacity:.8;transform:scaleX(1)}
+  100%{left:102%;opacity:0;transform:scaleX(.58)}
+}
+@keyframes ydgNodePulse{
+  0%,100%{opacity:.16;transform:scale(.74)}
+  50%{opacity:.86;transform:scale(1.18)}
+  64%{opacity:.34;transform:scale(.90)}
+}
+
+/* micro particles */
+.hero-particles{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+}
+.hero-particles i{
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#67e8f9;
+  box-shadow:0 0 9px rgba(103,232,249,.55);
+  opacity:.10;
+  animation:ydgParticleFloat 7s ease-in-out infinite;
+}
+.hero-particles i:nth-child(1){left:14%;top:29%;animation-delay:.1s}
+.hero-particles i:nth-child(2){left:24%;top:71%;animation-delay:1.4s;background:#818cf8}
+.hero-particles i:nth-child(3){left:39%;top:16%;animation-delay:2.3s}
+.hero-particles i:nth-child(4){right:34%;top:19%;animation-delay:3.1s;background:#a78bfa}
+.hero-particles i:nth-child(5){right:20%;top:68%;animation-delay:4.2s}
+.hero-particles i:nth-child(6){right:11%;top:35%;animation-delay:5.0s;background:#818cf8}
+@keyframes ydgParticleFloat{
+  0%,100%{opacity:.06;transform:translateY(4px) scale(.7)}
+  35%{opacity:.58;transform:translateY(-5px) scale(1)}
+  65%{opacity:.16;transform:translateY(-9px) scale(.82)}
+}
+
+/* micro status gives 'studio / system' feeling */
+.hero-mini-status{
+  position:relative;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:15px;
+  color:rgba(191,219,254,.48);
+  font-size:.64rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  animation:ydgStatusEnter .8s ease 1.05s both;
+}
+.hero-status-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#5eead4;
+  box-shadow:0 0 10px rgba(94,234,212,.7);
+  animation:ydgStatusBlink 2.7s ease-in-out infinite;
+}
+@keyframes ydgStatusEnter{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:none}
+}
+@keyframes ydgStatusBlink{
+  0%,100%{opacity:.28}
+  50%{opacity:1}
+}
+
+/* desktop micro depth, no JS required */
+@media (hover:hover) and (pointer:fine){
+  .hero-cinematic{
+    transition:transform .45s ease,border-color .45s ease,box-shadow .45s ease;
+  }
+  .hero-cinematic:hover{
+    transform:translateY(-2px);
+  }
+}
+
+/* mobile: keep impact, remove clutter */
+@media(max-width:767px){
+  .hero-cinematic{
+    width:min(96vw, 720px);
+    padding:2rem .85rem 1.55rem;
+    border-radius:24px;
+  }
+  .hero-aurora{
+    inset:-34% -30%;
+    filter:blur(30px);
+    opacity:.56;
+  }
+  .hero-grid-fx{
+    opacity:.11;
+    background-size:38px 38px;
+  }
+  .hero-particles i:nth-child(n+4){display:none}
+  .hero-scan{left:4%;right:4%}
+  .hero-mini-status{
+    margin-top:12px;
+    font-size:.54rem;
+    letter-spacing:.14em;
+  }
+  .hero-cinematic-title strong::after{
+    width:108%;
+    bottom:-6px;
+    height:3px;
+  }
+}
+
+/* accessibility / battery friendly */
+@media(prefers-reduced-motion:reduce){
+  .hero-aurora,.hero-grid-fx,.hero-scan,
+  .hero-cinematic-title,.hero-cinematic-title span,.hero-cinematic-title strong,
+  .hero-cinematic-title strong::after,
+  .hero-energy-line span,.hero-energy-line b,
+  .hero-particles i,.hero-mini-status,.hero-status-dot{
+    animation:none!important;
+  }
+  .hero-cinematic-title,.hero-mini-status{opacity:1!important;transform:none!important;filter:none!important}
+}
+
+
+.hero-pointer-glow{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:.0;
+  background:
+    radial-gradient(240px circle at var(--x,50%) var(--y,50%),
+      rgba(45,212,191,.085),
+      rgba(59,130,246,.035) 33%,
+      transparent 68%);
+  transition:opacity .28s ease;
+}
+.hero-cinematic:hover .hero-pointer-glow{opacity:1}
+
+
+/* ===== V54 · Scroll progress + full-width hero energy line ===== */
+.ydg-scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  z-index:9999;
+  pointer-events:none;
+  background:rgba(255,255,255,.025);
+}
+.ydg-scroll-progress i{
+  display:block;
+  width:0%;
+  height:100%;
+  border-radius:0 999px 999px 0;
+  background:linear-gradient(90deg,#2dd4bf 0%,#3b82f6 52%,#a855f7 100%);
+  box-shadow:
+    0 0 10px rgba(45,212,191,.38),
+    0 0 18px rgba(59,130,246,.28),
+    0 0 24px rgba(168,85,247,.14);
+  transition:width .08s linear;
+}
+
+/* Force the animated line above DESIGN / BUILD / LAUNCH to span the hero */
+.hero-cinematic .hero-energy-line{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  left:auto!important;
+  right:auto!important;
+  display:block!important;
+  position:relative!important;
+  z-index:5;
+}
+.hero-cinematic .hero-energy-line::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  height:1px;
+  transform:translateY(-50%);
+  background:linear-gradient(
+    90deg,
+    rgba(45,212,191,.08),
+    rgba(45,212,191,.46) 18%,
+    rgba(59,130,246,.58) 50%,
+    rgba(168,85,247,.42) 82%,
+    rgba(168,85,247,.08)
+  );
+  box-shadow:
+    0 0 7px rgba(45,212,191,.12),
+    0 0 12px rgba(59,130,246,.08);
+  pointer-events:none;
+}
+.hero-cinematic .hero-energy-line span{
+  z-index:2;
+}
+.hero-cinematic .hero-energy-line b{
+  z-index:3;
+}
+
+/* visually align status to the same full-width rail */
+.hero-cinematic .hero-mini-status{
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media(max-width:767px){
+  .ydg-scroll-progress{height:2px}
+  .hero-cinematic .hero-energy-line{
+    width:100%!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -1617,6 +2044,7 @@ section h2.gradient-text{
     </script>
 </head>
 <body class="antialiased">
+<div class="ydg-scroll-progress" id="ydg-scroll-progress" aria-hidden="true"><i></i></div>
 <!-- Premium entrance FX -->
 <div aria-hidden="true" id="fx-intro">
 <div class="fx-intro-inner">
@@ -1668,12 +2096,25 @@ section h2.gradient-text{
 <main id="main-content">
 <!-- Hero Section -->
 <section class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-12 px-4" id="hero-section">
-<div class="hero-brand-block hero-sales-block mb-8">
-<h1 class="hero-digital-title hero-brand-title hero-sales-title" data-lang-key="hero-title">
+<div class="hero-brand-block hero-sales-block hero-cinematic mb-8">
+<div class="hero-aurora" aria-hidden="true"></div>
+<div class="hero-grid-fx" aria-hidden="true"></div>
+<div class="hero-particles" aria-hidden="true">
+<i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
+<div class="hero-scan" aria-hidden="true"></div>
+<h1 class="hero-digital-title hero-brand-title hero-sales-title hero-cinematic-title" data-lang-key="hero-title">
 <span>Tu Web Profesional,</span>
 <span>Lista en <strong>72 Horas</strong></span>
 </h1>
-<div aria-hidden="true" class="hero-brand-divider hero-sales-divider"></div>
+<div aria-hidden="true" class="hero-brand-divider hero-sales-divider hero-energy-line">
+<span></span>
+<b></b>
+</div>
+<div class="hero-mini-status" aria-hidden="true">
+<span class="hero-status-dot"></span>
+<span class="hero-status-text">DESIGN / BUILD / LAUNCH</span>
+</div>
 </div>
 <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 hero-main-description" data-lang-key="hero-subtitle">
             Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.
@@ -3371,7 +3812,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async () => {
       try {
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=42', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=54', {updateViaCache:'none'});
         await reg.update();
       } catch (_) {}
     });
@@ -3381,6 +3822,60 @@ try{
 
 
 
+
+
+<script>
+(function(){
+  const hero = document.querySelector('.hero-cinematic');
+  if(!hero) return;
+  const fine = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!fine || reduce) return;
+
+  let glow = document.createElement('span');
+  glow.className = 'hero-pointer-glow';
+  glow.setAttribute('aria-hidden','true');
+  hero.appendChild(glow);
+
+  let raf = 0;
+  hero.addEventListener('pointermove', function(e){
+    if(raf) return;
+    raf = requestAnimationFrame(function(){
+      const r = hero.getBoundingClientRect();
+      glow.style.setProperty('--x', (e.clientX - r.left) + 'px');
+      glow.style.setProperty('--y', (e.clientY - r.top) + 'px');
+      raf = 0;
+    });
+  }, {passive:true});
+})();
+</script>
+
+
+<script>
+(function(){
+  const bar = document.querySelector('#ydg-scroll-progress i');
+  if(!bar) return;
+
+  let ticking = false;
+  function updateYDGScrollProgress(){
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = Math.max(0, Math.min(100, (y / max) * 100));
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      ticking = true;
+      requestAnimationFrame(updateYDGScrollProgress);
+    }
+  }, {passive:true});
+
+  window.addEventListener('resize', updateYDGScrollProgress, {passive:true});
+  updateYDGScrollProgress();
+})();
+</script>
 
 </body>
 </html>
