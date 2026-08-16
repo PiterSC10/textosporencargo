@@ -129,7 +129,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -560,8 +560,14 @@
                 #070b10;
             overflow: hidden;
             transition: opacity .85s ease, visibility .85s ease;
+            /* V15: salida automática independiente de JavaScript */
+            animation: fxIntroAutoExit .82s ease 3.15s forwards;
         }
         #fx-intro.fx-hide { opacity: 0; visibility: hidden; pointer-events: none; }
+        @keyframes fxIntroAutoExit {
+            0% { opacity:1; visibility:visible; pointer-events:auto; }
+            100% { opacity:0; visibility:hidden; pointer-events:none; }
+        }
         #fx-intro::before {
             content: "";
             position: absolute;
@@ -722,7 +728,7 @@
         @media (prefers-reduced-motion: reduce) {
             /* La intro se mantiene también en iPhone/móvil.
                Solo simplificamos el movimiento para respetar accesibilidad. */
-            #fx-intro { display:grid !important; }
+            #fx-intro { display:grid !important; animation: fxIntroAutoExit .55s ease 2.8s forwards !important; }
             #fx-intro::before { animation: fxLineMobile .9s ease .15s forwards !important; }
             .fx-intro-inner::before { animation: fxGlowMobile .8s ease .1s forwards !important; }
             .fx-intro-brand {
@@ -748,7 +754,7 @@
         @media (pointer: coarse), (max-width: 900px) {
             /* Conservamos la intro, pero eliminamos efectos GPU pesados después. */
             #hero-section::after { display:none !important; }
-            #hero-section h1 { animation: fadeInUp .8s ease-out forwards !important; }
+            #hero-section h1 { animation:none !important; }
             .fx-reveal, .fx-reveal.fx-visible {
                 opacity:1 !important;
                 transform:none !important;
@@ -820,6 +826,149 @@
 
         /* Footer integrado en la misma paleta */
         footer { background:#1a202c !important; }
+
+    
+
+        /* ===== V14 · Hero digital premium ===== */
+        #hero-section {
+            min-height: calc(100svh - 4rem);
+            padding-top: 5.5rem !important;
+            padding-bottom: 4.5rem;
+        }
+        .hero-digital-title {
+            width:min(930px, 96vw);
+            margin-left:auto;
+            margin-right:auto;
+            font-family:'Space Grotesk','Inter',sans-serif;
+            font-weight:700;
+            line-height:.94;
+            letter-spacing:-.055em;
+            text-transform:none;
+            position:relative;
+            padding:.14em .12em .48em;
+            overflow:visible;
+            isolation:isolate;
+        }
+        .hero-digital-title .hero-line {
+            display:block;
+            position:relative;
+            opacity:0;
+            transform:translateY(24px);
+            will-change:transform,opacity;
+        }
+        .hero-digital-title .hero-line-1 {
+            font-size:clamp(2.65rem,8.1vw,6.75rem);
+            color:#f7fbff;
+        }
+        .hero-digital-title .hero-line-2 {
+            font-size:clamp(3.15rem,10.2vw,8.2rem);
+            color:#f7fbff;
+            text-shadow:0 0 22px rgba(45,212,191,.10);
+        }
+        .hero-digital-title .hero-line-3 {
+            margin-top:.13em;
+            font-size:clamp(1.72rem,5.65vw,4.45rem);
+            font-weight:600;
+            letter-spacing:-.04em;
+            color:#cbd5e1;
+        }
+        .hero-digital-title strong {
+            font-weight:700;
+            color:transparent;
+            background:linear-gradient(100deg,#67e8f9 0%,#5eead4 30%,#60a5fa 62%,#c084fc 100%);
+            background-size:220% 100%;
+            -webkit-background-clip:text;
+            background-clip:text;
+            -webkit-text-fill-color:transparent;
+            text-shadow:none;
+            animation:heroGradientFlow 7s ease-in-out infinite alternate;
+        }
+        .hero-digital-title::after {
+            content:"";
+            position:absolute;
+            left:8%;
+            right:8%;
+            top:0;
+            bottom:.42em;
+            pointer-events:none;
+            background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.34) 49%,rgba(103,232,249,.18) 53%,transparent 64%);
+            transform:translateX(-145%) skewX(-12deg);
+            opacity:0;
+            mix-blend-mode:screen;
+            z-index:3;
+        }
+        .hero-energy-line {
+            display:block;
+            position:absolute;
+            left:50%;
+            bottom:.07em;
+            width:min(420px,72vw);
+            height:1px;
+            transform:translateX(-50%) scaleX(.22);
+            transform-origin:center;
+            opacity:0;
+            background:linear-gradient(90deg,transparent,#22d3ee 20%,#60a5fa 55%,#c084fc 82%,transparent);
+            box-shadow:0 0 12px rgba(34,211,238,.35);
+            overflow:visible;
+        }
+        .hero-energy-line i {
+            position:absolute;
+            top:-2px;
+            left:0;
+            width:46px;
+            height:5px;
+            border-radius:999px;
+            background:linear-gradient(90deg,transparent,#fff,#67e8f9,transparent);
+            box-shadow:0 0 15px rgba(103,232,249,.7);
+            opacity:.82;
+            transform:translateX(-60px);
+        }
+        #hero-section.hero-fx-active .hero-line-1 { animation:heroReveal .72s cubic-bezier(.2,.82,.2,1) .05s forwards; }
+        #hero-section.hero-fx-active .hero-line-2 { animation:heroReveal .78s cubic-bezier(.2,.82,.2,1) .20s forwards; }
+        #hero-section.hero-fx-active .hero-line-3 { animation:heroReveal .76s cubic-bezier(.2,.82,.2,1) .38s forwards; }
+        #hero-section.hero-fx-active .hero-digital-title::after { animation:heroLightSweep 1.15s cubic-bezier(.2,.7,.2,1) .72s 1 forwards; }
+        #hero-section.hero-fx-active .hero-energy-line { animation:heroLineIn .7s ease .55s forwards; }
+        #hero-section.hero-fx-active .hero-energy-line i { animation:heroEnergyTravel 5.2s ease-in-out 1.2s infinite; }
+
+        @keyframes heroReveal {
+            0% { opacity:0; transform:translateY(24px); }
+            100% { opacity:1; transform:translateY(0); }
+        }
+        @keyframes heroLightSweep {
+            0% { opacity:0; transform:translateX(-145%) skewX(-12deg); }
+            18% { opacity:.7; }
+            100% { opacity:0; transform:translateX(145%) skewX(-12deg); }
+        }
+        @keyframes heroLineIn {
+            to { opacity:.68; transform:translateX(-50%) scaleX(1); }
+        }
+        @keyframes heroEnergyTravel {
+            0%,30% { transform:translateX(-60px); opacity:0; }
+            38% { opacity:.85; }
+            62% { opacity:.85; }
+            70%,100% { transform:translateX(calc(min(420px,72vw) - 10px)); opacity:0; }
+        }
+        @keyframes heroGradientFlow {
+            from { background-position:0% 50%; }
+            to { background-position:100% 50%; }
+        }
+
+        @media (max-width:680px) {
+            #hero-section { min-height:calc(100svh - 68px); padding-top:4.6rem !important; padding-bottom:3.3rem; }
+            .hero-digital-title { width:96vw; padding-left:.18em; padding-right:.18em; letter-spacing:-.048em; }
+            .hero-digital-title .hero-line-1 { font-size:clamp(2.5rem,13vw,4.2rem); }
+            .hero-digital-title .hero-line-2 { font-size:clamp(3.05rem,15.5vw,5.15rem); }
+            .hero-digital-title .hero-line-3 { font-size:clamp(1.58rem,8.2vw,2.65rem); line-height:1.04; }
+            .hero-digital-title::after { left:2%; right:2%; }
+            .hero-energy-line { width:min(300px,70vw); }
+            .hero-energy-line i { width:38px; }
+        }
+        @media (prefers-reduced-motion:reduce) {
+            .hero-digital-title .hero-line { opacity:1 !important; transform:none !important; animation:none !important; }
+            .hero-digital-title::after, .hero-energy-line i { animation:none !important; display:none !important; }
+            .hero-energy-line { opacity:.5 !important; transform:translateX(-50%) scaleX(1) !important; animation:none !important; }
+            .hero-digital-title strong { animation:none !important; background-position:50% 50%; }
+        }
 
     </style>
 
@@ -895,8 +1044,11 @@
 
     <!-- Hero Section -->
     <section id="hero-section" class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-12 px-4">
-        <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-4 leading-tight" data-lang-key="hero-title">
-            Tu Web Profesional, Lista en 72 Horas
+        <h1 class="hero-digital-title mb-5" data-lang-key="hero-title" aria-label="Tu Web Profesional, Lista en 72 Horas">
+            <span class="hero-line hero-line-1">Tu Web</span>
+            <span class="hero-line hero-line-2">Profesional</span>
+            <span class="hero-line hero-line-3">Lista en <strong>72 Horas</strong></span>
+            <span class="hero-energy-line" aria-hidden="true"><i></i></span>
         </h1>
         <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8" data-lang-key="hero-subtitle">
             Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.
@@ -1534,7 +1686,7 @@
                 'nav-reviews': 'Reseñas',
                 'nav-faq': 'FAQ',
                 'nav-contact': 'Contacto',
-                'hero-title': 'Tu Web Profesional, Lista en 72 Horas',
+                'hero-title': '<span class="hero-line hero-line-1">Tu Web</span><span class="hero-line hero-line-2">Profesional</span><span class="hero-line hero-line-3">Lista en <strong>72 Horas</strong></span><span class="hero-energy-line" aria-hidden="true"><i></i></span>',
                 'hero-subtitle': 'Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.',
                 'hero-button': 'Ver nuestro servicio',
                 'hero-portfolio-button': 'Ver nuestros trabajos',
@@ -1782,7 +1934,7 @@
                 'nav-reviews': 'Reviews',
                 'nav-faq': 'FAQ',
                 'nav-contact': 'Contact',
-                'hero-title': 'Your Professional Website, Ready in 72 Hours',
+                'hero-title': '<span class="hero-line hero-line-1">Your Professional</span><span class="hero-line hero-line-2">Website</span><span class="hero-line hero-line-3">Ready in <strong>72 Hours</strong></span><span class="hero-energy-line" aria-hidden="true"><i></i></span>',
                 'hero-subtitle': 'Professional web design for businesses, freelancers and brands in Málaga and across Spain. We create a modern, fast, responsive website and handle the design, setup and launch.',
                 'hero-button': 'View our service',
                 'hero-portfolio-button': 'View our work',
@@ -2179,34 +2331,55 @@
         const smallScreen = window.innerWidth <= 900;
         const mobileSafe = coarsePointer || smallScreen;
         const reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+        let introClosed = false;
 
         function unlockPage() {
-            document.documentElement.style.overflow = '';
-            if (document.body) document.body.style.overflow = '';
+            try { document.documentElement.style.overflow = ''; } catch(e) {}
+            try { if (document.body) document.body.style.overflow = ''; } catch(e) {}
+        }
+
+        function activateHero() {
+            try {
+                const hero = document.getElementById('hero-section');
+                if (hero && !hero.classList.contains('hero-fx-active')) hero.classList.add('hero-fx-active');
+            } catch (e) {}
         }
 
         function closeIntro() {
-            try {
-                if (intro) intro.classList.add('fx-hide');
-            } catch (e) {}
+            if (introClosed) return;
+            introClosed = true;
+            try { if (intro) intro.classList.add('fx-hide'); } catch (e) {}
             unlockPage();
-            window.setTimeout(() => {
-                try {
-                    if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
-                } catch (e) {}
-            }, 950);
+            try { window.setTimeout(activateHero, 100); } catch(e) { activateHero(); }
+            try {
+                window.setTimeout(() => {
+                    try { if (intro && intro.parentNode) intro.parentNode.removeChild(intro); } catch (e) {}
+                }, 1000);
+            } catch(e) {}
         }
 
-        /* La presentación sale también en iPhone. Un fallback garantiza
-           que la web siempre se desbloquee aunque Safari interrumpa una animación. */
         if (intro) {
-            document.documentElement.style.overflow = 'hidden';
-            if (document.body) document.body.style.overflow = 'hidden';
-            const introDuration = mobileSafe ? 3300 : (reduceMotion ? 3000 : 3400);
+            try { document.documentElement.style.overflow = 'hidden'; } catch(e) {}
+            try { if (document.body) document.body.style.overflow = 'hidden'; } catch(e) {}
+
+            /* CSS cierra la intro por sí solo. Este listener desbloquea la página
+               cuando termina fxIntroAutoExit, incluso si Safari retrasa setTimeout. */
+            intro.addEventListener('animationend', (ev) => {
+                if (ev.animationName === 'fxIntroAutoExit') closeIntro();
+            });
+
+            const introDuration = reduceMotion ? 3350 : 4050;
             window.setTimeout(closeIntro, introDuration);
-            window.setTimeout(unlockPage, 4800);
+
+            /* Fallback extremo para iOS/WebView: la web nunca puede quedarse bloqueada. */
+            window.setTimeout(() => {
+                unlockPage();
+                activateHero();
+                try { if (intro) { intro.style.display='none'; intro.style.pointerEvents='none'; } } catch(e) {}
+            }, 5200);
         } else {
             unlockPage();
+            window.setTimeout(activateHero, 80);
         }
 
         const selectors = [
