@@ -14,6 +14,10 @@
 <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="googlebot"/>
 <meta content="#0d1117" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="YourDesignGPT" name="apple-mobile-web-app-title"/>
 <meta content="telephone=no" name="format-detection"/>
 <!-- URL canónica -->
 <link href="https://pitersc10.github.io/textosporencargo/" rel="canonical"/>
@@ -22,7 +26,7 @@
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
 <link href="favicon.ico?v=25" rel="icon"/>
-<link href="site.webmanifest?v=25" rel="manifest"/>
+<link href="site.webmanifest?v=37" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -1581,6 +1585,16 @@
     }
 }
 
+
+/* ===== V37 · Instalación PWA / acceso directo ===== */
+.install-app-wrap{display:flex;justify-content:center;margin:1.35rem 0 .4rem}
+.install-app-btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;padding:.78rem 1.2rem;border-radius:999px;border:1px solid rgba(45,212,191,.36);background:linear-gradient(180deg,rgba(17,24,39,.92),rgba(13,17,23,.98));color:#e5e7eb;font-weight:800;transition:.28s ease;box-shadow:0 0 0 1px rgba(59,130,246,.04),0 0 22px rgba(45,212,191,.06)}
+.install-app-btn:hover,.install-app-btn:focus-visible{transform:translateY(-2px);border-color:rgba(45,212,191,.7);color:#fff;box-shadow:0 0 0 1px rgba(45,212,191,.12),0 0 26px rgba(45,212,191,.18),0 0 38px rgba(59,130,246,.10);outline:none}
+.install-app-btn svg{width:20px;height:20px;flex:none}.install-app-btn.is-installed{cursor:default;opacity:.76;transform:none}
+.install-modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,.82);backdrop-filter:blur(7px)}
+.install-modal.is-visible{display:flex}.install-modal-card{position:relative;width:min(94vw,520px);border:1px solid rgba(45,212,191,.30);border-radius:24px;background:#111827;padding:1.6rem;box-shadow:0 24px 80px rgba(0,0,0,.5),0 0 36px rgba(45,212,191,.09);text-align:left}.install-modal-card h3{color:#fff;font-size:1.45rem;font-weight:900;margin:0 2rem .65rem 0}.install-modal-card p{color:#cbd5e1;line-height:1.65}.install-modal-steps{margin:1rem 0 0;padding-left:1.25rem;color:#e5e7eb;line-height:1.75}.install-modal-steps strong{color:#6ee7b7}.install-modal-close{position:absolute;right:14px;top:12px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(148,163,184,.22);color:#cbd5e1;background:#0d1117;font-size:1.4rem;line-height:1}.install-modal-note{margin-top:1rem;font-size:.88rem;color:#94a3b8!important}
+@media(max-width:767px){.install-app-btn{width:100%;max-width:360px}.install-modal-card{padding:1.35rem;border-radius:21px}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -2122,6 +2136,12 @@
 </svg>
 </a>
 </div>
+<div class="install-app-wrap">
+<button class="install-app-btn" id="install-app-btn" type="button" aria-label="Añadir YourDesignGPT a este dispositivo">
+<svg aria-hidden="true" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span id="install-app-label">Añadir YourDesignGPT a tu dispositivo</span>
+</button>
+</div>
 </div>
 <div class="flex justify-center space-x-4 text-sm mt-4">
 <a class="text-gray-400 hover:text-white" data-lang-key="privacy-policy" href="#" id="privacy-policy-link">Política de privacidad</a>
@@ -2130,6 +2150,14 @@
 </div>
 </div>
 </footer>
+
+<div class="install-modal" id="install-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="install-modal-title">
+  <div class="install-modal-card">
+    <button class="install-modal-close" id="install-modal-close" type="button" aria-label="Cerrar">×</button>
+    <h3 id="install-modal-title">Añadir YourDesignGPT</h3>
+    <div id="install-modal-content"></div>
+  </div>
+</div>
 <!-- Barra Flotante Inferior -->
 <div class="floating-bar-bottom" id="smart-cta">
 <p class="text-lg font-semibold" id="smart-cta-text">Descubre lo que podemos crear</p>
@@ -3162,5 +3190,82 @@
   resetBtn?.addEventListener('click',function(){ successPanel?.classList.remove('is-visible'); if(grid) grid.style.display=''; setStatus('','success'); form.querySelector('input[name="name"]')?.focus(); });
 })();
 </script>
+
+<script>
+(function(){
+  const installBtn = document.getElementById('install-app-btn');
+  const installLabel = document.getElementById('install-app-label');
+  const modal = document.getElementById('install-modal');
+  const modalContent = document.getElementById('install-modal-content');
+  const modalClose = document.getElementById('install-modal-close');
+  if(!installBtn) return;
+
+  let deferredPrompt = null;
+  const ua = navigator.userAgent || '';
+  const isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isSafari = /^((?!chrome|android|crios|fxios|edgios).)*safari/i.test(ua);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+  function installedState(){
+    installBtn.classList.add('is-installed');
+    installBtn.disabled = true;
+    installLabel.textContent = 'YourDesignGPT ya está añadido';
+  }
+  if(isStandalone) installedState();
+
+  function openModal(html){
+    if(!modal || !modalContent) return;
+    modalContent.innerHTML = html;
+    modal.classList.add('is-visible');
+    modal.setAttribute('aria-hidden','false');
+    modalClose?.focus();
+  }
+  function closeModal(){
+    modal?.classList.remove('is-visible');
+    modal?.setAttribute('aria-hidden','true');
+    installBtn?.focus();
+  }
+  modalClose?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal?.classList.contains('is-visible')) closeModal(); });
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.disabled = false;
+    installBtn.classList.remove('is-installed');
+    installLabel.textContent = 'Instalar YourDesignGPT';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    installedState();
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if(isStandalone) return;
+    if(deferredPrompt){
+      try{
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+      }catch(e){}
+      deferredPrompt = null;
+      return;
+    }
+    if(isIOS){
+      openModal('<p>En iPhone o iPad, Apple requiere hacerlo desde Safari:</p><ol class="install-modal-steps"><li>Pulsa el botón <strong>Compartir</strong> de Safari.</li><li>Desliza y selecciona <strong>Añadir a pantalla de inicio</strong>.</li><li>Pulsa <strong>Añadir</strong>.</li></ol><p class="install-modal-note">Después tendrás el icono de YourDesignGPT en tu pantalla de inicio y se abrirá como una app.</p>');
+      return;
+    }
+    openModal('<p>Tu navegador no ha mostrado el instalador automático en este momento.</p><ol class="install-modal-steps"><li>Abre el menú del navegador <strong>⋮ / …</strong>.</li><li>Busca <strong>Instalar YourDesignGPT</strong>, <strong>Instalar aplicación</strong> o <strong>Crear acceso directo</strong>.</li><li>Confirma para añadirla al escritorio o al menú de aplicaciones.</li></ol><p class="install-modal-note">La instalación directa depende del navegador y requiere que la web esté publicada mediante HTTPS.</p>');
+  });
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
