@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hotel Málaga Central | Hotel Boutique en Málaga Centro</title>
+  <meta name="description" content="Hotel boutique en Málaga centro con habitaciones elegantes, ubicación privilegiada y acceso directo al sistema oficial de reservas. Descubre Hotel Málaga Central.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://www.ejemplo-hotelmalaga.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hotel Málaga Central | Hotel Boutique en Málaga">
+  <meta property="og:description" content="Descubre habitaciones, servicios, ubicación y reserva a través del sistema oficial del hotel.">
+  <meta property="og:url" content="https://www.ejemplo-hotelmalaga.com/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=85">
+  <meta property="og:locale" content="es_ES">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hotel Málaga Central">
+  <meta name="twitter:description" content="Hotel boutique en Málaga centro.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=85">
+  <meta name="theme-color" content="#0d1518">
+
+  <style>
+    :root{
+      --bg:#0d1518;
+      --panel:#172429;
+      --panel2:#1d2d33;
+      --text:#f7f5ef;
+      --muted:#b8c1c3;
+      --sand:#d9c39a;
+      --sand2:#f1e2bf;
+      --line:rgba(255,255,255,.09);
+      --success:#25d366;
+      --shadow:0 26px 76px rgba(0,0,0,.30);
+      --radius:24px;
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%,rgba(142,200,196,.10),transparent 27%),
+        radial-gradient(circle at 88% 14%,rgba(217,195,154,.07),transparent 20%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(calc(100% - 36px),var(--max));margin:0 auto}
+    .section{padding:96px 0}
+    .demo-bar{background:linear-gradient(90deg,var(--sand),var(--sand2));color:#1c1a16;text-align:center;padding:8px 16px;font-size:.82rem;font-weight:900}
+
+    .navbar-wrap{position:sticky;top:0;z-index:1000;background:rgba(13,21,24,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .navbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;min-width:210px}
+    .brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#18150f;background:linear-gradient(135deg,var(--sand),var(--sand2));font-family:Georgia,serif;font-weight:900}
+    .brand strong{font-family:Georgia,serif;font-size:1.18rem}
+    .nav-links{display:flex;align-items:center;gap:24px;font-size:.92rem;color:#d8dedd}
+    .nav-links a:hover{color:var(--sand2)}
+    .menu-toggle{display:none;width:44px;height:44px;border-radius:12px;background:transparent;color:var(--text);border:1px solid var(--line);cursor:pointer}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 20px;border-radius:999px;border:1px solid transparent;font-weight:900;transition:.25s ease;cursor:pointer}
+    .btn-primary{color:#19160f;background:linear-gradient(135deg,var(--sand),var(--sand2));box-shadow:0 12px 32px rgba(217,195,154,.18)}
+    .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    .btn-secondary{border-color:var(--line);background:rgba(255,255,255,.045)}
+    .btn-secondary:hover{background:rgba(255,255,255,.085);transform:translateY(-2px)}
+
+    .hero{min-height:calc(100svh - 108px);display:grid;align-items:center;position:relative;isolation:isolate;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(9,15,18,.95) 0%,rgba(9,15,18,.76) 42%,rgba(9,15,18,.22) 72%,rgba(9,15,18,.52) 100%),url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=88') center/cover}
+    .hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 72%,var(--bg) 100%)}
+    .hero-content{padding:90px 0 120px;max-width:950px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--sand2);text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:900;margin-bottom:16px}
+    .eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+    h1,h2,h3{margin:0;line-height:1.07;font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.03em}
+    h1{font-size:clamp(3.2rem,7vw,7rem);max-width:920px}
+    h2{font-size:clamp(2.4rem,4.8vw,4.6rem)}
+    h3{font-size:1.45rem}
+    p{margin:0;color:var(--muted)}
+    .hero p{max-width:680px;font-size:clamp(1.05rem,2vw,1.24rem);color:#e4e8e7;margin:24px 0 34px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .trust-row{display:flex;flex-wrap:wrap;gap:28px;margin-top:54px;color:#dfe4e3}
+    .trust-item strong{display:block;color:var(--sand2);font-size:1.05rem}
+
+    .booking-gateway{margin-top:-44px;position:relative;z-index:5}
+    .booking-gateway-box{
+      padding:26px;
+      border-radius:22px;
+      background:linear-gradient(135deg,#162327,#101a1e);
+      border:1px solid rgba(217,195,154,.24);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:22px;
+      align-items:center;
+    }
+    .booking-gateway-box h3{font-size:1.7rem}
+    .booking-note{
+      margin-top:12px;
+      font-size:.8rem;
+      line-height:1.5;
+      color:#8f9a9b;
+      max-width:880px;
+    }
+    .booking-note strong{color:#bfc6c5}
+
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:42px}
+    .section-head p{max-width:580px}
+
+    .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .room-card{overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));transition:.3s ease}
+    .room-card:hover{transform:translateY(-7px);border-color:rgba(217,195,154,.34)}
+    .room-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+    .room-body{padding:22px}
+    .room-meta{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+    .room-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .chip{padding:7px 10px;border-radius:999px;border:1px solid var(--line);color:#d9dfde;font-size:.82rem;background:rgba(255,255,255,.025)}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .about-image{min-height:540px;border-radius:30px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.20)),url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1400&q=86') center/cover;box-shadow:var(--shadow)}
+    .about-copy p{margin-top:18px}
+    .checklist{display:grid;gap:12px;margin-top:24px}
+    .check{display:flex;gap:12px;align-items:flex-start}
+    .check b{width:24px;height:24px;flex:0 0 24px;border-radius:50%;display:grid;place-items:center;background:rgba(217,195,154,.12);color:var(--sand2)}
+
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service-card{padding:24px;border-radius:20px;border:1px solid var(--line);background:var(--panel)}
+    .service-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(217,195,154,.10);color:var(--sand2);margin-bottom:16px}
+
+    .arrival-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .arrival-card{padding:24px;border-radius:20px;border:1px solid var(--line);background:var(--panel2)}
+    .arrival-card strong{display:block;font-size:1.55rem;color:var(--sand2);margin-bottom:6px}
+
+    .nearby-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .nearby{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .nearby strong{display:block;color:var(--sand2);font-size:1.15rem;margin-bottom:5px}
+
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-auto-rows:250px;gap:14px}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:18px;border:1px solid var(--line);transition:.3s ease}
+    .gallery img:hover{transform:scale(1.015)}
+    .gallery img:first-child{grid-row:span 2}
+
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review-card{padding:26px;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel)}
+    .stars{color:var(--sand2);letter-spacing:.08em;margin-bottom:14px}
+    .review-card p{color:#d9dfde}
+    .review-card strong{display:block;margin-top:18px}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-card{padding:28px;border-radius:26px;background:var(--panel);border:1px solid var(--line)}
+    .contact-list{display:grid;gap:18px;margin-top:24px}
+    .contact-row{display:grid;grid-template-columns:34px 1fr;gap:12px}
+    .contact-row span:first-child{color:var(--sand2)}
+
+    .faq{display:grid;gap:12px}
+    details{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:0 18px}
+    summary{cursor:pointer;padding:18px 0;font-weight:900;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    details p{padding-bottom:18px}
+
+    footer{border-top:1px solid var(--line);background:#091114;padding:46px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:28px}
+    .footer-links{display:grid;gap:8px;color:var(--muted)}
+    .footer-bottom{display:flex;justify-content:space-between;gap:18px;margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:#7d898a;font-size:.83rem}
+
+    .whatsapp{position:fixed;right:22px;bottom:22px;z-index:999;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--success);color:white;font-weight:1000;font-size:1.25rem;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+    .to-top{position:fixed;left:22px;bottom:22px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(21,32,36,.92);color:white;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s ease}
+    .to-top.show{opacity:1;pointer-events:auto;transform:none}
+    .reveal{opacity:0;transform:translateY(18px);transition:.65s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:980px){
+      .nav-links{position:fixed;top:108px;left:18px;right:18px;display:none;flex-direction:column;align-items:stretch;gap:6px;padding:16px;border-radius:18px;background:#111c20;border:1px solid var(--line);box-shadow:var(--shadow)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:11px 10px}
+      .menu-toggle{display:inline-grid;place-items:center}
+      .navbar .btn{display:none}
+      .booking-gateway-box{grid-template-columns:1fr}
+      .rooms{grid-template-columns:1fr 1fr}
+      .grid-2,.contact-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr 1fr}
+      .arrival-grid{grid-template-columns:1fr 1fr}
+      .nearby-grid{grid-template-columns:1fr 1fr 1fr}
+      .reviews{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:220px}
+      .gallery img:first-child{grid-column:span 2;grid-row:span 1}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:680px){
+      .container{width:min(calc(100% - 24px),var(--max))}
+      .section{padding:72px 0}
+      .section-head{display:block}
+      .section-head p{margin-top:16px}
+      .hero{min-height:780px}
+      .rooms,.services,.arrival-grid,.nearby-grid,.reviews,.footer-grid,.gallery{grid-template-columns:1fr}
+      .gallery img:first-child{grid-column:auto}
+      .footer-bottom{flex-direction:column}
+      .about-image{min-height:420px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":["Hotel","LodgingBusiness","LocalBusiness"],
+        "@id":"https://www.ejemplo-hotelmalaga.com/#hotel",
+        "name":"Hotel Málaga Central",
+        "description":"Hotel boutique en Málaga centro con habitaciones elegantes, ubicación privilegiada y acceso al sistema oficial de reservas.",
+        "url":"https://www.ejemplo-hotelmalaga.com/",
+        "telephone":"+34 951 555 555",
+        "priceRange":"€€€",
+        "image":"https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=85",
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"Calle Granada 20",
+          "addressLocality":"Málaga",
+          "addressRegion":"Andalucía",
+          "postalCode":"29015",
+          "addressCountry":"ES"
+        },
+        "amenityFeature":[
+          {"@type":"LocationFeatureSpecification","name":"WiFi","value":true},
+          {"@type":"LocationFeatureSpecification","name":"Recepción 24h","value":true},
+          {"@type":"LocationFeatureSpecification","name":"Aire acondicionado","value":true},
+          {"@type":"LocationFeatureSpecification","name":"Guardaequipaje","value":true}
+        ],
+        "checkinTime":"14:00",
+        "checkoutTime":"12:00",
+        "sameAs":["https://www.instagram.com/","https://www.facebook.com/"]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://www.ejemplo-hotelmalaga.com/#faq",
+        "mainEntity":[
+          {"@type":"Question","name":"¿Cómo se realiza la reserva?","acceptedAnswer":{"@type":"Answer","text":"La web dirige al huésped al motor oficial de reservas, que debe estar conectado con el PMS y el channel manager para mostrar disponibilidad y tarifas reales."}},
+          {"@type":"Question","name":"¿A qué hora es el check-in y el check-out?","acceptedAnswer":{"@type":"Answer","text":"El check-in de ejemplo es a partir de las 14:00 y el check-out hasta las 12:00."}},
+          {"@type":"Question","name":"¿El hotel está en el centro de Málaga?","acceptedAnswer":{"@type":"Answer","text":"Sí. La web está planteada para un hotel urbano situado en el centro de Málaga."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="demo-bar">PROYECTO CONCEPTUAL / DEMO · Nombre, teléfono, dirección, reseñas e imágenes son ficticios.</div>
+
+  <header class="navbar-wrap">
+    <div class="container navbar">
+      <a class="brand" href="#inicio"><span class="brand-mark">M</span><strong>Hotel Málaga Central</strong></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#habitaciones">Habitaciones</a>
+        <a href="#hotel">El hotel</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#antes">Antes de llegar</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+      <a class="btn btn-primary" href="#reservar">Reservar</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Hotel boutique · Málaga centro</span>
+          <h1>Málaga empieza donde duermes.</h1>
+          <p>Una web oficial pensada para presentar el hotel, sus habitaciones, servicios y ubicación, y llevar al huésped al sistema real de reservas cuando quiera consultar disponibilidad.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#reservar">Ver disponibilidad y tarifas</a>
+            <a class="btn btn-secondary" href="#habitaciones">Ver habitaciones</a>
+          </div>
+          <div class="trust-row">
+            <div class="trust-item"><strong>Centro histórico</strong>A pocos minutos a pie</div>
+            <div class="trust-item"><strong>Recepción 24h</strong>Atención permanente</div>
+            <div class="trust-item"><strong>Reserva segura</strong>Motor oficial externo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="booking-gateway" id="reservar">
+      <div class="container">
+        <div class="booking-gateway-box reveal">
+          <div>
+            <span class="eyebrow">Reserva directa</span>
+            <h3>Consulta disponibilidad, tarifas y condiciones en el sistema oficial.</h3>
+            <p style="margin-top:8px">El huésped accede desde aquí al motor de reservas del hotel, donde se muestran inventario, precios y políticas en tiempo real.</p>
+            <p class="booking-note"><strong>Nota de proyecto:</strong> este botón es demostrativo. En una web real debe enlazarse o integrarse con el motor de reservas conectado al PMS y al channel manager (por ejemplo Cloudbeds, SiteMinder, Mirai, Bookassist, Amenitiz, RoomRaccoon, etc.). La web actúa como escaparate comercial; la disponibilidad y las tarifas reales deben gestionarse desde ese sistema sincronizado.</p>
+          </div>
+          <a class="btn btn-primary" href="https://example.com/" target="_blank" rel="noopener">Ver disponibilidad y reservar</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="habitaciones">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Habitaciones</span><h2>Descansar también forma parte del viaje.</h2></div>
+          <p>La web muestra cada tipo de habitación y sus características. La disponibilidad y el precio final se consultan siempre en el motor oficial.</p>
+        </div>
+
+        <div class="rooms">
+          <article class="room-card reveal">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=82" alt="Habitación doble moderna">
+            <div class="room-body"><div class="room-meta"><h3>Doble Urban</h3></div><p>Habitación cómoda y luminosa para escapadas urbanas en pareja o en solitario.</p><div class="room-features"><span class="chip">2 personas</span><span class="chip">WiFi</span><span class="chip">A/C</span><span class="chip">Smart TV</span></div></div>
+          </article>
+
+          <article class="room-card reveal">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=82" alt="Habitación superior de hotel">
+            <div class="room-body"><div class="room-meta"><h3>Superior Málaga</h3></div><p>Más amplitud, balcón y detalles pensados para una estancia más especial.</p><div class="room-features"><span class="chip">2 personas</span><span class="chip">Balcón</span><span class="chip">Cafetera</span><span class="chip">King bed</span></div></div>
+          </article>
+
+          <article class="room-card reveal">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=900&q=82" alt="Suite elegante de hotel">
+            <div class="room-body"><div class="room-meta"><h3>Suite Central</h3></div><p>Espacio adicional, zona de estar y una experiencia más exclusiva.</p><div class="room-features"><span class="chip">2–3 personas</span><span class="chip">Zona lounge</span><span class="chip">Minibar</span><span class="chip">Más amplitud</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hotel">
+      <div class="container grid-2">
+        <div class="about-image reveal"></div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">El hotel</span>
+          <h2>Diseñado para vivir Málaga desde dentro.</h2>
+          <p>Hotel Málaga Central es una marca ficticia creada como ejemplo de web oficial para un hotel urbano real. El objetivo no es sustituir al channel manager, sino presentar el producto y conducir al huésped al canal de reserva adecuado.</p>
+          <p>La estructura SEO está preparada para búsquedas como hotel en Málaga centro, hotel boutique Málaga, dónde alojarse en Málaga o hotel cerca del centro histórico.</p>
+          <div class="checklist">
+            <div class="check"><b>✓</b><span>Ubicación céntrica y pensada para moverse a pie.</span></div>
+            <div class="check"><b>✓</b><span>Recepción 24 horas.</span></div>
+            <div class="check"><b>✓</b><span>Habitaciones climatizadas y equipadas.</span></div>
+            <div class="check"><b>✓</b><span>Acceso al motor oficial de reservas.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Servicios</span><h2>Todo lo esencial. Bien resuelto.</h2></div>
+          <p>Información clara para que el huésped sepa qué puede esperar antes de reservar.</p>
+        </div>
+        <div class="services">
+          <div class="service-card reveal"><div class="service-icon">⌚</div><h3>Recepción 24h</h3><p>Atención durante toda la estancia.</p></div>
+          <div class="service-card reveal"><div class="service-icon">⌁</div><h3>WiFi gratuito</h3><p>Conexión incluida en habitaciones y zonas comunes.</p></div>
+          <div class="service-card reveal"><div class="service-icon">❄</div><h3>Climatización</h3><p>Aire acondicionado y confort durante todo el año.</p></div>
+          <div class="service-card reveal"><div class="service-icon">🧳</div><h3>Guardaequipaje</h3><p>Antes del check-in o después del check-out.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="antes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Antes de llegar</span><h2>La información que realmente busca un huésped.</h2></div>
+          <p>Un bloque útil para reducir preguntas repetitivas a recepción y mejorar la experiencia previa a la estancia.</p>
+        </div>
+
+        <div class="arrival-grid">
+          <div class="arrival-card reveal"><strong>14:00</strong><span>Check-in</span></div>
+          <div class="arrival-card reveal"><strong>12:00</strong><span>Check-out</span></div>
+          <div class="arrival-card reveal"><strong>24h</strong><span>Recepción</span></div>
+          <div class="arrival-card reveal"><strong>Gratis</strong><span>WiFi</span></div>
+          <div class="arrival-card reveal"><strong>Disponible</strong><span>Guardaequipaje</span></div>
+          <div class="arrival-card reveal"><strong>Consultar</strong><span>Parking cercano</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Málaga a pie</span><h2>Todo cerca.</h2></div>
+          <p>Distancias ficticias de ejemplo. En una web real se sustituirían por tiempos y ubicaciones verificadas.</p>
+        </div>
+
+        <div class="nearby-grid">
+          <div class="nearby reveal"><strong>4 min</strong><span>Calle Larios</span></div>
+          <div class="nearby reveal"><strong>5 min</strong><span>Catedral</span></div>
+          <div class="nearby reveal"><strong>3 min</strong><span>Museo Picasso</span></div>
+          <div class="nearby reveal"><strong>15 min</strong><span>La Malagueta</span></div>
+          <div class="nearby reveal"><strong>12 min</strong><span>Málaga Centro Alameda</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Galería</span><h2>Una estancia que se entiende de un vistazo.</h2></div>
+          <p>Las fotografías son de demostración y deben sustituirse por imágenes reales del hotel.</p>
+        </div>
+
+        <div class="gallery">
+          <img class="reveal" loading="lazy" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=84" alt="Lobby elegante de hotel">
+          <img class="reveal" loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=84" alt="Habitación de hotel luminosa">
+          <img class="reveal" loading="lazy" src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=84" alt="Hotel moderno">
+          <img class="reveal" loading="lazy" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=84" alt="Fachada de hotel">
+          <img class="reveal" loading="lazy" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=84" alt="Dormitorio de hotel boutique">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="opiniones">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Opiniones</span><h2>La experiencia contada por quienes se alojan.</h2></div>
+          <p>Reseñas ficticias que pueden sustituirse por opiniones reales de Google, Booking o Expedia.</p>
+        </div>
+        <div class="reviews">
+          <article class="review-card reveal"><div class="stars">★★★★★</div><p>“Ubicación perfecta para conocer el centro andando. Habitación muy cuidada y recepción siempre disponible.”</p><strong>Elena M. · Reseña demo</strong></article>
+          <article class="review-card reveal"><div class="stars">★★★★★</div><p>“Hotel moderno, tranquilo y con muy buena atención. Volvería sin duda.”</p><strong>David R. · Reseña demo</strong></article>
+          <article class="review-card reveal"><div class="stars">★★★★★</div><p>“Todo muy cómodo y la información de la web nos ayudó mucho antes de llegar.”</p><strong>Paula S. · Reseña demo</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ubicacion">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Ubicación y contacto</span><h2>En el centro de todo.</h2></div>
+          <p>La web oficial también debe funcionar como punto de información y contacto, no solo como acceso a reservas.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Hotel Málaga Central</h3>
+            <div class="contact-list">
+              <div class="contact-row"><span>⌖</span><div><strong>Dirección</strong><p>Calle Granada 20 · 29015 Málaga</p></div></div>
+              <div class="contact-row"><span>☎</span><div><strong>Teléfono</strong><p><a href="tel:+34951555555">+34 951 555 555</a></p></div></div>
+              <div class="contact-row"><span>✉</span><div><strong>Email</strong><p><a href="mailto:reservas@hotelmalagacentral.com">reservas@hotelmalagacentral.com</a></p></div></div>
+              <div class="contact-row"><span>◎</span><div><strong>Instagram</strong><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">@hotelmalagacentral</a></p></div></div>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <span class="eyebrow">Reserva oficial</span>
+            <h3 style="font-size:2rem">¿Listo para reservar?</h3>
+            <p style="margin-top:12px">Consulta disponibilidad y tarifas directamente en el sistema oficial del hotel.</p>
+            <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:10px">
+              <a class="btn btn-primary" href="https://example.com/" target="_blank" rel="noopener">Ir al motor de reservas</a>
+              <a class="btn btn-secondary" href="https://wa.me/34600111222?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%20mi%20estancia" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+            <p class="booking-note"><strong>Integración pendiente en esta demo:</strong> este enlace debe sustituirse por la URL del booking engine real o por el widget oficial proporcionado por el proveedor del hotel. Ese motor es el que debe estar sincronizado con PMS, channel manager y OTAs para evitar overbooking y mostrar inventario real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Preguntas frecuentes</span><h2>Todo claro antes de llegar.</h2></div>
+          <p>FAQ orientado tanto al huésped como al SEO hotelero.</p>
+        </div>
+        <div class="faq">
+          <details class="reveal"><summary>¿Cómo se realiza la reserva?</summary><p>La web dirige al huésped al motor oficial de reservas del hotel. Ese sistema debe estar conectado al PMS y al channel manager para mostrar disponibilidad y tarifas reales.</p></details>
+          <details class="reveal"><summary>¿A qué hora es el check-in y el check-out?</summary><p>En esta demo, el check-in es a partir de las 14:00 y el check-out hasta las 12:00.</p></details>
+          <details class="reveal"><summary>¿Podemos dejar las maletas antes del check-in?</summary><p>Sí. En esta demo se incluye servicio de guardaequipaje.</p></details>
+          <details class="reveal"><summary>¿El hotel está en el centro de Málaga?</summary><p>Sí. El concepto está planteado como un hotel urbano en Málaga centro.</p></details>
+          <details class="reveal"><summary>¿Hay recepción 24 horas?</summary><p>Sí. En esta demo se plantea un servicio de recepción 24h.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="#inicio"><span class="brand-mark">M</span><strong>Hotel Málaga Central</strong></a><p style="margin-top:16px;max-width:450px">Proyecto conceptual de web-dossier premium para hotel urbano en Málaga, preparado para conectar con un motor de reservas real.</p></div>
+        <div><h3 style="margin-bottom:14px">Hotel</h3><div class="footer-links"><a href="#habitaciones">Habitaciones</a><a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#ubicacion">Ubicación</a></div></div>
+        <div><h3 style="margin-bottom:14px">Contacto</h3><div class="footer-links"><a href="tel:+34951555555">+34 951 555 555</a><a href="mailto:reservas@hotelmalagacentral.com">reservas@hotelmalagacentral.com</a><a href="#reservar">Reservar estancia</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Hotel Málaga Central · Proyecto demo.</span><span>Aviso legal · Privacidad · Cookies</span></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/34600111222?text=Hola%2C%20quiero%20hacer%20una%20consulta%20sobre%20mi%20estancia" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">W</a>
+  <button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const menuToggle=document.getElementById("menuToggle");
+      const navLinks=document.getElementById("navLinks");
+      const toTop=document.getElementById("toTop");
+      const year=document.getElementById("year");
+
+      year.textContent=new Date().getFullYear();
+
+      menuToggle.addEventListener("click",()=>{
+        const open=navLinks.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded",String(open));
+        menuToggle.textContent=open?"✕":"☰";
+      });
+
+      navLinks.querySelectorAll("a").forEach(a=>{
+        a.addEventListener("click",()=>{
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded","false");
+          menuToggle.textContent="☰";
+        });
+      });
+
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:.12});
+
+      document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+      window.addEventListener("scroll",()=>{
+        toTop.classList.toggle("show",window.scrollY>500);
+      },{passive:true});
+
+      toTop.addEventListener("click",()=>{
+        window.scrollTo({top:0,behavior:"smooth"});
+      });
+    })();
+  </script>
+</body>
+</html>
