@@ -1991,26 +1991,10 @@
 <!-- Envíanos tu mensaje Section (Contact) -->
 <section class="py-16 bg-[#0d1117] px-4" id="contacto">
 <div class="container mx-auto text-center bg-[#1a202c] rounded-xl p-8 shadow-lg max-w-2xl section-box">
-<h2 class="text-4xl font-extrabold gradient-text mb-6" data-lang-key="contact-title">
-                Envíanos tu mensaje
-            </h2>
-<p class="text-lg text-gray-300 mb-10" data-lang-key="contact-desc">
-                Cuéntanos qué web necesitas y nos pondremos en contacto contigo para valorar el proyecto.
-            </p>
-<!-- Contact Form -->
-<form action="https://formsubmit.co/iampetersc@gmail.com" class="contact-shell" id="contact-form" method="POST">
-<input name="_subject" type="hidden" value="Nuevo mensaje de contacto - YourDesignGPT"/>
-<input name="_template" type="hidden" value="table"/>
-<input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
-<div class="contact-grid">
-<div class="contact-field"><label>Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" id="name" name="name" placeholder="Tu nombre" required="" type="text"/></div>
-<div class="contact-field"><label>Email <span class="text-teal-300">*</span></label><input autocomplete="email" id="email" name="email" placeholder="tu@email.com" required="" type="email"/></div>
-<div class="contact-field full"><label>Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" placeholder="Ej. 600 000 000" type="tel"/></div>
-<div class="contact-field full"><label data-lang-key="form-message-label" for="message-form">Mensaje <span class="text-teal-300">*</span></label><textarea id="message-form" name="message" placeholder="Cuéntanos cómo quieres tu web..." required="" rows="6"></textarea></div>
-<div class="contact-field full"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg contact-submit-btn" data-lang-key="send-message" id="contact-submit-btn" type="submit">Enviar mensaje</button><div aria-live="polite" class="contact-status" id="contact-status" role="status"></div></div>
-</div>
-<div class="contact-success-panel" id="contact-success-panel"><div class="contact-success-icon">✓</div><h3>Mensaje enviado correctamente</h3><p>Gracias por contactar con YourDesignGPT. Hemos recibido tu mensaje y te responderemos lo antes posible.</p><button class="contact-reset-btn" id="contact-reset-btn" type="button">Enviar otro mensaje</button></div>
-</form>
+<h2 class="text-4xl font-extrabold gradient-text mb-6" data-lang-key="contact-title">Envíanos tu mensaje</h2>
+<p class="text-lg text-gray-300 mb-6">Formulario temporalmente desactivado mientras terminamos de optimizar el sistema de envío.</p>
+<p class="text-gray-400 mb-7">Para solicitar información o presupuesto, utiliza ahora <strong class="text-white">Configura la idea de tu web</strong>.</p>
+<a href="#configurador" class="gradient-button inline-flex items-center justify-center text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg">Ir al presupuesto guiado</a>
 </div>
 </section>
 <!-- Features/Benefits Section -->
@@ -3090,106 +3074,69 @@
   const successPanel = document.getElementById('config-success-panel');
   const grid = form.querySelector('.config-grid');
   const resetBtn = document.getElementById('config-reset-btn');
-  let sending = false;
 
   function setStatus(message, type){
     status.textContent = message || '';
     status.className = 'config-status' + (message ? ' is-visible ' + type : '');
   }
-  function makePayload(formEl){
-    const fd = new FormData(formEl), payload = {};
-    for(const [key,value] of fd.entries()){
-      if(key === '_honey') continue;
-      if(Object.prototype.hasOwnProperty.call(payload,key)){
-        payload[key] = Array.isArray(payload[key]) ? payload[key].concat(value) : [payload[key],value];
-      } else payload[key]=value;
-    }
-    if(Array.isArray(payload.funciones)) payload.funciones = payload.funciones.join(', ');
-    return payload;
-  }
-  async function send(payload){
-    const controller = new AbortController();
-    const timer = setTimeout(()=>controller.abort(), 15000);
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/iampetersc@gmail.com', {
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify(payload),
-        signal:controller.signal
-      });
-      const data = await response.json().catch(()=>({}));
-      const explicitFailure = data && (data.success === false || data.success === 'false');
-      if(!response.ok || explicitFailure) throw new Error('submit_failed');
-      return data;
-    } finally { clearTimeout(timer); }
-  }
+
   form.addEventListener('submit', async function(e){
     e.preventDefault();
-    if(sending || !form.reportValidity()) return;
-    if(!navigator.onLine){ setStatus('Parece que no tienes conexión. Comprueba Internet y vuelve a intentarlo.','error'); return; }
-    const honey = form.querySelector('[name="_honey"]');
-    if(honey && honey.value) return;
-    sending=true;
-    const originalText=submitBtn.textContent;
-    submitBtn.disabled=true; submitBtn.textContent='Enviando…';
-    setStatus('Enviando tu configuración…','success');
-    try {
-      await send(makePayload(form));
-      setStatus('','success');
-      if(grid) grid.style.display='none';
-      successPanel?.classList.add('is-visible');
+    if(!form.reportValidity()) return;
+
+    const fd = new FormData(form);
+    if(fd.get('_honey')) return;
+
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando…';
+    setStatus('Enviando tu configuración…', 'success');
+
+    const payload = {};
+    for(const [key, value] of fd.entries()){
+      if(key === '_honey') continue;
+      if(Object.prototype.hasOwnProperty.call(payload,key)){
+        payload[key] = Array.isArray(payload[key]) ? [...payload[key], value] : [payload[key], value];
+      } else {
+        payload[key] = value;
+      }
+    }
+    if(Array.isArray(payload.funciones)) payload.funciones = payload.funciones.join(', ');
+    payload._subject = 'Nueva configuración web - YourDesignGPT';
+    payload._template = 'table';
+
+    try{
+      const response = await fetch('https://formsubmit.co/ajax/iampetersc@gmail.com', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json().catch(()=>({}));
+      if(!response.ok || data.success === false) throw new Error('submit_failed');
+
+      setStatus('', 'success');
+      if(grid) grid.style.display = 'none';
+      if(successPanel) successPanel.classList.add('is-visible');
       form.reset();
-      successPanel?.scrollIntoView({behavior:'smooth',block:'center'});
-    } catch(err) {
-      setStatus(err && err.name==='AbortError' ? 'El envío ha tardado demasiado. Vuelve a intentarlo en unos segundos.' : 'No se ha podido enviar ahora mismo. Vuelve a intentarlo en unos segundos.','error');
-    } finally { sending=false; submitBtn.disabled=false; submitBtn.textContent=originalText; }
+      successPanel?.scrollIntoView({behavior:'smooth', block:'center'});
+    } catch(err){
+      setStatus('No se ha podido enviar ahora mismo. Inténtalo de nuevo en unos segundos o contacta con nosotros por email.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
   });
-  resetBtn?.addEventListener('click',function(){ successPanel?.classList.remove('is-visible'); if(grid) grid.style.display=''; setStatus('','success'); form.querySelector('input[name="nombre"]')?.focus(); });
+
+  resetBtn?.addEventListener('click', function(){
+    successPanel?.classList.remove('is-visible');
+    if(grid) grid.style.display = '';
+    setStatus('', 'success');
+    form.querySelector('input[name="nombre"]')?.focus();
+  });
 })();
 </script>
 
-<script>
-(function(){
-  const form = document.getElementById('contact-form');
-  if(!form) return;
-  const submitBtn = document.getElementById('contact-submit-btn');
-  const status = document.getElementById('contact-status');
-  const successPanel = document.getElementById('contact-success-panel');
-  const grid = form.querySelector('.contact-grid');
-  const resetBtn = document.getElementById('contact-reset-btn');
-  let sending=false;
-  function setStatus(message,type){ status.textContent=message||''; status.className='contact-status'+(message?' is-visible '+type:''); }
-  function makePayload(formEl){
-    const fd=new FormData(formEl), payload={};
-    for(const [key,value] of fd.entries()){ if(key==='_honey') continue; payload[key]=value; }
-    return payload;
-  }
-  async function send(payload){
-    const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),15000);
-    try {
-      const response=await fetch('https://formsubmit.co/ajax/iampetersc@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:controller.signal});
-      const data=await response.json().catch(()=>({}));
-      const explicitFailure=data && (data.success===false || data.success==='false');
-      if(!response.ok || explicitFailure) throw new Error('submit_failed');
-      return data;
-    } finally { clearTimeout(timer); }
-  }
-  form.addEventListener('submit',async function(e){
-    e.preventDefault();
-    if(sending || !form.reportValidity()) return;
-    if(!navigator.onLine){ setStatus('Parece que no tienes conexión. Comprueba Internet y vuelve a intentarlo.','error'); return; }
-    const honey=form.querySelector('[name="_honey"]'); if(honey && honey.value) return;
-    sending=true; const originalText=submitBtn.textContent; submitBtn.disabled=true; submitBtn.textContent='Enviando…'; setStatus('Enviando tu mensaje…','success');
-    try {
-      await send(makePayload(form));
-      setStatus('','success'); if(grid) grid.style.display='none'; successPanel?.classList.add('is-visible'); form.reset(); successPanel?.scrollIntoView({behavior:'smooth',block:'center'});
-    } catch(err) { setStatus(err && err.name==='AbortError' ? 'El envío ha tardado demasiado. Vuelve a intentarlo en unos segundos.' : 'No se ha podido enviar ahora mismo. Vuelve a intentarlo en unos segundos.','error'); }
-    finally { sending=false; submitBtn.disabled=false; submitBtn.textContent=originalText; }
-  });
-  resetBtn?.addEventListener('click',function(){ successPanel?.classList.remove('is-visible'); if(grid) grid.style.display=''; setStatus('','success'); form.querySelector('input[name="name"]')?.focus(); });
-})();
-</script>
+
 
 <script>
 (function(){
@@ -3266,6 +3213,9 @@
   }
 })();
 </script>
+
+
+
 
 </body>
 </html>
