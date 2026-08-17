@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=78" rel="manifest"/>
+<link href="site.webmanifest?v=79" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -3720,6 +3720,57 @@ section h2.gradient-text{
   .mobile-weather-temp{font-size:.72rem}
 }
 
+
+/* ===== V79 · Premium conversion + tech layer ===== */
+.ydg-availability{display:inline-flex;align-items:center;gap:9px;margin:-2px auto 24px;padding:8px 13px;border:1px solid rgba(74,222,128,.18);border-radius:999px;background:linear-gradient(180deg,rgba(13,26,29,.82),rgba(8,15,20,.86));color:#a7f3d0;font-size:.68rem;font-weight:800;letter-spacing:.08em;box-shadow:0 0 18px rgba(34,197,94,.05)}
+.ydg-availability-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.06),0 0 12px rgba(34,197,94,.45);animation:ydgAvailPulse 1.9s ease-in-out infinite}
+@keyframes ydgAvailPulse{50%{opacity:.45;transform:scale(.78)}}
+
+.ydg-terminal-section{padding:0 16px 52px;background:#0d1117}
+.ydg-terminal{max-width:860px;margin:auto;border:1px solid rgba(56,189,248,.14);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(9,16,27,.96),rgba(4,8,14,.98));box-shadow:0 22px 60px rgba(0,0,0,.24),0 0 35px rgba(56,189,248,.04)}
+.ydg-terminal-head{height:38px;display:flex;align-items:center;padding:0 13px;gap:12px;border-bottom:1px solid rgba(148,163,184,.08);background:rgba(255,255,255,.012)}
+.ydg-terminal-head>span{display:flex;gap:5px}.ydg-terminal-head i{width:7px;height:7px;border-radius:50%;background:#334155}
+.ydg-terminal-head i:nth-child(1){background:#fb7185}.ydg-terminal-head i:nth-child(2){background:#fbbf24}.ydg-terminal-head i:nth-child(3){background:#34d399}
+.ydg-terminal-head b{font-size:.57rem;letter-spacing:.17em;color:#7dd3fc}.ydg-terminal-head small{margin-left:auto;color:#34d399;font-size:.49rem;font-weight:900;letter-spacing:.16em}
+.ydg-terminal-body{padding:15px 18px 17px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.terminal-line{opacity:.18;transform:translateX(-6px);display:flex;gap:9px;align-items:center;margin:6px 0;color:#94a3b8;font-size:.69rem;transition:.5s ease}
+.terminal-line span{color:#38bdf8}.terminal-line b{margin-left:auto;color:#34d399;font-size:.61rem;letter-spacing:.1em}
+.ydg-terminal.is-active .terminal-line{opacity:1;transform:none}.ydg-terminal.is-active .terminal-line:nth-child(2){transition-delay:.18s}.ydg-terminal.is-active .terminal-line:nth-child(3){transition-delay:.36s}.ydg-terminal.is-active .terminal-line:nth-child(4){transition-delay:.54s}
+.terminal-cursor{display:flex;align-items:center;gap:7px;margin-top:11px;color:#64748b;font-size:.63rem}.terminal-cursor i{display:block;width:7px;height:14px;background:#38bdf8;animation:ydgCursor .9s steps(1) infinite}
+@keyframes ydgCursor{50%{opacity:0}}
+
+.ydg-product-deck{display:grid;grid-template-columns:1.35fr repeat(4,.7fr);gap:8px;margin:20px 0 22px;border:1px solid rgba(96,165,250,.12);border-radius:20px;padding:9px;background:linear-gradient(180deg,rgba(15,23,42,.62),rgba(7,11,16,.78))}
+.ydg-product-price,.ydg-product-spec{min-height:76px;border-radius:14px;border:1px solid rgba(148,163,184,.07);background:rgba(255,255,255,.015);display:flex;flex-direction:column;justify-content:center}
+.ydg-product-price{padding:12px 16px;background:radial-gradient(circle at 10% 20%,rgba(45,212,191,.09),transparent 34%),rgba(255,255,255,.015)}
+.ydg-product-price small,.ydg-product-spec span{color:#64748b;font-size:.51rem;font-weight:900;letter-spacing:.13em}.ydg-product-price strong{font-family:'Space Grotesk',sans-serif;color:white;font-size:1.65rem;line-height:1.05;margin:3px 0}.ydg-product-price span{color:#94a3b8;font-size:.63rem}
+.ydg-product-spec{text-align:center;align-items:center;padding:9px}.ydg-product-spec b{color:#e2e8f0;font-size:.9rem;margin-bottom:5px}
+.included-item{opacity:.62;transform:translateY(8px);transition:.55s cubic-bezier(.2,.75,.25,1)}.included-item.ydg-item-visible{opacity:1;transform:none}
+
+.portfolio-card{position:relative}.portfolio-card[data-ydg-preview]::after{content:attr(data-ydg-preview);position:absolute;top:14px;right:14px;z-index:5;max-width:calc(100% - 28px);padding:7px 9px;border-radius:999px;background:rgba(5,10,17,.78);border:1px solid rgba(56,189,248,.16);backdrop-filter:blur(8px);color:#bae6fd;font-size:.49rem;font-weight:900;letter-spacing:.1em;opacity:0;transform:translateY(-6px);transition:.28s ease;pointer-events:none}
+.portfolio-card[data-ydg-preview]:hover::after{opacity:1;transform:none}.portfolio-card[data-ydg-preview]:hover .portfolio-cover img{transform:scale(1.035)}.portfolio-cover img{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.portfolio-next-card{min-height:100%;display:grid;place-items:center;border-style:dashed!important;background:radial-gradient(circle at 50% 10%,rgba(56,189,248,.07),transparent 35%),linear-gradient(180deg,rgba(15,23,42,.66),rgba(7,11,16,.88))!important}
+.portfolio-next-inner{text-align:center;padding:30px 20px}.portfolio-next-code{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 16px;border-radius:16px;border:1px solid rgba(45,212,191,.22);color:#5eead4;font-family:monospace;font-weight:900;box-shadow:0 0 22px rgba(45,212,191,.08)}
+.portfolio-next-inner small{display:block;color:#64748b;font-size:.56rem;letter-spacing:.18em;font-weight:900}.portfolio-next-inner h3{font-size:1.45rem;color:#fff;font-weight:900;margin:9px 0}.portfolio-next-inner p{color:#94a3b8;font-size:.85rem;max-width:290px;margin:0 auto 18px}.portfolio-next-button{font-size:.78rem!important;padding:10px 18px!important}
+
+.process-step{transition:.45s ease}.process-step.ydg-step-lit .process-dot{color:#ecfeff;border-color:rgba(45,212,191,.72);background:radial-gradient(circle at 40% 30%,rgba(56,189,248,.18),#111827 68%);box-shadow:0 0 0 8px #0d1117,0 0 24px rgba(45,212,191,.30),0 0 42px rgba(59,130,246,.12)}
+.process-step.ydg-step-lit h3{color:#cffafe}.process-step.ydg-step-lit p{color:#cbd5e1}
+
+.ydg-live-budget{max-width:980px;margin:0 auto 18px;border:1px solid rgba(56,189,248,.13);border-radius:20px;padding:11px;background:linear-gradient(180deg,rgba(15,23,42,.70),rgba(7,11,16,.84));box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.budget-primary{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:12px;padding:10px 12px 13px;border-bottom:1px solid rgba(148,163,184,.07)}.budget-primary small{color:#5eead4;font-size:.54rem;letter-spacing:.16em;font-weight:900}.budget-primary strong{font-family:'Space Grotesk',sans-serif;color:#fff;font-size:1.55rem}.budget-primary span{color:#94a3b8;font-size:.68rem}
+.budget-live-data{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding-top:10px}.budget-live-data>div{padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.015);border:1px solid rgba(148,163,184,.06)}
+.budget-live-data small{display:block;color:#64748b;font-size:.47rem;font-weight:900;letter-spacing:.12em}.budget-live-data b{display:block;margin-top:4px;color:#dbeafe;font-size:.68rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ydg-live-budget>p{margin:9px 3px 1px;color:#526174;font-size:.59rem;line-height:1.45}
+
+.ydg-month-capacity{display:flex;align-items:center;justify-content:center;gap:12px;width:fit-content;max-width:100%;margin:20px auto 4px;padding:9px 12px;border-radius:16px;border:1px solid rgba(34,197,94,.14);background:rgba(8,18,20,.56)}
+.capacity-pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px rgba(34,197,94,.5);animation:ydgAvailPulse 1.8s ease infinite}.ydg-month-capacity div{text-align:left}.ydg-month-capacity small{display:block;color:#64748b;font-size:.48rem;letter-spacing:.14em;font-weight:900}.ydg-month-capacity strong{display:block;color:#bbf7d0;font-size:.72rem}.ydg-month-capacity a{color:#7dd3fc;font-size:.64rem;font-weight:900;white-space:nowrap}
+
+body.weather-day #hero-section .hero-aurora{filter:saturate(1.06) brightness(1.02)}body.weather-night #hero-section .hero-aurora{filter:hue-rotate(18deg) saturate(.9) brightness(.78)}body.weather-rain .header-weather{box-shadow:0 0 20px rgba(56,189,248,.09),inset 0 0 18px rgba(59,130,246,.04)}body.weather-storm .header-weather{box-shadow:0 0 22px rgba(129,140,248,.14),inset 0 0 18px rgba(168,85,247,.04)}body.weather-clear .header-weather{box-shadow:0 0 20px rgba(250,204,21,.06),inset 0 0 14px rgba(56,189,248,.025)}
+
+.ydg-easter-toast{position:fixed;left:50%;top:50%;z-index:2147483646;transform:translate(-50%,-50%) scale(.92);min-width:260px;padding:24px 28px;border-radius:22px;text-align:center;pointer-events:none;opacity:0;visibility:hidden;border:1px solid rgba(56,189,248,.24);background:radial-gradient(circle at 50% 0%,rgba(56,189,248,.13),transparent 40%),rgba(5,9,16,.96);box-shadow:0 28px 90px rgba(0,0,0,.55),0 0 45px rgba(59,130,246,.10);transition:.28s ease}
+.ydg-easter-toast.is-on{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}.ydg-easter-toast span{display:block;color:#34d399;font-size:.56rem;font-weight:900;letter-spacing:.2em}.ydg-easter-toast strong{display:block;font-family:'Space Grotesk',sans-serif;color:white;font-size:3.2rem;line-height:1;margin:8px 0;text-shadow:0 0 28px rgba(56,189,248,.22)}.ydg-easter-toast small{color:#64748b;font-size:.52rem;letter-spacing:.15em;font-weight:900}
+
+@media(max-width:767px){.ydg-availability{font-size:.6rem;padding:7px 10px;margin-bottom:20px}.ydg-terminal-section{padding:0 12px 38px}.ydg-terminal-body{padding:12px 13px}.terminal-line{font-size:.58rem}.terminal-line b{font-size:.52rem}.ydg-product-deck{grid-template-columns:1fr 1fr;gap:6px}.ydg-product-price{grid-column:1/-1}.budget-primary{grid-template-columns:1fr auto;gap:6px}.budget-primary span{grid-column:1/-1}.budget-live-data{grid-template-columns:1fr 1fr}.ydg-month-capacity{flex-wrap:wrap;gap:8px}.ydg-month-capacity a{width:100%;text-align:center}.portfolio-card[data-ydg-preview]::after{opacity:1;transform:none;font-size:.43rem;top:10px;right:10px}}
+@media(prefers-reduced-motion:reduce){.ydg-availability-dot,.capacity-pulse,.terminal-cursor i{animation:none!important}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -3736,6 +3787,12 @@ section h2.gradient-text{
     </script>
 </head>
 <body class="antialiased">
+
+<div class="ydg-easter-toast" id="ydg-easter-toast" aria-hidden="true">
+  <span>SYSTEM ONLINE</span>
+  <strong>YDG</strong>
+  <small>DESIGN · BUILD · LAUNCH</small>
+</div>
 
 <!-- V66 · Side premium nodes ornament (desktop only) -->
 <div class="ydg-side-ornaments" aria-hidden="true">
@@ -3792,7 +3849,7 @@ section h2.gradient-text{
 <header class="bg-[#0d1117] text-white py-4 px-6 shadow-lg fixed w-full z-50 top-0">
 <nav aria-label="Navegación principal" class="container mx-auto flex justify-between items-center flex-wrap">
 <div class="text-2xl font-bold">
-<a class="text-white hover:text-gray-300" href="#hero-section">YourDesignGPT</a>
+<a class="text-white hover:text-gray-300" href="#hero-section" id="ydg-brand-home">YourDesignGPT</a>
 </div>
 <div class="mobile-weather-mini" aria-label="Tiempo actual en Málaga">
   <span class="mobile-weather-icon" data-weather-icon aria-hidden="true">
@@ -3882,6 +3939,10 @@ section h2.gradient-text{
 <span class="hero-status-text">DESIGN / BUILD / LAUNCH</span>
 </div>
 </div>
+<div class="ydg-availability" aria-label="Disponibilidad de YourDesignGPT">
+  <span class="ydg-availability-dot"></span>
+  <span data-lang-key="ydg-availability">Disponible para nuevos proyectos · Agosto 2026</span>
+</div>
 <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 hero-main-description" data-lang-key="hero-subtitle">
             Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.
         </p>
@@ -3895,6 +3956,24 @@ section h2.gradient-text{
 </div>
 </section>
 <section aria-label="Indicadores del servicio" class="metric-strip"><div class="metric-grid"><div class="metric"><b>72h</b><span data-lang-key="metric-delivery">Objetivo de entrega</span></div><div class="metric"><b>Responsive</b><span data-lang-key="metric-responsive">Móvil · tablet · PC</span></div><div class="metric"><b>SEO Ready</b><span data-lang-key="metric-seo">Base técnica inicial</span></div><div class="metric"><b data-lang-key="metric-support-title">Soporte</b><span data-lang-key="metric-support">Revisión incluida</span></div></div></section>
+
+<section class="ydg-terminal-section" aria-label="Estado técnico YourDesignGPT">
+  <div class="ydg-terminal" id="ydg-terminal">
+    <div class="ydg-terminal-head">
+      <span><i></i><i></i><i></i></span>
+      <b>YDG / BUILD SYSTEM</b>
+      <small>ONLINE</small>
+    </div>
+    <div class="ydg-terminal-body">
+      <div class="terminal-line"><span>&gt;</span> DESIGN_SYSTEM <b>READY</b></div>
+      <div class="terminal-line"><span>&gt;</span> RESPONSIVE_UI <b>READY</b></div>
+      <div class="terminal-line"><span>&gt;</span> SEO_BASE <b>READY</b></div>
+      <div class="terminal-line"><span>&gt;</span> DEPLOY_PIPELINE <b>READY</b></div>
+      <div class="terminal-cursor"><span>ydg@malaga:~$</span><i></i></div>
+    </div>
+  </div>
+</section>
+
 <!-- Qué incluye tu web por 495 € -->
 
 <section aria-labelledby="included-title" class="included-section py-20 px-4" id="incluye">
@@ -3911,6 +3990,17 @@ section h2.gradient-text{
 <span data-lang-key="included-price-note">desarrollo de la web</span>
 <button class="included-info-btn service-button" data-lang-key="info-button" data-service="web-info" type="button">Info</button>
 </div>
+</div>
+<div class="ydg-product-deck" aria-label="Resumen del producto web">
+  <div class="ydg-product-price">
+    <small data-lang-key="product-from">DESARROLLO WEB</small>
+    <strong>495 €</strong>
+    <span data-lang-key="product-price-note">Base profesional personalizada</span>
+  </div>
+  <div class="ydg-product-spec"><b>72h</b><span data-lang-key="product-72">Objetivo de entrega</span></div>
+  <div class="ydg-product-spec"><b>100%</b><span data-lang-key="product-responsive">Responsive</span></div>
+  <div class="ydg-product-spec"><b>SEO</b><span data-lang-key="product-seo">Base inicial</span></div>
+  <div class="ydg-product-spec"><b>SSL</b><span data-lang-key="product-ssl">Según hosting</span></div>
 </div>
 <div class="included-grid">
 <article class="included-item"><div class="inc-icon">01</div><h3 data-lang-key="inc-custom-title">Diseño personalizado</h3><p data-lang-key="inc-custom-desc">Estética adaptada a tu negocio, marca, colores y objetivos.</p></article>
@@ -3941,7 +4031,7 @@ section h2.gradient-text{
 <span class="swipe-arrow">→</span>
 </div>
 <div class="portfolio-grid" id="portfolio-mobile-carousel">
-<article class="portfolio-card">
+<article class="portfolio-card" data-ydg-preview="RESTAURANTE · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Restaurante Áurea Málaga" class="portfolio-cover" href="restaurante.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-restaurant-badge">Áurea Málaga</span>
@@ -3955,7 +4045,7 @@ section h2.gradient-text{
 <a class="portfolio-link" href="restaurante.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
-<article class="portfolio-card">
+<article class="portfolio-card" data-ydg-preview="ELECTRICIDAD · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Voltio Málaga" class="portfolio-cover" href="electricista.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-electrician-badge">Voltio Málaga</span>
@@ -3969,7 +4059,7 @@ section h2.gradient-text{
 <a class="portfolio-link" href="electricista.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
-<article class="portfolio-card">
+<article class="portfolio-card" data-ydg-preview="FONTANERÍA · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto AquaFix Málaga" class="portfolio-cover" href="fontanero.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-plumber-badge">AquaFix Málaga</span>
@@ -3983,7 +4073,7 @@ section h2.gradient-text{
 <a class="portfolio-link" href="fontanero.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
-<article class="portfolio-card">
+<article class="portfolio-card" data-ydg-preview="ESTÉTICA · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Lúmina Estética Málaga" class="portfolio-cover" href="estetica.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-beauty-badge">Lúmina Estética Málaga</span>
@@ -3997,7 +4087,7 @@ section h2.gradient-text{
 <a class="portfolio-link" href="estetica.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
-<article class="portfolio-card">
+<article class="portfolio-card" data-ydg-preview="MARCA PERSONAL · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Web Personal" class="portfolio-cover" href="webpersonal.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-personal-badge">Web Personal</span>
@@ -4011,7 +4101,7 @@ section h2.gradient-text{
 <a class="portfolio-link" href="webpersonal.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
-<article class="portfolio-card">
+<article class="portfolio-card" data-ydg-preview="HOTEL · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Hotel Málaga Central" class="portfolio-cover" href="hotelmalaga.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-hotel-badge">Hotel Málaga</span>
@@ -4024,6 +4114,15 @@ section h2.gradient-text{
 <div class="portfolio-tech"><span>Responsive</span><span>Hotel</span><span>SEO</span></div>
 <a class="portfolio-link" href="hotelmalaga.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
+</article>
+<article class="portfolio-card portfolio-next-card">
+  <div class="portfolio-next-inner">
+    <span class="portfolio-next-code">&lt;/&gt;</span>
+    <small data-lang-key="portfolio-next-label">SIGUIENTE PROYECTO</small>
+    <h3 data-lang-key="portfolio-next-title">Tu web podría estar aquí</h3>
+    <p data-lang-key="portfolio-next-desc">Convierte tu negocio en el próximo proyecto de YourDesignGPT.</p>
+    <a class="gradient-button portfolio-next-button" href="#configurador" data-lang-key="portfolio-next-button">Crear mi web →</a>
+  </div>
 </article>
 </div>
 <p class="portfolio-note" data-lang-key="portfolio-note">Los proyectos mostrados son conceptos de portfolio con datos ficticios creados para enseñar distintos estilos, sectores y posibilidades de diseño.</p>
@@ -4228,7 +4327,21 @@ section h2.gradient-text{
 <div class="faq-item"><button class="faq-question" data-lang-key="faq-q12"><span>¿Puedo modificarla después?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a12">Sí. Se pueden realizar cambios y ampliaciones posteriores. Según el alcance, algunos trabajos adicionales pueden presupuestarse aparte.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q13"><span>¿Qué pasa si ya tengo dominio?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a13">Podemos valorar el dominio existente y conectarlo al proyecto siempre que tengas acceso a su gestión y sea técnicamente compatible.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q14"><span>¿La web será mía?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a14">Sí. Una vez abonado el desarrollo y completado el primer periodo anual contratado, puedes solicitar una copia de los archivos de tu web para gestionarla por tu cuenta. Los componentes, plantillas base y recursos reutilizables propios de YourDesignGPT pueden seguir formando parte de nuestra metodología de trabajo.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q15"><span>¿Qué incluye el mantenimiento anual?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a15">Incluye hosting, gestión o renovación del dominio, certificado SSL cuando corresponda, soporte técnico y hasta 3 cambios menores al año, como modificar textos, precios, horarios, teléfonos o imágenes. Nuevas páginas, rediseños u otras ampliaciones se presupuestan aparte.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q16"><span>¿Puedo llevarme la web a otro hosting?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a16">Sí. Después del primer año contratado puedes solicitar los archivos de la web sin coste de entrega. Si quieres que realicemos también la migración, configuración del nuevo hosting o transferencia técnica, ese trabajo se presupuesta aparte.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q17"><span>¿Incluye posicionamiento en Google?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a17">Incluye una base SEO inicial para facilitar el rastreo e indexación. No se garantiza una posición concreta en Google; el posicionamiento depende de competencia, contenido, autoridad y evolución del sitio.</p></div></div> </div>
 </div>
 </section>
-<section class="py-20 px-4 bg-[#0d1117]" id="configurador"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="config-eyebrow">Presupuesto guiado</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="config-title">Configura la idea de tu web</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="config-desc">Marca lo que necesitas y recibiremos un briefing mucho más completo desde el primer contacto.</p></div><form action="https://formsubmit.co/iampetersc@gmail.com" class="config-shell" id="web-config-form" method="POST"><input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="Estilo, referencias, colores, objetivo, web que te guste..." rows="5"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Enviar mi configuración</button><p class="form-note mt-3" data-lang-key="config-note">Los campos marcados con * son obligatorios. Recibiremos tu configuración directamente para preparar tu propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section class="py-20 px-4 bg-[#0d1117]" id="calidad"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="quality-eyebrow">Calidad técnica</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="quality-title">Preparada para rendir y medir</h2></div><div class="quality-grid"><div class="quality-item"><span class="quality-state" data-lang-key="quality-included">Incluido</span><strong>Responsive</strong><span data-lang-key="quality-responsive-desc">Diseño adaptable a móvil, tablet y escritorio.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-tech-base">Base técnica</span><strong>SEO</strong><span data-lang-key="quality-seo-desc">Semántica, metadatos y estructura preparada para indexación.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-after-publish">Tras publicar</span><strong>Core Web Vitals</strong><span data-lang-key="quality-cwv-desc">Se pueden medir y optimizar con datos reales una vez online.</span></div><div class="quality-item"><span class="quality-state">Hosting</span><strong data-lang-key="quality-https-title">Seguridad HTTPS</strong><span data-lang-key="quality-https-desc">Certificado HTTPS cuando el alojamiento configurado lo proporciona.</span></div></div></div></section>
+<section class="py-20 px-4 bg-[#0d1117]" id="configurador"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="config-eyebrow">Presupuesto guiado</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="config-title">Configura la idea de tu web</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="config-desc">Marca lo que necesitas y recibiremos un briefing mucho más completo desde el primer contacto.</p></div><div class="ydg-live-budget" id="ydg-live-budget" aria-live="polite">
+  <div class="budget-primary">
+    <small data-lang-key="budget-label">ESTIMACIÓN BASE</small>
+    <strong>645 €</strong>
+    <span data-lang-key="budget-first-year">Primer año: 495 € desarrollo + 150 € dominio, hosting y mantenimiento</span>
+  </div>
+  <div class="budget-live-data">
+    <div><small data-lang-key="budget-sections">Secciones</small><b id="budget-sections-value">Hasta 5</b></div>
+    <div><small data-lang-key="budget-functions">Funciones</small><b id="budget-functions-value">0</b></div>
+    <div><small data-lang-key="budget-languages">Idiomas</small><b id="budget-languages-value">Español</b></div>
+    <div><small data-lang-key="budget-scope">Alcance</small><b id="budget-scope-value">Estándar</b></div>
+  </div>
+  <p data-lang-key="budget-disclaimer">La cifra es la base del primer año. Funciones, integraciones o ampliaciones especiales se valoran según el alcance real del proyecto.</p>
+</div>
+<form action="https://formsubmit.co/iampetersc@gmail.com" class="config-shell" id="web-config-form" method="POST"><input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="Estilo, referencias, colores, objetivo, web que te guste..." rows="5"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Enviar mi configuración</button><p class="form-note mt-3" data-lang-key="config-note">Los campos marcados con * son obligatorios. Recibiremos tu configuración directamente para preparar tu propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section class="py-20 px-4 bg-[#0d1117]" id="calidad"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="quality-eyebrow">Calidad técnica</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="quality-title">Preparada para rendir y medir</h2></div><div class="quality-grid"><div class="quality-item"><span class="quality-state" data-lang-key="quality-included">Incluido</span><strong>Responsive</strong><span data-lang-key="quality-responsive-desc">Diseño adaptable a móvil, tablet y escritorio.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-tech-base">Base técnica</span><strong>SEO</strong><span data-lang-key="quality-seo-desc">Semántica, metadatos y estructura preparada para indexación.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-after-publish">Tras publicar</span><strong>Core Web Vitals</strong><span data-lang-key="quality-cwv-desc">Se pueden medir y optimizar con datos reales una vez online.</span></div><div class="quality-item"><span class="quality-state">Hosting</span><strong data-lang-key="quality-https-title">Seguridad HTTPS</strong><span data-lang-key="quality-https-desc">Certificado HTTPS cuando el alojamiento configurado lo proporciona.</span></div></div></div></section>
 <!-- Envíanos tu mensaje Section (Contact) -->
 <section class="py-16 bg-[#0d1117] px-4" id="contacto">
 <div class="container mx-auto text-center bg-[#1a202c] rounded-xl p-8 shadow-lg max-w-2xl section-box">
@@ -4297,6 +4410,14 @@ section h2.gradient-text{
 <h2 data-lang-key="final-cta-title" id="final-cta-title">Tu negocio ya existe.<br/><strong>Ahora haz que parezca profesional.</strong></h2>
 <p data-lang-key="final-cta-desc">Cuéntanos qué necesitas y transformamos tu idea en una presencia digital moderna, responsive y preparada para presentar tu negocio como merece.</p>
 <a class="gradient-button inline-flex items-center justify-center text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="final-cta-button" href="#configurador">Quiero mi web</a>
+<div class="ydg-month-capacity">
+  <span class="capacity-pulse"></span>
+  <div>
+    <small data-lang-key="capacity-month">AGENDA · AGOSTO 2026</small>
+    <strong data-lang-key="capacity-slots">2 plazas disponibles</strong>
+  </div>
+  <a href="#configurador" data-lang-key="capacity-cta">Consultar proyecto →</a>
+</div>
 <div class="final-conversion-meta" data-lang-key="final-cta-meta">Desarrollo desde 495 € · Objetivo 72h · Dominio, hosting y mantenimiento 150 €/año</div>
 </div>
 </section>
@@ -4500,6 +4621,27 @@ section h2.gradient-text{
                 'hero-subtitle': 'Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.',
                 'hero-button': 'Ver qué incluye',
                 'hero-portfolio-button': 'Ver nuestros trabajos',
+                'ydg-availability': 'Disponible para nuevos proyectos · Agosto 2026',
+                'product-from': 'DESARROLLO WEB',
+                'product-price-note': 'Base profesional personalizada',
+                'product-72': 'Objetivo de entrega',
+                'product-responsive': 'Responsive',
+                'product-seo': 'Base inicial',
+                'product-ssl': 'Según hosting',
+                'portfolio-next-label': 'SIGUIENTE PROYECTO',
+                'portfolio-next-title': 'Tu web podría estar aquí',
+                'portfolio-next-desc': 'Convierte tu negocio en el próximo proyecto de YourDesignGPT.',
+                'portfolio-next-button': 'Crear mi web →',
+                'budget-label': 'ESTIMACIÓN BASE',
+                'budget-first-year': 'Primer año: 495 € desarrollo + 150 € dominio, hosting y mantenimiento',
+                'budget-sections': 'Secciones',
+                'budget-functions': 'Funciones',
+                'budget-languages': 'Idiomas',
+                'budget-scope': 'Alcance',
+                'budget-disclaimer': 'La cifra es la base del primer año. Funciones, integraciones o ampliaciones especiales se valoran según el alcance real del proyecto.',
+                'capacity-month': 'AGENDA · AGOSTO 2026',
+                'capacity-slots': '2 plazas disponibles',
+                'capacity-cta': 'Consultar proyecto →',
                 'important-links-title': 'Links importantes',
                 'tip-instagram': 'Mi Instagram',
                 'tip-youtube': 'Mi canal de YouTube',
@@ -4839,6 +4981,27 @@ section h2.gradient-text{
                 'hero-subtitle': 'Professional web design for businesses, freelancers and brands in Málaga and across Spain. We create a modern, fast, responsive website and handle the design, setup and launch.',
                 'hero-button': 'See what is included',
                 'hero-portfolio-button': 'View our work',
+                'ydg-availability': 'Available for new projects · August 2026',
+                'product-from': 'WEB DEVELOPMENT',
+                'product-price-note': 'Custom professional foundation',
+                'product-72': 'Delivery target',
+                'product-responsive': 'Responsive',
+                'product-seo': 'Initial foundation',
+                'product-ssl': 'Depending on hosting',
+                'portfolio-next-label': 'NEXT PROJECT',
+                'portfolio-next-title': 'Your website could be here',
+                'portfolio-next-desc': 'Turn your business into the next YourDesignGPT project.',
+                'portfolio-next-button': 'Create my website →',
+                'budget-label': 'BASE ESTIMATE',
+                'budget-first-year': 'First year: €495 development + €150 domain, hosting and maintenance',
+                'budget-sections': 'Sections',
+                'budget-functions': 'Features',
+                'budget-languages': 'Languages',
+                'budget-scope': 'Scope',
+                'budget-disclaimer': 'This is the first-year base price. Special features, integrations or extensions are assessed according to the actual project scope.',
+                'capacity-month': 'SCHEDULE · AUGUST 2026',
+                'capacity-slots': '2 slots available',
+                'capacity-cta': 'Discuss project →',
                 'important-links-title': 'Important links',
                 'tip-instagram': 'My Instagram',
                 'tip-youtube': 'My YouTube channel',
@@ -5669,7 +5832,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=78', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=79', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -6018,6 +6181,12 @@ try{
       info.cls.split(' ').filter(Boolean).forEach(c=>el.classList.add(c));
     });
 
+    document.body.classList.remove('weather-day','weather-night','weather-rain','weather-storm','weather-clear');
+    document.body.classList.add(Number(c.is_day)===1 ? 'weather-day' : 'weather-night');
+    if(info.cls.includes('is-rain')) document.body.classList.add('weather-rain');
+    else if(info.cls.includes('is-storm')) document.body.classList.add('weather-storm');
+    else if(Number(c.weather_code)===0) document.body.classList.add('weather-clear');
+
     const now=new Date();
     const time=now.toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Madrid'});
     setAll('[data-weather-updated]',time);
@@ -6080,6 +6249,86 @@ try{
   // El botón ↻ sigue permitiendo una actualización inmediata.
   loadWeather(false);
   setInterval(()=>loadWeather(false),30*60*1000);
+})();
+</script>
+
+
+<script>
+(function(){
+  const terminal=document.getElementById('ydg-terminal');
+  if(terminal){
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+        if(e.isIntersecting){terminal.classList.add('is-active');io.disconnect();}
+      }),{threshold:.35});
+      io.observe(terminal);
+    }else terminal.classList.add('is-active');
+  }
+
+  const includedItems=[...document.querySelectorAll('.included-item')];
+  if(includedItems.length){
+    const reveal=()=>includedItems.forEach((el,i)=>setTimeout(()=>el.classList.add('ydg-item-visible'),i*75));
+    const target=document.querySelector('.included-grid');
+    if(target&&'IntersectionObserver'in window){
+      const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+        if(e.isIntersecting){reveal();io.disconnect();}
+      }),{threshold:.12});
+      io.observe(target);
+    }else reveal();
+  }
+
+  const process=document.getElementById('process-track');
+  if(process){
+    const steps=[...process.querySelectorAll('.process-step')];
+    const light=()=>steps.forEach((step,i)=>setTimeout(()=>step.classList.add('ydg-step-lit'),i*240));
+    if('IntersectionObserver'in window){
+      const io=new IntersectionObserver(entries=>entries.forEach(e=>{
+        if(e.isIntersecting){light();io.disconnect();}
+      }),{threshold:.28});
+      io.observe(process);
+    }else light();
+  }
+
+  const form=document.getElementById('web-config-form');
+  if(form){
+    const sec=form.querySelector('select[name="secciones"]');
+    const langs=form.querySelector('select[name="idiomas"]');
+    const checks=[...form.querySelectorAll('input[name="funciones"]')];
+    const secOut=document.getElementById('budget-sections-value');
+    const funOut=document.getElementById('budget-functions-value');
+    const langOut=document.getElementById('budget-languages-value');
+    const scopeOut=document.getElementById('budget-scope-value');
+
+    function updateBudget(){
+      const en=document.documentElement.lang==='en';
+      const fn=checks.filter(x=>x.checked).length;
+      if(secOut&&sec) secOut.textContent=sec.options[sec.selectedIndex]?.textContent?.trim()||'—';
+      if(funOut) funOut.textContent=String(fn);
+      if(langOut&&langs) langOut.textContent=langs.options[langs.selectedIndex]?.textContent?.trim()||'—';
+      const complex=(sec&&sec.selectedIndex>=2)||(langs&&langs.selectedIndex>=2)||fn>=5;
+      if(scopeOut) scopeOut.textContent=complex?(en?'Review required':'Revisión necesaria'):(en?'Standard':'Estándar');
+    }
+    form.addEventListener('change',updateBudget);
+    addEventListener('ydg-language-change',()=>setTimeout(updateBudget,20));
+    updateBudget();
+  }
+
+  const brand=document.getElementById('ydg-brand-home');
+  const toast=document.getElementById('ydg-easter-toast');
+  if(brand&&toast){
+    let clicks=[];
+    brand.addEventListener('click',()=>{
+      const now=Date.now();
+      clicks=clicks.filter(t=>now-t<2600);
+      clicks.push(now);
+      if(clicks.length>=5){
+        clicks=[];
+        toast.classList.add('is-on');
+        toast.setAttribute('aria-hidden','false');
+        setTimeout(()=>{toast.classList.remove('is-on');toast.setAttribute('aria-hidden','true');},2100);
+      }
+    });
+  }
 })();
 </script>
 
