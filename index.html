@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=70" rel="manifest"/>
+<link href="site.webmanifest?v=71" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -2968,6 +2968,61 @@ section h2.gradient-text{
   .ml-refresh-btn.just-updated{animation:none!important}
 }
 
+
+/* ===== V71 · Tiempo siempre visible según dispositivo ===== */
+@media(max-width:899px){
+  .malaga-live-mobile{
+    display:block!important;
+  }
+  .malaga-live-pc-horizontal{
+    display:none!important;
+  }
+}
+@media(min-width:900px){
+  .malaga-live-mobile{
+    display:none!important;
+  }
+  .malaga-live-pc-horizontal{
+    display:block!important;
+    padding:0 20px 28px!important;
+    background:#0d1117;
+  }
+  .ml-horizontal-shell{
+    width:min(1180px,calc(100vw - 48px))!important;
+    grid-template-columns:1.18fr 1.28fr repeat(6,.72fr) .86fr!important;
+    gap:8px!important;
+  }
+}
+@media(min-width:1200px){
+  .ml-horizontal-shell{
+    width:min(1180px,calc(100vw - 150px))!important;
+    gap:10px!important;
+  }
+}
+
+
+/* V71 · Refresh manual destacado */
+.ml-refresh-btn{
+  position:relative;
+}
+.ml-refresh-btn::after{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border-radius:50%;
+  border:1px solid rgba(56,189,248,.12);
+  opacity:.55;
+  animation:mlManualHalo 2.4s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes mlManualHalo{
+  0%,100%{transform:scale(.86);opacity:.20}
+  50%{transform:scale(1.08);opacity:.72}
+}
+@media(prefers-reduced-motion:reduce){
+  .ml-refresh-btn::after{animation:none!important}
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -3129,7 +3184,7 @@ section h2.gradient-text{
       <div class="ml-weather-icon" data-weather-icon aria-hidden="true"><span class="sun-core"></span><span class="cloud-piece"></span></div>
       <div class="ml-temp-wrap">
         <strong data-weather-temp>--°</strong>
-        <span data-weather-desc>Cargando tiempo…</span>
+        <span data-weather-desc>Pulsa ↻ para actualizar</span>
       </div>
     </div>
     <div class="ml-stats">
@@ -3503,7 +3558,7 @@ section h2.gradient-text{
       </div>
       <div class="mlh-temp">
         <strong data-weather-temp>--°</strong>
-        <span data-weather-desc>Cargando tiempo…</span>
+        <span data-weather-desc>Pulsa ↻ para actualizar</span>
       </div>
     </div>
 
@@ -4960,7 +5015,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=70', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=71', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -5315,8 +5370,8 @@ try{
   }
 
   function fail(){
-    setAll('[data-weather-desc]','Datos no disponibles');
-    setAll('[data-weather-updated]','offline');
+    setAll('[data-weather-desc]','No disponible · pulsa ↻');
+    setAll('[data-weather-updated]','reintentar');
   }
 
   let weatherLoading=false;
@@ -5360,8 +5415,10 @@ try{
     btn.addEventListener('click',()=>loadWeather(true));
   });
 
-  loadWeather();
-  setInterval(()=>loadWeather(false),15*60*1000);
+  // V71: actualización exclusivamente manual.
+  // No se consulta la API al cargar ni se usa ningún temporizador automático.
+  setAll('[data-weather-desc]','Pulsa ↻ para actualizar');
+  setAll('[data-weather-updated]','manual');
 })();
 </script>
 
