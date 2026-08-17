@@ -1,7 +1,7 @@
-const CACHE_NAME = 'ydg-static-v68-malaga-live';
+const CACHE_NAME = 'ydg-static-v70-weather-refresh';
 const CORE_ASSETS = [
   './index.html',
-  './site.webmanifest?v=68',
+  './site.webmanifest?v=70',
   './android-chrome-192x192.png',
   './android-chrome-512x512.png',
   './apple-touch-icon.png',

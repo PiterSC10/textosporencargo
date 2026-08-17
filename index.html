@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=68" rel="manifest"/>
+<link href="site.webmanifest?v=70" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -2657,7 +2657,7 @@ section h2.gradient-text{
   .ml-stats>div{padding:7px 3px}
 }
 @media(min-width:1280px){
-  .malaga-live-desktop{
+  .malaga-live-desktop{display:none!important;
     display:block;position:fixed;right:82px;bottom:22px;width:214px;z-index:24;pointer-events:none;
   }
   .malaga-live-card-side{padding:13px;border-radius:18px;pointer-events:auto}
@@ -2674,6 +2674,299 @@ section h2.gradient-text{
 }
 @media(min-width:1600px){.malaga-live-desktop{right:94px;width:226px}}
 @media(prefers-reduced-motion:reduce){.malaga-live-card::before,.ml-live-dot,.ml-weather-icon .sun-core{animation:none!important}}
+
+
+/* ===== V69 · Málaga Live horizontal después de Contacto · PC ===== */
+.malaga-live-pc-horizontal{display:none}
+
+@media(min-width:1280px){
+  .malaga-live-pc-horizontal{
+    display:block;
+    padding:0 24px 26px;
+    background:#0d1117;
+  }
+
+  .ml-horizontal-shell{
+    position:relative;
+    width:min(1180px,calc(100vw - 190px));
+    margin:0 auto;
+    min-height:112px;
+    display:grid;
+    grid-template-columns:1.25fr 1.35fr repeat(6,.72fr) .82fr;
+    align-items:center;
+    gap:10px;
+    padding:16px 18px;
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(96,165,250,.18);
+    background:
+      radial-gradient(circle at 13% 50%,rgba(45,212,191,.085),transparent 24%),
+      radial-gradient(circle at 86% 50%,rgba(168,85,247,.075),transparent 25%),
+      linear-gradient(180deg,rgba(15,23,42,.95),rgba(7,11,16,.98));
+    box-shadow:
+      0 18px 48px rgba(0,0,0,.26),
+      0 0 34px rgba(59,130,246,.055),
+      inset 0 0 34px rgba(45,212,191,.022);
+    backdrop-filter:blur(14px);
+  }
+
+  .ml-horizontal-shell::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:3px;
+    background:linear-gradient(90deg,#2dd4bf 0%,#38bdf8 34%,#6366f1 67%,#a855f7 100%);
+    background-size:220% 100%;
+    animation:mlHorizontalFlow 5.4s linear infinite;
+    box-shadow:0 0 12px rgba(56,189,248,.22);
+  }
+
+  .ml-horizontal-shell::after{
+    content:"";
+    position:absolute;
+    top:3px;
+    left:-16%;
+    width:26%;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+    animation:mlHorizontalScan 5.4s linear infinite;
+    opacity:.5;
+  }
+
+  .mlh-brand,
+  .mlh-current,
+  .mlh-stat,
+  .mlh-updated{
+    position:relative;
+    z-index:2;
+  }
+
+  .mlh-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-right:12px;
+    border-right:1px solid rgba(148,163,184,.09);
+  }
+
+  .mlh-brand strong{
+    display:block;
+    color:#e0f2fe;
+    font-size:.76rem;
+    font-weight:900;
+    letter-spacing:.16em;
+    white-space:nowrap;
+  }
+
+  .mlh-brand small{
+    display:block;
+    margin-top:4px;
+    color:#64748b;
+    font-size:.49rem;
+    font-weight:900;
+    letter-spacing:.16em;
+    white-space:nowrap;
+  }
+
+  .mlh-current{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:0 10px 0 4px;
+    border-right:1px solid rgba(148,163,184,.09);
+  }
+
+  .mlh-current .ml-weather-icon{
+    width:46px;
+    height:46px;
+    transform:scale(.78);
+    transform-origin:center;
+    margin:-3px -4px -3px -5px;
+  }
+
+  .mlh-temp{
+    min-width:82px;
+  }
+
+  .mlh-temp>strong{
+    display:block;
+    color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:2rem;
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-.055em;
+    text-shadow:0 0 18px rgba(255,255,255,.07);
+  }
+
+  .mlh-temp>span{
+    display:block;
+    max-width:105px;
+    margin-top:4px;
+    color:#cbd5e1;
+    font-size:.61rem;
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .mlh-stat,
+  .mlh-updated{
+    min-height:58px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:7px 5px;
+    border-radius:12px;
+    background:rgba(255,255,255,.018);
+    border:1px solid rgba(148,163,184,.065);
+    transition:transform .22s ease,border-color .22s ease,background .22s ease;
+  }
+
+  .mlh-stat:hover{
+    transform:translateY(-2px);
+    border-color:rgba(96,165,250,.18);
+    background:rgba(59,130,246,.035);
+  }
+
+  .mlh-stat small,
+  .mlh-updated small{
+    color:#64748b;
+    font-size:.46rem;
+    line-height:1.2;
+    font-weight:900;
+    letter-spacing:.13em;
+    text-align:center;
+  }
+
+  .mlh-stat b{
+    margin-top:5px;
+    color:#e2e8f0;
+    font-size:.77rem;
+    white-space:nowrap;
+  }
+
+  .mlh-updated{
+    border-color:rgba(45,212,191,.08);
+  }
+
+  .mlh-updated b{
+    margin-top:5px;
+    color:#7dd3fc;
+    font-size:.72rem;
+  }
+
+  @keyframes mlHorizontalFlow{
+    to{background-position:-220% 0}
+  }
+
+  @keyframes mlHorizontalScan{
+    from{transform:translateX(0)}
+    to{transform:translateX(470%)}
+  }
+}
+
+@media(min-width:1600px){
+  .ml-horizontal-shell{
+    width:min(1280px,calc(100vw - 220px));
+    grid-template-columns:1.25fr 1.35fr repeat(6,.75fr) .84fr;
+    gap:12px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ml-horizontal-shell::before,
+  .ml-horizontal-shell::after{
+    animation:none!important;
+  }
+}
+
+
+/* ===== V70 · Botón refresh del tiempo ===== */
+.ml-refresh-btn{
+  flex:none;
+  width:28px;
+  height:28px;
+  display:inline-grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(56,189,248,.30);
+  background:
+    radial-gradient(circle at 35% 30%,rgba(255,255,255,.08),transparent 34%),
+    linear-gradient(180deg,rgba(15,23,42,.92),rgba(7,11,16,.98));
+  color:#7dd3fc;
+  font-size:1rem;
+  font-weight:900;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:
+    0 0 0 1px rgba(45,212,191,.03),
+    0 0 14px rgba(56,189,248,.13),
+    inset 0 0 14px rgba(45,212,191,.025);
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    box-shadow .22s ease,
+    background .22s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.ml-refresh-btn:hover,
+.ml-refresh-btn:focus-visible{
+  transform:translateY(-1px) scale(1.05);
+  color:#e0f2fe;
+  border-color:rgba(45,212,191,.58);
+  box-shadow:
+    0 0 0 1px rgba(45,212,191,.08),
+    0 0 18px rgba(45,212,191,.22),
+    0 0 28px rgba(59,130,246,.12),
+    inset 0 0 14px rgba(45,212,191,.04);
+  outline:none;
+}
+.ml-refresh-btn:active{
+  transform:scale(.94);
+}
+.ml-refresh-btn.is-loading{
+  color:#fff;
+  border-color:rgba(125,211,252,.72);
+  box-shadow:
+    0 0 18px rgba(56,189,248,.34),
+    0 0 34px rgba(45,212,191,.14);
+  animation:mlRefreshSpin .85s linear infinite;
+  pointer-events:none;
+}
+.ml-refresh-btn.just-updated{
+  animation:mlRefreshPop .5s ease;
+}
+.ml-refresh-btn-pc{
+  width:27px;
+  height:27px;
+  margin-top:6px;
+  font-size:.95rem;
+}
+@keyframes mlRefreshSpin{
+  to{transform:rotate(360deg)}
+}
+@keyframes mlRefreshPop{
+  0%{transform:scale(.86)}
+  55%{transform:scale(1.14)}
+  100%{transform:scale(1)}
+}
+@media(max-width:640px){
+  .ml-refresh-btn{
+    width:27px;
+    height:27px;
+    font-size:.95rem;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .ml-refresh-btn.is-loading{animation:none!important}
+  .ml-refresh-btn.just-updated{animation:none!important}
+}
 
 </style>
 <script type="application/ld+json">
@@ -2830,6 +3123,7 @@ section h2.gradient-text{
       <span class="ml-live-dot"></span>
       <span class="ml-kicker">MÁLAGA · LIVE</span>
       <span class="ml-updated" data-weather-updated>--:--</span>
+      <button class="ml-refresh-btn" type="button" data-weather-refresh aria-label="Actualizar tiempo" title="Actualizar tiempo">↻</button>
     </div>
     <div class="ml-main">
       <div class="ml-weather-icon" data-weather-icon aria-hidden="true"><span class="sun-core"></span><span class="cloud-piece"></span></div>
@@ -2847,31 +3141,6 @@ section h2.gradient-text{
     <div class="ml-bottom"><span>Sensación <b data-weather-feels>--°</b></span><span>Viento <b data-weather-wind>-- km/h</b></span></div>
   </div>
 </section>
-
-<!-- V68 · Málaga Live desktop side panel -->
-<aside class="malaga-live-desktop" aria-label="Tiempo actual en Málaga">
-  <div class="malaga-live-card malaga-live-card-side" id="malaga-live-desktop-card">
-    <div class="ml-topline">
-      <span class="ml-live-dot"></span>
-      <span class="ml-kicker">MÁLAGA · LIVE</span>
-    </div>
-    <div class="ml-main">
-      <div class="ml-weather-icon" data-weather-icon aria-hidden="true"><span class="sun-core"></span><span class="cloud-piece"></span></div>
-      <div class="ml-temp-wrap">
-        <strong data-weather-temp>--°</strong>
-        <span data-weather-desc>Cargando…</span>
-      </div>
-    </div>
-    <div class="ml-stats">
-      <div><small>MÁX</small><b data-weather-max>--°</b></div>
-      <div><small>MÍN</small><b data-weather-min>--°</b></div>
-      <div><small>HUM</small><b data-weather-humidity>--%</b></div>
-      <div><small>UV</small><b data-weather-uv>--</b></div>
-    </div>
-    <div class="ml-bottom"><span>Sens. <b data-weather-feels>--°</b></span><span>Viento <b data-weather-wind>--</b></span></div>
-    <div class="ml-updated-row">Actualizado <span data-weather-updated>--:--</span></div>
-  </div>
-</aside>
 
 <section aria-labelledby="included-title" class="included-section py-20 px-4" id="incluye">
 <div class="container mx-auto section-box">
@@ -3212,8 +3481,65 @@ section h2.gradient-text{
 <p class="text-lg text-gray-300 mb-6" data-lang-key="contact-disabled-desc">Formulario temporalmente desactivado mientras terminamos de optimizar el sistema de envío.</p>
 <p class="text-gray-400 mb-7" data-lang-key="contact-disabled-help">Para solicitar información o presupuesto, utiliza ahora <strong class="text-white">Configura la idea de tu web</strong>.</p>
 <a href="#configurador" class="gradient-button inline-flex items-center justify-center text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="contact-disabled-button">Ir al presupuesto guiado</a>
+
 </div>
 </section>
+
+<!-- V69 · Málaga Live horizontal · desktop -->
+<section class="malaga-live-pc-horizontal" aria-label="Tiempo actual en Málaga">
+  <div class="ml-horizontal-shell">
+    <div class="mlh-brand">
+      <span class="ml-live-dot"></span>
+      <div>
+        <strong>MÁLAGA · LIVE</strong>
+        <small>TIEMPO EN DIRECTO</small>
+      </div>
+    </div>
+
+    <div class="mlh-current">
+      <div class="ml-weather-icon" data-weather-icon aria-hidden="true">
+        <span class="sun-core"></span>
+        <span class="cloud-piece"></span>
+      </div>
+      <div class="mlh-temp">
+        <strong data-weather-temp>--°</strong>
+        <span data-weather-desc>Cargando tiempo…</span>
+      </div>
+    </div>
+
+    <div class="mlh-stat">
+      <small>MÁXIMA</small>
+      <b data-weather-max>--°</b>
+    </div>
+    <div class="mlh-stat">
+      <small>MÍNIMA</small>
+      <b data-weather-min>--°</b>
+    </div>
+    <div class="mlh-stat">
+      <small>HUMEDAD</small>
+      <b data-weather-humidity>--%</b>
+    </div>
+    <div class="mlh-stat">
+      <small>UV</small>
+      <b data-weather-uv>--</b>
+    </div>
+    <div class="mlh-stat">
+      <small>SENSACIÓN</small>
+      <b data-weather-feels>--°</b>
+    </div>
+    <div class="mlh-stat">
+      <small>VIENTO</small>
+      <b data-weather-wind>-- km/h</b>
+    </div>
+
+    <div class="mlh-updated">
+      <small>ACTUALIZADO</small>
+      <b data-weather-updated>--:--</b>
+      <button class="ml-refresh-btn ml-refresh-btn-pc" type="button" data-weather-refresh aria-label="Actualizar tiempo" title="Actualizar tiempo">↻</button>
+    </div>
+  </div>
+</section>
+
 <!-- Features/Benefits Section -->
 <section class="py-16 bg-[#1a202c] px-4">
 <div class="container mx-auto section-box">
@@ -4634,7 +4960,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=68', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=70', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -4993,7 +5319,26 @@ try{
     setAll('[data-weather-updated]','offline');
   }
 
-  async function loadWeather(){
+  let weatherLoading=false;
+
+  function setRefreshState(loading, success=false){
+    qsa('[data-weather-refresh]').forEach(btn=>{
+      btn.classList.toggle('is-loading',loading);
+      btn.disabled=loading;
+      if(success){
+        btn.classList.remove('just-updated');
+        void btn.offsetWidth;
+        btn.classList.add('just-updated');
+        setTimeout(()=>btn.classList.remove('just-updated'),550);
+      }
+    });
+  }
+
+  async function loadWeather(manual=false){
+    if(weatherLoading) return;
+    weatherLoading=true;
+    setRefreshState(true);
+
     try{
       const controller=new AbortController();
       const timer=setTimeout(()=>controller.abort(),7000);
@@ -5002,13 +5347,21 @@ try{
       if(!res.ok) throw new Error(`Weather HTTP ${res.status}`);
       const data=await res.json();
       apply(data);
+      setRefreshState(false,true);
     }catch(err){
       fail();
+      setRefreshState(false,false);
+    }finally{
+      weatherLoading=false;
     }
   }
 
+  qsa('[data-weather-refresh]').forEach(btn=>{
+    btn.addEventListener('click',()=>loadWeather(true));
+  });
+
   loadWeather();
-  setInterval(loadWeather,15*60*1000);
+  setInterval(()=>loadWeather(false),15*60*1000);
 })();
 </script>
 
