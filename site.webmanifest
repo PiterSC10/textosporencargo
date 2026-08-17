@@ -2,7 +2,7 @@
   "name": "YourDesignGPT",
   "short_name": "YourDesignGPT",
   "description": "Diseño web profesional para negocios, autónomos y marcas.",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=74",
   "scope": "./",
   "display": "standalone",
   "background_color": "#070b10",

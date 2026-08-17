@@ -1,7 +1,7 @@
-const CACHE_NAME = 'ydg-static-v73-weather-auto30-refresh';
+const CACHE_NAME = 'ydg-static-v75-weather-premium-float-mobile';
 const CORE_ASSETS = [
   './index.html',
-  './site.webmanifest?v=73',
+  './site.webmanifest?v=75',
   './android-chrome-192x192.png',
   './android-chrome-512x512.png',
   './apple-touch-icon.png',
