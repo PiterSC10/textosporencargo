@@ -25,8 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="favicon.ico?v=25" rel="icon"/>
-<link href="site.webmanifest?v=63" rel="manifest"/>
+<link href="site.webmanifest?v=65" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -2337,6 +2336,87 @@ section h2.gradient-text{
   .fx-megatron-flash,.fx-megatron-floor-glow{animation:none!important;opacity:.12!important}
 }
 
+
+/* ===== V64 · Scroll percentage indicator ===== */
+.ydg-scroll-progress{
+  overflow:visible!important;
+}
+.ydg-scroll-progress #ydg-scroll-percent{
+  position:absolute;
+  top:7px;
+  left:0%;
+  transform:translateX(-50%);
+  min-width:34px;
+  padding:2px 6px;
+  border-radius:999px;
+  font-size:.62rem;
+  line-height:1.25;
+  font-weight:900;
+  letter-spacing:.035em;
+  text-align:center;
+  color:#f8fafc;
+  background:rgba(7,11,16,.82);
+  border:1px solid rgba(96,165,250,.20);
+  box-shadow:
+    0 0 14px rgba(59,130,246,.13),
+    inset 0 0 10px rgba(45,212,191,.035);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  opacity:.88;
+  pointer-events:none;
+  white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.ydg-scroll-progress #ydg-scroll-percent::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-4px;
+  width:5px;
+  height:5px;
+  transform:translateX(-50%) rotate(45deg);
+  background:rgba(7,11,16,.82);
+  border-left:1px solid rgba(96,165,250,.16);
+  border-top:1px solid rgba(96,165,250,.16);
+}
+@media(max-width:767px){
+  .ydg-scroll-progress #ydg-scroll-percent{
+    top:6px;
+    min-width:30px;
+    padding:2px 5px;
+    font-size:.56rem;
+  }
+}
+
+
+/* ===== V65 · Banderas de idioma SVG · visibles en iPhone, Android y PC ===== */
+.lang-flag-btn{
+  width:38px;height:30px;padding:4px;border-radius:8px;
+  border:1px solid transparent;justify-content:center;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,opacity .2s ease;
+}
+.lang-flag-btn:hover,.lang-flag-btn:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(96,165,250,.32);
+  background:rgba(255,255,255,.035);
+  outline:none;
+}
+.lang-flag-btn.font-bold{
+  border-color:rgba(45,212,191,.36);
+  background:rgba(45,212,191,.055);
+  box-shadow:0 0 12px rgba(45,212,191,.07);
+}
+.lang-flag{
+  display:block;width:27px;height:18px;border-radius:3px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 2px 6px rgba(0,0,0,.28);
+  flex:none;
+}
+.lang-separator{margin:0 3px;opacity:.55}
+@media(max-width:767px){
+  .lang-flag-btn{width:36px;height:29px;padding:4px}
+  .lang-flag{width:26px;height:17px}
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -2353,7 +2433,7 @@ section h2.gradient-text{
     </script>
 </head>
 <body class="antialiased">
-<div class="ydg-scroll-progress" id="ydg-scroll-progress" aria-hidden="true"><i></i></div>
+<div class="ydg-scroll-progress" id="ydg-scroll-progress" aria-hidden="true"><i></i><span id="ydg-scroll-percent">0%</span></div>
 <!-- Premium entrance FX -->
 <div aria-hidden="true" id="fx-intro">
 <canvas id="fx-megatron-canvas" aria-hidden="true"></canvas>
@@ -2398,9 +2478,22 @@ section h2.gradient-text{
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" data-lang-key="nav-contact" href="#contacto">Contacto</a>
 </div>
 <div class="mt-4 lg:mt-0 flex items-center">
-<button class="text-gray-400 font-bold hover:text-white flex items-center" id="lang-es"><span class="mr-1">🇪🇸</span> ES</button>
-<span class="text-gray-600 mx-2">|</span>
-<button class="text-gray-600 hover:text-white flex items-center" id="lang-en"><span class="mr-1">🇬🇧</span> EN</button>
+<button class="lang-flag-btn text-gray-400 font-bold hover:text-white flex items-center" id="lang-es" type="button" aria-label="Cambiar idioma a español" title="Español">
+<svg class="lang-flag" viewBox="0 0 30 20" role="img" aria-label="Bandera de España" focusable="false">
+<rect width="30" height="20" fill="#AA151B"/>
+<rect y="5" width="30" height="10" fill="#F1BF00"/>
+</svg>
+</button>
+<span class="lang-separator text-gray-600" aria-hidden="true">|</span>
+<button class="lang-flag-btn text-gray-600 hover:text-white flex items-center" id="lang-en" type="button" aria-label="Cambiar idioma a inglés" title="Inglés">
+<svg class="lang-flag" viewBox="0 0 60 30" role="img" aria-label="Bandera del Reino Unido" focusable="false">
+<rect width="60" height="30" fill="#012169"/>
+<path d="M0 0 L60 30 M60 0 L0 30" stroke="#FFF" stroke-width="6"/>
+<path d="M0 0 L60 30 M60 0 L0 30" stroke="#C8102E" stroke-width="3"/>
+<path d="M30 0 V30 M0 15 H60" stroke="#FFF" stroke-width="10"/>
+<path d="M30 0 V30 M0 15 H60" stroke="#C8102E" stroke-width="6"/>
+</svg>
+</button>
 </div>
 </div>
 </nav>
@@ -3715,6 +3808,10 @@ section h2.gradient-text{
             const langEnBtn = document.getElementById('lang-en');
 
             if (langEsBtn && langEnBtn) {
+                langEsBtn.setAttribute('aria-label', currentLang === 'en' ? 'Switch language to Spanish' : 'Cambiar idioma a español');
+                langEnBtn.setAttribute('aria-label', currentLang === 'en' ? 'Switch language to English' : 'Cambiar idioma a inglés');
+                langEsBtn.title = currentLang === 'en' ? 'Spanish' : 'Español';
+                langEnBtn.title = currentLang === 'en' ? 'English' : 'Inglés';
                 if (currentLang === 'es') {
                     langEsBtn.classList.add('font-bold', 'text-gray-400');
                     langEsBtn.classList.remove('text-gray-600');
@@ -4191,7 +4288,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=63', { updateViaCache: 'none' });
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=65', { updateViaCache: 'none' });
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -4231,31 +4328,49 @@ try{
 </script>
 
 
+
 <script>
 (function(){
   const bar = document.querySelector('#ydg-scroll-progress i');
+  const percent = document.getElementById('ydg-scroll-percent');
   if(!bar) return;
 
   let ticking = false;
-  function updateYDGScrollProgress(){
-    const y = window.scrollY || document.documentElement.scrollTop || 0;
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const pct = Math.max(0, Math.min(100, (y / max) * 100));
-    bar.style.width = pct + '%';
+
+  function updateProgress(){
+    const doc = document.documentElement;
+    const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+    const raw = Math.max(0, Math.min(1, window.scrollY / max));
+    const pct = Math.round(raw * 100);
+
+    bar.style.width = (raw * 100) + '%';
+
+    if(percent){
+      percent.textContent = pct + '%';
+
+      // Keep label inside viewport while following the progress.
+      const safe = Math.max(4, Math.min(96, raw * 100));
+      percent.style.left = safe + '%';
+
+      // Slightly stronger at completion.
+      percent.style.opacity = pct >= 100 ? '1' : '.88';
+    }
+
     ticking = false;
   }
 
-  window.addEventListener('scroll', function(){
-    if(!ticking){
-      ticking = true;
-      requestAnimationFrame(updateYDGScrollProgress);
-    }
-  }, {passive:true});
+  function requestUpdate(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateProgress);
+  }
 
-  window.addEventListener('resize', updateYDGScrollProgress, {passive:true});
-  updateYDGScrollProgress();
+  window.addEventListener('scroll', requestUpdate, {passive:true});
+  window.addEventListener('resize', requestUpdate, {passive:true});
+  updateProgress();
 })();
 </script>
+
 
 
 <script>
