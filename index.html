@@ -26,7 +26,7 @@
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
 <link href="favicon.ico?v=25" rel="icon"/>
-<link href="site.webmanifest?v=42" rel="manifest"/>
+<link href="site.webmanifest?v=63" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -558,7 +558,7 @@
             overflow: hidden;
             transition: opacity .85s ease, visibility .85s ease;
             /* V16: salida automática independiente de JavaScript */
-            animation: fxIntroAutoExit .82s ease 3.15s forwards;
+            animation: fxIntroAutoExit .78s ease 4.20s forwards;
         }
         #fx-intro.fx-hide { opacity: 0; visibility: hidden; pointer-events: none; }
         @keyframes fxIntroAutoExit {
@@ -725,7 +725,7 @@
         @media (prefers-reduced-motion: reduce) {
             /* La intro se mantiene también en iPhone/móvil.
                Solo simplificamos el movimiento para respetar accesibilidad. */
-            #fx-intro { display:grid !important; animation: fxIntroAutoExit .55s ease 2.8s forwards !important; }
+            #fx-intro { display:grid !important; animation: fxIntroAutoExit .60s ease 3.85s forwards !important; }
             #fx-intro::before { animation: fxLineMobile .9s ease .15s forwards !important; }
             .fx-intro-inner::before { animation: fxGlowMobile .8s ease .1s forwards !important; }
             .fx-intro-brand {
@@ -2157,6 +2157,186 @@ section h2.gradient-text{
   #portfolio .section-box::after{animation:none!important}
 }
 
+
+/* ===== V61 · Intro smoke cinematic ===== */
+#fx-intro{
+  isolation:isolate;
+}
+.fx-intro-inner{
+  z-index:2;
+}
+.fx-intro-smoke{
+  position:absolute;
+  left:-8vw;
+  right:-8vw;
+  bottom:-12vh;
+  height:48vh;
+  pointer-events:none;
+  z-index:1;
+  overflow:visible;
+  opacity:.95;
+}
+.fx-intro-smoke::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:2vh;
+  width:min(960px,92vw);
+  height:10vh;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(45,212,191,.12) 0%, rgba(59,130,246,.10) 36%, rgba(11,16,24,0) 72%);
+  filter:blur(22px);
+  opacity:.8;
+  animation:fxSmokeBed 2.5s ease-out .2s forwards;
+}
+.fx-intro-smoke .smoke{
+  position:absolute;
+  bottom:-6vh;
+  border-radius:50%;
+  filter:blur(44px);
+  opacity:0;
+  will-change:transform, opacity;
+  background:
+    radial-gradient(ellipse at 50% 55%,
+      rgba(230,235,255,.16) 0%,
+      rgba(96,165,250,.14) 28%,
+      rgba(45,212,191,.10) 46%,
+      rgba(9,14,22,0) 72%);
+}
+.fx-intro-smoke .s1{
+  left:8%;
+  width:30vw;
+  min-width:180px;
+  max-width:420px;
+  height:24vh;
+  animation:fxSmokeRise1 2.8s ease-out .10s forwards;
+}
+.fx-intro-smoke .s2{
+  left:30%;
+  width:38vw;
+  min-width:230px;
+  max-width:560px;
+  height:30vh;
+  animation:fxSmokeRise2 3.0s ease-out .24s forwards;
+}
+.fx-intro-smoke .s3{
+  right:22%;
+  width:28vw;
+  min-width:170px;
+  max-width:400px;
+  height:24vh;
+  animation:fxSmokeRise3 2.7s ease-out .42s forwards;
+}
+.fx-intro-smoke .s4{
+  right:6%;
+  width:34vw;
+  min-width:200px;
+  max-width:460px;
+  height:28vh;
+  animation:fxSmokeRise4 3.05s ease-out .18s forwards;
+}
+@keyframes fxSmokeBed{
+  0%{opacity:.1;transform:translateX(-50%) scale(.9)}
+  35%{opacity:.72}
+  100%{opacity:.38;transform:translateX(-50%) scale(1.14)}
+}
+@keyframes fxSmokeRise1{
+  0%{opacity:0;transform:translate3d(0,18px,0) scale(.88)}
+  20%{opacity:.54}
+  55%{opacity:.44}
+  100%{opacity:0;transform:translate3d(6px,-18vh,0) scale(1.22)}
+}
+@keyframes fxSmokeRise2{
+  0%{opacity:0;transform:translate3d(0,18px,0) scale(.82)}
+  18%{opacity:.6}
+  54%{opacity:.5}
+  100%{opacity:0;transform:translate3d(-8px,-22vh,0) scale(1.28)}
+}
+@keyframes fxSmokeRise3{
+  0%{opacity:0;transform:translate3d(0,18px,0) scale(.9)}
+  24%{opacity:.48}
+  58%{opacity:.4}
+  100%{opacity:0;transform:translate3d(12px,-19vh,0) scale(1.2)}
+}
+@keyframes fxSmokeRise4{
+  0%{opacity:0;transform:translate3d(0,18px,0) scale(.86)}
+  20%{opacity:.5}
+  56%{opacity:.42}
+  100%{opacity:0;transform:translate3d(-10px,-21vh,0) scale(1.24)}
+}
+@media (max-width:767px){
+  .fx-intro-smoke{
+    left:-16vw;
+    right:-16vw;
+    bottom:-9vh;
+    height:44vh;
+    opacity:.92;
+  }
+  .fx-intro-smoke .smoke{filter:blur(34px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .fx-intro-smoke::before,
+  .fx-intro-smoke .smoke{
+    animation:none !important;
+    opacity:.22 !important;
+    transform:none !important;
+  }
+}
+
+
+/* ===== V62 · Megatron-style intro ===== */
+#fx-megatron-canvas{
+  position:absolute; inset:0; width:100%; height:100%; z-index:1;
+  pointer-events:none; display:block;
+}
+.fx-intro-inner{position:relative;z-index:4!important}
+.fx-megatron-flash{
+  position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 18%,rgba(255,255,255,.99) 0%,rgba(236,245,255,.82) 12%,rgba(96,165,250,.18) 31%,transparent 60%);
+  mix-blend-mode:screen;
+}
+.fx-megatron-floor-glow{
+  position:absolute;left:50%;top:-7vh;width:min(1180px,102vw);height:32vh;
+  transform:translateX(-50%);z-index:2;pointer-events:none;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(255,255,255,.21) 0%,rgba(186,230,253,.16) 22%,rgba(45,212,191,.09) 37%,rgba(59,130,246,.05) 54%,transparent 77%);
+  filter:blur(28px);opacity:0;
+}
+#fx-intro.megatron-run .fx-megatron-flash{animation:megaFlash 1.15s ease-out .28s both}
+#fx-intro.megatron-run .fx-megatron-floor-glow{animation:megaFloor 3.35s ease-out .12s both}
+#fx-intro.megatron-run .fx-intro-brand{
+  animation:megaBrandReveal .74s cubic-bezier(.16,.84,.22,1) .82s both,fxShine 1.55s linear 1.05s 1!important;
+}
+#fx-intro.megatron-run .fx-intro-sub{animation:megaSubReveal .62s ease 1.24s both!important}
+#fx-intro.megatron-run .fx-intro-sub::before{animation:fxSubLine .7s cubic-bezier(.2,.8,.2,1) 1.08s forwards!important}
+
+@keyframes megaFlash{
+  0%{opacity:0} 16%{opacity:1} 31%{opacity:.16} 44%{opacity:.82} 57%{opacity:.11} 100%{opacity:0}
+}
+@keyframes megaFloor{
+  0%{opacity:0;transform:translateX(-50%) scale(.72)}
+  22%{opacity:.96}
+  52%{opacity:.62;transform:translateX(-50%) scale(1.07)}
+  100%{opacity:0;transform:translateX(-50%) scale(1.24)}
+}
+@keyframes megaBrandReveal{
+  0%{opacity:0;transform:translateY(18px) scale(.96);filter:blur(6px)}
+  52%{opacity:.78;transform:translateY(3px) scale(.993);filter:blur(1px) drop-shadow(0 0 16px rgba(255,255,255,.22))}
+  100%{opacity:1;transform:none;filter:blur(0) drop-shadow(0 0 24px rgba(96,165,250,.20))}
+}
+@keyframes megaSubReveal{
+  from{opacity:0;transform:translateY(9px);filter:blur(3px)}
+  to{opacity:1;transform:none;filter:none}
+}
+.fx-intro-smoke{display:none!important}
+@media(max-width:767px){
+  .fx-megatron-floor-glow{width:118vw;height:25vh;filter:blur(24px)}
+}
+@media(prefers-reduced-motion:reduce){
+  #fx-megatron-canvas{display:none!important}
+  .fx-megatron-flash,.fx-megatron-floor-glow{animation:none!important;opacity:.12!important}
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -2176,6 +2356,9 @@ section h2.gradient-text{
 <div class="ydg-scroll-progress" id="ydg-scroll-progress" aria-hidden="true"><i></i></div>
 <!-- Premium entrance FX -->
 <div aria-hidden="true" id="fx-intro">
+<canvas id="fx-megatron-canvas" aria-hidden="true"></canvas>
+<div class="fx-megatron-flash" aria-hidden="true"></div>
+<div class="fx-megatron-floor-glow" aria-hidden="true"></div>
 <div class="fx-intro-inner">
 <div class="fx-intro-brand">YourDesignGPT</div>
 <div class="fx-intro-sub">by Pedro Soriano Calderón</div>
@@ -2233,7 +2416,7 @@ section h2.gradient-text{
 </div>
 <div class="hero-scan" aria-hidden="true"></div>
 <h1 class="hero-digital-title hero-brand-title hero-sales-title hero-cinematic-title" data-lang-key="hero-title">
-<span>Tu Web Profesional,</span>
+<span>Tu Web Profesional</span>
 <span>Lista en <strong>72 Horas</strong></span>
 </h1>
 <div aria-hidden="true" class="hero-brand-divider hero-sales-divider hero-energy-line">
@@ -2856,7 +3039,7 @@ section h2.gradient-text{
                 'nav-faq': 'FAQ',
                 'nav-contact': 'Contacto',
                 'nav-important-links': 'Links importantes',
-                'hero-title': '<span>Tu Web Profesional,</span><span>Lista en <strong>72 Horas</strong></span>',
+                'hero-title': '<span>Tu Web Profesional</span><span>Lista en <strong>72 Horas</strong></span>',
                 'hero-subtitle': 'Diseño web profesional para negocios, autónomos y marcas en Málaga y toda España. Creamos una web moderna, rápida y responsive; tú nos cuentas la idea y nosotros nos encargamos del diseño, la puesta en marcha y la gestión.',
                 'hero-button': 'Ver qué incluye',
                 'hero-portfolio-button': 'Ver nuestros trabajos',
@@ -3195,7 +3378,7 @@ section h2.gradient-text{
                 'nav-faq': 'FAQ',
                 'nav-contact': 'Contact',
                 'nav-important-links': 'Important links',
-                'hero-title': '<span>Your Professional Website,</span><span>Ready in <strong>72 Hours</strong></span>',
+                'hero-title': '<span>Your Professional Website</span><span>Ready in <strong>72 Hours</strong></span>',
                 'hero-subtitle': 'Professional web design for businesses, freelancers and brands in Málaga and across Spain. We create a modern, fast, responsive website and handle the design, setup and launch.',
                 'hero-button': 'See what is included',
                 'hero-portfolio-button': 'View our work',
@@ -3877,6 +4060,7 @@ try{
 
 
 
+
 <script>
 (function(){
   const installBtn = document.getElementById('install-app-btn');
@@ -3884,77 +4068,137 @@ try{
   const modal = document.getElementById('install-modal');
   const modalContent = document.getElementById('install-modal-content');
   const modalClose = document.getElementById('install-modal-close');
-  if(!installBtn) return;
+  if(!installBtn || !installLabel) return;
 
   let deferredPrompt = null;
   const ua = navigator.userAgent || '';
+  const lang = () => (document.documentElement.lang || 'es').toLowerCase();
   const isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /android/i.test(ua);
+  const isMac = /mac/i.test(navigator.platform || '');
   const isSafari = /^((?!chrome|android|crios|fxios|edgios).)*safari/i.test(ua);
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
-  function installedState(){
-    installBtn.classList.add('is-installed');
-    installBtn.disabled = true;
-    installLabel.textContent = document.documentElement.lang === 'en' ? 'YourDesignGPT is already added' : 'YourDesignGPT ya está añadido';
-  }
-  if(isStandalone) installedState();
+  function t(es, en){ return lang().startsWith('en') ? en : es; }
 
-  function openModal(html){
-    if(!modal || !modalContent) return;
-    modalContent.innerHTML = html;
-    modal.classList.add('is-visible');
-    modal.setAttribute('aria-hidden','false');
-    modalClose?.focus();
-  }
-  function closeModal(){
-    modal?.classList.remove('is-visible');
-    modal?.setAttribute('aria-hidden','true');
-    installBtn?.focus();
-  }
-  modalClose?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', e => { if(e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal?.classList.contains('is-visible')) closeModal(); });
-
-  window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    deferredPrompt = e;
+  function setLabel(){
+    if(isStandalone){
+      installLabel.textContent = t('YourDesignGPT ya está añadido', 'YourDesignGPT is already added');
+      installBtn.classList.add('is-installed');
+      installBtn.disabled = true;
+      return;
+    }
     installBtn.disabled = false;
     installBtn.classList.remove('is-installed');
-    installLabel.textContent = document.documentElement.lang === 'en' ? 'Install YourDesignGPT' : 'Instalar YourDesignGPT';
+
+    if(deferredPrompt){
+      installLabel.textContent = t('Instalar YourDesignGPT', 'Install YourDesignGPT');
+      return;
+    }
+    if(isIOS && isSafari){
+      installLabel.textContent = t('Añadir a pantalla de inicio', 'Add to Home Screen');
+      return;
+    }
+    if(isIOS && !isSafari){
+      installLabel.textContent = t('Abrir en Safari para instalar', 'Open in Safari to install');
+      return;
+    }
+    installLabel.textContent = t('Añadir al dispositivo / favorito', 'Add to device / bookmark');
+  }
+
+  function openModal(contentHtml){
+    if(!modal || !modalContent) return;
+    modalContent.innerHTML = contentHtml;
+    modal.classList.add('is-visible');
+    modal.setAttribute('aria-hidden','false');
+    modalClose && modalClose.focus();
+  }
+
+  function closeModal(){
+    if(!modal) return;
+    modal.classList.remove('is-visible');
+    modal.setAttribute('aria-hidden','true');
+    installBtn.focus();
+  }
+
+  modalClose && modalClose.addEventListener('click', closeModal);
+  modal && modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal && modal.classList.contains('is-visible')) closeModal();
   });
 
-  window.addEventListener('appinstalled', () => {
+  function desktopHelp(){
+    const shortcut = isMac ? '⌘ + D' : 'Ctrl + D';
+    return t(
+      '<p>En este navegador no se puede abrir la instalación automática directamente.</p><ol class="install-modal-steps"><li>Si tu navegador muestra opción de instalación, abre el menú <strong>⋮ / …</strong> y busca <strong>Instalar aplicación</strong>, <strong>Install app</strong> o <strong>Crear acceso directo</strong>.</li><li>Si solo quieres guardarla rápido, pulsa <strong>'+ shortcut +'</strong> para añadirla a favoritos.</li><li>En Chrome / Edge, cuando la web cumpla los requisitos y tenga interacción suficiente, aparecerá la instalación nativa.</li></ol><p class="install-modal-note">Consejo: después de subir todos los archivos a GitHub Pages, recarga la web una vez para que el navegador detecte manifest y service worker.</p>',
+      '<p>Your browser cannot open the install prompt directly right now.</p><ol class="install-modal-steps"><li>If your browser supports app installation, open the <strong>⋮ / …</strong> menu and look for <strong>Install app</strong> or <strong>Create shortcut</strong>.</li><li>If you only want quick access, press <strong>'+ shortcut +'</strong> to bookmark it.</li><li>In Chrome / Edge, the native install prompt appears when the site meets PWA requirements and has enough engagement.</li></ol><p class="install-modal-note">Tip: after uploading all files to GitHub Pages, reload once so the browser detects the manifest and service worker.</p>'
+    );
+  }
+
+  function iOSSafariHelp(){
+    return t(
+      '<p>En iPhone o iPad, Apple no permite abrir la ventana de instalación automáticamente.</p><ol class="install-modal-steps"><li>Pulsa el botón <strong>Compartir</strong> de Safari.</li><li>Desliza hacia abajo y toca <strong>Añadir a pantalla de inicio</strong>.</li><li>Confirma con <strong>Añadir</strong>.</li></ol><p class="install-modal-note">Así tendrás YourDesignGPT como app en la pantalla de inicio.</p>',
+      '<p>On iPhone or iPad, Apple does not allow the install window to open automatically.</p><ol class="install-modal-steps"><li>Tap Safari’s <strong>Share</strong> button.</li><li>Scroll down and tap <strong>Add to Home Screen</strong>.</li><li>Confirm with <strong>Add</strong>.</li></ol><p class="install-modal-note">That will place YourDesignGPT on your Home Screen like an app.</p>'
+    );
+  }
+
+  function iOSNotSafariHelp(){
+    return t(
+      '<p>En iPhone o iPad, la instalación a pantalla de inicio funciona mejor desde <strong>Safari</strong>.</p><ol class="install-modal-steps"><li>Abre esta web en <strong>Safari</strong>.</li><li>Pulsa <strong>Compartir</strong>.</li><li>Selecciona <strong>Añadir a pantalla de inicio</strong>.</li></ol><p class="install-modal-note">En otros navegadores de iPhone esta opción puede no estar disponible o ser menos estable.</p>',
+      '<p>On iPhone or iPad, Home Screen installation works best in <strong>Safari</strong>.</p><ol class="install-modal-steps"><li>Open this website in <strong>Safari</strong>.</li><li>Tap <strong>Share</strong>.</li><li>Select <strong>Add to Home Screen</strong>.</li></ol><p class="install-modal-note">On other iPhone browsers, this option may not be available or may be less reliable.</p>'
+    );
+  }
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+    setLabel();
+  });
+
+  window.addEventListener('appinstalled', function(){
     deferredPrompt = null;
-    installedState();
+    setLabel();
   });
 
-  installBtn.addEventListener('click', async () => {
+  installBtn.addEventListener('click', async function(){
     if(isStandalone) return;
+
     if(deferredPrompt){
       try{
         deferredPrompt.prompt();
         await deferredPrompt.userChoice;
-      }catch(e){}
-      deferredPrompt = null;
+      }catch(err){}
       return;
     }
-    if(isIOS){
-      openModal(document.documentElement.lang === 'en' ? '<p>On iPhone or iPad, Apple requires you to do this from Safari:</p><ol class="install-modal-steps"><li>Tap Safari’s <strong>Share</strong> button.</li><li>Scroll and choose <strong>Add to Home Screen</strong>.</li><li>Tap <strong>Add</strong>.</li></ol><p class="install-modal-note">You will then have the YourDesignGPT icon on your Home Screen and it will open like an app.</p>' : '<p>En iPhone o iPad, Apple requiere hacerlo desde Safari:</p><ol class="install-modal-steps"><li>Pulsa el botón <strong>Compartir</strong> de Safari.</li><li>Desliza y selecciona <strong>Añadir a pantalla de inicio</strong>.</li><li>Pulsa <strong>Añadir</strong>.</li></ol><p class="install-modal-note">Después tendrás el icono de YourDesignGPT en tu pantalla de inicio y se abrirá como una app.</p>');
+
+    if(isIOS && isSafari){
+      openModal(iOSSafariHelp());
       return;
     }
-    openModal(document.documentElement.lang === 'en' ? '<p>Your browser did not show the automatic installer at this time.</p><ol class="install-modal-steps"><li>Open the browser menu <strong>⋮ / …</strong>.</li><li>Look for <strong>Install YourDesignGPT</strong>, <strong>Install app</strong> or <strong>Create shortcut</strong>.</li><li>Confirm to add it to your desktop or apps menu.</li></ol><p class="install-modal-note">Direct installation depends on the browser and requires the website to be served over HTTPS.</p>' : '<p>Tu navegador no ha mostrado el instalador automático en este momento.</p><ol class="install-modal-steps"><li>Abre el menú del navegador <strong>⋮ / …</strong>.</li><li>Busca <strong>Instalar YourDesignGPT</strong>, <strong>Instalar aplicación</strong> o <strong>Crear acceso directo</strong>.</li><li>Confirma para añadirla al escritorio o al menú de aplicaciones.</li></ol><p class="install-modal-note">La instalación directa depende del navegador y requiere que la web esté publicada mediante HTTPS.</p>');
+
+    if(isIOS && !isSafari){
+      openModal(iOSNotSafariHelp());
+      return;
+    }
+
+    openModal(desktopHelp());
   });
 
+  setLabel();
+
   if('serviceWorker' in navigator){
-    window.addEventListener('load', async () => {
-      try {
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=60', {updateViaCache:'none'});
-        await reg.update();
-      } catch (_) {}
+    window.addEventListener('load', async function(){
+      try{
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=63', { updateViaCache: 'none' });
+        if(reg && reg.update) reg.update();
+      }catch(err){}
     });
   }
 })();
 </script>
+
 
 
 
@@ -4056,6 +4300,174 @@ try{
   }
 })();
 </script>
+
+
+
+<script>
+(function(){
+  const intro=document.getElementById('fx-intro');
+  const canvas=document.getElementById('fx-megatron-canvas');
+  if(!intro||!canvas) return;
+
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+
+  const ctx=canvas.getContext('2d',{alpha:true});
+  if(!ctx) return;
+
+  let w=0,h=0,dpr=1,start=0,last=0,raf=0,stopped=false;
+  const particles=[];
+  const fired=[false,false,false,false];
+  const mobile=(window.matchMedia&&window.matchMedia('(pointer:coarse)').matches)||window.innerWidth<900;
+  const maxParticles=mobile?190:390;
+
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,mobile?1.35:1.85);
+    w=Math.max(1,window.innerWidth);
+    h=Math.max(1,window.innerHeight);
+    canvas.width=Math.floor(w*dpr);
+    canvas.height=Math.floor(h*dpr);
+    canvas.style.width=w+'px';
+    canvas.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function rnd(a,b){return a+Math.random()*(b-a)}
+
+  function burst(cx,strength,count,widthSpread){
+    for(let i=0;i<count&&particles.length<maxParticles;i++){
+      const spread=rnd(-0.18,0.18);
+      const speed=rnd(330,680)*strength;
+      const angle=Math.PI/2+spread;
+      particles.push({
+        x:cx+rnd(-widthSpread,widthSpread),
+        y:rnd(-48,-8),
+        vx:Math.cos(angle)*speed+rnd(-55,55),
+        vy:Math.sin(angle)*speed,
+        life:0,ttl:rnd(1.65,2.55),
+        r:rnd(22,48),grow:rnd(38,86),
+        alpha:rnd(.25,.56),drift:rnd(-32,32),
+        tint:Math.random()<.76?'white':(Math.random()<.5?'cyan':'blue')
+      });
+    }
+  }
+
+  function fire(t){
+    if(!fired[0]&&t>.12){
+      fired[0]=true;
+      burst(w*.26,1.00,mobile?42:86,30);
+      burst(w*.50,1.08,mobile?48:96,36);
+      burst(w*.74,1.00,mobile?42:86,30);
+    }
+    if(!fired[1]&&t>.42){
+      fired[1]=true;
+      burst(w*.40,1.12,mobile?32:64,28);
+      burst(w*.60,1.12,mobile?32:64,28);
+    }
+    if(!fired[2]&&t>.76){
+      fired[2]=true;
+      burst(w*.12,.82,mobile?20:38,24);
+      burst(w*.88,.82,mobile?20:38,24);
+    }
+    if(!fired[3]&&t>1.08){
+      fired[3]=true;
+      burst(w*.50,.76,mobile?32:68,Math.min(120,w*.14));
+    }
+  }
+
+  function draw(p){
+    const q=p.life/p.ttl;
+    const fadeIn=Math.min(1,q*4.5);
+    const fadeOut=Math.max(0,1-Math.pow(q,1.55));
+    const a=p.alpha*fadeIn*fadeOut;
+    if(a<.003) return;
+
+    const rr=p.r+p.grow*q;
+    const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,rr);
+
+    if(p.tint==='cyan'){
+      g.addColorStop(0,`rgba(255,255,255,${a})`);
+      g.addColorStop(.24,`rgba(247,253,255,${a*.84})`);
+      g.addColorStop(.56,`rgba(186,230,253,${a*.34})`);
+      g.addColorStop(.80,`rgba(125,211,252,${a*.12})`);
+    }else if(p.tint==='blue'){
+      g.addColorStop(0,`rgba(255,255,255,${a*.98})`);
+      g.addColorStop(.28,`rgba(245,248,255,${a*.82})`);
+      g.addColorStop(.60,`rgba(147,197,253,${a*.28})`);
+      g.addColorStop(.82,`rgba(96,165,250,${a*.10})`);
+    }else{
+      g.addColorStop(0,`rgba(255,255,255,${a})`);
+      g.addColorStop(.27,`rgba(252,252,253,${a*.86})`);
+      g.addColorStop(.62,`rgba(229,231,235,${a*.30})`);
+      g.addColorStop(.84,`rgba(203,213,225,${a*.10})`);
+    }
+
+    g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=g;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,rr,0,Math.PI*2);
+    ctx.fill();
+  }
+
+  function frame(ts){
+    if(stopped) return;
+    if(!start){start=ts;last=ts}
+
+    const t=(ts-start)/1000;
+    const dt=Math.min(.032,(ts-last)/1000||.016);
+    last=ts;
+
+    fire(t);
+    ctx.clearRect(0,0,w,h);
+    ctx.globalCompositeOperation='screen';
+
+    if(t<2.35){
+      const ramp=Math.min(1,t/.65);
+      const fade=t>1.55?Math.max(0,1-(t-1.55)/.8):1;
+      const aa=ramp*fade*.27;
+      const base=ctx.createRadialGradient(w*.5,h*.02,0,w*.5,h*.02,w*.62);
+      base.addColorStop(0,`rgba(255,255,255,${aa})`);
+      base.addColorStop(.25,`rgba(243,248,255,${aa*.78})`);
+      base.addColorStop(.52,`rgba(186,230,253,${aa*.38})`);
+      base.addColorStop(.76,`rgba(96,165,250,${aa*.15})`);
+      base.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.fillStyle=base;
+      ctx.fillRect(0,0,w,h*.58);
+    }
+
+    for(let i=particles.length-1;i>=0;i--){
+      const p=particles[i];
+      p.life+=dt;
+      p.vx+=(p.drift+Math.sin((p.life+i)*2.0)*11)*dt;
+      p.vy-=72*dt;
+      p.x+=p.vx*dt;
+      p.y+=p.vy*dt;
+      draw(p);
+      if(p.life>=p.ttl||p.y>h+220) particles.splice(i,1);
+    }
+
+    ctx.globalCompositeOperation='source-over';
+
+    if(t<4.05) raf=requestAnimationFrame(frame);
+    else{
+      stopped=true;
+      ctx.clearRect(0,0,w,h);
+    }
+  }
+
+  intro.classList.add('megatron-run');
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+  raf=requestAnimationFrame(frame);
+
+  setTimeout(function(){
+    stopped=true;
+    if(raf) cancelAnimationFrame(raf);
+    ctx.clearRect(0,0,w,h);
+  },4500);
+})();
+</script>
+
 
 </body>
 </html>

@@ -1,44 +1,62 @@
-const CACHE_NAME = 'ydg-static-v59-final';
-const STATIC_ASSETS = [
-  './favicon.png',
-  './favicon-16x16.png',
-  './favicon-32x32.png',
-  './apple-touch-icon.png',
+const CACHE_NAME = 'ydg-static-v61';
+const CORE_ASSETS = [
+  './',
+  './index.html',
+  './site.webmanifest?v=61',
   './android-chrome-192x192.png',
   './android-chrome-512x512.png',
-  './site.webmanifest?v=59'
+  './apple-touch-icon.png',
+  './favicon-32x32.png',
+  './favicon-16x16.png',
+  './restaurante.html',
+  './electricista.html',
+  './fontanero.html',
+  './estetica.html',
+  './webpersonal.html',
+  './hotelmalaga.html'
 ];
 
 self.addEventListener('install', event => {
-  self.skipWaiting();
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS).catch(()=>{})));
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)).then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil((async () => {
-    const keys = await caches.keys();
-    await Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)));
-    await self.clients.claim();
-  })());
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+    )).then(() => self.clients.claim())
+  );
 });
 
 self.addEventListener('fetch', event => {
   const req = event.request;
+  if (req.method !== 'GET') return;
+
   const url = new URL(req.url);
 
-  // Nunca interceptar HTML/navegación, POST ni recursos externos.
-  if(req.method !== 'GET' || req.mode === 'navigate' || url.origin !== self.location.origin){
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(req, copy));
+        return res;
+      }).catch(() => caches.match(req).then(r => r || caches.match('./index.html')))
+    );
     return;
   }
 
-  const isStatic = /\.(png|ico|webmanifest)$/i.test(url.pathname);
-  if(!isStatic) return;
-
-  event.respondWith(
-    caches.match(req).then(cached => cached || fetch(req).then(resp => {
-      const clone = resp.clone();
-      caches.open(CACHE_NAME).then(cache => cache.put(req, clone)).catch(()=>{});
-      return resp;
-    }))
-  );
+  if (url.origin === self.location.origin) {
+    event.respondWith(
+      caches.match(req).then(cached => {
+        const networkFetch = fetch(req).then(res => {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(req, copy));
+          return res;
+        }).catch(() => cached);
+        return cached || networkFetch;
+      })
+    );
+  }
 });
