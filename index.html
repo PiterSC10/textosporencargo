@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=66" rel="manifest"/>
+<link href="site.webmanifest?v=68" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -2565,6 +2565,116 @@ section h2.gradient-text{
   .ydg-side{width:64px}
 }
 
+
+/* ===== V67 · Favoritos / marcadores ===== */
+.bookmark-native-help{text-align:center}
+.bookmark-native-help p{margin:.25rem 0 .9rem}
+.bookmark-shortcut{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:132px;
+  padding:.72rem 1.1rem;
+  margin:.3rem auto .9rem;
+  border-radius:14px;
+  border:1px solid rgba(96,165,250,.30);
+  background:linear-gradient(180deg,rgba(15,23,42,.96),rgba(7,11,16,.98));
+  color:#fff;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  font-size:1.05rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  box-shadow:0 0 22px rgba(59,130,246,.10),inset 0 0 20px rgba(45,212,191,.03);
+}
+
+
+/* ===== V68 · Málaga Live ===== */
+.malaga-live-mobile{display:none}
+.malaga-live-desktop{display:none}
+.malaga-live-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(96,165,250,.18);
+  background:
+    radial-gradient(circle at 86% 12%,rgba(250,204,21,.10),transparent 25%),
+    radial-gradient(circle at 12% 88%,rgba(45,212,191,.10),transparent 30%),
+    linear-gradient(180deg,rgba(15,23,42,.94),rgba(7,11,16,.97));
+  box-shadow:0 18px 50px rgba(0,0,0,.30),0 0 30px rgba(59,130,246,.06),inset 0 0 30px rgba(45,212,191,.025);
+  backdrop-filter:blur(14px);
+}
+.malaga-live-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,#2dd4bf,#38bdf8,#818cf8,#a855f7);
+  background-size:220% 100%;animation:mlLine 5s linear infinite;
+}
+.malaga-live-card::after{
+  content:"";position:absolute;inset:auto -20% -50% -20%;height:60%;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(56,189,248,.08),transparent 65%);
+  filter:blur(18px);
+}
+.ml-topline{display:flex;align-items:center;gap:8px;position:relative;z-index:2}
+.ml-live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.08),0 0 12px rgba(34,197,94,.55);animation:mlLive 1.8s ease-in-out infinite}
+.ml-kicker{font-size:.67rem;font-weight:900;letter-spacing:.18em;color:#bae6fd}
+.ml-updated{margin-left:auto;font-size:.62rem;color:#64748b}
+.ml-main{display:flex;align-items:center;gap:14px;position:relative;z-index:2}
+.ml-temp-wrap{display:flex;flex-direction:column}
+.ml-temp-wrap strong{font-family:'Space Grotesk',sans-serif;font-size:2.65rem;line-height:1;font-weight:900;color:#fff;letter-spacing:-.055em;text-shadow:0 0 22px rgba(255,255,255,.08)}
+.ml-temp-wrap span{margin-top:4px;color:#cbd5e1;font-size:.78rem;font-weight:700}
+.ml-weather-icon{position:relative;width:58px;height:58px;flex:none;filter:drop-shadow(0 0 14px rgba(250,204,21,.16))}
+.ml-weather-icon .sun-core{position:absolute;left:11px;top:9px;width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 38% 34%,#fff7b2 0%,#fde047 34%,#f59e0b 72%,#f97316 100%);box-shadow:0 0 15px rgba(250,204,21,.44),0 0 32px rgba(245,158,11,.22);animation:mlSun 3.8s ease-in-out infinite}
+.ml-weather-icon .sun-core::before,.ml-weather-icon .sun-core::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(250,204,21,.22)}
+.ml-weather-icon .sun-core::after{inset:-14px;border-color:rgba(250,204,21,.10)}
+.ml-weather-icon .cloud-piece{display:none;position:absolute;right:0;bottom:8px;width:38px;height:17px;border-radius:999px;background:linear-gradient(180deg,#f8fafc,#cbd5e1);box-shadow:-11px -5px 0 -1px #e2e8f0,0 4px 14px rgba(15,23,42,.3)}
+.ml-weather-icon.is-cloud .cloud-piece,.ml-weather-icon.is-rain .cloud-piece,.ml-weather-icon.is-storm .cloud-piece{display:block}
+.ml-weather-icon.is-cloud .sun-core{transform:scale(.78);left:5px;top:5px;opacity:.75}
+.ml-weather-icon.is-rain .sun-core,.ml-weather-icon.is-storm .sun-core{display:none}
+.ml-weather-icon.is-rain::after{content:"⋮⋮";position:absolute;left:16px;top:32px;color:#38bdf8;font-size:1.4rem;letter-spacing:4px;transform:rotate(15deg);text-shadow:0 0 10px rgba(56,189,248,.45)}
+.ml-weather-icon.is-storm::after{content:"ϟ";position:absolute;left:22px;top:29px;color:#facc15;font-size:1.7rem;font-weight:900;text-shadow:0 0 12px rgba(250,204,21,.55)}
+.ml-weather-icon.is-night .sun-core{background:radial-gradient(circle at 35% 32%,#fff 0%,#dbeafe 45%,#93c5fd 100%);box-shadow:0 0 18px rgba(147,197,253,.32);width:34px;height:34px}
+.ml-weather-icon.is-night .sun-core::before{content:"";position:absolute;width:27px;height:27px;border-radius:50%;right:-5px;top:-4px;background:#0b1220;border:none}
+.ml-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;position:relative;z-index:2}
+.ml-stats>div{padding:8px 5px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(148,163,184,.08);text-align:center}
+.ml-stats small{display:block;font-size:.52rem;letter-spacing:.13em;color:#64748b;font-weight:900}
+.ml-stats b{display:block;margin-top:2px;font-size:.79rem;color:#e2e8f0}
+.ml-bottom{display:flex;justify-content:space-between;gap:12px;position:relative;z-index:2;font-size:.64rem;color:#64748b}
+.ml-bottom b{color:#cbd5e1}
+.ml-updated-row{text-align:center;font-size:.55rem;color:#475569;position:relative;z-index:2}
+@keyframes mlLine{to{background-position:-220% 0}}
+@keyframes mlLive{50%{opacity:.45;transform:scale(.8)}}
+@keyframes mlSun{50%{transform:scale(1.06);filter:brightness(1.08)}}
+
+@media(max-width:1279px){
+  .malaga-live-mobile{display:block;padding:0 16px 36px;background:#0d1117}
+  .malaga-live-mobile .malaga-live-card{max-width:760px;margin:0 auto;padding:16px;border-radius:20px}
+  .malaga-live-mobile .ml-main{margin:13px 0 12px}
+}
+@media(max-width:640px){
+  .malaga-live-mobile{padding-left:12px;padding-right:12px}
+  .malaga-live-mobile .malaga-live-card{padding:14px;border-radius:18px}
+  .ml-temp-wrap strong{font-size:2.35rem}
+  .ml-weather-icon{width:52px;height:52px}
+  .ml-stats{gap:5px}
+  .ml-stats>div{padding:7px 3px}
+}
+@media(min-width:1280px){
+  .malaga-live-desktop{
+    display:block;position:fixed;right:82px;bottom:22px;width:214px;z-index:24;pointer-events:none;
+  }
+  .malaga-live-card-side{padding:13px;border-radius:18px;pointer-events:auto}
+  .malaga-live-card-side .ml-main{margin:12px 0 10px;gap:10px}
+  .malaga-live-card-side .ml-weather-icon{width:47px;height:47px;transform:scale(.86);transform-origin:left center}
+  .malaga-live-card-side .ml-temp-wrap strong{font-size:2rem}
+  .malaga-live-card-side .ml-temp-wrap span{font-size:.66rem;max-width:105px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .malaga-live-card-side .ml-stats{gap:4px}
+  .malaga-live-card-side .ml-stats>div{padding:6px 2px}
+  .malaga-live-card-side .ml-stats small{font-size:.46rem}
+  .malaga-live-card-side .ml-stats b{font-size:.68rem}
+  .malaga-live-card-side .ml-bottom{margin-top:8px;font-size:.56rem}
+  .malaga-live-card-side .ml-updated-row{margin-top:7px}
+}
+@media(min-width:1600px){.malaga-live-desktop{right:94px;width:226px}}
+@media(prefers-reduced-motion:reduce){.malaga-live-card::before,.ml-live-dot,.ml-weather-icon .sun-core{animation:none!important}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -2712,6 +2822,57 @@ section h2.gradient-text{
 </section>
 <section aria-label="Indicadores del servicio" class="metric-strip"><div class="metric-grid"><div class="metric"><b>72h</b><span data-lang-key="metric-delivery">Objetivo de entrega</span></div><div class="metric"><b>Responsive</b><span data-lang-key="metric-responsive">Móvil · tablet · PC</span></div><div class="metric"><b>SEO Ready</b><span data-lang-key="metric-seo">Base técnica inicial</span></div><div class="metric"><b data-lang-key="metric-support-title">Soporte</b><span data-lang-key="metric-support">Revisión incluida</span></div></div></section>
 <!-- Qué incluye tu web por 495 € -->
+
+<!-- V68 · Málaga Live -->
+<section class="malaga-live-mobile" aria-label="Tiempo actual en Málaga">
+  <div class="malaga-live-card" id="malaga-live-mobile-card">
+    <div class="ml-topline">
+      <span class="ml-live-dot"></span>
+      <span class="ml-kicker">MÁLAGA · LIVE</span>
+      <span class="ml-updated" data-weather-updated>--:--</span>
+    </div>
+    <div class="ml-main">
+      <div class="ml-weather-icon" data-weather-icon aria-hidden="true"><span class="sun-core"></span><span class="cloud-piece"></span></div>
+      <div class="ml-temp-wrap">
+        <strong data-weather-temp>--°</strong>
+        <span data-weather-desc>Cargando tiempo…</span>
+      </div>
+    </div>
+    <div class="ml-stats">
+      <div><small>MÁX</small><b data-weather-max>--°</b></div>
+      <div><small>MÍN</small><b data-weather-min>--°</b></div>
+      <div><small>HUM</small><b data-weather-humidity>--%</b></div>
+      <div><small>UV</small><b data-weather-uv>--</b></div>
+    </div>
+    <div class="ml-bottom"><span>Sensación <b data-weather-feels>--°</b></span><span>Viento <b data-weather-wind>-- km/h</b></span></div>
+  </div>
+</section>
+
+<!-- V68 · Málaga Live desktop side panel -->
+<aside class="malaga-live-desktop" aria-label="Tiempo actual en Málaga">
+  <div class="malaga-live-card malaga-live-card-side" id="malaga-live-desktop-card">
+    <div class="ml-topline">
+      <span class="ml-live-dot"></span>
+      <span class="ml-kicker">MÁLAGA · LIVE</span>
+    </div>
+    <div class="ml-main">
+      <div class="ml-weather-icon" data-weather-icon aria-hidden="true"><span class="sun-core"></span><span class="cloud-piece"></span></div>
+      <div class="ml-temp-wrap">
+        <strong data-weather-temp>--°</strong>
+        <span data-weather-desc>Cargando…</span>
+      </div>
+    </div>
+    <div class="ml-stats">
+      <div><small>MÁX</small><b data-weather-max>--°</b></div>
+      <div><small>MÍN</small><b data-weather-min>--°</b></div>
+      <div><small>HUM</small><b data-weather-humidity>--%</b></div>
+      <div><small>UV</small><b data-weather-uv>--</b></div>
+    </div>
+    <div class="ml-bottom"><span>Sens. <b data-weather-feels>--°</b></span><span>Viento <b data-weather-wind>--</b></span></div>
+    <div class="ml-updated-row">Actualizado <span data-weather-updated>--:--</span></div>
+  </div>
+</aside>
+
 <section aria-labelledby="included-title" class="included-section py-20 px-4" id="incluye">
 <div class="container mx-auto section-box">
 <div class="included-shell">
@@ -3179,7 +3340,7 @@ section h2.gradient-text{
 <div class="install-app-wrap">
 <button class="install-app-btn" id="install-app-btn" type="button" aria-label="Añadir YourDesignGPT a este dispositivo">
 <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<span id="install-app-label" data-lang-key="install-label">Añadir YourDesignGPT a tu dispositivo</span>
+<span id="install-app-label" data-lang-key="install-label">Añadir YourDesignGPT a favoritos</span>
 </button>
 </div>
 </div>
@@ -3633,7 +3794,7 @@ section h2.gradient-text{
                 'config-sending': 'Enviando…', 'config-sending-status': 'Enviando tu configuración…', 'config-error': 'No se ha podido enviar ahora mismo. Inténtalo de nuevo en unos segundos o contacta con nosotros por email.',
                 'quality-eyebrow': 'Calidad técnica', 'quality-title': 'Preparada para rendir y medir', 'quality-included': 'Incluido', 'quality-responsive-desc': 'Diseño adaptable a móvil, tablet y escritorio.', 'quality-tech-base': 'Base técnica', 'quality-seo-desc': 'Semántica, metadatos y estructura preparada para indexación.', 'quality-after-publish': 'Tras publicar', 'quality-cwv-desc': 'Se pueden medir y optimizar con datos reales una vez online.', 'quality-https-title': 'Seguridad HTTPS', 'quality-https-desc': 'Certificado HTTPS cuando el alojamiento configurado lo proporciona.',
                 'contact-disabled-desc': 'Formulario temporalmente desactivado mientras terminamos de optimizar el sistema de envío.', 'contact-disabled-help': 'Para solicitar información o presupuesto, utiliza ahora <strong class="text-white">Configura la idea de tu web</strong>.', 'contact-disabled-button': 'Ir al presupuesto guiado',
-                'install-label': 'Añadir YourDesignGPT a tu dispositivo', 'install-modal-title': 'Añadir YourDesignGPT',
+                'install-label': 'Añadir YourDesignGPT a favoritos', 'install-modal-title': 'Guardar YourDesignGPT',
                 'smart-top-text': 'Descubre lo que podemos crear', 'smart-top-button': 'Ver trabajos', 'smart-mid-text': 'Cuéntanos qué necesita tu negocio', 'smart-mid-button': 'Pedir presupuesto', 'smart-bottom-text': '¿Listo para estrenar tu nueva web?', 'smart-bottom-button': 'Quiero mi web',
                 'cookie-banner-text': 'Usamos cookies propias y de terceros para fines técnicos, analíticos y de personalización. Puedes aceptarlas, rechazarlas o configurarlas en cualquier momento. Más información en nuestra <span id="open-cookie-policy" class="text-link">Política de Cookies</span>.',
                 'accept-cookies-button': 'Aceptar',
@@ -3944,7 +4105,7 @@ section h2.gradient-text{
                 'config-sending': 'Sending…', 'config-sending-status': 'Sending your configuration…', 'config-error': 'We could not send it right now. Please try again in a few seconds or contact us by email.',
                 'quality-eyebrow': 'Technical quality', 'quality-title': 'Built to perform and be measured', 'quality-included': 'Included', 'quality-responsive-desc': 'Adaptive design for mobile, tablet and desktop.', 'quality-tech-base': 'Technical base', 'quality-seo-desc': 'Semantics, metadata and structure prepared for indexing.', 'quality-after-publish': 'After launch', 'quality-cwv-desc': 'Can be measured and optimised with real data once the site is online.', 'quality-https-title': 'HTTPS security', 'quality-https-desc': 'HTTPS certificate when provided by the configured hosting.',
                 'contact-disabled-desc': 'This form is temporarily disabled while we finish optimising the sending system.', 'contact-disabled-help': 'For information or a quote, please use <strong class="text-white">Configure your website idea</strong> for now.', 'contact-disabled-button': 'Go to guided quote',
-                'install-label': 'Add YourDesignGPT to your device', 'install-modal-title': 'Add YourDesignGPT',
+                'install-label': 'Add YourDesignGPT to bookmarks', 'install-modal-title': 'Save YourDesignGPT',
                 'smart-top-text': 'Discover what we can create', 'smart-top-button': 'View work', 'smart-mid-text': 'Tell us what your business needs', 'smart-mid-button': 'Request a quote', 'smart-bottom-text': 'Ready to launch your new website?', 'smart-bottom-button': 'I want my website',
                 'cookie-banner-text': 'We use our own and third-party cookies for technical, analytical, and personalization purposes. You can accept, reject, or configure them at any time. More information in our <span id="open-cookie-policy" class="text-link">Cookie Policy</span>.',
                 'accept-cookies-button': 'Accept',
@@ -4335,54 +4496,36 @@ try{
 
 
 
+
 <script>
 (function(){
-  const installBtn = document.getElementById('install-app-btn');
-  const installLabel = document.getElementById('install-app-label');
+  const btn = document.getElementById('install-app-btn');
+  const label = document.getElementById('install-app-label');
   const modal = document.getElementById('install-modal');
   const modalContent = document.getElementById('install-modal-content');
   const modalClose = document.getElementById('install-modal-close');
-  if(!installBtn || !installLabel) return;
+  if(!btn || !label) return;
 
-  let deferredPrompt = null;
   const ua = navigator.userAgent || '';
   const lang = () => (document.documentElement.lang || 'es').toLowerCase();
   const isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const isAndroid = /android/i.test(ua);
-  const isMac = /mac/i.test(navigator.platform || '');
-  const isSafari = /^((?!chrome|android|crios|fxios|edgios).)*safari/i.test(ua);
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const isMac = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || '') || /Mac OS X/i.test(ua);
+  const isMobile = isIOS || isAndroid || /mobile/i.test(ua);
 
-  function t(es, en){ return lang().startsWith('en') ? en : es; }
+  const isChrome = /Chrome|CriOS/i.test(ua) && !/Edg|OPR|SamsungBrowser/i.test(ua);
+  const isEdge = /Edg|EdgiOS|EdgA/i.test(ua);
+  const isFirefox = /Firefox|FxiOS/i.test(ua);
+  const isSamsung = /SamsungBrowser/i.test(ua);
+  const isSafari = /Safari/i.test(ua) && !/Chrome|CriOS|Edg|FxiOS|OPR|SamsungBrowser/i.test(ua);
 
-  function setLabel(){
-    if(isStandalone){
-      installLabel.textContent = t('YourDesignGPT ya está añadido', 'YourDesignGPT is already added');
-      installBtn.classList.add('is-installed');
-      installBtn.disabled = true;
-      return;
-    }
-    installBtn.disabled = false;
-    installBtn.classList.remove('is-installed');
-
-    if(deferredPrompt){
-      installLabel.textContent = t('Instalar YourDesignGPT', 'Install YourDesignGPT');
-      return;
-    }
-    if(isIOS && isSafari){
-      installLabel.textContent = t('Añadir a pantalla de inicio', 'Add to Home Screen');
-      return;
-    }
-    if(isIOS && !isSafari){
-      installLabel.textContent = t('Abrir en Safari para instalar', 'Open in Safari to install');
-      return;
-    }
-    installLabel.textContent = t('Añadir al dispositivo / favorito', 'Add to device / bookmark');
+  function t(es,en){
+    return lang().startsWith('en') ? en : es;
   }
 
-  function openModal(contentHtml){
+  function openModal(content){
     if(!modal || !modalContent) return;
-    modalContent.innerHTML = contentHtml;
+    modalContent.innerHTML = content;
     modal.classList.add('is-visible');
     modal.setAttribute('aria-hidden','false');
     modalClose && modalClose.focus();
@@ -4392,86 +4535,113 @@ try{
     if(!modal) return;
     modal.classList.remove('is-visible');
     modal.setAttribute('aria-hidden','true');
-    installBtn.focus();
+    btn.focus();
   }
 
   modalClose && modalClose.addEventListener('click', closeModal);
-  modal && modal.addEventListener('click', function(e){
+  modal && modal.addEventListener('click', e => {
     if(e.target === modal) closeModal();
   });
-  document.addEventListener('keydown', function(e){
+  document.addEventListener('keydown', e => {
     if(e.key === 'Escape' && modal && modal.classList.contains('is-visible')) closeModal();
   });
 
-  function desktopHelp(){
+  function desktopMessage(){
     const shortcut = isMac ? '⌘ + D' : 'Ctrl + D';
     return t(
-      '<p>En este navegador no se puede abrir la instalación automática directamente.</p><ol class="install-modal-steps"><li>Si tu navegador muestra opción de instalación, abre el menú <strong>⋮ / …</strong> y busca <strong>Instalar aplicación</strong>, <strong>Install app</strong> o <strong>Crear acceso directo</strong>.</li><li>Si solo quieres guardarla rápido, pulsa <strong>'+ shortcut +'</strong> para añadirla a favoritos.</li><li>En Chrome / Edge, cuando la web cumpla los requisitos y tenga interacción suficiente, aparecerá la instalación nativa.</li></ol><p class="install-modal-note">Consejo: después de subir todos los archivos a GitHub Pages, recarga la web una vez para que el navegador detecte manifest y service worker.</p>',
-      '<p>Your browser cannot open the install prompt directly right now.</p><ol class="install-modal-steps"><li>If your browser supports app installation, open the <strong>⋮ / …</strong> menu and look for <strong>Install app</strong> or <strong>Create shortcut</strong>.</li><li>If you only want quick access, press <strong>'+ shortcut +'</strong> to bookmark it.</li><li>In Chrome / Edge, the native install prompt appears when the site meets PWA requirements and has enough engagement.</li></ol><p class="install-modal-note">Tip: after uploading all files to GitHub Pages, reload once so the browser detects the manifest and service worker.</p>'
+      `<div class="bookmark-native-help">
+        <p>Para abrir la ventana de <strong>marcadores/favoritos</strong> del navegador:</p>
+        <div class="bookmark-shortcut">${shortcut}</div>
+        <p class="install-modal-note">Por seguridad, los navegadores no permiten que una página web pulse este atajo por ti. Al usarlo se abre la ventana nativa de favoritos.</p>
+      </div>`,
+      `<div class="bookmark-native-help">
+        <p>To open your browser’s native <strong>bookmark/favorites</strong> window:</p>
+        <div class="bookmark-shortcut">${shortcut}</div>
+        <p class="install-modal-note">For security reasons, browsers do not allow a webpage to trigger this shortcut for you. Using it opens the native bookmark dialog.</p>
+      </div>`
     );
   }
 
-  function iOSSafariHelp(){
-    return t(
-      '<p>En iPhone o iPad, Apple no permite abrir la ventana de instalación automáticamente.</p><ol class="install-modal-steps"><li>Pulsa el botón <strong>Compartir</strong> de Safari.</li><li>Desliza hacia abajo y toca <strong>Añadir a pantalla de inicio</strong>.</li><li>Confirma con <strong>Añadir</strong>.</li></ol><p class="install-modal-note">Así tendrás YourDesignGPT como app en la pantalla de inicio.</p>',
-      '<p>On iPhone or iPad, Apple does not allow the install window to open automatically.</p><ol class="install-modal-steps"><li>Tap Safari’s <strong>Share</strong> button.</li><li>Scroll down and tap <strong>Add to Home Screen</strong>.</li><li>Confirm with <strong>Add</strong>.</li></ol><p class="install-modal-note">That will place YourDesignGPT on your Home Screen like an app.</p>'
-    );
-  }
-
-  function iOSNotSafariHelp(){
-    return t(
-      '<p>En iPhone o iPad, la instalación a pantalla de inicio funciona mejor desde <strong>Safari</strong>.</p><ol class="install-modal-steps"><li>Abre esta web en <strong>Safari</strong>.</li><li>Pulsa <strong>Compartir</strong>.</li><li>Selecciona <strong>Añadir a pantalla de inicio</strong>.</li></ol><p class="install-modal-note">En otros navegadores de iPhone esta opción puede no estar disponible o ser menos estable.</p>',
-      '<p>On iPhone or iPad, Home Screen installation works best in <strong>Safari</strong>.</p><ol class="install-modal-steps"><li>Open this website in <strong>Safari</strong>.</li><li>Tap <strong>Share</strong>.</li><li>Select <strong>Add to Home Screen</strong>.</li></ol><p class="install-modal-note">On other iPhone browsers, this option may not be available or may be less reliable.</p>'
-    );
-  }
-
-  window.addEventListener('beforeinstallprompt', function(e){
-    e.preventDefault();
-    deferredPrompt = e;
-    setLabel();
-  });
-
-  window.addEventListener('appinstalled', function(){
-    deferredPrompt = null;
-    setLabel();
-  });
-
-  installBtn.addEventListener('click', async function(){
-    if(isStandalone) return;
-
-    if(deferredPrompt){
-      try{
-        deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-      }catch(err){}
-      return;
-    }
-
+  function mobileInstructions(){
     if(isIOS && isSafari){
-      openModal(iOSSafariHelp());
-      return;
+      return t(
+        '<p>En Safari: pulsa <strong>Compartir</strong> y selecciona <strong>Añadir marcador</strong>.</p>',
+        '<p>In Safari: tap <strong>Share</strong> and select <strong>Add Bookmark</strong>.</p>'
+      );
     }
-
-    if(isIOS && !isSafari){
-      openModal(iOSNotSafariHelp());
-      return;
+    if(isChrome){
+      return t(
+        '<p>En Chrome: abre el menú <strong>⋮</strong> y toca la <strong>estrella / Añadir a marcadores</strong>.</p>',
+        '<p>In Chrome: open the <strong>⋮</strong> menu and tap the <strong>star / Add to bookmarks</strong>.</p>'
+      );
     }
+    if(isFirefox){
+      return t(
+        '<p>En Firefox: abre el menú del navegador y selecciona <strong>Marcadores</strong> o la <strong>estrella</strong>.</p>',
+        '<p>In Firefox: open the browser menu and choose <strong>Bookmarks</strong> or the <strong>star</strong>.</p>'
+      );
+    }
+    if(isEdge){
+      return t(
+        '<p>En Edge: abre el menú y selecciona <strong>Favoritos</strong> para guardar esta página.</p>',
+        '<p>In Edge: open the menu and select <strong>Favorites</strong> to save this page.</p>'
+      );
+    }
+    if(isSamsung){
+      return t(
+        '<p>En Samsung Internet: abre el menú y toca <strong>Añadir página a → Marcadores</strong>.</p>',
+        '<p>In Samsung Internet: open the menu and tap <strong>Add page to → Bookmarks</strong>.</p>'
+      );
+    }
+    return t(
+      '<p>Abre el menú de tu navegador y busca <strong>Marcadores</strong>, <strong>Favoritos</strong> o el icono de <strong>estrella</strong>.</p>',
+      '<p>Open your browser menu and look for <strong>Bookmarks</strong>, <strong>Favorites</strong>, or the <strong>star</strong> icon.</p>'
+    );
+  }
 
-    openModal(desktopHelp());
+  async function handleMobile(){
+    // The Web Share sheet is the closest native UI a webpage can open on mobile.
+    if(navigator.share){
+      try{
+        await navigator.share({
+          title: document.title || 'YourDesignGPT',
+          text: t('Guardar YourDesignGPT', 'Save YourDesignGPT'),
+          url: location.href
+        });
+        return;
+      }catch(err){
+        // User cancellation or unsupported share target -> fall back to instructions.
+      }
+    }
+    openModal(
+      mobileInstructions() +
+      t(
+        '<p class="install-modal-note">Los navegadores móviles no permiten que una web cree un marcador automáticamente sin tu confirmación.</p>',
+        '<p class="install-modal-note">Mobile browsers do not allow a website to create a bookmark automatically without your confirmation.</p>'
+      )
+    );
+  }
+
+  btn.addEventListener('click', async function(){
+    if(isMobile){
+      await handleMobile();
+    }else{
+      openModal(desktopMessage());
+    }
   });
 
-  setLabel();
-
+  // Keep SW registration alive for the rest of the site/PWA behavior.
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=66', { updateViaCache: 'none' });
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=68', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
   }
 })();
 </script>
+
 
 
 
@@ -4760,6 +4930,87 @@ try{
 })();
 </script>
 
+
+
+<script>
+(function(){
+  const LAT=36.7213;
+  const LON=-4.4214;
+  const API=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day&daily=temperature_2m_max,temperature_2m_min,uv_index_max&timezone=Europe%2FMadrid&forecast_days=1`;
+
+  const qsa=(s)=>Array.from(document.querySelectorAll(s));
+  const setAll=(s,v)=>qsa(s).forEach(el=>el.textContent=v);
+
+  function weatherInfo(code,isDay){
+    const night=!isDay;
+    if(code===0) return {desc:night?'Despejado':'Soleado',cls:night?'is-night':''};
+    if([1,2].includes(code)) return {desc:night?'Poco nuboso':'Poco nuboso',cls:night?'is-night is-cloud':'is-cloud'};
+    if(code===3) return {desc:'Nublado',cls:'is-cloud'};
+    if([45,48].includes(code)) return {desc:'Niebla',cls:'is-cloud'};
+    if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code)) return {desc:'Lluvia',cls:'is-rain'};
+    if([71,73,75,77,85,86].includes(code)) return {desc:'Nieve',cls:'is-cloud'};
+    if([95,96,99].includes(code)) return {desc:'Tormenta',cls:'is-storm'};
+    return {desc:'Tiempo variable',cls:'is-cloud'};
+  }
+
+  function uvLabel(v){
+    if(v==null||Number.isNaN(v)) return '--';
+    const n=Math.round(v*10)/10;
+    if(n<3) return `${n} Bajo`;
+    if(n<6) return `${n} Medio`;
+    if(n<8) return `${n} Alto`;
+    if(n<11) return `${n} Muy alto`;
+    return `${n} Extremo`;
+  }
+
+  function apply(data){
+    if(!data || !data.current || !data.daily) throw new Error('Weather payload incompleto');
+    const c=data.current;
+    const d=data.daily;
+    const info=weatherInfo(Number(c.weather_code),Number(c.is_day)===1);
+
+    setAll('[data-weather-temp]',`${Math.round(c.temperature_2m)}°`);
+    setAll('[data-weather-desc]',info.desc);
+    setAll('[data-weather-max]',`${Math.round(d.temperature_2m_max[0])}°`);
+    setAll('[data-weather-min]',`${Math.round(d.temperature_2m_min[0])}°`);
+    setAll('[data-weather-humidity]',`${Math.round(c.relative_humidity_2m)}%`);
+    setAll('[data-weather-uv]',uvLabel(Number(d.uv_index_max[0])));
+    setAll('[data-weather-feels]',`${Math.round(c.apparent_temperature)}°`);
+    setAll('[data-weather-wind]',`${Math.round(c.wind_speed_10m)} km/h`);
+
+    qsa('[data-weather-icon]').forEach(el=>{
+      el.className='ml-weather-icon';
+      info.cls.split(' ').filter(Boolean).forEach(c=>el.classList.add(c));
+    });
+
+    const now=new Date();
+    const time=now.toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Madrid'});
+    setAll('[data-weather-updated]',time);
+  }
+
+  function fail(){
+    setAll('[data-weather-desc]','Datos no disponibles');
+    setAll('[data-weather-updated]','offline');
+  }
+
+  async function loadWeather(){
+    try{
+      const controller=new AbortController();
+      const timer=setTimeout(()=>controller.abort(),7000);
+      const res=await fetch(API,{cache:'no-store',signal:controller.signal});
+      clearTimeout(timer);
+      if(!res.ok) throw new Error(`Weather HTTP ${res.status}`);
+      const data=await res.json();
+      apply(data);
+    }catch(err){
+      fail();
+    }
+  }
+
+  loadWeather();
+  setInterval(loadWeather,15*60*1000);
+})();
+</script>
 
 </body>
 </html>
