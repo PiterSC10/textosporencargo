@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=75" rel="manifest"/>
+<link href="site.webmanifest?v=77" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -3468,12 +3468,112 @@ section h2.gradient-text{
   }
 }
 
+
+/* V77 · Weather mobile after intro + narrower + subtle */
+@keyframes weatherRefreshPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.0),0 0 12px rgba(34,197,94,.18),inset 0 0 10px rgba(255,255,255,.05);transform:scale(1)}
+  50%{box-shadow:0 0 0 6px rgba(34,197,94,.0),0 0 18px rgba(34,197,94,.34),0 0 28px rgba(16,185,129,.16),inset 0 0 12px rgba(255,255,255,.08);transform:scale(1.05)}
+}
+@keyframes weatherSunSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes weatherSunPulse{0%,100%{filter:brightness(1);opacity:.96}50%{filter:brightness(1.12);opacity:1}}
+@keyframes weatherCloudFloat{0%,100%{transform:translateX(0)}50%{transform:translateX(2px)}}
+@keyframes weatherRainBlink{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes weatherStormPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+
+.header-weather-icon .sun-core{
+  animation:weatherSunPulse 3.2s ease-in-out infinite,weatherSunSpin 22s linear infinite;
+  transform-origin:center center;
+}
+.header-weather-icon .cloud-piece{animation:weatherCloudFloat 4s ease-in-out infinite}
+.header-weather-icon.is-rain::after{animation:weatherRainBlink 1.15s ease-in-out infinite}
+.header-weather-icon.is-storm::after{animation:weatherStormPulse .9s ease-in-out infinite}
+
+/* V76 · panel meteorológico móvil siempre visible fuera del menú */
+@media(max-width:1023px){
+  body > .header-weather{
+    position:fixed!important;
+    left:6px!important;
+    top:58%!important;
+    z-index:60!important;
+    width:132px!important;
+    max-width:calc(100vw - 18px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(-50%) translateX(-10px) scale(.96)!important;
+    transition:opacity .38s ease,transform .38s ease,visibility .38s ease;
+  }
+
+  body.weather-widget-ready > .header-weather{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(-50%) translateX(0) scale(1)!important;
+  }
+
+  body > .header-weather .header-weather-main{
+    left:44px;
+    right:34px;
+    top:8px;
+  }
+
+  body > .header-weather .header-weather-temp{
+    font-size:.92rem;
+  }
+
+  body > .header-weather .header-weather-desc{
+    max-width:58px;
+    font-size:.54rem;
+  }
+
+  body > .header-weather .header-weather-icon{
+    width:22px!important;
+    height:22px!important;
+    margin-left:11px;
+    margin-top:1px;
+  }
+
+  body > .header-weather .header-weather-refresh{
+    right:7px;
+    top:8px;
+    width:22px!important;
+    height:22px!important;
+    border-color:rgba(74,222,128,.42)!important;
+    background:radial-gradient(circle at 30% 30%,rgba(74,222,128,.96),rgba(5,150,105,.88))!important;
+    color:#f0fdf4!important;
+    box-shadow:0 0 12px rgba(34,197,94,.24), inset 0 0 10px rgba(255,255,255,.06)!important;
+    animation:weatherRefreshPulse 1.8s ease-in-out infinite;
+  }
+
+  body > .header-weather .header-weather-refresh.is-loading{
+    animation:mlRefreshSpin .85s linear infinite!important;
+  }
+
+  body > .header-weather .header-weather-stats{
+    margin-top:31px;
+    gap:4px!important;
+  }
+
+  body > .header-weather .header-weather-chip{
+    padding:5px 6px!important;
+  }
+
+  body > .header-weather .header-weather-chip small{
+    font-size:.40rem!important;
+  }
+
+  body > .header-weather .header-weather-chip b{
+    font-size:.62rem!important;
+  }
+}
+
+
 /* Pantallas móviles muy pequeñas */
 @media(max-width:390px){
-  .header-weather{
-    left:5px!important;
-    width:148px!important;
-    padding:8px!important;
+  body > .header-weather{
+    left:4px!important;
+    width:124px!important;
+    padding:7px!important;
   }
 }
 
@@ -3575,6 +3675,7 @@ section h2.gradient-text{
 </div>
 <div class="mt-4 lg:mt-0 flex items-center">
 
+<span id="header-weather-desktop-anchor" aria-hidden="true"></span>
 <div class="header-weather" id="header-weather" aria-label="Tiempo actual en Málaga">
   <span class="header-weather-live"></span>
   <span class="header-weather-icon" data-weather-icon aria-hidden="true">
@@ -5107,12 +5208,19 @@ section h2.gradient-text{
             } catch (e) {}
         }
 
+        function revealWeatherWidget() {
+            try {
+                if (document.body) document.body.classList.add('weather-widget-ready');
+            } catch (e) {}
+        }
+
         function closeIntro() {
             if (introClosed) return;
             introClosed = true;
             try { if (intro) intro.classList.add('fx-hide'); } catch (e) {}
             unlockPage();
             try { window.setTimeout(activateHero, 100); } catch(e) { activateHero(); }
+            try { window.setTimeout(revealWeatherWidget, 210); } catch(e) { revealWeatherWidget(); }
             try {
                 window.setTimeout(() => {
                     try { if (intro && intro.parentNode) intro.parentNode.removeChild(intro); } catch (e) {}
@@ -5137,11 +5245,13 @@ section h2.gradient-text{
             window.setTimeout(() => {
                 unlockPage();
                 activateHero();
+                revealWeatherWidget();
                 try { if (intro) { intro.style.display='none'; intro.style.pointerEvents='none'; } } catch(e) {}
             }, 5200);
         } else {
             unlockPage();
             window.setTimeout(activateHero, 80);
+            window.setTimeout(revealWeatherWidget, 120);
         }
 
         const selectors = [
@@ -5417,7 +5527,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=75', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=77', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -5828,6 +5938,32 @@ try{
   // El botón ↻ sigue permitiendo una actualización inmediata.
   loadWeather(false);
   setInterval(()=>loadWeather(false),30*60*1000);
+})();
+</script>
+
+<script>
+(function(){
+  const panel = document.getElementById('header-weather');
+  const desktopAnchor = document.getElementById('header-weather-desktop-anchor');
+  if(!panel || !desktopAnchor) return;
+
+  function placeWeatherPanel(){
+    const mobile = window.matchMedia('(max-width: 1023px)').matches;
+
+    if(mobile){
+      if(panel.parentElement !== document.body){
+        document.body.appendChild(panel);
+      }
+    }else{
+      if(panel.parentElement !== desktopAnchor.parentElement || panel.previousElementSibling !== desktopAnchor){
+        desktopAnchor.parentElement.insertBefore(panel, desktopAnchor.nextSibling);
+      }
+    }
+  }
+
+  placeWeatherPanel();
+  window.addEventListener('resize', placeWeatherPanel, {passive:true});
+  window.addEventListener('orientationchange', placeWeatherPanel);
 })();
 </script>
 
