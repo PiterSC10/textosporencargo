@@ -1,7 +1,7 @@
-const CACHE_NAME = 'ydg-static-v65-flags-crossplatform';
+const CACHE_NAME = 'ydg-static-v66-side-nodes-premium';
 const CORE_ASSETS = [
   './index.html',
-  './site.webmanifest?v=65',
+  './site.webmanifest?v=66',
   './android-chrome-192x192.png',
   './android-chrome-512x512.png',
   './apple-touch-icon.png',

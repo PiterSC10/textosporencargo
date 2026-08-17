@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=65" rel="manifest"/>
+<link href="site.webmanifest?v=66" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -2417,6 +2417,154 @@ section h2.gradient-text{
   .lang-flag{width:26px;height:17px}
 }
 
+
+/* ===== V66 · Nodos premium laterales (solo PC) ===== */
+.ydg-side-ornaments{display:none}
+@media (min-width:1280px){
+  .ydg-side-ornaments{
+    display:block;
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:22;
+  }
+  .ydg-side{
+    position:absolute;
+    top:96px;
+    bottom:28px;
+    width:58px;
+    opacity:.96;
+    filter:drop-shadow(0 0 16px rgba(56,189,248,.08));
+  }
+  .ydg-side-left{left:12px}
+  .ydg-side-right{right:12px}
+  .ydg-side::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:28px;
+    background:linear-gradient(180deg,rgba(8,15,28,.14),rgba(8,15,28,.04) 18%,rgba(8,15,28,.06) 82%,rgba(8,15,28,.14));
+    border:1px solid rgba(255,255,255,.035);
+    box-shadow:inset 0 0 26px rgba(45,212,191,.03), inset 0 0 40px rgba(59,130,246,.03);
+  }
+  .ydg-side .side-line{
+    position:absolute;
+    left:50%;
+    top:22px;
+    bottom:22px;
+    width:2px;
+    transform:translateX(-50%);
+    border-radius:999px;
+    background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(56,189,248,.70) 18%,rgba(45,212,191,.78) 50%,rgba(129,140,248,.70) 82%,rgba(255,255,255,.04));
+    box-shadow:0 0 10px rgba(56,189,248,.22),0 0 18px rgba(45,212,191,.12);
+    overflow:hidden;
+  }
+  .ydg-side .side-line::after{
+    content:"";
+    position:absolute;
+    left:-3px;
+    top:-18%;
+    width:8px;
+    height:16%;
+    border-radius:999px;
+    background:linear-gradient(180deg,rgba(255,255,255,.0),rgba(255,255,255,.95),rgba(255,255,255,.0));
+    filter:blur(.2px);
+    animation:ydgDataDrop 4.8s linear infinite;
+  }
+  .ydg-side-right .side-line::after{animation-delay:1.1s}
+  .ydg-side .node{
+    position:absolute;
+    left:50%;
+    width:10px;
+    height:10px;
+    transform:translate(-50%,-50%);
+    border-radius:999px;
+    background:radial-gradient(circle at 35% 35%,#ffffff 0%,#c4f6ff 30%,#38bdf8 58%,rgba(56,189,248,.2) 82%,transparent 100%);
+    box-shadow:0 0 0 4px rgba(56,189,248,.06),0 0 16px rgba(56,189,248,.30),0 0 28px rgba(45,212,191,.14);
+    animation:ydgNodePulse 3.2s ease-in-out infinite;
+  }
+  .ydg-side .node::after{
+    content:"";
+    position:absolute;
+    inset:-7px;
+    border-radius:999px;
+    border:1px solid rgba(186,230,253,.14);
+    animation:ydgNodeRing 3.2s ease-out infinite;
+  }
+  .ydg-side .node-1{top:16%}
+  .ydg-side .node-2{top:36%; animation-delay:.5s}
+  .ydg-side .node-2::after{animation-delay:.5s}
+  .ydg-side .node-3{top:61%; animation-delay:1s}
+  .ydg-side .node-3::after{animation-delay:1s}
+  .ydg-side .node-4{top:82%; animation-delay:1.5s}
+  .ydg-side .node-4::after{animation-delay:1.5s}
+
+  .ydg-side .pulse{
+    position:absolute;
+    left:50%;
+    width:18px;
+    height:18px;
+    transform:translateX(-50%);
+    border-radius:999px;
+    border:1px solid rgba(45,212,191,.2);
+    background:radial-gradient(circle,rgba(45,212,191,.16),rgba(45,212,191,0) 72%);
+    filter:blur(.1px);
+    animation:ydgPulseTravel 7s linear infinite;
+    opacity:.65;
+  }
+  .ydg-side .pulse-1{animation-delay:0s}
+  .ydg-side .pulse-2{animation-delay:2.1s}
+  .ydg-side .pulse-3{animation-delay:4.3s}
+
+  .ydg-side .spark{
+    position:absolute;
+    font-size:.55rem;
+    font-weight:800;
+    letter-spacing:.18em;
+    color:rgba(186,230,253,.45);
+    text-transform:uppercase;
+    text-shadow:0 0 10px rgba(56,189,248,.18);
+    animation:ydgSparkFloat 5.8s ease-in-out infinite;
+    white-space:nowrap;
+  }
+  .ydg-side-left .spark{left:8px}
+  .ydg-side-right .spark{right:8px;text-align:right}
+  .ydg-side .spark-1{top:26%}
+  .ydg-side .spark-2{top:68%;animation-delay:1.7s}
+
+  @keyframes ydgDataDrop{
+    0%{transform:translateY(0);opacity:0}
+    8%{opacity:1}
+    92%{opacity:1}
+    100%{transform:translateY(760%);opacity:0}
+  }
+  @keyframes ydgNodePulse{
+    0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.92}
+    50%{transform:translate(-50%,-50%) scale(1.16);opacity:1}
+  }
+  @keyframes ydgNodeRing{
+    0%{transform:scale(.72);opacity:.6}
+    75%{transform:scale(1.65);opacity:0}
+    100%{transform:scale(1.65);opacity:0}
+  }
+  @keyframes ydgPulseTravel{
+    0%{top:6%;opacity:0;transform:translateX(-50%) scale(.55)}
+    10%{opacity:.72}
+    85%{opacity:.58}
+    100%{top:90%;opacity:0;transform:translateX(-50%) scale(1.14)}
+  }
+  @keyframes ydgSparkFloat{
+    0%,100%{transform:translateY(0);opacity:.38}
+    50%{transform:translateY(-8px);opacity:.68}
+  }
+}
+/* En pantallas muy anchas, abrimos un poco más los laterales */
+@media (min-width:1600px){
+  .ydg-side-left{left:18px}
+  .ydg-side-right{right:18px}
+  .ydg-side{width:64px}
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -2433,6 +2581,35 @@ section h2.gradient-text{
     </script>
 </head>
 <body class="antialiased">
+
+<!-- V66 · Side premium nodes ornament (desktop only) -->
+<div class="ydg-side-ornaments" aria-hidden="true">
+  <div class="ydg-side ydg-side-left">
+    <span class="side-line"></span>
+    <span class="node node-1"></span>
+    <span class="node node-2"></span>
+    <span class="node node-3"></span>
+    <span class="node node-4"></span>
+    <span class="pulse pulse-1"></span>
+    <span class="pulse pulse-2"></span>
+    <span class="pulse pulse-3"></span>
+    <span class="spark spark-1">&lt;/&gt;</span>
+    <span class="spark spark-2">{ }</span>
+  </div>
+  <div class="ydg-side ydg-side-right">
+    <span class="side-line"></span>
+    <span class="node node-1"></span>
+    <span class="node node-2"></span>
+    <span class="node node-3"></span>
+    <span class="node node-4"></span>
+    <span class="pulse pulse-1"></span>
+    <span class="pulse pulse-2"></span>
+    <span class="pulse pulse-3"></span>
+    <span class="spark spark-1">HTML</span>
+    <span class="spark spark-2">CSS</span>
+  </div>
+</div>
+
 <div class="ydg-scroll-progress" id="ydg-scroll-progress" aria-hidden="true"><i></i><span id="ydg-scroll-percent">0%</span></div>
 <!-- Premium entrance FX -->
 <div aria-hidden="true" id="fx-intro">
@@ -4288,7 +4465,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=65', { updateViaCache: 'none' });
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=66', { updateViaCache: 'none' });
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
