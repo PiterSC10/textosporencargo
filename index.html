@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=71" rel="manifest"/>
+<link href="site.webmanifest?v=73" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -3023,6 +3023,232 @@ section h2.gradient-text{
   .ml-refresh-btn::after{animation:none!important}
 }
 
+
+/* ===== V72 · Málaga Live integrado en la cabecera ===== */
+.nav-first-link{
+  margin-left:18px!important;
+}
+
+.header-weather{
+  display:none;
+}
+
+@media(min-width:1024px){
+  .header-weather{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    height:32px;
+    margin-left:14px;
+    margin-right:10px;
+    padding:4px 8px 4px 7px;
+    border-radius:999px;
+    border:1px solid rgba(56,189,248,.18);
+    background:
+      radial-gradient(circle at 15% 50%,rgba(45,212,191,.08),transparent 36%),
+      linear-gradient(180deg,rgba(15,23,42,.78),rgba(7,11,16,.92));
+    box-shadow:
+      0 0 14px rgba(56,189,248,.06),
+      inset 0 0 12px rgba(45,212,191,.02);
+    backdrop-filter:blur(10px);
+    white-space:nowrap;
+  }
+
+  .header-weather-live{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 8px rgba(34,197,94,.55);
+    flex:none;
+  }
+
+  .header-weather-icon{
+    position:relative;
+    width:20px;
+    height:20px;
+    flex:none;
+    filter:drop-shadow(0 0 6px rgba(250,204,21,.14));
+  }
+
+  .header-weather-icon .sun-core{
+    position:absolute;
+    left:3px;
+    top:3px;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 32%,#fff7b2 0%,#fde047 35%,#f59e0b 72%,#f97316 100%);
+    box-shadow:0 0 8px rgba(250,204,21,.26);
+  }
+
+  .header-weather-icon .sun-core::before,
+  .header-weather-icon .sun-core::after{
+    display:none!important;
+  }
+
+  .header-weather-icon .cloud-piece{
+    display:none;
+    position:absolute;
+    right:-1px;
+    bottom:2px;
+    width:14px;
+    height:6px;
+    border-radius:999px;
+    background:linear-gradient(180deg,#f8fafc,#cbd5e1);
+    box-shadow:-4px -2px 0 -1px #e2e8f0;
+  }
+
+  .header-weather-icon.is-cloud .cloud-piece,
+  .header-weather-icon.is-rain .cloud-piece,
+  .header-weather-icon.is-storm .cloud-piece{
+    display:block;
+  }
+
+  .header-weather-icon.is-cloud .sun-core{
+    transform:scale(.78);
+    left:1px;
+    top:1px;
+    opacity:.75;
+  }
+
+  .header-weather-icon.is-rain .sun-core,
+  .header-weather-icon.is-storm .sun-core{
+    display:none;
+  }
+
+  .header-weather-icon.is-rain::after{
+    content:"··";
+    position:absolute;
+    left:4px;
+    top:10px;
+    color:#38bdf8;
+    font-size:.78rem;
+    letter-spacing:2px;
+    transform:rotate(15deg);
+  }
+
+  .header-weather-icon.is-storm::after{
+    content:"ϟ";
+    position:absolute;
+    left:7px;
+    top:7px;
+    color:#facc15;
+    font-size:.8rem;
+    font-weight:900;
+  }
+
+  .header-weather-icon.is-night .sun-core{
+    background:radial-gradient(circle at 35% 32%,#fff 0%,#dbeafe 45%,#93c5fd 100%);
+    box-shadow:0 0 7px rgba(147,197,253,.25);
+  }
+
+  .header-weather-icon.is-night .sun-core::before{
+    content:"";
+    display:block!important;
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    right:-2px;
+    top:-2px;
+    background:#0b1220;
+  }
+
+  .header-weather-temp{
+    color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.78rem;
+    font-weight:900;
+    letter-spacing:-.03em;
+  }
+
+  .header-weather-desc{
+    max-width:82px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color:#94a3b8;
+    font-size:.58rem;
+    font-weight:700;
+  }
+
+  .header-weather-refresh{
+    width:22px;
+    height:22px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    border:1px solid rgba(56,189,248,.26);
+    background:rgba(7,11,16,.70);
+    color:#7dd3fc;
+    font-size:.82rem;
+    font-weight:900;
+    line-height:1;
+    cursor:pointer;
+    box-shadow:0 0 9px rgba(56,189,248,.10);
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,color .2s ease;
+  }
+
+  .header-weather-refresh:hover,
+  .header-weather-refresh:focus-visible{
+    transform:scale(1.06);
+    color:#e0f2fe;
+    border-color:rgba(45,212,191,.56);
+    box-shadow:0 0 14px rgba(45,212,191,.18),0 0 22px rgba(59,130,246,.08);
+    outline:none;
+  }
+
+  .header-weather-refresh.is-loading{
+    animation:mlRefreshSpin .85s linear infinite;
+    pointer-events:none;
+  }
+}
+
+/* Cabecera más compacta en portátiles */
+@media(min-width:1024px) and (max-width:1230px){
+  .header-weather{
+    margin-left:8px;
+    margin-right:6px;
+    gap:5px;
+    padding-left:6px;
+    padding-right:6px;
+  }
+  .header-weather-desc{display:none}
+  .nav-first-link{margin-left:12px!important}
+}
+
+/* En móvil/tablet el tiempo queda dentro del menú desplegable para no romper la cabecera */
+@media(max-width:1023px){
+  .header-weather{
+    display:flex;
+    width:fit-content;
+    align-items:center;
+    gap:7px;
+    margin:14px 0 2px;
+    padding:7px 9px;
+    border-radius:999px;
+    border:1px solid rgba(56,189,248,.16);
+    background:rgba(15,23,42,.76);
+  }
+  .header-weather-live{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.45)}
+  .header-weather-icon{display:none}
+  .header-weather-temp{font-weight:900;color:#fff}
+  .header-weather-desc{font-size:.7rem;color:#94a3b8}
+  .header-weather-refresh{
+    width:25px;height:25px;border-radius:50%;
+    border:1px solid rgba(56,189,248,.24);
+    background:#0b1220;color:#7dd3fc;
+  }
+  .nav-first-link{margin-left:0!important}
+}
+
+/* Desactivar definitivamente los módulos meteorológicos antiguos */
+.malaga-live-mobile,
+.malaga-live-pc-horizontal,
+.malaga-live-desktop{
+  display:none!important;
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -3104,7 +3330,7 @@ section h2.gradient-text{
 </div>
 <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="nav-content">
 <div class="text-sm lg:flex-grow mt-4 lg:mt-0 lg:ml-auto"> <!-- Añadido lg:ml-auto para empujar a la derecha -->
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-services" href="#incluye">Servicios</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link nav-first-link" data-lang-key="nav-services" href="#incluye">Servicios</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-portfolio" href="#portfolio">Proyectos</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-how-it-works" href="#como-funciona">Cómo Funciona</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-reviews" href="#opiniones">Reseñas</a>
@@ -3113,6 +3339,17 @@ section h2.gradient-text{
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" data-lang-key="nav-contact" href="#contacto">Contacto</a>
 </div>
 <div class="mt-4 lg:mt-0 flex items-center">
+
+<div class="header-weather" id="header-weather" aria-label="Tiempo actual en Málaga">
+  <span class="header-weather-live"></span>
+  <span class="header-weather-icon" data-weather-icon aria-hidden="true">
+    <span class="sun-core"></span><span class="cloud-piece"></span>
+  </span>
+  <span class="header-weather-temp" data-weather-temp>--°</span>
+  <span class="header-weather-desc" data-weather-desc>Cargando…</span>
+  <button class="header-weather-refresh" type="button" data-weather-refresh aria-label="Actualizar tiempo" title="Actualizar tiempo">↻</button>
+</div>
+
 <button class="lang-flag-btn text-gray-400 font-bold hover:text-white flex items-center" id="lang-es" type="button" aria-label="Cambiar idioma a español" title="Español">
 <svg class="lang-flag" viewBox="0 0 30 20" role="img" aria-label="Bandera de España" focusable="false">
 <rect width="30" height="20" fill="#AA151B"/>
@@ -3170,32 +3407,6 @@ section h2.gradient-text{
 </section>
 <section aria-label="Indicadores del servicio" class="metric-strip"><div class="metric-grid"><div class="metric"><b>72h</b><span data-lang-key="metric-delivery">Objetivo de entrega</span></div><div class="metric"><b>Responsive</b><span data-lang-key="metric-responsive">Móvil · tablet · PC</span></div><div class="metric"><b>SEO Ready</b><span data-lang-key="metric-seo">Base técnica inicial</span></div><div class="metric"><b data-lang-key="metric-support-title">Soporte</b><span data-lang-key="metric-support">Revisión incluida</span></div></div></section>
 <!-- Qué incluye tu web por 495 € -->
-
-<!-- V68 · Málaga Live -->
-<section class="malaga-live-mobile" aria-label="Tiempo actual en Málaga">
-  <div class="malaga-live-card" id="malaga-live-mobile-card">
-    <div class="ml-topline">
-      <span class="ml-live-dot"></span>
-      <span class="ml-kicker">MÁLAGA · LIVE</span>
-      <span class="ml-updated" data-weather-updated>--:--</span>
-      <button class="ml-refresh-btn" type="button" data-weather-refresh aria-label="Actualizar tiempo" title="Actualizar tiempo">↻</button>
-    </div>
-    <div class="ml-main">
-      <div class="ml-weather-icon" data-weather-icon aria-hidden="true"><span class="sun-core"></span><span class="cloud-piece"></span></div>
-      <div class="ml-temp-wrap">
-        <strong data-weather-temp>--°</strong>
-        <span data-weather-desc>Pulsa ↻ para actualizar</span>
-      </div>
-    </div>
-    <div class="ml-stats">
-      <div><small>MÁX</small><b data-weather-max>--°</b></div>
-      <div><small>MÍN</small><b data-weather-min>--°</b></div>
-      <div><small>HUM</small><b data-weather-humidity>--%</b></div>
-      <div><small>UV</small><b data-weather-uv>--</b></div>
-    </div>
-    <div class="ml-bottom"><span>Sensación <b data-weather-feels>--°</b></span><span>Viento <b data-weather-wind>-- km/h</b></span></div>
-  </div>
-</section>
 
 <section aria-labelledby="included-title" class="included-section py-20 px-4" id="incluye">
 <div class="container mx-auto section-box">
@@ -3538,61 +3749,6 @@ section h2.gradient-text{
 <a href="#configurador" class="gradient-button inline-flex items-center justify-center text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="contact-disabled-button">Ir al presupuesto guiado</a>
 
 </div>
-</section>
-
-<!-- V69 · Málaga Live horizontal · desktop -->
-<section class="malaga-live-pc-horizontal" aria-label="Tiempo actual en Málaga">
-  <div class="ml-horizontal-shell">
-    <div class="mlh-brand">
-      <span class="ml-live-dot"></span>
-      <div>
-        <strong>MÁLAGA · LIVE</strong>
-        <small>TIEMPO EN DIRECTO</small>
-      </div>
-    </div>
-
-    <div class="mlh-current">
-      <div class="ml-weather-icon" data-weather-icon aria-hidden="true">
-        <span class="sun-core"></span>
-        <span class="cloud-piece"></span>
-      </div>
-      <div class="mlh-temp">
-        <strong data-weather-temp>--°</strong>
-        <span data-weather-desc>Pulsa ↻ para actualizar</span>
-      </div>
-    </div>
-
-    <div class="mlh-stat">
-      <small>MÁXIMA</small>
-      <b data-weather-max>--°</b>
-    </div>
-    <div class="mlh-stat">
-      <small>MÍNIMA</small>
-      <b data-weather-min>--°</b>
-    </div>
-    <div class="mlh-stat">
-      <small>HUMEDAD</small>
-      <b data-weather-humidity>--%</b>
-    </div>
-    <div class="mlh-stat">
-      <small>UV</small>
-      <b data-weather-uv>--</b>
-    </div>
-    <div class="mlh-stat">
-      <small>SENSACIÓN</small>
-      <b data-weather-feels>--°</b>
-    </div>
-    <div class="mlh-stat">
-      <small>VIENTO</small>
-      <b data-weather-wind>-- km/h</b>
-    </div>
-
-    <div class="mlh-updated">
-      <small>ACTUALIZADO</small>
-      <b data-weather-updated>--:--</b>
-      <button class="ml-refresh-btn ml-refresh-btn-pc" type="button" data-weather-refresh aria-label="Actualizar tiempo" title="Actualizar tiempo">↻</button>
-    </div>
-  </div>
 </section>
 
 <!-- Features/Benefits Section -->
@@ -5015,7 +5171,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=71', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=73', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -5415,10 +5571,10 @@ try{
     btn.addEventListener('click',()=>loadWeather(true));
   });
 
-  // V71: actualización exclusivamente manual.
-  // No se consulta la API al cargar ni se usa ningún temporizador automático.
-  setAll('[data-weather-desc]','Pulsa ↻ para actualizar');
-  setAll('[data-weather-updated]','manual');
+  // V73: carga automática al abrir + refresco cada 30 minutos.
+  // El botón ↻ sigue permitiendo una actualización inmediata.
+  loadWeather(false);
+  setInterval(()=>loadWeather(false),30*60*1000);
 })();
 </script>
 
