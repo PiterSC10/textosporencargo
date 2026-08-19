@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=79" rel="manifest"/>
+<link href="site.webmanifest?v=80" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -3771,6 +3771,48 @@ body.weather-day #hero-section .hero-aurora{filter:saturate(1.06) brightness(1.0
 @media(max-width:767px){.ydg-availability{font-size:.6rem;padding:7px 10px;margin-bottom:20px}.ydg-terminal-section{padding:0 12px 38px}.ydg-terminal-body{padding:12px 13px}.terminal-line{font-size:.58rem}.terminal-line b{font-size:.52rem}.ydg-product-deck{grid-template-columns:1fr 1fr;gap:6px}.ydg-product-price{grid-column:1/-1}.budget-primary{grid-template-columns:1fr auto;gap:6px}.budget-primary span{grid-column:1/-1}.budget-live-data{grid-template-columns:1fr 1fr}.ydg-month-capacity{flex-wrap:wrap;gap:8px}.ydg-month-capacity a{width:100%;text-align:center}.portfolio-card[data-ydg-preview]::after{opacity:1;transform:none;font-size:.43rem;top:10px;right:10px}}
 @media(prefers-reduced-motion:reduce){.ydg-availability-dot,.capacity-pulse,.terminal-cursor i{animation:none!important}}
 
+
+/* ===== V80 · Launch Offer Popup ===== */
+.ydg-launch-backdrop{position:fixed;inset:0;z-index:2147483645;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 50% 35%,rgba(245,158,11,.08),transparent 28%),rgba(2,6,12,.76);backdrop-filter:blur(13px) saturate(.9);-webkit-backdrop-filter:blur(13px) saturate(.9);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .34s ease,visibility .34s ease}
+.ydg-launch-backdrop.is-visible{opacity:1;visibility:visible;pointer-events:auto}
+.ydg-launch-modal{position:relative;width:min(560px,100%);overflow:hidden;border-radius:26px;border:1px solid rgba(251,191,36,.30);background:radial-gradient(circle at 14% 8%,rgba(245,158,11,.08),transparent 30%),radial-gradient(circle at 88% 92%,rgba(56,189,248,.055),transparent 34%),linear-gradient(180deg,rgba(15,19,27,.985),rgba(5,9,15,.99));box-shadow:0 38px 110px rgba(0,0,0,.62),0 0 0 1px rgba(255,255,255,.025) inset,0 0 48px rgba(245,158,11,.07);transform:translateY(18px) scale(.965);opacity:0;transition:transform .44s cubic-bezier(.2,.8,.2,1),opacity .34s ease}
+.ydg-launch-backdrop.is-visible .ydg-launch-modal{transform:none;opacity:1}
+.ydg-launch-modal::before{content:"";position:absolute;left:-25%;right:-25%;top:0;height:2px;background:linear-gradient(90deg,transparent,#f59e0b,#facc15,#fff7cc,#fb923c,transparent);box-shadow:0 0 18px rgba(250,204,21,.32);animation:ydgLaunchScan 3.8s ease-in-out infinite}
+@keyframes ydgLaunchScan{0%,100%{transform:translateX(-18%);opacity:.48}50%{transform:translateX(18%);opacity:1}}
+.ydg-launch-close{position:absolute;right:14px;top:14px;z-index:5;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(148,163,184,.14);background:rgba(255,255,255,.025);color:#94a3b8;font-size:1.25rem;cursor:pointer;transition:.2s ease}
+.ydg-launch-close:hover,.ydg-launch-close:focus-visible{color:#fff;border-color:rgba(251,191,36,.42);background:rgba(245,158,11,.07);outline:none}
+.ydg-launch-topline{display:flex;align-items:center;gap:8px;padding:18px 56px 13px 22px;border-bottom:1px solid rgba(148,163,184,.07);color:#fef3c7;font-size:.60rem;font-weight:900;letter-spacing:.16em}
+.ydg-launch-flash{color:#facc15;filter:drop-shadow(0 0 7px rgba(250,204,21,.35))}
+.ydg-launch-topline b{margin-left:auto;padding:5px 7px;border-radius:999px;border:1px solid rgba(248,113,113,.20);background:rgba(127,29,29,.11);color:#fca5a5;font-size:.47rem}
+.ydg-launch-main{display:grid;grid-template-columns:1.05fr 1px .95fr;gap:20px;align-items:center;padding:26px 24px 20px}
+.ydg-launch-price-block small,.ydg-launch-code-block>small{display:block;color:#7c899b;font-size:.52rem;font-weight:900;letter-spacing:.16em}
+.ydg-launch-price{margin:3px 0 4px;font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:900;line-height:.98;letter-spacing:-.065em;color:#fff}
+.ydg-launch-price span{display:inline-block;margin-left:4px;color:#fbbf24;font-size:1.7rem;vertical-align:top;transform:translateY(7px)}
+.ydg-launch-price-block p{margin:8px 0 0;max-width:230px;color:#a6b2c2;font-size:.70rem;line-height:1.5}
+.ydg-launch-divider{width:1px;height:116px;background:linear-gradient(180deg,transparent,rgba(251,191,36,.18),rgba(148,163,184,.09),transparent)}
+.ydg-launch-code{width:100%;margin-top:10px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:14px;border:1px solid rgba(251,191,36,.27);background:linear-gradient(180deg,rgba(120,74,5,.13),rgba(34,24,6,.16));cursor:pointer;transition:.22s ease}
+.ydg-launch-code:hover,.ydg-launch-code:focus-visible{transform:translateY(-1px);border-color:rgba(251,191,36,.54);outline:none}
+.ydg-launch-code span{color:#fde68a;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.80rem;font-weight:900;letter-spacing:.06em}
+.ydg-launch-code i{color:#f59e0b;font-size:.46rem;font-style:normal;font-weight:900;letter-spacing:.12em}
+.ydg-launch-code.is-copied i{color:#4ade80}
+.ydg-launch-code-block p{margin:9px 1px 0;color:#64748b;font-size:.61rem;line-height:1.45}
+.ydg-launch-actions{display:grid;gap:8px;padding:0 24px 20px}
+.ydg-launch-primary{position:relative;overflow:hidden;min-height:48px;border:none;border-radius:14px;background:linear-gradient(90deg,#f59e0b,#fbbf24 48%,#fb923c);color:#171006;font-size:.72rem;font-weight:950;letter-spacing:.08em;cursor:pointer;box-shadow:0 10px 25px rgba(245,158,11,.16),0 0 0 1px rgba(255,255,255,.16) inset}
+.ydg-launch-primary::after{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.40),transparent 70%);animation:ydgLaunchShine 3.2s ease-in-out infinite}
+@keyframes ydgLaunchShine{0%,65%{transform:translateX(-120%)}84%,100%{transform:translateX(120%)}}
+.ydg-launch-secondary{min-height:38px;border:0;background:transparent;color:#7c899b;font-size:.62rem;font-weight:800;cursor:pointer}
+.ydg-launch-secondary:hover,.ydg-launch-secondary:focus-visible{color:#d7dee8;outline:none}
+.ydg-launch-terms{display:flex;gap:9px;align-items:flex-start;padding:12px 22px 15px;border-top:1px solid rgba(148,163,184,.06)}
+.ydg-launch-dot{width:5px;height:5px;flex:none;margin-top:5px;border-radius:50%;background:#f59e0b}
+.ydg-launch-terms p{margin:0;color:#536173;font-size:.54rem;line-height:1.5}
+body.ydg-launch-open{overflow:hidden!important}
+.ydg-promo-applied{display:none;max-width:980px;margin:0 auto 13px;align-items:center;gap:11px;padding:11px 13px;border:1px solid rgba(74,222,128,.18);border-radius:15px;background:linear-gradient(180deg,rgba(9,32,26,.72),rgba(6,19,17,.78))}
+.ydg-promo-applied.is-active{display:flex}
+.ydg-promo-applied>span{width:28px;height:28px;display:grid;place-items:center;flex:none;border-radius:50%;background:rgba(34,197,94,.08);color:#86efac;font-weight:900}
+.ydg-promo-applied div{min-width:0}.ydg-promo-applied small{display:block;color:#6ee7b7;font-size:.48rem;font-weight:900;letter-spacing:.14em}.ydg-promo-applied strong{display:block;margin-top:2px;color:#d1fae5;font-size:.70rem}.ydg-promo-applied button{margin-left:auto;width:27px;height:27px;border-radius:50%;border:1px solid rgba(148,163,184,.10);background:transparent;color:#64748b;cursor:pointer}
+@media(max-width:640px){.ydg-launch-backdrop{padding:14px}.ydg-launch-modal{border-radius:22px}.ydg-launch-main{grid-template-columns:1fr;gap:15px;padding:22px 18px 17px}.ydg-launch-divider{width:100%;height:1px}.ydg-launch-price{font-size:3.45rem}.ydg-launch-price-block p{max-width:none}.ydg-launch-actions{padding:0 18px 16px}}
+@media(prefers-reduced-motion:reduce){.ydg-launch-modal::before,.ydg-launch-primary::after{animation:none!important}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -3787,6 +3829,41 @@ body.weather-day #hero-section .hero-aurora{filter:saturate(1.06) brightness(1.0
     </script>
 </head>
 <body class="antialiased">
+<!-- V80 · Launch Offer Modal -->
+<div class="ydg-launch-backdrop" id="ydg-launch-backdrop" aria-hidden="true">
+  <div class="ydg-launch-modal" role="dialog" aria-modal="true" aria-labelledby="ydg-launch-title" aria-describedby="ydg-launch-desc">
+    <button class="ydg-launch-close" id="ydg-launch-close" type="button" aria-label="Cerrar oferta">×</button>
+    <div class="ydg-launch-topline">
+      <span class="ydg-launch-flash">⚡</span>
+      <span id="ydg-launch-title" data-lang-key="launch-kicker">OFERTA DE LANZAMIENTO</span>
+      <b data-lang-key="launch-limited">LIMITADA</b>
+    </div>
+    <div class="ydg-launch-main">
+      <div class="ydg-launch-price-block">
+        <small data-lang-key="launch-web-label">TU WEB PROFESIONAL</small>
+        <div class="ydg-launch-price">99<span>€</span></div>
+        <p data-lang-key="launch-maintenance">+ 100 €/año de dominio, hosting y mantenimiento</p>
+      </div>
+      <div class="ydg-launch-divider"></div>
+      <div class="ydg-launch-code-block">
+        <small data-lang-key="launch-use-code">USA EL CÓDIGO</small>
+        <button class="ydg-launch-code" id="ydg-launch-code" type="button" aria-label="Copiar código promocional">
+          <span>YOURDESIGNGPT</span><i data-lang-key="launch-copy">COPIAR</i>
+        </button>
+        <p id="ydg-launch-desc" data-lang-key="launch-code-help">Añádelo al enviar tu proyecto para aplicar la promoción.</p>
+      </div>
+    </div>
+    <div class="ydg-launch-actions">
+      <button class="ydg-launch-primary" id="ydg-launch-apply" type="button" data-lang-key="launch-cta">QUIERO MI WEB POR 99 €</button>
+      <button class="ydg-launch-secondary" id="ydg-launch-continue" type="button" data-lang-key="launch-continue">Seguir viendo la web</button>
+    </div>
+    <div class="ydg-launch-terms">
+      <span class="ydg-launch-dot"></span>
+      <p data-lang-key="launch-terms">Promoción para proyectos web estándar. Funciones, integraciones o ampliaciones especiales se presupuestan aparte.</p>
+    </div>
+  </div>
+</div>
+
 
 <div class="ydg-easter-toast" id="ydg-easter-toast" aria-hidden="true">
   <span>SYSTEM ONLINE</span>
@@ -4341,7 +4418,16 @@ body.weather-day #hero-section .hero-aurora{filter:saturate(1.06) brightness(1.0
   </div>
   <p data-lang-key="budget-disclaimer">La cifra es la base del primer año. Funciones, integraciones o ampliaciones especiales se valoran según el alcance real del proyecto.</p>
 </div>
-<form action="https://formsubmit.co/iampetersc@gmail.com" class="config-shell" id="web-config-form" method="POST"><input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="Estilo, referencias, colores, objetivo, web que te guste..." rows="5"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Enviar mi configuración</button><p class="form-note mt-3" data-lang-key="config-note">Los campos marcados con * son obligatorios. Recibiremos tu configuración directamente para preparar tu propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section class="py-20 px-4 bg-[#0d1117]" id="calidad"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="quality-eyebrow">Calidad técnica</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="quality-title">Preparada para rendir y medir</h2></div><div class="quality-grid"><div class="quality-item"><span class="quality-state" data-lang-key="quality-included">Incluido</span><strong>Responsive</strong><span data-lang-key="quality-responsive-desc">Diseño adaptable a móvil, tablet y escritorio.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-tech-base">Base técnica</span><strong>SEO</strong><span data-lang-key="quality-seo-desc">Semántica, metadatos y estructura preparada para indexación.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-after-publish">Tras publicar</span><strong>Core Web Vitals</strong><span data-lang-key="quality-cwv-desc">Se pueden medir y optimizar con datos reales una vez online.</span></div><div class="quality-item"><span class="quality-state">Hosting</span><strong data-lang-key="quality-https-title">Seguridad HTTPS</strong><span data-lang-key="quality-https-desc">Certificado HTTPS cuando el alojamiento configurado lo proporciona.</span></div></div></div></section>
+
+<div class="ydg-promo-applied" id="ydg-promo-applied" aria-live="polite">
+  <span>✓</span>
+  <div><small data-lang-key="promo-applied-label">CÓDIGO DE LANZAMIENTO APLICADO</small><strong>YOURDESIGNGPT · 99 €</strong></div>
+  <button id="ydg-promo-remove" type="button" aria-label="Quitar código">×</button>
+</div>
+<form action="https://formsubmit.co/iampetersc@gmail.com" class="config-shell" id="web-config-form" method="POST">
+<input type="hidden" name="Código promocional" id="ydg-promo-field" value="">
+<input type="hidden" name="Precio promocional" id="ydg-promo-price" value="">
+<input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="Estilo, referencias, colores, objetivo, web que te guste..." rows="5"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Enviar mi configuración</button><p class="form-note mt-3" data-lang-key="config-note">Los campos marcados con * son obligatorios. Recibiremos tu configuración directamente para preparar tu propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section class="py-20 px-4 bg-[#0d1117]" id="calidad"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="quality-eyebrow">Calidad técnica</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="quality-title">Preparada para rendir y medir</h2></div><div class="quality-grid"><div class="quality-item"><span class="quality-state" data-lang-key="quality-included">Incluido</span><strong>Responsive</strong><span data-lang-key="quality-responsive-desc">Diseño adaptable a móvil, tablet y escritorio.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-tech-base">Base técnica</span><strong>SEO</strong><span data-lang-key="quality-seo-desc">Semántica, metadatos y estructura preparada para indexación.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-after-publish">Tras publicar</span><strong>Core Web Vitals</strong><span data-lang-key="quality-cwv-desc">Se pueden medir y optimizar con datos reales una vez online.</span></div><div class="quality-item"><span class="quality-state">Hosting</span><strong data-lang-key="quality-https-title">Seguridad HTTPS</strong><span data-lang-key="quality-https-desc">Certificado HTTPS cuando el alojamiento configurado lo proporciona.</span></div></div></div></section>
 <!-- Envíanos tu mensaje Section (Contact) -->
 <section class="py-16 bg-[#0d1117] px-4" id="contacto">
 <div class="container mx-auto text-center bg-[#1a202c] rounded-xl p-8 shadow-lg max-w-2xl section-box">
@@ -4642,6 +4728,18 @@ body.weather-day #hero-section .hero-aurora{filter:saturate(1.06) brightness(1.0
                 'capacity-month': 'AGENDA · AGOSTO 2026',
                 'capacity-slots': '2 plazas disponibles',
                 'capacity-cta': 'Consultar proyecto →',
+                'launch-kicker': 'OFERTA DE LANZAMIENTO',
+                'launch-limited': 'LIMITADA',
+                'launch-web-label': 'TU WEB PROFESIONAL',
+                'launch-maintenance': '+ 100 €/año de dominio, hosting y mantenimiento',
+                'launch-use-code': 'USA EL CÓDIGO',
+                'launch-copy': 'COPIAR',
+                'launch-code-help': 'Añádelo al enviar tu proyecto para aplicar la promoción.',
+                'launch-cta': 'QUIERO MI WEB POR 99 €',
+                'launch-continue': 'Seguir viendo la web',
+                'launch-terms': 'Promoción para proyectos web estándar. Funciones, integraciones o ampliaciones especiales se presupuestan aparte.',
+                'promo-applied-label': 'CÓDIGO DE LANZAMIENTO APLICADO',
+
                 'important-links-title': 'Links importantes',
                 'tip-instagram': 'Mi Instagram',
                 'tip-youtube': 'Mi canal de YouTube',
@@ -5002,6 +5100,18 @@ body.weather-day #hero-section .hero-aurora{filter:saturate(1.06) brightness(1.0
                 'capacity-month': 'SCHEDULE · AUGUST 2026',
                 'capacity-slots': '2 slots available',
                 'capacity-cta': 'Discuss project →',
+                'launch-kicker': 'LAUNCH OFFER',
+                'launch-limited': 'LIMITED',
+                'launch-web-label': 'YOUR PROFESSIONAL WEBSITE',
+                'launch-maintenance': '+ €100/year for domain, hosting and maintenance',
+                'launch-use-code': 'USE CODE',
+                'launch-copy': 'COPY',
+                'launch-code-help': 'Add it when submitting your project to apply the promotion.',
+                'launch-cta': 'GET MY WEBSITE FOR €99',
+                'launch-continue': 'Continue browsing',
+                'launch-terms': 'Promotion for standard web projects. Special features, integrations or extensions are quoted separately.',
+                'promo-applied-label': 'LAUNCH CODE APPLIED',
+
                 'important-links-title': 'Important links',
                 'tip-instagram': 'My Instagram',
                 'tip-youtube': 'My YouTube channel',
@@ -5832,7 +5942,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=79', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=80', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -6329,6 +6439,41 @@ try{
       }
     });
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  const backdrop=document.getElementById('ydg-launch-backdrop');
+  const closeBtn=document.getElementById('ydg-launch-close');
+  const continueBtn=document.getElementById('ydg-launch-continue');
+  const applyBtn=document.getElementById('ydg-launch-apply');
+  const codeBtn=document.getElementById('ydg-launch-code');
+  const promoBanner=document.getElementById('ydg-promo-applied');
+  const promoField=document.getElementById('ydg-promo-field');
+  const promoPrice=document.getElementById('ydg-promo-price');
+  const promoRemove=document.getElementById('ydg-promo-remove');
+  const configurator=document.getElementById('configurador') || document.getElementById('web-config-form');
+  if(!backdrop) return;
+  let opened=false;
+  function showLaunchOffer(){if(opened)return;opened=true;backdrop.classList.add('is-visible');backdrop.setAttribute('aria-hidden','false');document.body.classList.add('ydg-launch-open');setTimeout(()=>closeBtn?.focus({preventScroll:true}),260)}
+  function hideLaunchOffer(){backdrop.classList.remove('is-visible');backdrop.setAttribute('aria-hidden','true');document.body.classList.remove('ydg-launch-open')}
+  function applyPromo(){if(promoField)promoField.value='YOURDESIGNGPT';if(promoPrice)promoPrice.value='99 € + 100 €/año de dominio, hosting y mantenimiento';promoBanner?.classList.add('is-active')}
+  async function copyCode(){try{await navigator.clipboard.writeText('YOURDESIGNGPT');codeBtn?.classList.add('is-copied');const label=codeBtn?.querySelector('i');if(label){const old=label.textContent;label.textContent=document.documentElement.lang==='en'?'COPIED':'COPIADO';setTimeout(()=>{label.textContent=old;codeBtn?.classList.remove('is-copied')},1200)}}catch(e){}}
+  function launchToConfigurator(){applyPromo();copyCode();hideLaunchOffer();setTimeout(()=>configurator?.scrollIntoView({behavior:'smooth',block:'start'}),180)}
+  closeBtn?.addEventListener('click',hideLaunchOffer);continueBtn?.addEventListener('click',hideLaunchOffer);applyBtn?.addEventListener('click',launchToConfigurator);codeBtn?.addEventListener('click',copyCode);
+  promoRemove?.addEventListener('click',()=>{if(promoField)promoField.value='';if(promoPrice)promoPrice.value='';promoBanner?.classList.remove('is-active')});
+  backdrop.addEventListener('click',e=>{if(e.target===backdrop)hideLaunchOffer()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&backdrop.classList.contains('is-visible'))hideLaunchOffer()});
+  const intro=document.getElementById('fx-intro');
+  if(intro){
+    const obs=new MutationObserver(()=>{if(intro.classList.contains('fx-hide')||intro.style.display==='none'){obs.disconnect();setTimeout(showLaunchOffer,320)}});
+    obs.observe(intro,{attributes:true,attributeFilter:['class','style']});
+    const bodyObs=new MutationObserver(()=>{if(!document.getElementById('fx-intro')){bodyObs.disconnect();obs.disconnect();setTimeout(showLaunchOffer,320)}});
+    bodyObs.observe(document.body,{childList:true,subtree:false});
+    setTimeout(()=>{if(!opened)showLaunchOffer()},5200);
+  }else{setTimeout(showLaunchOffer,550)}
 })();
 </script>
 
