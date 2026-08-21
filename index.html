@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=87" rel="manifest"/>
+<link href="site.webmanifest?v=89" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4489,6 +4489,277 @@ body.ydg-launch-open{overflow:hidden!important}
   #ydg-dog-mascot{animation-duration:.01ms!important}
 }
 
+
+/* ===== V88 · PORTFOLIO + REALISTIC 3D DOG + SYNCHRONIZED PROMO ===== */
+
+/* Portfolio is fundamental: force it back on in every viewport */
+#portfolio{display:block!important;visibility:visible!important;opacity:1!important}
+#portfolio .portfolio-grid{visibility:visible!important;opacity:1!important}
+.portfolio-card-jetski .portfolio-badge{
+  background:linear-gradient(90deg,rgba(34,211,238,.92),rgba(59,130,246,.92),rgba(217,70,239,.88));
+  color:#fff;border-color:rgba(255,255,255,.14)
+}
+.portfolio-card-jetski .portfolio-cover::after{
+  content:"NEW · IBIZA";
+  position:absolute;right:14px;bottom:14px;z-index:5;
+  padding:6px 9px;border-radius:999px;
+  background:rgba(2,8,20,.78);border:1px solid rgba(34,211,238,.25);
+  color:#a5f3fc;font-size:.48rem;font-weight:950;letter-spacing:.12em;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
+}
+
+/* Promo states */
+#ydg-launch-toggle-card{
+  transition:border-color .3s ease,background .3s ease,box-shadow .3s ease,transform .3s ease;
+}
+#ydg-launch-toggle-card.promo-on{
+  border-color:rgba(52,211,153,.34)!important;
+  background:
+    radial-gradient(circle at 9% 20%,rgba(16,185,129,.12),transparent 30%),
+    linear-gradient(180deg,rgba(7,38,33,.50),rgba(5,15,23,.86))!important;
+  box-shadow:0 0 0 1px rgba(45,212,191,.05) inset,0 18px 45px rgba(16,185,129,.08)!important;
+}
+#ydg-launch-toggle-card.promo-off{
+  border-color:rgba(245,158,11,.24)!important;
+  background:
+    radial-gradient(circle at 8% 20%,rgba(245,158,11,.08),transparent 28%),
+    linear-gradient(180deg,rgba(42,29,7,.20),rgba(10,14,22,.74))!important;
+}
+#ydg-live-budget{
+  transition:border-color .3s ease,background .3s ease,box-shadow .3s ease;
+}
+#ydg-live-budget.promo-on{
+  border-color:rgba(45,212,191,.22)!important;
+  box-shadow:0 16px 42px rgba(20,184,166,.07)!important;
+}
+#ydg-live-budget.promo-off{
+  border-color:rgba(148,163,184,.10)!important;
+}
+.budget-old-price{
+  position:relative!important;
+  color:#d9e1ec!important;
+  opacity:.76;
+  text-decoration:none!important;
+}
+.budget-old-price::before,.budget-old-price::after{
+  content:"";position:absolute;left:2%;top:48%;width:96%;height:3px;border-radius:999px;
+  background:linear-gradient(90deg,#ff304f,#ff5a36,#ff304f);
+  box-shadow:0 0 6px rgba(255,48,79,.55),0 0 14px rgba(255,48,79,.20);
+  transform-origin:center;
+  pointer-events:none
+}
+.budget-old-price::before{transform:rotate(-9deg)}
+.budget-old-price::after{transform:rotate(8deg)}
+.budget-cross{display:none!important}
+#ydg-live-budget.promo-off .budget-new-price{opacity:.38;filter:saturate(.45)}
+#ydg-live-budget.promo-on .budget-new-price{
+  color:#8fffd1!important;
+  text-shadow:0 0 18px rgba(52,211,153,.22)
+}
+#ydg-live-budget.promo-on .budget-arrow{color:#5eead4!important}
+
+/* Realistic floating 3D robot dog */
+#ydg-dog-mascot.ydg-dog-v88{
+  position:fixed!important;left:14px!important;
+  bottom:max(18px,calc(env(safe-area-inset-bottom) + 14px))!important;
+  width:184px!important;height:176px!important;z-index:96!important;
+  margin:0!important;cursor:pointer;touch-action:manipulation;
+  user-select:none;-webkit-user-select:none;
+  transform-origin:50% 100%;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.42));
+  will-change:transform
+}
+#ydg-dog-mascot .ydg-dog-aura{
+  position:absolute;left:18px;right:18px;bottom:22px;height:72px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(34,211,238,.28),rgba(59,130,246,.10) 48%,transparent 72%);
+  filter:blur(14px);opacity:.68;transition:.25s ease
+}
+#ydg-dog-mascot .ydg-dog-window{
+  position:absolute;inset:0 0 16px 0;overflow:hidden;border-radius:25px;
+  border:1px solid rgba(103,232,249,.22);
+  background:
+    linear-gradient(180deg,rgba(7,15,27,.76),rgba(4,9,17,.44)),
+    radial-gradient(circle at 50% 20%,rgba(59,130,246,.14),transparent 55%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(34,211,238,.06),
+    0 0 0 1px rgba(59,130,246,.03),
+    0 16px 36px rgba(0,0,0,.28);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  transform:perspective(650px) rotateY(-3deg) rotateX(1deg);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease
+}
+#ydg-dog-mascot:hover .ydg-dog-window{
+  transform:perspective(650px) rotateY(0) rotateX(0) translateY(-2px);
+  border-color:rgba(103,232,249,.34);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 42px rgba(0,0,0,.32),0 0 25px rgba(34,211,238,.08)
+}
+.ydg-dog-window-top{
+  height:27px;display:flex;align-items:center;gap:6px;padding:0 10px;
+  border-bottom:1px solid rgba(103,232,249,.10);
+  background:linear-gradient(90deg,rgba(8,17,29,.92),rgba(10,18,31,.68))
+}
+.ydg-dog-window-top b{color:#b9f5ff;font-size:.48rem;letter-spacing:.13em}
+.ydg-dog-window-top small{margin-left:auto;color:#64748b;font-size:.40rem;font-weight:900;letter-spacing:.09em}
+.ydg-dog-status-dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.ydg-dog-stage{position:absolute;left:0;right:0;top:27px;bottom:0;overflow:hidden}
+.ydg-dog-stage img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;
+  filter:saturate(1.10) contrast(1.07) brightness(.96);
+  transform:scale(1.07);transition:filter .2s ease,transform .2s ease
+}
+.ydg-dog-stage::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 58%,rgba(3,8,16,.72)),
+             radial-gradient(circle at 50% 45%,transparent 45%,rgba(2,7,14,.18));
+  pointer-events:none
+}
+.ydg-dog-eye{
+  position:absolute;left:55%;top:24%;width:7px;height:7px;border-radius:50%;
+  background:#38e8ff;box-shadow:0 0 8px #38e8ff,0 0 18px rgba(59,130,246,.75);
+  z-index:4;animation:v88DogEye 2.8s ease-in-out infinite
+}
+.ydg-dog-laser{
+  position:absolute;z-index:3;left:8%;right:8%;top:25%;height:1px;
+  background:linear-gradient(90deg,transparent,#22d3ee,#60a5fa,transparent);
+  box-shadow:0 0 9px rgba(34,211,238,.72);opacity:.45;
+  animation:v88Scan 2.8s ease-in-out infinite alternate
+}
+.ydg-dog-floor{
+  position:absolute;z-index:3;left:16%;right:16%;bottom:9%;height:8px;border-radius:50%;
+  background:rgba(34,211,238,.16);filter:blur(6px)
+}
+.ydg-dog-command{
+  position:absolute;left:10px;right:10px;bottom:0;display:flex;justify-content:center;gap:5px;
+  color:#6f8198;font-size:.38rem;font-weight:950;letter-spacing:.07em;white-space:nowrap
+}
+.ydg-dog-command span{padding:2px 5px;border-radius:999px;background:rgba(4,10,18,.78);border:1px solid rgba(103,232,249,.08)}
+#ydg-dog-mascot.is-greeting{animation:v88Greeting .95s ease}
+#ydg-dog-mascot.is-greeting .ydg-dog-stage img{animation:v88PawHello .95s ease}
+#ydg-dog-mascot.is-jumping{animation:v88Jump 1.02s cubic-bezier(.2,.85,.3,1)}
+#ydg-dog-mascot.is-running{animation:v88Run 2.25s cubic-bezier(.62,0,.38,1)}
+#ydg-dog-mascot.is-running .ydg-dog-window{
+  border-color:rgba(34,211,238,.58);
+  box-shadow:0 0 28px rgba(34,211,238,.25),0 0 60px rgba(59,130,246,.16),0 18px 42px rgba(0,0,0,.35)
+}
+#ydg-dog-mascot.is-running .ydg-dog-aura{opacity:1;transform:scale(1.45)}
+#ydg-dog-mascot.is-running::before{
+  content:"";position:absolute;right:130px;top:64px;width:180px;height:42px;border-radius:50%;
+  background:linear-gradient(90deg,transparent,rgba(59,130,246,.12),rgba(34,211,238,.34));
+  filter:blur(11px);animation:v88Trail 2.25s ease;z-index:-1
+}
+@keyframes v88DogEye{0%,44%,49%,100%{transform:scaleY(1)}46%{transform:scaleY(.12)}}
+@keyframes v88Scan{from{transform:translateY(-18px)}to{transform:translateY(72px)}}
+@keyframes v88Greeting{0%,100%{transform:rotate(0)}20%{transform:rotate(-2deg)}42%{transform:rotate(2.5deg)}64%{transform:rotate(-1.5deg)}}
+@keyframes v88PawHello{0%,100%{transform:scale(1.07)}30%{transform:scale(1.10) translateY(-3px) rotate(-1deg)}60%{transform:scale(1.09) translateY(-1px) rotate(1deg)}}
+@keyframes v88Jump{0%,100%{transform:translateY(0) scale(1)}34%{transform:translateY(-45px) scale(1.025)}58%{transform:translateY(-34px) scale(1.015)}80%{transform:translateY(5px) scale(.99)}}
+@keyframes v88Run{
+  0%{transform:translateX(0) scaleX(1)}
+  33%{transform:translateX(calc(100vw - 220px)) scaleX(1)}
+  47%{transform:translateX(calc(100vw - 220px)) scaleX(-1)}
+  82%{transform:translateX(0) scaleX(-1)}
+  100%{transform:translateX(0) scaleX(1)}
+}
+@keyframes v88Trail{0%,100%{opacity:0}15%,82%{opacity:1}}
+
+@media(max-width:767px){
+  #ydg-dog-mascot.ydg-dog-v88{
+    left:7px!important;
+    bottom:max(126px,calc(env(safe-area-inset-bottom) + 112px))!important;
+    width:142px!important;height:139px!important;
+  }
+  .ydg-dog-window-top{height:23px;padding:0 8px}
+  .ydg-dog-stage{top:23px}
+  .ydg-dog-window-top b{font-size:.42rem}
+  .ydg-dog-window-top small{font-size:.35rem}
+  .ydg-dog-command{font-size:.33rem;gap:3px}
+  @keyframes v88Run{
+    0%{transform:translateX(0) scaleX(1)}
+    33%{transform:translateX(calc(100vw - 157px)) scaleX(1)}
+    47%{transform:translateX(calc(100vw - 157px)) scaleX(-1)}
+    82%{transform:translateX(0) scaleX(-1)}
+    100%{transform:translateX(0) scaleX(1)}
+  }
+}
+@media(max-width:390px){
+  #ydg-dog-mascot.ydg-dog-v88{width:128px!important;height:126px!important}
+  @keyframes v88Run{
+    0%{transform:translateX(0) scaleX(1)}
+    33%{transform:translateX(calc(100vw - 142px)) scaleX(1)}
+    47%{transform:translateX(calc(100vw - 142px)) scaleX(-1)}
+    82%{transform:translateX(0) scaleX(-1)}
+    100%{transform:translateX(0) scaleX(1)}
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .ydg-dog-eye,.ydg-dog-laser{animation:none!important}
+}
+
+
+/* ===== V89 · TRUE WEBGL 3D YDG-01 ===== */
+.ydg-dog-mascot,.ydg-dog-v88,.ydg-dog-window,.ydg-dog-command{display:none!important}
+#ydg-dog-3d{
+  position:fixed;left:10px;
+  bottom:max(20px,calc(env(safe-area-inset-bottom) + 16px));
+  width:235px;height:190px;z-index:98;
+  cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;
+  filter:drop-shadow(0 16px 28px rgba(0,0,0,.34));
+  transform-origin:center bottom;
+  transition:filter .22s ease;
+  will-change:left,transform
+}
+#ydg-dog-3d::before{
+  content:"";position:absolute;left:26px;right:18px;bottom:20px;height:44px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(34,211,238,.24),rgba(59,130,246,.07) 52%,transparent 75%);
+  filter:blur(12px);opacity:.68;pointer-events:none
+}
+#ydg3d-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:block;background:transparent;outline:none;
+  filter:saturate(1.05)
+}
+.ydg3d-status{
+  position:absolute;left:14px;top:7px;z-index:3;
+  display:flex;align-items:center;gap:6px;
+  padding:5px 8px;border-radius:999px;
+  background:rgba(4,10,18,.62);border:1px solid rgba(103,232,249,.13);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  pointer-events:none
+}
+.ydg3d-status b{color:#bff7ff;font-size:.46rem;letter-spacing:.12em}
+.ydg3d-status small{color:#6f8197;font-size:.38rem;font-weight:900;letter-spacing:.08em}
+.ydg3d-dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.ydg3d-controls{
+  position:absolute;left:19px;right:8px;bottom:3px;z-index:3;
+  display:flex;justify-content:center;gap:5px;pointer-events:none;
+  color:#64748b;font-size:.37rem;font-weight:950;letter-spacing:.08em
+}
+.ydg3d-controls span{padding:2px 6px;border-radius:999px;background:rgba(3,9,17,.62);border:1px solid rgba(103,232,249,.07)}
+#ydg-dog-3d.is-running{
+  filter:drop-shadow(0 16px 28px rgba(0,0,0,.32)) drop-shadow(0 0 15px rgba(34,211,238,.35))
+}
+#ydg-dog-3d.is-running::after{
+  content:"";position:absolute;right:170px;top:88px;width:180px;height:40px;
+  border-radius:50%;background:linear-gradient(90deg,transparent,rgba(59,130,246,.12),rgba(34,211,238,.36));
+  filter:blur(11px);animation:v89Trail 2.55s ease;z-index:-1
+}
+#ydg-dog-3d.is-jumping::before{opacity:1;transform:scale(1.25)}
+#ydg-dog-3d.is-greeting::before{opacity:.92;transform:scale(1.10)}
+.ydg3d-fallback{position:absolute;left:20px;right:20px;top:25px;bottom:20px;overflow:hidden;border-radius:22px}
+.ydg3d-fallback img{width:100%;height:100%;object-fit:cover}
+@keyframes v89Trail{0%,100%{opacity:0}15%,82%{opacity:1}}
+@media(max-width:767px){
+  #ydg-dog-3d{
+    left:4px;
+    bottom:max(126px,calc(env(safe-area-inset-bottom) + 112px));
+    width:176px;height:143px
+  }
+  .ydg3d-status{left:10px;top:3px;padding:4px 6px}
+  .ydg3d-status b{font-size:.40rem}.ydg3d-status small{font-size:.33rem}
+  .ydg3d-controls{left:8px;bottom:0;font-size:.32rem;gap:3px}
+}
+@media(max-width:390px){#ydg-dog-3d{width:158px;height:130px}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -4806,6 +5077,21 @@ body.ydg-launch-open{overflow:hidden!important}
 <span class="swipe-arrow">→</span>
 </div>
 <div class="portfolio-grid" id="portfolio-mobile-carousel">
+
+<article class="portfolio-card portfolio-card-jetski" data-ydg-preview="JET SKI IBIZA · RESPONSIVE · DEMO">
+<a aria-label="Ver proyecto Ibiza Jet Experience" class="portfolio-cover" href="ibiza-jetski.html">
+<span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
+<span class="portfolio-badge" data-lang-key="portfolio-jetski-badge">Ibiza Jet Experience</span>
+<img alt="Vista del proyecto web Ibiza Jet Experience" height="675" loading="lazy" src="https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=84" width="1200"/>
+</a>
+<div class="portfolio-body">
+<div class="portfolio-sector" data-lang-key="portfolio-jetski-sector">Jet Ski · Experiencias premium</div>
+<h3 class="portfolio-title" data-lang-key="portfolio-jetski-title">Ibiza Jet Experience</h3>
+<p class="portfolio-description" data-lang-key="portfolio-jetski-desc">Web comercial para motos de agua en Ibiza con experiencias, rutas, galería, seguridad, contacto y sistema preparado para reservas.</p>
+<div class="portfolio-tech"><span>Responsive</span><span data-lang-key="tag-bookings">Reservas</span><span>Ibiza</span></div>
+<a class="portfolio-link" href="ibiza-jetski.html" data-lang-key="portfolio-case">Ver web →</a>
+</div>
+</article>
 <article class="portfolio-card" data-ydg-preview="RESTAURANTE · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Restaurante Áurea Málaga" class="portfolio-cover" href="restaurante.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
@@ -5193,15 +5479,17 @@ body.ydg-launch-open{overflow:hidden!important}
 
 </main>
 
-<div class="ydg-dog-mascot ydg-dog-v87" id="ydg-dog-mascot" aria-label="YDG-01 mascota robótica: 1 clic saluda, 2 clics salta, 3 clics corre" role="button" tabindex="0">
-  <div class="ydg-dog-glow"></div>
-  <div class="ydg-dog-real">
-    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot de YourDesignGPT">
-    <span class="ydg-dog-eye"></span>
-    <span class="ydg-dog-scan"></span>
+
+<div id="ydg-dog-3d" class="ydg-dog-3d" role="button" tabindex="0"
+     aria-label="YDG-01 perro robot 3D. Un clic saluda, dos clics salta, tres clics corre.">
+  <div class="ydg3d-status">
+    <span class="ydg3d-dot"></span><b>YDG-01</b><small id="ydg3d-action">ONLINE</small>
   </div>
-  <div class="ydg-dog-action"><b>YDG-01</b><span id="ydg-dog-action-text">ONLINE</span></div>
-  <div class="ydg-dog-controls"><span>1× SALUDA</span><span>2× SALTA</span><span>3× CORRE</span></div>
+  <canvas id="ydg3d-canvas" width="520" height="390" aria-hidden="true"></canvas>
+  <div class="ydg3d-controls"><span>1× 👋</span><span>2× ↟</span><span>3× RUN</span></div>
+  <div class="ydg3d-fallback" id="ydg3d-fallback" hidden>
+    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot">
+  </div>
 </div>
 
 <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
@@ -5451,7 +5739,11 @@ body.ydg-launch-open{overflow:hidden!important}
                 'tip-soundcloud': 'Mi producción musical',
                 'tip-email': 'Envíame un correo',
                 'portfolio-eyebrow': 'Portfolio',
-                'portfolio-title': 'Nuestros trabajos realizados',
+                'portfolio-jetski-badge': 'Ibiza Jet Experience',
+                'portfolio-jetski-title': 'Ibiza Jet Experience',
+                'portfolio-jetski-sector': 'Jet Ski · Experiencias premium',
+                'portfolio-jetski-desc': 'Web comercial para motos de agua en Ibiza con experiencias, rutas, galería, seguridad, contacto y sistema preparado para reservas.',
+                                'portfolio-title': 'Nuestros trabajos realizados',
                 'portfolio-subtitle': 'Diseños creados para mostrar cómo adaptamos cada web al sector, la identidad visual y los objetivos de cada negocio.',
                 'portfolio-restaurant-badge': 'Áurea Málaga',
                 'portfolio-electrician-badge': 'Voltio Málaga',
@@ -5829,7 +6121,11 @@ body.ydg-launch-open{overflow:hidden!important}
                 'tip-soundcloud': 'My music production',
                 'tip-email': 'Send me an email',
                 'portfolio-eyebrow': 'Portfolio',
-                'portfolio-title': 'Selected web projects',
+                'portfolio-jetski-badge': 'Ibiza Jet Experience',
+                'portfolio-jetski-title': 'Ibiza Jet Experience',
+                'portfolio-jetski-sector': 'Jet Ski · Premium experiences',
+                'portfolio-jetski-desc': 'A commercial jet ski website for Ibiza with experiences, routes, gallery, safety, contact and a booking-ready structure.',
+                                'portfolio-title': 'Selected web projects',
                 'portfolio-subtitle': 'Design concepts showing how we adapt each website to its sector, visual identity and business goals.',
                 'portfolio-restaurant-badge': 'Áurea Málaga',
                 'portfolio-electrician-badge': 'Voltio Málaga',
@@ -6652,7 +6948,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=87', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=89', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7246,77 +7542,7 @@ try{
 </script>
 
 
-<script>
-(function(){
-  const dog=document.getElementById('ydg-dog-mascot');
-  if(!dog) return;
 
-  const actionText=document.getElementById('ydg-dog-action-text');
-  let count=0, timer=null, busy=false, lastPointerTouch=0;
-
-  function setAction(text){
-    if(actionText) actionText.textContent=text;
-  }
-  function clearState(){
-    dog.classList.remove('is-greeting','is-jumping','is-running');
-  }
-  function greet(){
-    if(busy) return;
-    busy=true; clearState(); setAction(document.documentElement.lang==='en'?'HELLO 👋':'HOLA 👋');
-    void dog.offsetWidth; dog.classList.add('is-greeting');
-    setTimeout(()=>{clearState();busy=false;setAction('ONLINE')},900);
-  }
-  function jump(){
-    if(busy) return;
-    busy=true; clearState(); setAction(document.documentElement.lang==='en'?'JUMP':'SALTO');
-    void dog.offsetWidth; dog.classList.add('is-jumping');
-    setTimeout(()=>{clearState();busy=false;setAction('ONLINE')},970);
-  }
-  function run(){
-    if(busy) return;
-    busy=true; clearState(); setAction(document.documentElement.lang==='en'?'RUN MODE':'MODO CARRERA');
-    void dog.offsetWidth; dog.classList.add('is-running');
-    setTimeout(()=>{
-      clearState();busy=false;setAction('ONLINE');
-      setTimeout(greet,140);
-    },2110);
-  }
-  function executeClicks(){
-    const n=Math.min(count,3);
-    count=0;
-    if(n===1) greet();
-    else if(n===2) jump();
-    else if(n>=3) run();
-  }
-  function register(){
-    if(busy) return;
-    count=Math.min(3,count+1);
-    clearTimeout(timer);
-    timer=setTimeout(executeClicks,330);
-  }
-
-  dog.addEventListener('pointerup',e=>{
-    if(e.pointerType==='touch'){
-      lastPointerTouch=Date.now();
-      e.preventDefault();
-      register();
-    }
-  });
-  dog.addEventListener('click',e=>{
-    if(Date.now()-lastPointerTouch<500) return;
-    register();
-  });
-  dog.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===' '){
-      e.preventDefault();
-      register();
-    }
-  });
-
-  // Visible proof of life after intro/load
-  setTimeout(greet,1150);
-})();
-</script>
 
 
 <script>
@@ -7327,19 +7553,208 @@ try{
   const banner=document.getElementById('ydg-promo-applied');
   const remove=document.getElementById('ydg-promo-remove');
   const apply=document.getElementById('ydg-launch-apply');
+  const card=document.getElementById('ydg-launch-toggle-card');
+  const budget=document.getElementById('ydg-live-budget');
   if(!sw) return;
 
   function setPromo(on){
-    sw.checked=!!on;
+    on=!!on;
+    sw.checked=on;
     if(field) field.value=on?'YOURDESIGNGPT':'';
-    if(price) price.value=on?'99 € + 100 €/año de dominio, hosting y mantenimiento':'';
-    banner?.classList.toggle('is-active',!!on);
+    if(price) price.value=on?'99 € + 100 €/año de dominio, hosting y mantenimiento':'645 € + servicio anual';
+    banner?.classList.toggle('is-active',on);
+    card?.classList.toggle('promo-on',on);
+    card?.classList.toggle('promo-off',!on);
+    budget?.classList.toggle('promo-on',on);
+    budget?.classList.toggle('promo-off',!on);
+    try{localStorage.setItem('ydgLaunchPromo',on?'1':'0')}catch(e){}
   }
 
   sw.addEventListener('change',()=>setPromo(sw.checked));
   remove?.addEventListener('click',()=>setPromo(false));
   apply?.addEventListener('click',()=>setTimeout(()=>setPromo(true),40));
-  setPromo(Boolean(field?.value));
+
+  let initial=false;
+  try{initial=localStorage.getItem('ydgLaunchPromo')==='1'}catch(e){}
+  if(field?.value==='YOURDESIGNGPT') initial=true;
+  setPromo(initial);
+  window.ydgSetPromo=setPromo;
+})();
+</script>
+
+<script>
+(function(){
+"use strict";
+const host=document.getElementById("ydg-dog-3d");
+const canvas=document.getElementById("ydg3d-canvas");
+const fallback=document.getElementById("ydg3d-fallback");
+const action=document.getElementById("ydg3d-action");
+if(!host||!canvas)return;
+
+const gl=canvas.getContext("webgl",{alpha:true,antialias:true,premultipliedAlpha:true,preserveDrawingBuffer:false})
+      ||canvas.getContext("experimental-webgl",{alpha:true,antialias:true});
+if(!gl){
+  fallback.hidden=false; canvas.style.display="none"; host.dataset.webglReady="0"; return;
+}
+host.dataset.webglReady="1";
+
+const VS=`attribute vec3 aP;attribute vec3 aN;
+uniform mat4 uM,uV,uP;uniform mat3 uN;
+varying vec3 vN;varying vec3 vW;
+void main(){vec4 w=uM*vec4(aP,1.0);vW=w.xyz;vN=normalize(uN*aN);gl_Position=uP*uV*w;}`;
+const FS=`precision mediump float;
+uniform vec3 uC;uniform vec3 uE;uniform float uMetal;
+varying vec3 vN;varying vec3 vW;
+void main(){
+ vec3 N=normalize(vN);
+ vec3 L=normalize(vec3(-0.45,0.85,0.65));
+ vec3 V=normalize(vec3(0.0,1.3,6.0)-vW);
+ float d=max(dot(N,L),0.0);
+ vec3 H=normalize(L+V);
+ float s=pow(max(dot(N,H),0.0),mix(24.0,90.0,uMetal));
+ vec3 col=uC*(0.24+0.76*d)+vec3(s)*(0.24+0.76*uMetal)+uE;
+ gl_FragColor=vec4(col,1.0);
+}`;
+function shader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
+const prog=gl.createProgram();gl.attachShader(prog,shader(gl.VERTEX_SHADER,VS));gl.attachShader(prog,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);
+if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));gl.useProgram(prog);
+
+const loc={
+ p:gl.getAttribLocation(prog,"aP"),n:gl.getAttribLocation(prog,"aN"),
+ M:gl.getUniformLocation(prog,"uM"),V:gl.getUniformLocation(prog,"uV"),P:gl.getUniformLocation(prog,"uP"),
+ N:gl.getUniformLocation(prog,"uN"),C:gl.getUniformLocation(prog,"uC"),E:gl.getUniformLocation(prog,"uE"),metal:gl.getUniformLocation(prog,"uMetal")
+};
+
+const verts=[], norms=[];
+function face(a,b,c,d,n){[a,b,c,a,c,d].forEach(v=>{verts.push(...v);norms.push(...n)})}
+const p=[[-.5,-.5,-.5],[.5,-.5,-.5],[.5,.5,-.5],[-.5,.5,-.5],[-.5,-.5,.5],[.5,-.5,.5],[.5,.5,.5],[-.5,.5,.5]];
+face(p[4],p[5],p[6],p[7],[0,0,1]); face(p[1],p[0],p[3],p[2],[0,0,-1]);
+face(p[0],p[4],p[7],p[3],[-1,0,0]); face(p[5],p[1],p[2],p[6],[1,0,0]);
+face(p[3],p[7],p[6],p[2],[0,1,0]); face(p[0],p[1],p[5],p[4],[0,-1,0]);
+const vb=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vb);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(verts),gl.STATIC_DRAW);
+gl.enableVertexAttribArray(loc.p);gl.vertexAttribPointer(loc.p,3,gl.FLOAT,false,0,0);
+const nb=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,nb);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(norms),gl.STATIC_DRAW);
+gl.enableVertexAttribArray(loc.n);gl.vertexAttribPointer(loc.n,3,gl.FLOAT,false,0,0);
+
+function I(){return [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]}
+function mul(a,b){let r=new Array(16).fill(0);for(let c=0;c<4;c++)for(let rr=0;rr<4;rr++)for(let k=0;k<4;k++)r[c*4+rr]+=a[k*4+rr]*b[c*4+k];return r}
+function T(x,y,z){let m=I();m[12]=x;m[13]=y;m[14]=z;return m}
+function S(x,y,z){let m=I();m[0]=x;m[5]=y;m[10]=z;return m}
+function RX(a){let c=Math.cos(a),s=Math.sin(a),m=I();m[5]=c;m[6]=s;m[9]=-s;m[10]=c;return m}
+function RY(a){let c=Math.cos(a),s=Math.sin(a),m=I();m[0]=c;m[2]=-s;m[8]=s;m[10]=c;return m}
+function RZ(a){let c=Math.cos(a),s=Math.sin(a),m=I();m[0]=c;m[1]=s;m[4]=-s;m[5]=c;return m}
+function perspective(fov,asp,n,f){let q=1/Math.tan(fov/2),m=new Array(16).fill(0);m[0]=q/asp;m[5]=q;m[10]=(f+n)/(n-f);m[11]=-1;m[14]=(2*f*n)/(n-f);return m}
+function lookAt(e,t,u){let zx=e[0]-t[0],zy=e[1]-t[1],zz=e[2]-t[2],zl=Math.hypot(zx,zy,zz);zx/=zl;zy/=zl;zz/=zl;let xx=u[1]*zz-u[2]*zy,xy=u[2]*zx-u[0]*zz,xz=u[0]*zy-u[1]*zx,xl=Math.hypot(xx,xy,xz);xx/=xl;xy/=xl;xz/=xl;let yx=zy*xz-zz*xy,yy=zz*xx-zx*xz,yz=zx*xy-zy*xx;return [xx,yx,zx,0,xy,yy,zy,0,xz,yz,zz,0,-(xx*e[0]+xy*e[1]+xz*e[2]),-(yx*e[0]+yy*e[1]+yz*e[2]),-(zx*e[0]+zy*e[1]+zz*e[2]),1]}
+function normal3(m){let a=m[0],b=m[4],c=m[8],d=m[1],e=m[5],f=m[9],g=m[2],h=m[6],i=m[10];let A=e*i-f*h,B=f*g-d*i,C=d*h-e*g,D=c*h-b*i,E=a*i-c*g,F=b*g-a*h,G=b*f-c*e,H=c*d-a*f,I=a*e-b*d,det=a*A+b*B+c*C,iv=1/(det||1);return [A*iv,D*iv,G*iv,B*iv,E*iv,H*iv,C*iv,F*iv,I*iv]}
+function color(hex){return [((hex>>16)&255)/255,((hex>>8)&255)/255,(hex&255)/255]}
+function drawBox(base,pos,rot,scale,col,metal=0.75,emit=[0,0,0]){
+ let m=mul(base,T(...pos));m=mul(m,RY(rot[1]||0));m=mul(m,RX(rot[0]||0));m=mul(m,RZ(rot[2]||0));m=mul(m,S(...scale));
+ gl.uniformMatrix4fv(loc.M,false,new Float32Array(m));gl.uniformMatrix3fv(loc.N,false,new Float32Array(normal3(m)));
+ gl.uniform3fv(loc.C,new Float32Array(color(col)));gl.uniform3fv(loc.E,new Float32Array(emit));gl.uniform1f(loc.metal,metal);
+ gl.drawArrays(gl.TRIANGLES,0,36);
+}
+function leg(base,x,z,phase,wave){
+ const upper=wave ? -1.35 : phase;
+ const lower=wave ? 0.35 : Math.max(-.30,-phase*.38);
+ drawBox(base,[x,.05,z],[0,0,upper],[.15,.68,.16],0x727f90,.84);
+ let kneeY=-.52+Math.cos(upper)*.08, kneeX=x+Math.sin(upper)*.20;
+ drawBox(base,[kneeX,kneeY,z],[0,0,lower],[.13,.55,.14],0x303a49,.82);
+ drawBox(base,[kneeX+.10,-.98,z+.01],[0,0,0],[.34,.12,.24],0x111827,.70);
+}
+
+let state="idle",stateStart=0,clicks=0,clickTimer=0,busy=false,lastTouch=0,mouseX=0;
+function setState(s){state=s;stateStart=performance.now();host.classList.remove("is-greeting","is-jumping","is-running");if(s!=="idle")host.classList.add("is-"+s);if(action)action.textContent=s==="greeting"?"HELLO 👋":s==="jumping"?"JUMP":s==="running"?"RUN MODE":"ONLINE"}
+function finish(ms){setTimeout(()=>{setState("idle");busy=false},ms)}
+function greet(){if(busy)return;busy=true;setState("greeting");finish(1050)}
+function jump(){if(busy)return;busy=true;setState("jumping");finish(1150)}
+function run(){if(busy)return;busy=true;setState("running");setTimeout(()=>{setState("idle");busy=false;setTimeout(greet,140)},2580)}
+function resolve(){let n=Math.min(clicks,3);clicks=0;if(n===1)greet();else if(n===2)jump();else if(n>=3)run()}
+function register(){if(busy)return;clicks=Math.min(3,clicks+1);clearTimeout(clickTimer);clickTimer=setTimeout(resolve,340)}
+host.addEventListener("pointerup",e=>{if(e.pointerType==="touch"){lastTouch=Date.now();e.preventDefault();register()}});
+host.addEventListener("click",()=>{if(Date.now()-lastTouch<550)return;register()});
+host.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();register()}});
+host.addEventListener("pointermove",e=>{const r=host.getBoundingClientRect();mouseX=((e.clientX-r.left)/r.width-.5)*2});
+
+function resize(){
+ const d=Math.min(window.devicePixelRatio||1,2);
+ const w=Math.max(1,Math.round(host.clientWidth*d)),h=Math.max(1,Math.round(host.clientHeight*d));
+ if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}
+}
+gl.enable(gl.DEPTH_TEST);gl.enable(gl.CULL_FACE);gl.clearColor(0,0,0,0);
+
+let last=performance.now();
+function frame(now){
+ resize();let t=now*.001,dt=Math.min(.05,(now-last)/1000);last=now;
+ gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+ const asp=canvas.width/canvas.height;
+ gl.uniformMatrix4fv(loc.P,false,new Float32Array(perspective(0.68,asp,.1,50)));
+ gl.uniformMatrix4fv(loc.V,false,new Float32Array(lookAt([0,1.25,6.5],[0,.15,0],[0,1,0])));
+
+ let elapsed=(now-stateStart)/1000;
+ let jumpY=0,runCycle=0,wave=0,yaw=.20+mouseX*.10;
+ if(state==="jumping"){let q=Math.min(elapsed/1.05,1);jumpY=Math.sin(q*Math.PI)*1.05}
+ if(state==="running"){runCycle=Math.sin(t*17)*.78; yaw=.16}
+ if(state==="greeting"){wave=Math.sin(Math.min(elapsed/.9,1)*Math.PI);}
+
+ let root=mul(T(0,jumpY,0),RY(yaw));
+ root=mul(root,S(1.12,1.12,1.12));
+
+ // body shell
+ drawBox(root,[0,.35,0],[0,0,0],[1.65,.62,.72],0x9aa8b8,.90);
+ drawBox(root,[.05,.38,0],[0,0,0],[1.18,.68,.76],0x182231,.86);
+ // shoulder / hip metal caps
+ drawBox(root,[.72,.35,.0],[0,0,0],[.30,.70,.82],0xc2ccd6,.95);
+ drawBox(root,[-.72,.35,.0],[0,0,0],[.30,.70,.82],0x8793a3,.92);
+
+ // neck + head
+ let headBob=Math.sin(t*1.8)*.035;
+ drawBox(root,[.96,.63,0],[0,0,-.22],[.22,.55,.28],0x667383,.88);
+ drawBox(root,[1.25,.84+headBob,0],[0,.02,-.03],[.62,.43,.54],0xaeb9c5,.92);
+ drawBox(root,[1.56,.79+headBob,0],[0,0,0],[.22,.25,.40],0x121a27,.82);
+ // ears
+ drawBox(root,[1.20,1.13, .20],[0,0,.16],[.16,.27,.12],0x3a4656,.82);
+ drawBox(root,[1.20,1.13,-.20],[0,0,.16],[.16,.27,.12],0x3a4656,.82);
+ // eyes / sensors emissive
+ drawBox(root,[1.57,.91, .17],[0,0,0],[.035,.065,.06],0x22d3ee,.4,[.10,.72,.95]);
+ drawBox(root,[1.57,.91,-.17],[0,0,0],[.035,.065,.06],0x22d3ee,.4,[.10,.72,.95]);
+
+ // tail
+ drawBox(root,[-1.02,.58,0],[0,0,-.48+Math.sin(t*2.6)*.13],[.58,.11,.11],0x6b7787,.86);
+
+ // legs: x fore/hind, z near/far
+ let idle=.08*Math.sin(t*2.0);
+ leg(root,.68,.42,state==="running"?runCycle:idle,state==="greeting"&&wave>.15);
+ leg(root,.68,-.42,state==="running"?-runCycle:-idle,false);
+ leg(root,-.68,.42,state==="running"?-runCycle:idle*.6,false);
+ leg(root,-.68,-.42,state==="running"?runCycle:-idle*.6,false);
+
+ // glowing cyan side strip
+ drawBox(root,[.02,.63,.39],[0,0,0],[.88,.045,.025],0x38bdf8,.35,[.04,.32,.60]);
+
+ gl.flush();
+ requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// Running across viewport at CSS/DOM level while joints run in 3D.
+function animateHostRun(){
+ const start=performance.now(),dur=2500;
+ const max=Math.max(0,window.innerWidth-host.getBoundingClientRect().width-18);
+ function step(n){
+  let q=Math.min((n-start)/dur,1),x,flip=false;
+  if(q<.44)x=max*(q/.44);
+  else if(q<.55){x=max;flip=true}
+  else{x=max*(1-(q-.55)/.45);flip=true}
+  host.style.left=(10+x)+"px";
+  host.style.transform=flip?"scaleX(-1)":"scaleX(1)";
+  if(q<1)requestAnimationFrame(step);else{host.style.left="10px";host.style.transform=""}
+ }
+ requestAnimationFrame(step);
+}
+const origRun=run;
+run=function(){if(busy)return;animateHostRun();origRun()};
+
+setTimeout(greet,1250);
 })();
 </script>
 </body>
