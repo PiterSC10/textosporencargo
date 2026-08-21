@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=83" rel="manifest"/>
+<link href="site.webmanifest?v=84" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4171,6 +4171,62 @@ body.ydg-launch-open{overflow:hidden!important}
   .ydg-terminal-robot.is-greeting .ydg-robot-paw{animation:none!important}
 }
 
+
+/* ===== V84 · Hero palette + YDG-01 mascot ===== */
+.ydg-terminal-robot-wrap{display:block!important;max-width:860px!important}
+.ydg-terminal-robot,.ydg-process-companion,.ydg-config-robot,.ydg-drone-pass{display:none!important}
+
+#hero-section{background:#1b2130!important;position:relative;overflow:hidden}
+#hero-section::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 28%,rgba(45,212,191,.055),transparent 32%),radial-gradient(circle at 87% 22%,rgba(99,102,241,.055),transparent 34%);opacity:.8}
+#hero-section .hero-brand-block{position:relative;z-index:1;width:min(94vw,900px);border:1px solid rgba(45,212,191,.13);border-radius:38px;padding:42px 28px 38px;background:linear-gradient(180deg,rgba(9,18,34,.88),rgba(11,18,34,.80));box-shadow:inset 0 0 55px rgba(30,64,175,.035)}
+#hero-section .final-conversion-label{display:inline-flex!important;width:auto!important;margin:0 auto 28px!important;padding:11px 26px!important;border:1px solid rgba(45,212,191,.22)!important;border-radius:999px!important;background:rgba(5,16,24,.38)!important;color:#a7f3d0!important;font-size:.70rem!important;letter-spacing:.20em!important;font-weight:900!important}
+#hero-section .hero-digital-title{font-family:'Space Grotesk',sans-serif!important;font-weight:800!important;letter-spacing:-.05em!important;line-height:.98!important;text-shadow:none!important}
+#hero-section .hero-digital-title>span:first-child{color:#f8fafc!important;background:none!important;-webkit-text-fill-color:initial!important}
+#hero-section .hero-digital-title>span:last-child,#hero-section .hero-digital-title>span:last-child strong{background:linear-gradient(100deg,#69e6cf 0%,#4fbfe4 36%,#5a8ff0 66%,#b968e8 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}
+#hero-section .hero-brand-divider{opacity:.25!important}
+#hero-section .hero-main-description{position:relative;z-index:1;color:#c6cbd4!important;line-height:1.65!important}
+#hero-section .hero-capacity-embed{position:relative;z-index:1;border:1px solid rgba(34,197,94,.16)!important;background:rgba(4,15,20,.72)!important;box-shadow:0 0 28px rgba(34,197,94,.03)!important}
+#hero-section .hero-capacity-embed strong{color:#bbf7d0!important}
+#hero-section .gradient-button{position:relative;z-index:1;background:linear-gradient(90deg,#15c99c,#28b9d0,#3d85f5)!important;box-shadow:0 16px 36px rgba(59,130,246,.13)!important}
+#hero-section .hero-promo-meta{position:relative;z-index:1;color:#717c92!important}
+
+.ydg-dog-mascot{position:fixed;left:18px;bottom:18px;z-index:72;width:124px;cursor:pointer;user-select:none;touch-action:manipulation;filter:drop-shadow(0 15px 24px rgba(0,0,0,.30));transition:transform .25s ease,opacity .25s ease}
+.ydg-dog-orb{position:relative;width:104px;height:104px;border-radius:26px;overflow:hidden;border:1px solid rgba(56,189,248,.24);background:#07101a;box-shadow:0 0 0 1px rgba(255,255,255,.025) inset,0 0 22px rgba(56,189,248,.08)}
+.ydg-dog-orb img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform .25s ease,filter .25s ease;filter:saturate(.96) contrast(1.03)}
+.ydg-dog-eye{position:absolute;right:22px;top:28px;width:7px;height:7px;border-radius:50%;background:#22d3ee;box-shadow:0 0 10px #22d3ee,0 0 18px rgba(56,189,248,.55);animation:ydgDogEye 1.8s ease-in-out infinite}
+.ydg-dog-scan{position:absolute;left:10px;right:10px;top:50%;height:1px;background:linear-gradient(90deg,transparent,#22d3ee,transparent);box-shadow:0 0 8px rgba(34,211,238,.8);opacity:.45;animation:ydgDogScan 2.3s ease-in-out infinite alternate}
+.ydg-dog-glow{position:absolute;left:-8px;top:-8px;width:120px;height:120px;border-radius:34px;background:radial-gradient(circle,rgba(34,211,238,.15),rgba(59,130,246,.06) 45%,transparent 72%);filter:blur(10px);opacity:.55;pointer-events:none}
+.ydg-dog-bubble{position:absolute;left:88px;bottom:36px;min-width:110px;padding:8px 10px;border-radius:12px;border:1px solid rgba(45,212,191,.20);background:rgba(5,12,22,.88);backdrop-filter:blur(10px);opacity:0;transform:translateX(-5px) scale(.96);transition:.23s ease;pointer-events:none}
+.ydg-dog-bubble b{display:block;color:#67e8f9;font-size:.54rem;letter-spacing:.13em}.ydg-dog-bubble span{display:block;color:#e5e7eb;font-size:.58rem;margin-top:2px}
+.ydg-dog-hint{margin-top:6px;color:#64748b;font-size:.43rem;font-weight:900;letter-spacing:.14em;text-align:center;opacity:.62}
+.ydg-dog-mascot.is-greeting .ydg-dog-bubble{opacity:1;transform:none}
+.ydg-dog-mascot.is-greeting .ydg-dog-orb{animation:ydgDogHello .76s ease}
+.ydg-dog-mascot.is-running{animation:ydgDogRun 1.65s cubic-bezier(.64,0,.36,1)}
+.ydg-dog-mascot.is-running .ydg-dog-orb{box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 0 22px rgba(34,211,238,.42),0 0 44px rgba(59,130,246,.30)}
+.ydg-dog-mascot.is-running .ydg-dog-glow{opacity:1;transform:scale(1.28);filter:blur(14px)}
+.ydg-dog-mascot.is-running::after{content:"";position:absolute;right:78px;top:35px;width:150px;height:35px;border-radius:50%;background:linear-gradient(90deg,transparent,rgba(56,189,248,.16),rgba(34,211,238,.28));filter:blur(9px);z-index:-1;animation:ydgDogTrail 1.65s ease}
+@keyframes ydgDogEye{50%{opacity:.35;transform:scale(.78)}}
+@keyframes ydgDogScan{from{transform:translateY(-30px)}to{transform:translateY(30px)}}
+@keyframes ydgDogHello{0%,100%{transform:rotate(0deg)}20%{transform:rotate(-3deg) translateY(-2px)}40%{transform:rotate(3deg) translateY(-3px)}60%{transform:rotate(-2deg)}80%{transform:rotate(1deg)}}
+@keyframes ydgDogRun{0%{transform:translateX(0) scale(1)}9%{transform:translateX(-8px) scale(.97)}30%{transform:translateX(calc(100vw - 180px)) scale(1.02) rotate(1deg)}48%{transform:translateX(calc(100vw - 180px)) scale(1) rotate(-1deg)}68%{transform:translateX(42vw) scale(1.02)}100%{transform:translateX(0) scale(1)}}
+@keyframes ydgDogTrail{0%,100%{opacity:0;transform:scaleX(.4)}25%,75%{opacity:1;transform:scaleX(1)}}
+@media(max-width:767px){.ydg-dog-mascot{position:relative;left:auto;bottom:auto;width:112px;margin:22px auto 6px;z-index:3}.ydg-dog-orb{width:96px;height:96px;margin:auto}.ydg-dog-glow{left:0;top:-7px;width:110px;height:110px}.ydg-dog-bubble{left:76px;bottom:34px}.ydg-dog-hint{font-size:.4rem}@keyframes ydgDogRun{0%{transform:translateX(0)}30%{transform:translateX(46vw)}55%{transform:translateX(46vw)}100%{transform:translateX(0)}}}
+@media(prefers-reduced-motion:reduce){.ydg-dog-eye,.ydg-dog-scan{animation:none!important}.ydg-dog-mascot.is-running,.ydg-dog-mascot.is-greeting .ydg-dog-orb{animation:none!important}}
+
+
+/* ===== V84 FINAL · limpieza + promo 99 ===== */
+.ydg-config-robot,.ydg-launch-toggle-card,.ydg-terminal-robot,.ydg-process-companion,.ydg-drone-pass{display:none!important}
+.budget-primary-promo{grid-template-columns:auto 1fr!important;align-items:center!important;gap:14px!important}
+.budget-primary-promo>small{grid-column:1/-1}
+.budget-price-promo{display:flex;align-items:center;gap:12px;min-width:0}
+.budget-old-price{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;color:#d7dfeb;font-size:1.35rem;font-weight:900;line-height:1;opacity:.72}
+.budget-cross{position:absolute;left:3%;right:3%;top:50%;height:3px;border-radius:999px;background:linear-gradient(90deg,#ff5f6d,#ef4444,#b91c1c);box-shadow:0 0 9px rgba(239,68,68,.45)}
+.budget-cross.a{transform:rotate(10deg)}.budget-cross.b{transform:rotate(-10deg)}
+.budget-arrow{color:#22d3ee;font-size:1.25rem;font-weight:900}
+.budget-new-price{font-family:'Space Grotesk',sans-serif!important;color:#fff!important;font-size:1.9rem!important;line-height:1!important;text-shadow:0 0 18px rgba(34,211,238,.18)}
+.budget-primary-promo>span:last-child{grid-column:1/-1;color:#9aa8ba!important}
+@media(max-width:640px){.budget-primary-promo{display:block!important}.budget-price-promo{margin:7px 0 8px}.budget-new-price{font-size:1.7rem!important}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -4400,20 +4456,7 @@ body.ydg-launch-open{overflow:hidden!important}
 
 
 <section class="ydg-terminal-section" aria-label="Estado técnico YourDesignGPT">
-  <div class="ydg-terminal-robot-wrap">
-    <div class="ydg-terminal-robot ydg-robot-parallax" aria-label="YDG-01">
-      <img src="ydg01_robotdog.jpg" alt="YDG-01, concepto de perro robot tecnológico">
-      <span class="ydg-robot-eye"></span>
-      <span class="ydg-robot-trail trail-a" aria-hidden="true"></span><span class="ydg-robot-trail trail-b" aria-hidden="true"></span><span class="ydg-robot-paw" aria-hidden="true">🐾</span><span class="ydg-robot-greet" aria-hidden="true">HELLO</span><div class="ydg-robot-hud">
-        <b>YDG-01</b>
-        <span>AI ROBOTIC UNIT</span>
-        <small>VISION · MOTION · ONLINE</small>
-      </div>
-      <span class="hud-corner c1"></span><span class="hud-corner c2"></span>
-      <span class="hud-corner c3"></span><span class="hud-corner c4"></span>
-    </div>
-
-  <div class="ydg-terminal" id="ydg-terminal">
+<div class="ydg-terminal" id="ydg-terminal">
     <div class="ydg-terminal-head">
       <span><i></i><i></i><i></i></span>
       <b>YDG / BUILD SYSTEM</b>
@@ -4428,6 +4471,7 @@ body.ydg-launch-open{overflow:hidden!important}
     </div>
   </div>
   </div>
+
 </section>
 
 <!-- Qué incluye tu web por 495 € -->
@@ -4487,7 +4531,6 @@ body.ydg-launch-open{overflow:hidden!important}
 </section>
 
 <!-- Portfolio / Proyectos -->
-<div class="ydg-drone-pass" aria-hidden="true"><img src="ydg_drone.jpg" alt=""></div>
 <section aria-labelledby="portfolio-title" class="py-20 bg-[#0d1117] px-4" id="portfolio">
 <div class="container mx-auto section-box">
 <div class="text-center mb-12">
@@ -4600,14 +4643,6 @@ body.ydg-launch-open{overflow:hidden!important}
 </section>
 <!-- Proceso real -->
 <section class="py-20 bg-[#0d1117] px-4" id="como-funciona"><div class="container mx-auto section-box"><div class="text-center mb-14"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="process-eyebrow">Proceso real</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="process-title">Briefing → Diseño → Revisión → Publicación</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="process-desc">Cuatro pasos claros para avanzar rápido sin perder control sobre el resultado.</p></div>
-<div class="ydg-process-companion ydg-robot-parallax" aria-hidden="true">
-  <img src="ydg_humanoid.jpg" alt="">
-  <span class="ydg-process-scan"></span>
-  <div class="ydg-process-badge">
-    <b>H-01</b>
-    <small>PROCESS ASSIST</small>
-  </div>
-</div>
 <div class="process-track" id="process-track"><div class="process-progress"></div><div class="process-grid"><div class="process-step"><div class="process-dot">01</div><h3 data-lang-key="process-step1-title">Briefing</h3><p data-lang-key="process-step1-desc">Nos cuentas actividad, estilo, contenidos y objetivos.</p></div><div class="process-step"><div class="process-dot">02</div><h3 data-lang-key="process-step2-title">Diseño</h3><p data-lang-key="process-step2-desc">Construimos estructura, identidad visual y experiencia responsive.</p></div><div class="process-step"><div class="process-dot">03</div><h3 data-lang-key="process-step3-title">Revisión</h3><p data-lang-key="process-step3-desc">Te mostramos el resultado y aplicamos los ajustes acordados.</p></div><div class="process-step"><div class="process-dot">04</div><h3 data-lang-key="process-step4-title">Publicación</h3><p data-lang-key="process-step4-desc">Configuramos, publicamos y dejamos la web lista para funcionar.</p></div></div></div></div></section>
 <!-- Call to Action Section: Listo para transformar tus ideas -->
 <section class="py-16 bg-[#1a202c] px-4">
@@ -4794,40 +4829,15 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 </section>
 <section class="py-20 px-4 bg-[#0d1117]" id="configurador"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="config-eyebrow">Presupuesto guiado</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="config-title">Configura la idea de tu web</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="config-desc">Marca lo que necesitas y recibiremos un briefing mucho más completo desde el primer contacto.</p></div>
-<div class="ydg-config-robot">
-  <div class="ydg-config-robot-visual ydg-robot-parallax">
-    <img src="ydg01_robotdog.jpg" alt="YDG-01 asistente de configuración">
-    <span class="config-robot-scan"></span>
-  </div>
-  <div class="ydg-config-robot-copy">
-    <small>YDG-01 · PROJECT GUARDIAN</small>
-    <strong data-lang-key="robot-config-title">PROJECT SCAN READY</strong>
-    <p data-lang-key="robot-config-desc">Completa la idea de tu web. El sistema irá activándose mientras rellenas el configurador.</p>
-    <div class="robot-config-progress"><span id="robot-config-progress"></span></div>
-    <em id="robot-config-progress-label">0%</em>
-  </div>
-</div>
-
-<div class="ydg-launch-toggle-card" id="ydg-launch-toggle-card">
-  <div class="ydg-launch-toggle-copy">
-    <span>⚡</span>
-    <div>
-      <small data-lang-key="promo-toggle-label">OFERTA DE LANZAMIENTO</small>
-      <strong data-lang-key="promo-toggle-title">Aplicar código YOURDESIGNGPT · 99 €</strong>
-      <p data-lang-key="promo-toggle-desc">Puedes activar o quitar la promoción desde aquí aunque hayas cerrado el popup.</p>
-    </div>
-  </div>
-  <label class="ydg-promo-switch" aria-label="Activar o desactivar oferta de lanzamiento">
-    <input type="checkbox" id="ydg-promo-switch">
-    <span class="ydg-promo-slider"></span>
-  </label>
-</div>
-
 <div class="ydg-live-budget" id="ydg-live-budget" aria-live="polite">
-  <div class="budget-primary">
+  <div class="budget-primary budget-primary-promo">
     <small data-lang-key="budget-label">ESTIMACIÓN BASE</small>
-    <strong>645 €</strong>
-    <span data-lang-key="budget-first-year">Primer año: 495 € desarrollo + 150 € dominio, hosting y mantenimiento</span>
+    <div class="budget-price-promo" aria-label="Precio anterior 645 euros, oferta 99 euros">
+      <span class="budget-old-price">645 €<i class="budget-cross a"></i><i class="budget-cross b"></i></span>
+      <span class="budget-arrow">→</span>
+      <strong class="budget-new-price">99 €</strong>
+    </div>
+    <span data-lang-key="budget-first-year">Oferta de lanzamiento: 99 € + 100 €/año de dominio, hosting y mantenimiento</span>
   </div>
   <div class="budget-live-data">
     <div><small data-lang-key="budget-sections">Secciones</small><b id="budget-sections-value">Hasta 5</b></div>
@@ -4918,6 +4928,18 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 </section>
 </main>
+
+<div class="ydg-dog-mascot" id="ydg-dog-mascot" aria-label="YDG-01 mascota robótica" role="button" tabindex="0">
+  <div class="ydg-dog-glow"></div>
+  <div class="ydg-dog-orb">
+    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot de YourDesignGPT">
+    <span class="ydg-dog-eye"></span>
+    <span class="ydg-dog-scan"></span>
+  </div>
+  <div class="ydg-dog-bubble"><b>YDG-01</b><span>HELLO 👋</span></div>
+  <div class="ydg-dog-hint">3× CLICK · RUN</div>
+</div>
+
 <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
 <div class="container mx-auto section-box footer-box">
 <p class="mb-2 text-white font-bold">YourDesignGPT | Diseño Web Profesional</p>
@@ -5131,7 +5153,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'portfolio-next-desc': 'Convierte tu negocio en el próximo proyecto de YourDesignGPT.',
                 'portfolio-next-button': 'Crear mi web →',
                 'budget-label': 'ESTIMACIÓN BASE',
-                'budget-first-year': 'Primer año: 495 € desarrollo + 150 € dominio, hosting y mantenimiento',
+                'budget-first-year': 'Oferta de lanzamiento: 99 € + 100 €/año de dominio, hosting y mantenimiento',
                 'budget-sections': 'Secciones',
                 'budget-functions': 'Funciones',
                 'budget-languages': 'Idiomas',
@@ -5509,7 +5531,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'portfolio-next-desc': 'Turn your business into the next YourDesignGPT project.',
                 'portfolio-next-button': 'Create my website →',
                 'budget-label': 'BASE ESTIMATE',
-                'budget-first-year': 'First year: €495 development + €150 domain, hosting and maintenance',
+                'budget-first-year': 'Launch offer: €99 + €100/year for domain, hosting and maintenance',
                 'budget-sections': 'Sections',
                 'budget-functions': 'Features',
                 'budget-languages': 'Languages',
@@ -6366,7 +6388,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=83', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=84', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -6956,60 +6978,40 @@ try{
     });
   }
 
-  // Configurator completion progress.
-  const form=document.getElementById('web-config-form');
-  const progress=document.getElementById('robot-config-progress');
-  const progressLabel=document.getElementById('robot-config-progress-label');
-  if(form && progress && progressLabel){
-    const fields=[...form.querySelectorAll('input:not([type="hidden"]),select,textarea')];
-    function updateRobotProgress(){
-      let total=0,done=0;
-      const groups={};
-      fields.forEach(f=>{
-        if((f.type==='radio'||f.type==='checkbox')&&f.name){
-          groups[f.name]=groups[f.name]||[];
-          groups[f.name].push(f);
-        }else{
-          total++;
-          if(String(f.value||'').trim()) done++;
-        }
-      });
-      Object.values(groups).forEach(arr=>{
-        total++;
-        if(arr.some(x=>x.checked)) done++;
-      });
-      const pct=Math.round((done/Math.max(1,total))*100);
-      progress.style.width=pct+'%';
-      progressLabel.textContent=pct+'%';
-    }
-    form.addEventListener('input',updateRobotProgress);
-    form.addEventListener('change',updateRobotProgress);
-    updateRobotProgress();
-  }
+})();
+</script>
 
-  // Promo switch synced with V80 popup promo state.
-  const promoSwitch=document.getElementById('ydg-promo-switch');
-  const promoField=document.getElementById('ydg-promo-field');
-  const promoPrice=document.getElementById('ydg-promo-price');
-  const promoBanner=document.getElementById('ydg-promo-applied');
-  const promoRemove=document.getElementById('ydg-promo-remove');
-  const launchApply=document.getElementById('ydg-launch-apply');
 
-  function setPromo(on){
-    if(promoSwitch) promoSwitch.checked=!!on;
-    if(promoField) promoField.value=on?'YOURDESIGNGPT':'';
-    if(promoPrice) promoPrice.value=on?'99 € + 100 €/año de dominio, hosting y mantenimiento':'';
-    promoBanner?.classList.toggle('is-active',!!on);
-  }
-
-  promoSwitch?.addEventListener('change',()=>setPromo(promoSwitch.checked));
-  promoRemove?.addEventListener('click',()=>setPromo(false));
-
-  // V80 apply button sets promo; sync switch after original handler runs.
-  launchApply?.addEventListener('click',()=>setTimeout(()=>setPromo(true),30));
-
-  // If promo was already applied by the popup before this script runs.
-  setPromo(Boolean(promoField?.value));
+<script>
+(function(){
+  const dog=document.getElementById('ydg-dog-mascot');
+  if(!dog) return;
+  let clicks=[];
+  let greetTimer;
+  const greet=()=>{
+    dog.classList.remove('is-greeting');
+    void dog.offsetWidth;
+    dog.classList.add('is-greeting');
+    clearTimeout(greetTimer);
+    greetTimer=setTimeout(()=>dog.classList.remove('is-greeting'),1050);
+  };
+  const run=()=>{
+    dog.classList.remove('is-running');
+    void dog.offsetWidth;
+    dog.classList.add('is-running');
+    setTimeout(()=>{dog.classList.remove('is-running');greet();},1680);
+  };
+  setTimeout(greet,900);
+  dog.addEventListener('mouseenter',greet);
+  dog.addEventListener('click',()=>{
+    const now=Date.now();
+    clicks=clicks.filter(t=>now-t<1350);
+    clicks.push(now);
+    if(clicks.length>=3){clicks=[];run();} else greet();
+  });
+  dog.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();run();}
+  });
 })();
 </script>
 
