@@ -18,3 +18,7 @@ body.ydg-promo-off .launch-price-box,body.ydg-promo-off .budget-old-price{displa
 body.ydg-promo-off .launch-offer-pill,body.ydg-promo-off .budget-new-price,body.ydg-promo-off .budget-arrow{display:none!important}
 body.ydg-promo-on .ydg-promo-slider{background:linear-gradient(90deg,#059669,#34d399)!important;border-color:rgba(110,231,183,.52)!important;box-shadow:0 0 20px rgba(52,211,153,.23)!important}
 body.ydg-promo-off .ydg-promo-slider{background:#182536!important;border-color:rgba(96,165,250,.22)!important;box-shadow:none!important}
+
+/* V101: initial launch card is always the yellow 99 € campaign */
+.ydg-launch-modal .ydg-launch-price,.ydg-launch-modal .ydg-launch-price span{color:#facc15!important;text-shadow:0 0 20px rgba(250,204,21,.22)!important}
+.ydg-launch-modal .ydg-launch-topline,.ydg-launch-modal .ydg-launch-flash{color:#fde047!important}

@@ -1,0 +1,35 @@
+{
+  "idle": {
+    "transparent": true,
+    "size": [
+      1054,
+      925
+    ]
+  },
+  "wave": {
+    "transparent": true,
+    "size": [
+      550,
+      454
+    ]
+  },
+  "jump": {
+    "transparent": true,
+    "size": [
+      530,
+      434
+    ]
+  },
+  "run": {
+    "transparent": true,
+    "size": [
+      580,
+      374
+    ]
+  },
+  "distinct_poses": true,
+  "popup_fixed_99": true,
+  "js_errors": [],
+  "root_only": true,
+  "no_beam_or_aura_elements": true
+}
