@@ -1,0 +1,17 @@
+{
+  "robot_assets_only_current": true,
+  "idle_transparent": true,
+  "wave_transparent": true,
+  "jump_transparent": true,
+  "run_transparent": true,
+  "thumb_transparent": true,
+  "scan_removed": true,
+  "beam_long": true,
+  "beam_cursor_tracking": true,
+  "beam_from_face": true,
+  "three_actions": true,
+  "annual_100_details": true,
+  "no_extra_project_note": true,
+  "root_only": true,
+  "js_errors": 0
+}

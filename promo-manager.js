@@ -18,7 +18,7 @@ function setPromo(on){
   if(desc)desc.textContent=!alive()?'Desde el 01/01/2027 se aplica el precio normal.':on?'Estado activo en verde. Oferta válida hasta el 31/12/2026.':'Promoción desactivada. Puedes volver a activarla mientras siga vigente.';
   const lp=q('.ydg-launch-price'),lm=q('[data-lang-key="launch-maintenance"]'),lk=q('[data-lang-key="launch-kicker"]'),ll=q('[data-lang-key="launch-limited"]'),btn=q('#ydg-launch-apply');
   if(lp)lp.innerHTML='99<span>€</span>';
-  if(lm)lm.textContent='+ 100 €/año · oferta válida hasta 31/12/2026';
+  if(lm)lm.textContent='+ 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores';
   if(lk)lk.textContent='OFERTA DE LANZAMIENTO';
   if(ll)ll.textContent='HASTA 31/12/2026';
   if(btn)btn.textContent=on?'PROMOCIÓN 99 € ACTIVADA':'ACTIVAR PROMOCIÓN 99 €';

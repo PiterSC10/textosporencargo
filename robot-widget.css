@@ -1,11 +1,13 @@
 
-/* V103 · transparent robot + compact HUD + moving visor beam */
+/* V104 · clean YDG-01: robot only, no HUD/SCAN panel */
 #ydg-robot-widget{
+  --beam-angle:-2deg;
+  --beam-length:430px;
   position:fixed;
   left:7px;
   bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));
   z-index:2147483000;
-  width:305px;
+  width:240px;
   height:190px;
   cursor:pointer;
   touch-action:manipulation;
@@ -15,13 +17,13 @@
 }
 #ydg-robot-widget[hidden]{display:none!important}
 
-/* ROBOT: transparent PNG only */
+/* Only the transparent articulated dog image */
 #ydg-robot-widget .yr-dog{
   position:absolute;
   left:0;
   bottom:10px;
-  width:210px;
-  height:174px;
+  width:220px;
+  height:176px;
   object-fit:contain;
   object-position:left bottom;
   pointer-events:none;
@@ -29,207 +31,118 @@
   filter:none!important;
 }
 
-/* Moving beam starts at visor/face and sweeps across the page */
-.yr-beam{
+/* Close control only — no panel behind the dog */
+#ydg-robot-widget .yr-close{
   position:absolute;
-  left:177px;
-  top:55px;
-  width:160px;
-  height:2px;
-  z-index:4;
-  transform-origin:left center;
-  background:linear-gradient(90deg,rgba(235,255,255,.98),rgba(34,211,238,.96) 15%,rgba(59,130,246,.58) 70%,transparent);
-  box-shadow:0 0 4px #dffcff,0 0 10px #22d3ee,0 0 20px rgba(59,130,246,.45);
-  pointer-events:none;
-  animation:beamSweep 2.6s ease-in-out infinite alternate;
-}
-.yr-beam::before{
-  content:"";
-  position:absolute;
-  left:-5px;top:-4px;
-  width:10px;height:10px;
+  right:5px;
+  top:5px;
+  z-index:7;
+  width:24px;
+  height:24px;
   border-radius:50%;
-  background:#e7feff;
-  box-shadow:0 0 7px #a5f3fc,0 0 16px #22d3ee;
-}
-@keyframes beamSweep{
-  0%{transform:rotate(-8deg) scaleX(.90);opacity:.55}
-  40%{opacity:1}
-  100%{transform:rotate(5deg) scaleX(1.08);opacity:.88}
-}
-
-/* SMALL HUD */
-.ydg01-hud{
-  position:absolute;
-  left:207px;
-  top:18px;
-  width:94px;
-  height:116px;
-  z-index:8;
-  border:1px solid rgba(34,211,238,.40);
-  border-radius:12px;
-  background:linear-gradient(180deg,rgba(2,8,15,.94),rgba(5,14,25,.86));
-  box-shadow:0 10px 24px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.025) inset;
-  overflow:hidden;
-  transition:width .22s ease,height .22s ease,opacity .22s ease;
-}
-.hud-head{
-  height:30px;
-  padding:6px 6px 4px 7px;
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  border-bottom:1px solid rgba(34,211,238,.10);
-}
-.hud-head b{
-  display:block;
-  color:#d5fbff;
-  font:900 8px/1 system-ui;
-  letter-spacing:.08em;
-}
-.hud-head small{
-  display:block;
-  margin-top:2px;
-  color:#38bdf8;
-  font:800 4px/1 system-ui;
-  letter-spacing:.08em;
-}
-.hud-actions{display:flex;gap:3px}
-.hud-actions button{
-  width:18px;height:18px;
-  border-radius:6px;
-  border:1px solid rgba(56,189,248,.18);
-  background:rgba(12,24,40,.70);
-  color:#b9f4ff;
+  border:1px solid rgba(103,232,249,.28);
+  background:rgba(3,8,15,.78);
+  color:#e1fbff;
   display:grid;
   place-items:center;
-  font:800 11px/1 system-ui;
+  font:700 15px/1 system-ui;
   cursor:pointer;
 }
 
-/* Scan area */
-.hud-body{
-  position:absolute;
-  inset:31px 0 0;
-  display:grid;
-  grid-template-columns:41px 1fr;
-  gap:4px;
-  padding:7px 5px;
-}
-.scan-core{
-  position:relative;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  border:1px solid rgba(34,211,238,.42);
-  box-shadow:0 0 12px rgba(34,211,238,.10) inset,0 0 10px rgba(34,211,238,.08);
-  align-self:center;
-}
-.scan-r1,.scan-r2{
-  position:absolute;
-  border-radius:50%;
-  border:1px dashed rgba(34,211,238,.34);
-}
-.scan-r1{inset:5px;animation:spinScan 3.5s linear infinite}
-.scan-r2{inset:10px;animation:spinScan 2.1s linear infinite reverse}
-.scan-sweep{
-  position:absolute;
-  left:18px;
-  top:3px;
-  width:1px;
-  height:16px;
-  transform-origin:bottom center;
-  background:linear-gradient(#a5f3fc,transparent);
-  box-shadow:0 0 5px #22d3ee;
-  animation:spinScan 1.35s linear infinite;
-}
-.scan-core i{
-  position:absolute;
-  left:16px;top:16px;
-  width:6px;height:6px;
-  border-radius:50%;
-  background:#67e8f9;
-  box-shadow:0 0 8px #22d3ee,0 0 14px rgba(34,211,238,.55);
-  animation:scanPulse .8s ease-in-out infinite alternate;
-}
-.scan-core strong{
-  position:absolute;
-  left:50%;bottom:-12px;
-  transform:translateX(-50%);
-  color:#67e8f9;
-  font:900 4px/1 system-ui;
-  letter-spacing:.10em;
-}
-@keyframes spinScan{to{transform:rotate(360deg)}}
-@keyframes scanPulse{to{transform:scale(1.55);opacity:.55}}
-
-.skills{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-  justify-content:center;
-}
-.skills span{
-  display:flex;
-  align-items:center;
-  gap:4px;
-  padding:4px 4px;
-  border-radius:6px;
-  border:1px solid rgba(56,189,248,.13);
-  background:rgba(9,20,34,.62);
-  color:#b9d9ec;
-  font:800 4.5px/1 system-ui;
-  white-space:nowrap;
-}
-.skills b{
-  width:12px;height:12px;
-  display:grid;place-items:center;
-  border-radius:50%;
-  border:1px solid rgba(34,211,238,.34);
-  color:#67e8f9;
-  font-size:5px;
-}
-
-/* MINIMIZED HUD */
-.ydg01-hud.is-min{
-  width:66px;
-  height:30px;
-}
-.ydg01-hud.is-min .hud-body{display:none}
-.ydg01-hud.is-min .hud-head{
-  height:30px;
-  border-bottom:0;
-}
-.ydg01-hud.is-min .hud-head small{display:none}
-
 .yr-help{
   position:absolute;
-  left:6px;
+  left:5px;
   bottom:0;
-  color:rgba(148,163,184,.55);
+  color:rgba(148,163,184,.58);
   font:800 7px/1 system-ui;
   letter-spacing:.05em;
   white-space:nowrap;
   pointer-events:none;
 }
 
-/* Real pose-based actions */
+/* Long blue beam starting from the face/visor.
+   Light grows from subtle cyan near the visor to intense blue further out. */
+.yr-beam{
+  position:absolute;
+  left:184px;
+  top:61px;
+  width:var(--beam-length);
+  height:3px;
+  z-index:5;
+  transform-origin:left center;
+  transform:rotate(var(--beam-angle));
+  background:linear-gradient(
+    90deg,
+    rgba(34,211,238,.16) 0%,
+    rgba(34,211,238,.34) 18%,
+    rgba(56,189,248,.60) 45%,
+    rgba(59,130,246,.92) 78%,
+    rgba(125,211,252,1) 100%
+  );
+  box-shadow:
+    0 0 5px rgba(34,211,238,.46),
+    0 0 14px rgba(59,130,246,.55),
+    0 0 30px rgba(37,99,235,.28);
+  opacity:.90;
+  pointer-events:none;
+  animation:beamIdle 3s ease-in-out infinite alternate;
+}
+.yr-beam::before{
+  content:"";
+  position:absolute;
+  left:-5px;
+  top:-4px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#dffcff;
+  box-shadow:0 0 8px #67e8f9,0 0 18px #22d3ee;
+}
+.yr-beam::after{
+  content:"";
+  position:absolute;
+  right:-5px;
+  top:-5px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#93c5fd;
+  box-shadow:0 0 12px #60a5fa,0 0 24px #2563eb;
+}
+
+/* Mouse tracking takes full control of angle and length */
+#ydg-robot-widget.beam-track .yr-beam{
+  animation:none;
+  opacity:1;
+  transition:width .06s linear,transform .06s linear;
+}
+
+/* Default movement when cursor is not in the tracking zone */
+@keyframes beamIdle{
+  from{transform:rotate(-7deg);width:390px;opacity:.65}
+  to{transform:rotate(5deg);width:470px;opacity:1}
+}
+
+/* Pose-based actions */
 #ydg-robot-widget.act-wave .yr-dog{
-  animation:realWave 1.28s cubic-bezier(.3,.8,.3,1)
+  animation:realWave 1.28s cubic-bezier(.3,.8,.3,1);
 }
 #ydg-robot-widget.act-jump{
-  animation:realJump 1.42s cubic-bezier(.18,.78,.25,1)
+  animation:realJump 1.42s cubic-bezier(.18,.78,.25,1);
 }
 #ydg-robot-widget.act-run{
-  animation:realRun 2.6s cubic-bezier(.55,.05,.35,1)
+  animation:realRun 2.6s cubic-bezier(.55,.05,.35,1);
 }
 #ydg-robot-widget.act-run .yr-dog{
-  animation:runStride .20s ease-in-out infinite alternate
+  animation:runStride .20s ease-in-out infinite alternate;
 }
 #ydg-robot-widget.act-run .yr-beam{
-  animation-duration:.8s;
-  opacity:1;
+  box-shadow:
+    0 0 7px rgba(34,211,238,.70),
+    0 0 18px rgba(59,130,246,.72),
+    0 0 36px rgba(37,99,235,.38);
 }
+
 @keyframes realWave{
   0%,100%{transform:translateY(0) rotate(0)}
   22%{transform:translateY(-4px) rotate(-2deg)}
@@ -246,8 +159,8 @@
 }
 @keyframes realRun{
   0%{transform:translateX(0) scaleX(1)}
-  35%{transform:translateX(calc(100vw - 315px)) scaleX(1)}
-  43%{transform:translateX(calc(100vw - 315px)) scaleX(-1)}
+  35%{transform:translateX(calc(100vw - 250px)) scaleX(1)}
+  43%{transform:translateX(calc(100vw - 250px)) scaleX(-1)}
   88%{transform:translateX(0) scaleX(-1)}
   97%,100%{transform:translateX(0) scaleX(1)}
 }
@@ -256,13 +169,15 @@
   to{margin-bottom:3px;transform:translateY(-2px)}
 }
 
+/* Mini reopen icon */
 #ydg-robot-reopen{
   display:none;
   position:fixed;
   left:8px;
   bottom:max(20px,calc(env(safe-area-inset-bottom) + 14px));
   z-index:2147483000;
-  width:46px;height:46px;
+  width:46px;
+  height:46px;
   padding:2px;
   border-radius:50%;
   border:1px solid rgba(34,211,238,.26);
@@ -270,50 +185,47 @@
   cursor:pointer;
 }
 #ydg-robot-reopen img{
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   object-fit:contain;
   background:transparent;
 }
 #ydg-robot-reopen.show{display:block}
 
+/* Mobile: same clean robot, shorter beam, no cursor tracking */
 @media(max-width:767px){
   #ydg-robot-widget{
     left:3px;
     bottom:max(112px,calc(env(safe-area-inset-bottom) + 104px));
-    width:210px;
-    height:137px;
+    width:162px;
+    height:140px;
   }
   #ydg-robot-widget .yr-dog{
-    width:145px;
-    height:122px;
+    width:152px;
+    height:126px;
     bottom:9px;
   }
-  .yr-beam{
-    left:120px;
-    top:42px;
-    width:105px;
-    height:1px;
+  #ydg-robot-widget .yr-close{
+    right:0;
+    width:22px;
+    height:22px;
+    font-size:13px;
   }
-  .ydg01-hud{
-    left:145px;
-    top:18px;
-    width:63px;
-    height:90px;
-    border-radius:9px;
-  }
-  .hud-head{height:24px;padding:5px 4px 3px}
-  .hud-head b{font-size:6px}.hud-head small{font-size:3px}
-  .hud-actions button{width:14px;height:14px;font-size:8px}
-  .hud-body{inset:25px 0 0;grid-template-columns:28px 1fr;padding:5px 3px;gap:2px}
-  .scan-core{width:26px;height:26px}.scan-r1{inset:4px}.scan-r2{inset:8px}
-  .scan-sweep{left:12px;height:10px}.scan-core i{left:10px;top:10px}
-  .skills{gap:2px}.skills span{font-size:3px;padding:3px 2px;gap:2px}.skills b{width:9px;height:9px;font-size:4px}
-  .ydg01-hud.is-min{width:48px;height:24px}
   .yr-help{font-size:5.5px}
+  .yr-beam{
+    left:126px;
+    top:46px;
+    width:210px;
+    height:2px;
+  }
+  @keyframes beamIdle{
+    from{transform:rotate(-8deg);width:185px;opacity:.62}
+    to{transform:rotate(5deg);width:235px;opacity:.96}
+  }
   @keyframes realRun{
     0%{transform:translateX(0) scaleX(1)}
-    35%{transform:translateX(calc(100vw - 214px)) scaleX(1)}
-    43%{transform:translateX(calc(100vw - 214px)) scaleX(-1)}
+    35%{transform:translateX(calc(100vw - 168px)) scaleX(1)}
+    43%{transform:translateX(calc(100vw - 168px)) scaleX(-1)}
     88%{transform:translateX(0) scaleX(-1)}
     97%,100%{transform:translateX(0) scaleX(1)}
   }
