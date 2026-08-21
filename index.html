@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=89" rel="manifest"/>
+<link href="site.webmanifest?v=90" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4499,14 +4499,7 @@ body.ydg-launch-open{overflow:hidden!important}
   background:linear-gradient(90deg,rgba(34,211,238,.92),rgba(59,130,246,.92),rgba(217,70,239,.88));
   color:#fff;border-color:rgba(255,255,255,.14)
 }
-.portfolio-card-jetski .portfolio-cover::after{
-  content:"NEW · IBIZA";
-  position:absolute;right:14px;bottom:14px;z-index:5;
-  padding:6px 9px;border-radius:999px;
-  background:rgba(2,8,20,.78);border:1px solid rgba(34,211,238,.25);
-  color:#a5f3fc;font-size:.48rem;font-weight:950;letter-spacing:.12em;
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
-}
+.portfolio-card-jetski .portfolio-cover::after{display:none!important}
 
 /* Promo states */
 #ydg-launch-toggle-card{
@@ -4695,70 +4688,151 @@ body.ydg-launch-open{overflow:hidden!important}
   .ydg-dog-eye,.ydg-dog-laser{animation:none!important}
 }
 
+/* ===== V84 · Hero palette + YDG-01 mascot ===== */
+.ydg-terminal-robot-wrap{display:block!important;max-width:860px!important}
+.ydg-terminal-robot,.ydg-process-companion,.ydg-config-robot,.ydg-drone-pass{display:none!important}
 
-/* ===== V89 · TRUE WEBGL 3D YDG-01 ===== */
-.ydg-dog-mascot,.ydg-dog-v88,.ydg-dog-window,.ydg-dog-command{display:none!important}
-#ydg-dog-3d{
-  position:fixed;left:10px;
-  bottom:max(20px,calc(env(safe-area-inset-bottom) + 16px));
-  width:235px;height:190px;z-index:98;
-  cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;
-  filter:drop-shadow(0 16px 28px rgba(0,0,0,.34));
-  transform-origin:center bottom;
-  transition:filter .22s ease;
-  will-change:left,transform
-}
-#ydg-dog-3d::before{
-  content:"";position:absolute;left:26px;right:18px;bottom:20px;height:44px;border-radius:50%;
-  background:radial-gradient(ellipse,rgba(34,211,238,.24),rgba(59,130,246,.07) 52%,transparent 75%);
-  filter:blur(12px);opacity:.68;pointer-events:none
-}
-#ydg3d-canvas{
-  position:absolute;inset:0;width:100%;height:100%;
-  display:block;background:transparent;outline:none;
-  filter:saturate(1.05)
-}
-.ydg3d-status{
-  position:absolute;left:14px;top:7px;z-index:3;
-  display:flex;align-items:center;gap:6px;
-  padding:5px 8px;border-radius:999px;
-  background:rgba(4,10,18,.62);border:1px solid rgba(103,232,249,.13);
-  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
-  pointer-events:none
-}
-.ydg3d-status b{color:#bff7ff;font-size:.46rem;letter-spacing:.12em}
-.ydg3d-status small{color:#6f8197;font-size:.38rem;font-weight:900;letter-spacing:.08em}
-.ydg3d-dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
-.ydg3d-controls{
-  position:absolute;left:19px;right:8px;bottom:3px;z-index:3;
-  display:flex;justify-content:center;gap:5px;pointer-events:none;
-  color:#64748b;font-size:.37rem;font-weight:950;letter-spacing:.08em
-}
-.ydg3d-controls span{padding:2px 6px;border-radius:999px;background:rgba(3,9,17,.62);border:1px solid rgba(103,232,249,.07)}
-#ydg-dog-3d.is-running{
-  filter:drop-shadow(0 16px 28px rgba(0,0,0,.32)) drop-shadow(0 0 15px rgba(34,211,238,.35))
-}
-#ydg-dog-3d.is-running::after{
-  content:"";position:absolute;right:170px;top:88px;width:180px;height:40px;
-  border-radius:50%;background:linear-gradient(90deg,transparent,rgba(59,130,246,.12),rgba(34,211,238,.36));
-  filter:blur(11px);animation:v89Trail 2.55s ease;z-index:-1
-}
-#ydg-dog-3d.is-jumping::before{opacity:1;transform:scale(1.25)}
-#ydg-dog-3d.is-greeting::before{opacity:.92;transform:scale(1.10)}
-.ydg3d-fallback{position:absolute;left:20px;right:20px;top:25px;bottom:20px;overflow:hidden;border-radius:22px}
-.ydg3d-fallback img{width:100%;height:100%;object-fit:cover}
-@keyframes v89Trail{0%,100%{opacity:0}15%,82%{opacity:1}}
+#hero-section{background:#1b2130!important;position:relative;overflow:hidden}
+#hero-section::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 28%,rgba(45,212,191,.055),transparent 32%),radial-gradient(circle at 87% 22%,rgba(99,102,241,.055),transparent 34%);opacity:.8}
+#hero-section .hero-brand-block{position:relative;z-index:1;width:min(94vw,900px);border:1px solid rgba(45,212,191,.13);border-radius:38px;padding:42px 28px 38px;background:linear-gradient(180deg,rgba(9,18,34,.88),rgba(11,18,34,.80));box-shadow:inset 0 0 55px rgba(30,64,175,.035)}
+#hero-section .final-conversion-label{display:inline-flex!important;width:auto!important;margin:0 auto 28px!important;padding:11px 26px!important;border:1px solid rgba(45,212,191,.22)!important;border-radius:999px!important;background:rgba(5,16,24,.38)!important;color:#a7f3d0!important;font-size:.70rem!important;letter-spacing:.20em!important;font-weight:900!important}
+#hero-section .hero-digital-title{font-family:'Space Grotesk',sans-serif!important;font-weight:800!important;letter-spacing:-.05em!important;line-height:.98!important;text-shadow:none!important}
+#hero-section .hero-digital-title>span:first-child{color:#f8fafc!important;background:none!important;-webkit-text-fill-color:initial!important}
+#hero-section .hero-digital-title>span:last-child,#hero-section .hero-digital-title>span:last-child strong{background:linear-gradient(100deg,#69e6cf 0%,#4fbfe4 36%,#5a8ff0 66%,#b968e8 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}
+#hero-section .hero-brand-divider{opacity:.25!important}
+#hero-section .hero-main-description{position:relative;z-index:1;color:#c6cbd4!important;line-height:1.65!important}
+#hero-section .hero-capacity-embed{position:relative;z-index:1;border:1px solid rgba(34,197,94,.16)!important;background:rgba(4,15,20,.72)!important;box-shadow:0 0 28px rgba(34,197,94,.03)!important}
+#hero-section .hero-capacity-embed strong{color:#bbf7d0!important}
+#hero-section .gradient-button{position:relative;z-index:1;background:linear-gradient(90deg,#15c99c,#28b9d0,#3d85f5)!important;box-shadow:0 16px 36px rgba(59,130,246,.13)!important}
+#hero-section .hero-promo-meta{position:relative;z-index:1;color:#717c92!important}
+
+.ydg-dog-mascot{position:fixed;left:18px;bottom:18px;z-index:72;width:124px;cursor:pointer;user-select:none;touch-action:manipulation;filter:drop-shadow(0 15px 24px rgba(0,0,0,.30));transition:transform .25s ease,opacity .25s ease}
+.ydg-dog-orb{position:relative;width:104px;height:104px;border-radius:26px;overflow:hidden;border:1px solid rgba(56,189,248,.24);background:#07101a;box-shadow:0 0 0 1px rgba(255,255,255,.025) inset,0 0 22px rgba(56,189,248,.08)}
+.ydg-dog-orb img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform .25s ease,filter .25s ease;filter:saturate(.96) contrast(1.03)}
+.ydg-dog-eye{position:absolute;right:22px;top:28px;width:7px;height:7px;border-radius:50%;background:#22d3ee;box-shadow:0 0 10px #22d3ee,0 0 18px rgba(56,189,248,.55);animation:ydgDogEye 1.8s ease-in-out infinite}
+.ydg-dog-scan{position:absolute;left:10px;right:10px;top:50%;height:1px;background:linear-gradient(90deg,transparent,#22d3ee,transparent);box-shadow:0 0 8px rgba(34,211,238,.8);opacity:.45;animation:ydgDogScan 2.3s ease-in-out infinite alternate}
+.ydg-dog-glow{position:absolute;left:-8px;top:-8px;width:120px;height:120px;border-radius:34px;background:radial-gradient(circle,rgba(34,211,238,.15),rgba(59,130,246,.06) 45%,transparent 72%);filter:blur(10px);opacity:.55;pointer-events:none}
+.ydg-dog-bubble{position:absolute;left:88px;bottom:36px;min-width:110px;padding:8px 10px;border-radius:12px;border:1px solid rgba(45,212,191,.20);background:rgba(5,12,22,.88);backdrop-filter:blur(10px);opacity:0;transform:translateX(-5px) scale(.96);transition:.23s ease;pointer-events:none}
+.ydg-dog-bubble b{display:block;color:#67e8f9;font-size:.54rem;letter-spacing:.13em}.ydg-dog-bubble span{display:block;color:#e5e7eb;font-size:.58rem;margin-top:2px}
+.ydg-dog-hint{margin-top:6px;color:#64748b;font-size:.43rem;font-weight:900;letter-spacing:.14em;text-align:center;opacity:.62}
+.ydg-dog-mascot.is-greeting .ydg-dog-bubble{opacity:1;transform:none}
+.ydg-dog-mascot.is-greeting .ydg-dog-orb{animation:ydgDogHello .76s ease}
+.ydg-dog-mascot.is-running{animation:ydgDogRun 1.65s cubic-bezier(.64,0,.36,1)}
+.ydg-dog-mascot.is-running .ydg-dog-orb{box-shadow:0 0 0 1px rgba(255,255,255,.04) inset,0 0 22px rgba(34,211,238,.42),0 0 44px rgba(59,130,246,.30)}
+.ydg-dog-mascot.is-running .ydg-dog-glow{opacity:1;transform:scale(1.28);filter:blur(14px)}
+.ydg-dog-mascot.is-running::after{content:"";position:absolute;right:78px;top:35px;width:150px;height:35px;border-radius:50%;background:linear-gradient(90deg,transparent,rgba(56,189,248,.16),rgba(34,211,238,.28));filter:blur(9px);z-index:-1;animation:ydgDogTrail 1.65s ease}
+@keyframes ydgDogEye{50%{opacity:.35;transform:scale(.78)}}
+@keyframes ydgDogScan{from{transform:translateY(-30px)}to{transform:translateY(30px)}}
+@keyframes ydgDogHello{0%,100%{transform:rotate(0deg)}20%{transform:rotate(-3deg) translateY(-2px)}40%{transform:rotate(3deg) translateY(-3px)}60%{transform:rotate(-2deg)}80%{transform:rotate(1deg)}}
+@keyframes ydgDogRun{0%{transform:translateX(0) scale(1)}9%{transform:translateX(-8px) scale(.97)}30%{transform:translateX(calc(100vw - 180px)) scale(1.02) rotate(1deg)}48%{transform:translateX(calc(100vw - 180px)) scale(1) rotate(-1deg)}68%{transform:translateX(42vw) scale(1.02)}100%{transform:translateX(0) scale(1)}}
+@keyframes ydgDogTrail{0%,100%{opacity:0;transform:scaleX(.4)}25%,75%{opacity:1;transform:scaleX(1)}}
+@media(max-width:767px){.ydg-dog-mascot{position:relative;left:auto;bottom:auto;width:112px;margin:22px auto 6px;z-index:3}.ydg-dog-orb{width:96px;height:96px;margin:auto}.ydg-dog-glow{left:0;top:-7px;width:110px;height:110px}.ydg-dog-bubble{left:76px;bottom:34px}.ydg-dog-hint{font-size:.4rem}@keyframes ydgDogRun{0%{transform:translateX(0)}30%{transform:translateX(46vw)}55%{transform:translateX(46vw)}100%{transform:translateX(0)}}}
+@media(prefers-reduced-motion:reduce){.ydg-dog-eye,.ydg-dog-scan{animation:none!important}
+
+/* ===== V90 · original YDG-01 restored + reliable mobile ===== */
+
+/* Critical iPhone/Android fix: keep mascot floating on mobile, do NOT switch to relative */
 @media(max-width:767px){
-  #ydg-dog-3d{
-    left:4px;
-    bottom:max(126px,calc(env(safe-area-inset-bottom) + 112px));
-    width:176px;height:143px
+  .ydg-dog-mascot{
+    position:fixed!important;
+    left:7px!important;
+    bottom:max(126px,calc(env(safe-area-inset-bottom) + 112px))!important;
+    width:112px!important;
+    margin:0!important;
+    z-index:96!important;
+    transform-origin:left bottom;
   }
-  .ydg3d-status{left:10px;top:3px;padding:4px 6px}
-  .ydg3d-status b{font-size:.40rem}.ydg3d-status small{font-size:.33rem}
-  .ydg3d-controls{left:8px;bottom:0;font-size:.32rem;gap:3px}
+  .ydg-dog-orb{width:96px!important;height:96px!important;margin:auto}
+  .ydg-dog-glow{left:0!important;top:-7px!important;width:110px!important;height:110px!important}
+  .ydg-dog-bubble{left:76px!important;bottom:34px!important}
+  .ydg-dog-hint{font-size:.36rem!important;gap:2px!important}
 }
-@media(max-width:390px){#ydg-dog-3d{width:158px;height:130px}}
+@media(max-width:390px){
+  .ydg-dog-mascot{transform:scale(.86);transform-origin:left bottom}
+}
+
+/* 1/2/3 action guide */
+.ydg-dog-hint{
+  display:flex!important;
+  gap:3px!important;
+  justify-content:center!important;
+  white-space:nowrap!important;
+}
+.ydg-dog-hint span{
+  padding:2px 4px;
+  border-radius:999px;
+  background:rgba(5,10,18,.64);
+  border:1px solid rgba(56,189,248,.08);
+}
+
+/* Double-click jump */
+.ydg-dog-mascot.is-jumping{
+  animation:v90DogJump .92s cubic-bezier(.2,.85,.3,1)!important;
+}
+.ydg-dog-mascot.is-jumping .ydg-dog-orb{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04) inset,
+    0 0 24px rgba(34,211,238,.38),
+    0 0 48px rgba(59,130,246,.22)!important;
+}
+.ydg-dog-mascot.is-jumping .ydg-dog-glow{
+  opacity:1!important;
+  transform:scale(1.22)!important;
+}
+@keyframes v90DogJump{
+  0%,100%{transform:translateY(0) scale(1)}
+  36%{transform:translateY(-38px) scale(1.03)}
+  60%{transform:translateY(-30px) scale(1.02)}
+  82%{transform:translateY(4px) scale(.99)}
+}
+
+/* More powerful run while keeping original visual */
+.ydg-dog-mascot.is-running{
+  animation:v90DogRun 1.9s cubic-bezier(.64,0,.36,1)!important;
+}
+.ydg-dog-mascot.is-running .ydg-dog-orb{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04) inset,
+    0 0 28px rgba(34,211,238,.52),
+    0 0 58px rgba(59,130,246,.34)!important;
+}
+.ydg-dog-mascot.is-running .ydg-dog-glow{
+  opacity:1!important;
+  transform:scale(1.38)!important;
+  filter:blur(15px)!important;
+}
+.ydg-dog-mascot.is-running::after{
+  content:"";
+  position:absolute;
+  right:80px;
+  top:35px;
+  width:170px;
+  height:40px;
+  border-radius:50%;
+  background:linear-gradient(90deg,transparent,rgba(56,189,248,.16),rgba(34,211,238,.34));
+  filter:blur(10px);
+  z-index:-1;
+  animation:v90Trail 1.9s ease!important;
+}
+@keyframes v90DogRun{
+  0%{transform:translateX(0) scaleX(1)}
+  34%{transform:translateX(calc(100vw - 165px)) scaleX(1)}
+  49%{transform:translateX(calc(100vw - 165px)) scaleX(-1)}
+  84%{transform:translateX(0) scaleX(-1)}
+  100%{transform:translateX(0) scaleX(1)}
+}
+@keyframes v90Trail{0%,100%{opacity:0}18%,82%{opacity:1}}
+
+/* PC run gets a little more room */
+@media(min-width:768px){
+  @keyframes v90DogRun{
+    0%{transform:translateX(0) scaleX(1)}
+    34%{transform:translateX(calc(100vw - 180px)) scaleX(1)}
+    49%{transform:translateX(calc(100vw - 180px)) scaleX(-1)}
+    84%{transform:translateX(0) scaleX(-1)}
+    100%{transform:translateX(0) scaleX(1)}
+  }
+}
 
 </style>
 <script type="application/ld+json">
@@ -5078,7 +5152,7 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 <div class="portfolio-grid" id="portfolio-mobile-carousel">
 
-<article class="portfolio-card portfolio-card-jetski" data-ydg-preview="JET SKI IBIZA · RESPONSIVE · DEMO">
+<article class="portfolio-card portfolio-card-jetski">
 <a aria-label="Ver proyecto Ibiza Jet Experience" class="portfolio-cover" href="ibiza-jetski.html">
 <span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
 <span class="portfolio-badge" data-lang-key="portfolio-jetski-badge">Ibiza Jet Experience</span>
@@ -5479,17 +5553,15 @@ body.ydg-launch-open{overflow:hidden!important}
 
 </main>
 
-
-<div id="ydg-dog-3d" class="ydg-dog-3d" role="button" tabindex="0"
-     aria-label="YDG-01 perro robot 3D. Un clic saluda, dos clics salta, tres clics corre.">
-  <div class="ydg3d-status">
-    <span class="ydg3d-dot"></span><b>YDG-01</b><small id="ydg3d-action">ONLINE</small>
+<div class="ydg-dog-mascot" id="ydg-dog-mascot" aria-label="YDG-01 mascota robótica" role="button" tabindex="0">
+  <div class="ydg-dog-glow"></div>
+  <div class="ydg-dog-orb">
+    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot de YourDesignGPT">
+    <span class="ydg-dog-eye"></span>
+    <span class="ydg-dog-scan"></span>
   </div>
-  <canvas id="ydg3d-canvas" width="520" height="390" aria-hidden="true"></canvas>
-  <div class="ydg3d-controls"><span>1× 👋</span><span>2× ↟</span><span>3× RUN</span></div>
-  <div class="ydg3d-fallback" id="ydg3d-fallback" hidden>
-    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot">
-  </div>
+  <div class="ydg-dog-bubble"><b>YDG-01</b><span>HELLO 👋</span></div>
+  <div class="ydg-dog-hint"><span>1× HELLO</span><span>2× JUMP</span><span>3× RUN</span></div>
 </div>
 
 <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
@@ -6948,7 +7020,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=89', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=90', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7542,7 +7614,82 @@ try{
 </script>
 
 
+<script>
+(function(){
+  const dog=document.getElementById('ydg-dog-mascot');
+  if(!dog) return;
 
+  const bubble=dog.querySelector('.ydg-dog-bubble span');
+  let count=0, timer=null, busy=false, lastTouch=0;
+
+  function clear(){
+    dog.classList.remove('is-greeting','is-jumping','is-running');
+  }
+  function text(v){if(bubble) bubble.textContent=v}
+
+  function greet(){
+    if(busy) return;
+    busy=true; clear(); text(document.documentElement.lang==='en'?'HELLO 👋':'HOLA 👋');
+    void dog.offsetWidth; dog.classList.add('is-greeting');
+    setTimeout(()=>{clear();busy=false;text('HELLO 👋')},850);
+  }
+
+  function jump(){
+    if(busy) return;
+    busy=true; clear(); text(document.documentElement.lang==='en'?'JUMP ↟':'SALTO ↟');
+    dog.classList.add('is-greeting');
+    void dog.offsetWidth;
+    dog.classList.remove('is-greeting');
+    dog.classList.add('is-jumping');
+    setTimeout(()=>{clear();busy=false;text('HELLO 👋')},980);
+  }
+
+  function run(){
+    if(busy) return;
+    busy=true; clear(); text('RUN MODE');
+    void dog.offsetWidth; dog.classList.add('is-running');
+    setTimeout(()=>{
+      clear();busy=false;text('HELLO 👋');
+      setTimeout(greet,120);
+    },1960);
+  }
+
+  function execute(){
+    const n=Math.min(count,3);
+    count=0;
+    if(n===1) greet();
+    else if(n===2) jump();
+    else if(n>=3) run();
+  }
+
+  function register(){
+    if(busy) return;
+    count=Math.min(3,count+1);
+    clearTimeout(timer);
+    timer=setTimeout(execute,335);
+  }
+
+  dog.addEventListener('pointerup',e=>{
+    if(e.pointerType==='touch'){
+      lastTouch=Date.now();
+      e.preventDefault();
+      register();
+    }
+  });
+  dog.addEventListener('click',()=>{
+    if(Date.now()-lastTouch<550) return;
+    register();
+  });
+  dog.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      register();
+    }
+  });
+
+  setTimeout(greet,1100);
+})();
+</script>
 
 
 <script>
@@ -7579,182 +7726,6 @@ try{
   if(field?.value==='YOURDESIGNGPT') initial=true;
   setPromo(initial);
   window.ydgSetPromo=setPromo;
-})();
-</script>
-
-<script>
-(function(){
-"use strict";
-const host=document.getElementById("ydg-dog-3d");
-const canvas=document.getElementById("ydg3d-canvas");
-const fallback=document.getElementById("ydg3d-fallback");
-const action=document.getElementById("ydg3d-action");
-if(!host||!canvas)return;
-
-const gl=canvas.getContext("webgl",{alpha:true,antialias:true,premultipliedAlpha:true,preserveDrawingBuffer:false})
-      ||canvas.getContext("experimental-webgl",{alpha:true,antialias:true});
-if(!gl){
-  fallback.hidden=false; canvas.style.display="none"; host.dataset.webglReady="0"; return;
-}
-host.dataset.webglReady="1";
-
-const VS=`attribute vec3 aP;attribute vec3 aN;
-uniform mat4 uM,uV,uP;uniform mat3 uN;
-varying vec3 vN;varying vec3 vW;
-void main(){vec4 w=uM*vec4(aP,1.0);vW=w.xyz;vN=normalize(uN*aN);gl_Position=uP*uV*w;}`;
-const FS=`precision mediump float;
-uniform vec3 uC;uniform vec3 uE;uniform float uMetal;
-varying vec3 vN;varying vec3 vW;
-void main(){
- vec3 N=normalize(vN);
- vec3 L=normalize(vec3(-0.45,0.85,0.65));
- vec3 V=normalize(vec3(0.0,1.3,6.0)-vW);
- float d=max(dot(N,L),0.0);
- vec3 H=normalize(L+V);
- float s=pow(max(dot(N,H),0.0),mix(24.0,90.0,uMetal));
- vec3 col=uC*(0.24+0.76*d)+vec3(s)*(0.24+0.76*uMetal)+uE;
- gl_FragColor=vec4(col,1.0);
-}`;
-function shader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
-const prog=gl.createProgram();gl.attachShader(prog,shader(gl.VERTEX_SHADER,VS));gl.attachShader(prog,shader(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);
-if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));gl.useProgram(prog);
-
-const loc={
- p:gl.getAttribLocation(prog,"aP"),n:gl.getAttribLocation(prog,"aN"),
- M:gl.getUniformLocation(prog,"uM"),V:gl.getUniformLocation(prog,"uV"),P:gl.getUniformLocation(prog,"uP"),
- N:gl.getUniformLocation(prog,"uN"),C:gl.getUniformLocation(prog,"uC"),E:gl.getUniformLocation(prog,"uE"),metal:gl.getUniformLocation(prog,"uMetal")
-};
-
-const verts=[], norms=[];
-function face(a,b,c,d,n){[a,b,c,a,c,d].forEach(v=>{verts.push(...v);norms.push(...n)})}
-const p=[[-.5,-.5,-.5],[.5,-.5,-.5],[.5,.5,-.5],[-.5,.5,-.5],[-.5,-.5,.5],[.5,-.5,.5],[.5,.5,.5],[-.5,.5,.5]];
-face(p[4],p[5],p[6],p[7],[0,0,1]); face(p[1],p[0],p[3],p[2],[0,0,-1]);
-face(p[0],p[4],p[7],p[3],[-1,0,0]); face(p[5],p[1],p[2],p[6],[1,0,0]);
-face(p[3],p[7],p[6],p[2],[0,1,0]); face(p[0],p[1],p[5],p[4],[0,-1,0]);
-const vb=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vb);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(verts),gl.STATIC_DRAW);
-gl.enableVertexAttribArray(loc.p);gl.vertexAttribPointer(loc.p,3,gl.FLOAT,false,0,0);
-const nb=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,nb);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(norms),gl.STATIC_DRAW);
-gl.enableVertexAttribArray(loc.n);gl.vertexAttribPointer(loc.n,3,gl.FLOAT,false,0,0);
-
-function I(){return [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]}
-function mul(a,b){let r=new Array(16).fill(0);for(let c=0;c<4;c++)for(let rr=0;rr<4;rr++)for(let k=0;k<4;k++)r[c*4+rr]+=a[k*4+rr]*b[c*4+k];return r}
-function T(x,y,z){let m=I();m[12]=x;m[13]=y;m[14]=z;return m}
-function S(x,y,z){let m=I();m[0]=x;m[5]=y;m[10]=z;return m}
-function RX(a){let c=Math.cos(a),s=Math.sin(a),m=I();m[5]=c;m[6]=s;m[9]=-s;m[10]=c;return m}
-function RY(a){let c=Math.cos(a),s=Math.sin(a),m=I();m[0]=c;m[2]=-s;m[8]=s;m[10]=c;return m}
-function RZ(a){let c=Math.cos(a),s=Math.sin(a),m=I();m[0]=c;m[1]=s;m[4]=-s;m[5]=c;return m}
-function perspective(fov,asp,n,f){let q=1/Math.tan(fov/2),m=new Array(16).fill(0);m[0]=q/asp;m[5]=q;m[10]=(f+n)/(n-f);m[11]=-1;m[14]=(2*f*n)/(n-f);return m}
-function lookAt(e,t,u){let zx=e[0]-t[0],zy=e[1]-t[1],zz=e[2]-t[2],zl=Math.hypot(zx,zy,zz);zx/=zl;zy/=zl;zz/=zl;let xx=u[1]*zz-u[2]*zy,xy=u[2]*zx-u[0]*zz,xz=u[0]*zy-u[1]*zx,xl=Math.hypot(xx,xy,xz);xx/=xl;xy/=xl;xz/=xl;let yx=zy*xz-zz*xy,yy=zz*xx-zx*xz,yz=zx*xy-zy*xx;return [xx,yx,zx,0,xy,yy,zy,0,xz,yz,zz,0,-(xx*e[0]+xy*e[1]+xz*e[2]),-(yx*e[0]+yy*e[1]+yz*e[2]),-(zx*e[0]+zy*e[1]+zz*e[2]),1]}
-function normal3(m){let a=m[0],b=m[4],c=m[8],d=m[1],e=m[5],f=m[9],g=m[2],h=m[6],i=m[10];let A=e*i-f*h,B=f*g-d*i,C=d*h-e*g,D=c*h-b*i,E=a*i-c*g,F=b*g-a*h,G=b*f-c*e,H=c*d-a*f,I=a*e-b*d,det=a*A+b*B+c*C,iv=1/(det||1);return [A*iv,D*iv,G*iv,B*iv,E*iv,H*iv,C*iv,F*iv,I*iv]}
-function color(hex){return [((hex>>16)&255)/255,((hex>>8)&255)/255,(hex&255)/255]}
-function drawBox(base,pos,rot,scale,col,metal=0.75,emit=[0,0,0]){
- let m=mul(base,T(...pos));m=mul(m,RY(rot[1]||0));m=mul(m,RX(rot[0]||0));m=mul(m,RZ(rot[2]||0));m=mul(m,S(...scale));
- gl.uniformMatrix4fv(loc.M,false,new Float32Array(m));gl.uniformMatrix3fv(loc.N,false,new Float32Array(normal3(m)));
- gl.uniform3fv(loc.C,new Float32Array(color(col)));gl.uniform3fv(loc.E,new Float32Array(emit));gl.uniform1f(loc.metal,metal);
- gl.drawArrays(gl.TRIANGLES,0,36);
-}
-function leg(base,x,z,phase,wave){
- const upper=wave ? -1.35 : phase;
- const lower=wave ? 0.35 : Math.max(-.30,-phase*.38);
- drawBox(base,[x,.05,z],[0,0,upper],[.15,.68,.16],0x727f90,.84);
- let kneeY=-.52+Math.cos(upper)*.08, kneeX=x+Math.sin(upper)*.20;
- drawBox(base,[kneeX,kneeY,z],[0,0,lower],[.13,.55,.14],0x303a49,.82);
- drawBox(base,[kneeX+.10,-.98,z+.01],[0,0,0],[.34,.12,.24],0x111827,.70);
-}
-
-let state="idle",stateStart=0,clicks=0,clickTimer=0,busy=false,lastTouch=0,mouseX=0;
-function setState(s){state=s;stateStart=performance.now();host.classList.remove("is-greeting","is-jumping","is-running");if(s!=="idle")host.classList.add("is-"+s);if(action)action.textContent=s==="greeting"?"HELLO 👋":s==="jumping"?"JUMP":s==="running"?"RUN MODE":"ONLINE"}
-function finish(ms){setTimeout(()=>{setState("idle");busy=false},ms)}
-function greet(){if(busy)return;busy=true;setState("greeting");finish(1050)}
-function jump(){if(busy)return;busy=true;setState("jumping");finish(1150)}
-function run(){if(busy)return;busy=true;setState("running");setTimeout(()=>{setState("idle");busy=false;setTimeout(greet,140)},2580)}
-function resolve(){let n=Math.min(clicks,3);clicks=0;if(n===1)greet();else if(n===2)jump();else if(n>=3)run()}
-function register(){if(busy)return;clicks=Math.min(3,clicks+1);clearTimeout(clickTimer);clickTimer=setTimeout(resolve,340)}
-host.addEventListener("pointerup",e=>{if(e.pointerType==="touch"){lastTouch=Date.now();e.preventDefault();register()}});
-host.addEventListener("click",()=>{if(Date.now()-lastTouch<550)return;register()});
-host.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();register()}});
-host.addEventListener("pointermove",e=>{const r=host.getBoundingClientRect();mouseX=((e.clientX-r.left)/r.width-.5)*2});
-
-function resize(){
- const d=Math.min(window.devicePixelRatio||1,2);
- const w=Math.max(1,Math.round(host.clientWidth*d)),h=Math.max(1,Math.round(host.clientHeight*d));
- if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}
-}
-gl.enable(gl.DEPTH_TEST);gl.enable(gl.CULL_FACE);gl.clearColor(0,0,0,0);
-
-let last=performance.now();
-function frame(now){
- resize();let t=now*.001,dt=Math.min(.05,(now-last)/1000);last=now;
- gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
- const asp=canvas.width/canvas.height;
- gl.uniformMatrix4fv(loc.P,false,new Float32Array(perspective(0.68,asp,.1,50)));
- gl.uniformMatrix4fv(loc.V,false,new Float32Array(lookAt([0,1.25,6.5],[0,.15,0],[0,1,0])));
-
- let elapsed=(now-stateStart)/1000;
- let jumpY=0,runCycle=0,wave=0,yaw=.20+mouseX*.10;
- if(state==="jumping"){let q=Math.min(elapsed/1.05,1);jumpY=Math.sin(q*Math.PI)*1.05}
- if(state==="running"){runCycle=Math.sin(t*17)*.78; yaw=.16}
- if(state==="greeting"){wave=Math.sin(Math.min(elapsed/.9,1)*Math.PI);}
-
- let root=mul(T(0,jumpY,0),RY(yaw));
- root=mul(root,S(1.12,1.12,1.12));
-
- // body shell
- drawBox(root,[0,.35,0],[0,0,0],[1.65,.62,.72],0x9aa8b8,.90);
- drawBox(root,[.05,.38,0],[0,0,0],[1.18,.68,.76],0x182231,.86);
- // shoulder / hip metal caps
- drawBox(root,[.72,.35,.0],[0,0,0],[.30,.70,.82],0xc2ccd6,.95);
- drawBox(root,[-.72,.35,.0],[0,0,0],[.30,.70,.82],0x8793a3,.92);
-
- // neck + head
- let headBob=Math.sin(t*1.8)*.035;
- drawBox(root,[.96,.63,0],[0,0,-.22],[.22,.55,.28],0x667383,.88);
- drawBox(root,[1.25,.84+headBob,0],[0,.02,-.03],[.62,.43,.54],0xaeb9c5,.92);
- drawBox(root,[1.56,.79+headBob,0],[0,0,0],[.22,.25,.40],0x121a27,.82);
- // ears
- drawBox(root,[1.20,1.13, .20],[0,0,.16],[.16,.27,.12],0x3a4656,.82);
- drawBox(root,[1.20,1.13,-.20],[0,0,.16],[.16,.27,.12],0x3a4656,.82);
- // eyes / sensors emissive
- drawBox(root,[1.57,.91, .17],[0,0,0],[.035,.065,.06],0x22d3ee,.4,[.10,.72,.95]);
- drawBox(root,[1.57,.91,-.17],[0,0,0],[.035,.065,.06],0x22d3ee,.4,[.10,.72,.95]);
-
- // tail
- drawBox(root,[-1.02,.58,0],[0,0,-.48+Math.sin(t*2.6)*.13],[.58,.11,.11],0x6b7787,.86);
-
- // legs: x fore/hind, z near/far
- let idle=.08*Math.sin(t*2.0);
- leg(root,.68,.42,state==="running"?runCycle:idle,state==="greeting"&&wave>.15);
- leg(root,.68,-.42,state==="running"?-runCycle:-idle,false);
- leg(root,-.68,.42,state==="running"?-runCycle:idle*.6,false);
- leg(root,-.68,-.42,state==="running"?runCycle:-idle*.6,false);
-
- // glowing cyan side strip
- drawBox(root,[.02,.63,.39],[0,0,0],[.88,.045,.025],0x38bdf8,.35,[.04,.32,.60]);
-
- gl.flush();
- requestAnimationFrame(frame);
-}
-requestAnimationFrame(frame);
-
-// Running across viewport at CSS/DOM level while joints run in 3D.
-function animateHostRun(){
- const start=performance.now(),dur=2500;
- const max=Math.max(0,window.innerWidth-host.getBoundingClientRect().width-18);
- function step(n){
-  let q=Math.min((n-start)/dur,1),x,flip=false;
-  if(q<.44)x=max*(q/.44);
-  else if(q<.55){x=max;flip=true}
-  else{x=max*(1-(q-.55)/.45);flip=true}
-  host.style.left=(10+x)+"px";
-  host.style.transform=flip?"scaleX(-1)":"scaleX(1)";
-  if(q<1)requestAnimationFrame(step);else{host.style.left="10px";host.style.transform=""}
- }
- requestAnimationFrame(step);
-}
-const origRun=run;
-run=function(){if(busy)return;animateHostRun();origRun()};
-
-setTimeout(greet,1250);
 })();
 </script>
 </body>
