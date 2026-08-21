@@ -1,0 +1,11 @@
+YourDesignGPT V95 FINAL
+- Resto de la V94 intacto.
+- YDG-01 rediseñado con mayor calidad y mismo modelo en todas las acciones.
+- Perro orientado claramente hacia la derecha.
+- Haz de neón nace en la zona del visor/cara y apunta hacia la derecha.
+- 1 clic saludo · 2 clics salto · 3 clics carrera ida/vuelta.
+- X cerrar · mini YDG-01 reabrir.
+- Sin precios tachados.
+- PROMO ON: únicamente 99 € + 100 €/año, verde, PROMOCIÓN ACTIVADA.
+- PROMO OFF: únicamente 495 € + 150 €/año, azul/blanco, PROMOCIÓN DESACTIVADA.
+- Todo en raíz.

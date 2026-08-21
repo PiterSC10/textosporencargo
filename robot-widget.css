@@ -1,71 +1,76 @@
 
-/* V94 · YDG-01 PHOTOREALISTIC FINAL */
+/* V95 · YDG-01 FINAL — right-facing photoreal robot */
 #ydg-robot-widget{
- --cyan:#22e6ff;--blue:#378cff;
- position:fixed;left:8px;bottom:max(17px,calc(env(safe-area-inset-bottom) + 13px));
- z-index:2147483000;width:226px;height:190px;user-select:none;-webkit-user-select:none;
+ --cyan:#22e6ff;--blue:#3b82f6;
+ position:fixed;left:7px;bottom:max(17px,calc(env(safe-area-inset-bottom) + 13px));
+ z-index:2147483000;width:232px;height:194px;user-select:none;-webkit-user-select:none;
  touch-action:manipulation;transform-origin:left bottom;
- filter:drop-shadow(0 20px 27px rgba(0,0,0,.45));will-change:transform
+ filter:drop-shadow(0 20px 28px rgba(0,0,0,.46));will-change:transform
 }
 #ydg-robot-widget[hidden]{display:none!important}
 .yr-stage{position:absolute;inset:0;cursor:pointer}
-.yr-aura{position:absolute;left:18px;right:31px;bottom:21px;height:47px;border-radius:50%;
- background:radial-gradient(ellipse,rgba(34,230,255,.29),rgba(55,140,255,.09) 52%,transparent 76%);
- filter:blur(12px);opacity:.70;transition:.24s}
-.yr-dog{position:absolute;left:0;bottom:15px;width:203px;height:169px;object-fit:contain;pointer-events:none;
- filter:saturate(1.08) contrast(1.07) drop-shadow(0 5px 5px rgba(0,0,0,.18))}
-.yr-head{position:absolute;left:8px;top:2px;z-index:7;display:flex;align-items:center;gap:5px;padding:4px 7px;
- border-radius:999px;background:rgba(3,9,17,.72);border:1px solid rgba(34,230,255,.16);
- backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);pointer-events:none}
+.yr-aura{position:absolute;left:18px;right:28px;bottom:20px;height:47px;border-radius:50%;
+ background:radial-gradient(ellipse,rgba(34,230,255,.29),rgba(59,130,246,.09) 53%,transparent 77%);
+ filter:blur(12px);opacity:.68;transition:.22s}
+.yr-dog{position:absolute;left:0;bottom:14px;width:210px;height:176px;object-fit:contain;pointer-events:none;
+ filter:saturate(1.08) contrast(1.07) drop-shadow(0 5px 7px rgba(0,0,0,.20))}
+.yr-head{position:absolute;left:8px;top:2px;z-index:9;display:flex;align-items:center;gap:5px;padding:4px 7px;
+ border-radius:999px;background:rgba(3,9,17,.74);border:1px solid rgba(34,230,255,.17);
+ backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none}
 .yr-head i{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 9px #34d399}
 .yr-head b{color:#c5fbff;font:900 .45rem/1 system-ui;letter-spacing:.12em}.yr-head span{color:#74869c;font:900 .35rem/1 system-ui;letter-spacing:.08em}
-.yr-close{position:absolute;right:3px;top:2px;z-index:12;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;
- border:1px solid rgba(103,232,249,.27);background:rgba(3,9,17,.89);color:#d5fbff;font:700 18px/1 system-ui;
- cursor:pointer;box-shadow:0 0 14px rgba(34,211,238,.14)}
-.yr-message{position:absolute;left:119px;top:44px;z-index:8;min-width:96px;padding:6px 8px;border-radius:10px;
- border:1px solid rgba(34,211,238,.20);background:rgba(3,9,17,.82);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+.yr-close{position:absolute;right:3px;top:2px;z-index:13;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;
+ border:1px solid rgba(103,232,249,.28);background:rgba(3,9,17,.91);color:#dcfcff;font:700 18px/1 system-ui;
+ cursor:pointer;box-shadow:0 0 14px rgba(34,211,238,.15)}
+.yr-message{position:absolute;left:122px;top:43px;z-index:10;min-width:96px;padding:6px 8px;border-radius:10px;
+ border:1px solid rgba(34,211,238,.21);background:rgba(3,9,17,.84);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
  opacity:0;transform:translateX(-5px) scale(.96);transition:.18s;pointer-events:none}
 .yr-message b{display:block;color:#67e8f9;font:900 .45rem/1.1 system-ui;letter-spacing:.11em}.yr-message span{display:block;margin-top:2px;color:#f0f9ff;font:800 .48rem/1.15 system-ui}
-.yr-guide{position:absolute;left:8px;right:13px;bottom:1px;display:flex;gap:3px;justify-content:center;pointer-events:none}
-.yr-guide span{padding:2px 5px;border-radius:999px;border:1px solid rgba(103,232,249,.08);background:rgba(3,9,17,.68);
- color:#667b92;font:950 .32rem/1.2 system-ui;letter-spacing:.06em}
-.yr-scan{position:absolute;left:24px;right:38px;top:45%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),transparent);
- box-shadow:0 0 9px rgba(34,230,255,.76);opacity:.38;pointer-events:none;animation:yrScan 2.7s ease-in-out infinite alternate}
-/* permanent neon pointer from visor into the website */
-.yr-beam{position:absolute;left:151px;top:72px;width:145px;height:2px;z-index:3;transform-origin:left center;transform:rotate(-5deg);
- background:linear-gradient(90deg,rgba(95,243,255,.95),rgba(55,140,255,.62),transparent);
- box-shadow:0 0 5px #50edff,0 0 13px rgba(34,211,238,.68),0 0 25px rgba(59,130,246,.28);
- opacity:.72;pointer-events:none;animation:yrBeam 1.9s ease-in-out infinite}
-.yr-beam::after{content:"";position:absolute;right:-7px;top:-3px;width:9px;height:9px;border-radius:50%;background:#b8fbff;
- box-shadow:0 0 10px #56efff,0 0 20px rgba(59,130,246,.7)}
+.yr-guide{position:absolute;left:7px;right:13px;bottom:1px;display:flex;gap:3px;justify-content:center;pointer-events:none}
+.yr-guide span{padding:2px 5px;border-radius:999px;border:1px solid rgba(103,232,249,.08);background:rgba(3,9,17,.69);
+ color:#687d94;font:950 .32rem/1.2 system-ui;letter-spacing:.06em}
+.yr-scan{position:absolute;left:26px;right:40px;top:46%;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),transparent);
+ box-shadow:0 0 9px rgba(34,230,255,.77);opacity:.34;pointer-events:none;animation:yrScan 2.7s ease-in-out infinite alternate}
+
+/* The visor is on the RIGHT side of the dog's face. The beam starts there and projects right. */
+.yr-beam{position:absolute;left:184px;top:63px;width:175px;height:2px;z-index:5;transform-origin:left center;transform:rotate(-2deg);
+ background:linear-gradient(90deg,rgba(210,253,255,1) 0%,rgba(60,235,255,.92) 14%,rgba(59,130,246,.55) 66%,transparent 100%);
+ box-shadow:0 0 5px #8df7ff,0 0 13px rgba(34,230,255,.72),0 0 26px rgba(59,130,246,.32);
+ opacity:.79;pointer-events:none;animation:yrBeam 1.85s ease-in-out infinite}
+.yr-beam::before{content:"";position:absolute;left:-5px;top:-4px;width:10px;height:10px;border-radius:50%;background:#d3fdff;
+ box-shadow:0 0 8px #9ef8ff,0 0 18px #22e6ff}
+.yr-beam::after{content:"";position:absolute;right:-5px;top:-3px;width:8px;height:8px;border-radius:50%;background:#a5f3fc;
+ box-shadow:0 0 9px #67e8f9}
+
 #ydg-robot-widget.yr-greeting .yr-message,#ydg-robot-widget.yr-jumping .yr-message,#ydg-robot-widget.yr-running .yr-message{opacity:1;transform:none}
 #ydg-robot-widget.yr-greeting{animation:yrHello .95s ease}
 #ydg-robot-widget.yr-jumping{animation:yrJump 1.06s cubic-bezier(.2,.85,.3,1)}
 #ydg-robot-widget.yr-running{animation:yrRun 2.08s cubic-bezier(.64,0,.36,1);
- filter:drop-shadow(0 18px 25px rgba(0,0,0,.36)) drop-shadow(0 0 18px rgba(34,211,238,.38))}
+ filter:drop-shadow(0 18px 26px rgba(0,0,0,.37)) drop-shadow(0 0 18px rgba(34,211,238,.40))}
 #ydg-robot-widget.yr-running .yr-aura{opacity:1;transform:scale(1.48);filter:blur(16px)}
-#ydg-robot-widget.yr-running .yr-beam{opacity:1;box-shadow:0 0 8px #50edff,0 0 20px rgba(34,211,238,.8),0 0 34px rgba(59,130,246,.4)}
-#ydg-robot-widget.yr-running::before{content:"";position:absolute;right:150px;top:78px;width:185px;height:42px;border-radius:50%;
- background:linear-gradient(90deg,transparent,rgba(59,130,246,.12),rgba(34,230,255,.38));filter:blur(12px);animation:yrTrail 2.08s ease;z-index:-1}
+#ydg-robot-widget.yr-running .yr-beam{opacity:1;box-shadow:0 0 8px #9ef8ff,0 0 21px rgba(34,230,255,.9),0 0 36px rgba(59,130,246,.48)}
+#ydg-robot-widget.yr-running::before{content:"";position:absolute;right:150px;top:78px;width:190px;height:43px;border-radius:50%;
+ background:linear-gradient(90deg,transparent,rgba(59,130,246,.12),rgba(34,230,255,.39));filter:blur(12px);animation:yrTrail 2.08s ease;z-index:-1}
 #ydg-robot-widget.yr-greeting .yr-aura,#ydg-robot-widget.yr-jumping .yr-aura{opacity:.98;transform:scale(1.17)}
 #ydg-robot-reopen{position:fixed;left:7px;bottom:max(22px,calc(env(safe-area-inset-bottom) + 16px));z-index:2147483000;
  width:54px;height:54px;border-radius:50%;padding:2px;border:1px solid rgba(34,211,238,.27);background:rgba(3,9,17,.92);
  box-shadow:0 14px 30px rgba(0,0,0,.40),0 0 21px rgba(34,211,238,.13);cursor:pointer;display:none}
 #ydg-robot-reopen img{width:100%;height:100%;object-fit:contain}#ydg-robot-reopen.is-visible{display:block}
 @keyframes yrScan{from{transform:translateY(-31px)}to{transform:translateY(42px)}}
-@keyframes yrBeam{0%,100%{opacity:.48;transform:rotate(-5deg) scaleX(.92)}50%{opacity:.88;transform:rotate(-5deg) scaleX(1.06)}}
-@keyframes yrHello{0%,100%{transform:rotate(0)}23%{transform:rotate(-2.2deg)}48%{transform:rotate(2.3deg)}72%{transform:rotate(-1deg)}}
-@keyframes yrJump{0%,100%{transform:translateY(0) scale(1)}34%{transform:translateY(-47px) scale(1.035)}60%{transform:translateY(-34px) scale(1.02)}82%{transform:translateY(5px) scale(.99)}}
-@keyframes yrRun{0%{transform:translateX(0) scaleX(1)}34%{transform:translateX(calc(100vw - 240px)) scaleX(1)}
-49%{transform:translateX(calc(100vw - 240px)) scaleX(-1)}84%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
+@keyframes yrBeam{0%,100%{opacity:.56;transform:rotate(-2deg) scaleX(.94)}50%{opacity:.92;transform:rotate(-2deg) scaleX(1.06)}}
+@keyframes yrHello{0%,100%{transform:rotate(0)}23%{transform:rotate(-2.1deg)}48%{transform:rotate(2.2deg)}72%{transform:rotate(-1deg)}}
+@keyframes yrJump{0%,100%{transform:translateY(0) scale(1)}34%{transform:translateY(-48px) scale(1.035)}60%{transform:translateY(-35px) scale(1.02)}82%{transform:translateY(5px) scale(.99)}}
+@keyframes yrRun{0%{transform:translateX(0) scaleX(1)}34%{transform:translateX(calc(100vw - 245px)) scaleX(1)}
+49%{transform:translateX(calc(100vw - 245px)) scaleX(-1)}84%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
 @keyframes yrTrail{0%,100%{opacity:0}16%,82%{opacity:1}}
 @media(max-width:767px){
- #ydg-robot-widget{left:3px;bottom:max(117px,calc(env(safe-area-inset-bottom) + 105px));width:153px;height:137px}
- .yr-dog{width:140px;height:123px;bottom:11px}.yr-head{left:4px;top:0;padding:3px 5px}.yr-head b{font-size:.37rem}.yr-head span{font-size:.29rem}
- .yr-close{width:24px;height:24px;font-size:15px}.yr-message{left:82px;top:31px;min-width:73px;padding:5px 6px}.yr-message b{font-size:.36rem}.yr-message span{font-size:.39rem}
- .yr-guide{left:2px;right:4px;gap:2px}.yr-guide span{font-size:.26rem;padding:2px 3px}.yr-beam{left:106px;top:54px;width:86px;height:1px}
+ #ydg-robot-widget{left:3px;bottom:max(117px,calc(env(safe-area-inset-bottom) + 105px));width:155px;height:139px}
+ .yr-dog{width:142px;height:125px;bottom:11px}.yr-head{left:4px;top:0;padding:3px 5px}.yr-head b{font-size:.37rem}.yr-head span{font-size:.29rem}
+ .yr-close{width:24px;height:24px;font-size:15px}.yr-message{left:84px;top:31px;min-width:73px;padding:5px 6px}.yr-message b{font-size:.36rem}.yr-message span{font-size:.39rem}
+ .yr-guide{left:2px;right:4px;gap:2px}.yr-guide span{font-size:.26rem;padding:2px 3px}
+ .yr-beam{left:123px;top:48px;width:95px;height:1px}
  #ydg-robot-reopen{bottom:max(121px,calc(env(safe-area-inset-bottom) + 109px))}
- @keyframes yrRun{0%{transform:translateX(0) scaleX(1)}34%{transform:translateX(calc(100vw - 162px)) scaleX(1)}
- 49%{transform:translateX(calc(100vw - 162px)) scaleX(-1)}84%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
+ @keyframes yrRun{0%{transform:translateX(0) scaleX(1)}34%{transform:translateX(calc(100vw - 164px)) scaleX(1)}
+ 49%{transform:translateX(calc(100vw - 164px)) scaleX(-1)}84%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
 }
 @media(max-width:390px){#ydg-robot-widget{transform:scale(.88);transform-origin:left bottom}}

@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=94" rel="manifest"/>
+<link href="site.webmanifest?v=96" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4834,6 +4834,30 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* V96 · Jet Ski portfolio cover: clean real-web preview */
+.portfolio-card-jetski .portfolio-cover{
+  background:#071321!important;
+  overflow:hidden!important;
+}
+.portfolio-card-jetski .portfolio-cover img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  filter:none!important;
+  transform:none!important;
+}
+.portfolio-card-jetski .portfolio-cover::before,
+.portfolio-card-jetski .portfolio-cover::after{
+  display:none!important;
+  content:none!important;
+}
+.portfolio-card-jetski:hover .portfolio-cover img{
+  transform:scale(1.012)!important;
+  transition:transform .35s ease!important;
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -4849,9 +4873,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=94">
-<link rel="stylesheet" href="robot-widget.css?v=94">
-<link rel="stylesheet" href="compact-final.css?v=94">
+<link rel="stylesheet" href="promo-final.css?v=96">
+<link rel="stylesheet" href="robot-widget.css?v=96">
+<link rel="stylesheet" href="compact-final.css?v=96">
 </head>
 <body class="antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -5099,8 +5123,6 @@ body.ydg-launch-open{overflow:hidden!important}
 <div aria-label="Promoción de lanzamiento de YourDesignGPT" class="included-price included-price-promo">
 <div class="launch-price-box" aria-hidden="true">
   <span class="launch-price-old">495 €</span>
-  <span class="launch-cross-line line-a"></span>
-  <span class="launch-cross-line line-b"></span>
 </div>
 <div class="launch-offer-pill">
   <small data-lang-key="launch-offer-small">PROMO LANZAMIENTO</small>
@@ -5115,8 +5137,6 @@ body.ydg-launch-open{overflow:hidden!important}
     <small data-lang-key="product-from">DESARROLLO WEB</small>
     <div class="launch-price-box mini" aria-hidden="true">
       <span class="launch-price-old">495 €</span>
-      <span class="launch-cross-line line-a"></span>
-      <span class="launch-cross-line line-b"></span>
     </div>
     <strong class="promo-main-price">99 €</strong>
     <span data-lang-key="product-price-note">Promoción de lanzamiento + 100 €/año</span>
@@ -5158,9 +5178,9 @@ body.ydg-launch-open{overflow:hidden!important}
 
 <article class="portfolio-card portfolio-card-jetski">
 <a aria-label="Ver proyecto Ibiza Jet Experience" class="portfolio-cover" href="ibiza-jetski.html">
-<span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
-<span class="portfolio-badge" data-lang-key="portfolio-jetski-badge">Ibiza Jet Experience</span>
-<img alt="Vista del proyecto Ibiza Jet Experience" height="675" loading="lazy" src="jetski-hero.webp" width="1200"/>
+
+
+<img alt="Ibiza Jet Experience · vista real de la web" height="720" loading="lazy" src="jetski-portfolio-cover.webp" width="1200"/>
 </a>
 <div class="portfolio-body">
 <div class="portfolio-sector" data-lang-key="portfolio-jetski-sector">Jet Ski · Experiencias premium</div>
@@ -5474,10 +5494,10 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="ydg-live-budget" id="ydg-live-budget" aria-live="polite">
   <div class="budget-primary budget-primary-promo">
     <small data-lang-key="budget-label">ESTIMACIÓN BASE</small>
-    <div class="budget-price-promo" aria-label="Precio anterior 645 euros, oferta 99 euros">
-      <span class="budget-old-price">645 €<i class="budget-cross a"></i><i class="budget-cross b"></i></span>
+    <div class="budget-price-promo" aria-label="Precio según estado de la promoción">
+      <span class="budget-old-price">495 € + 150 €/año</span>
       <span class="budget-arrow">→</span>
-      <strong class="budget-new-price">99 €</strong>
+      <strong class="budget-new-price">99 € + 100 €/año</strong>
     </div>
     <span data-lang-key="budget-first-year">Oferta de lanzamiento: 99 € + 100 €/año · oferta válida hasta 31/12/2026</span>
   </div>
@@ -7015,7 +7035,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=94', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=96', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7724,7 +7744,7 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=94" defer></script>
-<script src="robot-widget.js?v=94" defer></script>
+<script src="promo-manager.js?v=96" defer></script>
+<script src="robot-widget.js?v=96" defer></script>
 </body>
 </html>
