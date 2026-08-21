@@ -1,0 +1,48 @@
+{
+  "portfolio_projects_unified": 7,
+  "jetski_gallery_no_base64": true,
+  "jetski_images": {
+    "jetski-hero-final.webp": {
+      "size": [
+        1600,
+        900
+      ],
+      "ok": true,
+      "bytes": 228294
+    },
+    "jetski-gallery-1.webp": {
+      "size": [
+        1200,
+        800
+      ],
+      "ok": true,
+      "bytes": 92812
+    },
+    "jetski-gallery-2.webp": {
+      "size": [
+        1200,
+        800
+      ],
+      "ok": true,
+      "bytes": 92212
+    },
+    "jetski-gallery-3.webp": {
+      "size": [
+        1200,
+        800
+      ],
+      "ok": true,
+      "bytes": 117190
+    },
+    "jetski-gallery-4.webp": {
+      "size": [
+        1200,
+        800
+      ],
+      "ok": true,
+      "bytes": 114164
+    }
+  },
+  "js_errors": 0,
+  "root_only": true
+}

@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=97" rel="manifest"/>
+<link href="site.webmanifest?v=99" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4495,12 +4495,6 @@ body.ydg-launch-open{overflow:hidden!important}
 /* Portfolio is fundamental: force it back on in every viewport */
 #portfolio{display:block!important;visibility:visible!important;opacity:1!important}
 #portfolio .portfolio-grid{visibility:visible!important;opacity:1!important}
-.portfolio-card-jetski .portfolio-badge{
-  background:linear-gradient(90deg,rgba(34,211,238,.92),rgba(59,130,246,.92),rgba(217,70,239,.88));
-  color:#fff;border-color:rgba(255,255,255,.14)
-}
-.portfolio-card-jetski .portfolio-cover::after{display:none!important}
-
 /* Promo states */
 #ydg-launch-toggle-card{
   transition:border-color .3s ease,background .3s ease,box-shadow .3s ease,transform .3s ease;
@@ -4835,27 +4829,154 @@ body.ydg-launch-open{overflow:hidden!important}
 }
 
 
-/* V96 · Jet Ski portfolio cover: clean real-web preview */
-.portfolio-card-jetski .portfolio-cover{
-  background:#071321!important;
+
+/* V99 · UNIFIED PORTFOLIO SYSTEM
+   Every current/future project card must use:
+   article.portfolio-card > a.portfolio-cover + .portfolio-body
+   Same 16:9 cover, browser bar, badge, text rhythm and CTA. */
+#portfolio .portfolio-grid{
+  align-items:stretch!important;
+}
+#portfolio .portfolio-card{
+  display:flex!important;
+  flex-direction:column!important;
+  height:100%!important;
+  min-height:0!important;
+  background:linear-gradient(180deg,rgba(30,41,59,.96),rgba(15,23,42,.96))!important;
+  border:1px solid rgba(45,212,191,.30)!important;
+  border-radius:1.25rem!important;
   overflow:hidden!important;
 }
-.portfolio-card-jetski .portfolio-cover img{
+#portfolio .portfolio-cover{
+  position:relative!important;
+  display:block!important;
+  flex:0 0 auto!important;
+  aspect-ratio:16/9!important;
+  width:100%!important;
+  overflow:hidden!important;
+  background:#0f172a!important;
+}
+#portfolio .portfolio-cover img{
+  position:absolute!important;
+  inset:0!important;
   width:100%!important;
   height:100%!important;
   object-fit:cover!important;
-  object-position:center center!important;
-  filter:none!important;
-  transform:none!important;
+  object-position:center!important;
+  filter:saturate(1.02) contrast(1.02)!important;
+  transform:scale(1)!important;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .3s ease!important;
 }
-.portfolio-card-jetski .portfolio-cover::before,
-.portfolio-card-jetski .portfolio-cover::after{
-  display:none!important;
-  content:none!important;
+#portfolio .portfolio-card:hover .portfolio-cover img{
+  transform:scale(1.04)!important;
 }
-.portfolio-card-jetski:hover .portfolio-cover img{
-  transform:scale(1.012)!important;
-  transition:transform .35s ease!important;
+#portfolio .portfolio-cover::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:linear-gradient(180deg,rgba(2,6,23,.02) 48%,rgba(2,6,23,.58) 100%)!important;
+  pointer-events:none!important;
+}
+#portfolio .portfolio-browser{
+  position:absolute!important;
+  top:12px!important;
+  left:12px!important;
+  right:12px!important;
+  z-index:3!important;
+  height:28px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:5px!important;
+  padding:0 9px!important;
+  border-radius:9px!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  background:rgba(5,10,17,.72)!important;
+  backdrop-filter:blur(9px)!important;
+  -webkit-backdrop-filter:blur(9px)!important;
+}
+#portfolio .portfolio-browser i{
+  width:6px!important;height:6px!important;border-radius:50%!important;background:#64748b!important;
+}
+#portfolio .portfolio-browser i:first-child{background:#fb7185!important}
+#portfolio .portfolio-browser i:nth-child(2){background:#fbbf24!important}
+#portfolio .portfolio-browser i:nth-child(3){background:#34d399!important}
+#portfolio .portfolio-browser small{
+  margin-left:5px!important;
+  color:#94a3b8!important;
+  font-size:.48rem!important;
+  font-weight:800!important;
+  letter-spacing:.08em!important;
+}
+#portfolio .portfolio-badge{
+  top:auto!important;
+  left:14px!important;
+  bottom:14px!important;
+  z-index:3!important;
+  max-width:calc(100% - 28px)!important;
+  padding:.38rem .65rem!important;
+  font-size:.64rem!important;
+  line-height:1!important;
+}
+#portfolio .portfolio-body{
+  display:flex!important;
+  flex-direction:column!important;
+  flex:1 1 auto!important;
+  padding:18px!important;
+}
+#portfolio .portfolio-sector{
+  min-height:1.25rem!important;
+  margin-bottom:5px!important;
+}
+#portfolio .portfolio-title{
+  margin:0 0 7px!important;
+  min-height:2rem!important;
+  line-height:1.15!important;
+}
+#portfolio .portfolio-description{
+  flex:1 1 auto!important;
+  min-height:4.4rem!important;
+  margin-bottom:13px!important;
+}
+#portfolio .portfolio-tech{
+  min-height:30px!important;
+  margin-bottom:13px!important;
+}
+#portfolio .portfolio-link{
+  margin-top:auto!important;
+}
+#portfolio .portfolio-card[data-ydg-preview]::after{
+  top:48px!important;
+  right:12px!important;
+  font-size:.44rem!important;
+  padding:5px 7px!important;
+}
+
+/* Visual quality rule for all portfolio images */
+#portfolio img{
+  image-rendering:auto!important;
+  -webkit-font-smoothing:antialiased;
+}
+
+@media(max-width:767px){
+  #portfolio .portfolio-card{
+    min-height:0!important;
+  }
+  #portfolio .portfolio-cover{
+    aspect-ratio:16/9!important;
+  }
+  #portfolio .portfolio-body{
+    padding:16px!important;
+  }
+  #portfolio .portfolio-description{
+    min-height:0!important;
+  }
+  #portfolio .portfolio-card[data-ydg-preview]::after{
+    top:44px!important;
+    opacity:1!important;
+    transform:none!important;
+  }
 }
 
 </style>
@@ -4873,9 +4994,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=97">
-<link rel="stylesheet" href="robot-widget.css?v=97">
-<link rel="stylesheet" href="compact-final.css?v=97">
+<link rel="stylesheet" href="promo-final.css?v=99">
+<link rel="stylesheet" href="robot-widget.css?v=99">
+<link rel="stylesheet" href="compact-final.css?v=99">
 </head>
 <body class="antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -5176,8 +5297,10 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 <div class="portfolio-grid" id="portfolio-mobile-carousel">
 
-<article class="portfolio-card portfolio-card-jetski">
+<article class="portfolio-card" data-ydg-preview="JET SKI · RESPONSIVE · DEMO">
 <a aria-label="Ver proyecto Ibiza Jet Experience" class="portfolio-cover" href="ibiza-jetski.html">
+<span aria-hidden="true" class="portfolio-browser"><i></i><i></i><i></i><small data-lang-key="portfolio-browser-label">yourdesigngpt / proyecto</small></span>
+<span class="portfolio-badge">Ibiza Jet Experience</span>
 
 
 <img alt="Ibiza Jet Experience · web premium de motos de agua" height="720" loading="lazy" src="jetski-hero-final.webp" width="1200"/>
@@ -7035,7 +7158,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=97', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=99', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7744,7 +7867,7 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=97" defer></script>
-<script src="robot-widget.js?v=97" defer></script>
+<script src="promo-manager.js?v=99" defer></script>
+<script src="robot-widget.js?v=99" defer></script>
 </body>
 </html>
