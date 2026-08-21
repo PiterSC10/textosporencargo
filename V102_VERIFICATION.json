@@ -1,0 +1,12 @@
+{
+  "idle_transparent": true,
+  "wave_transparent": true,
+  "jump_transparent": true,
+  "run_transparent": true,
+  "three_actions": true,
+  "hud_present": true,
+  "no_robot_background": true,
+  "no_beam": true,
+  "js_errors": 0,
+  "root_only": true
+}

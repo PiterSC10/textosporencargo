@@ -1,17 +1,244 @@
 
-/* V101 — ONLY the articulated robot. Only the articulated robot body; no surrounding visual effects. */
-#ydg-robot-widget{position:fixed;left:8px;bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));z-index:2147483000;width:230px;height:190px;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;transform-origin:left bottom}
+/* V102 · YDG-01 widget
+   The robot itself is a transparent PNG with NO background.
+   HUD is independent and does not sit behind the robot. */
+#ydg-robot-widget{
+  position:fixed;
+  left:8px;
+  bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));
+  z-index:2147483000;
+  width:390px;
+  height:210px;
+  cursor:pointer;
+  touch-action:manipulation;
+  user-select:none;
+  -webkit-user-select:none;
+  transform-origin:left bottom;
+}
 #ydg-robot-widget[hidden]{display:none!important}
-#ydg-robot-widget .yr-dog{position:absolute;left:0;bottom:13px;width:220px;height:172px;object-fit:contain;object-position:left bottom;pointer-events:none;filter:none!important}
-#ydg-robot-widget .yr-close{position:absolute;right:3px;top:4px;width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(4,8,14,.78);color:white;font:700 15px/1 system-ui;display:grid;place-items:center;cursor:pointer}
-#ydg-robot-widget .yr-help{position:absolute;left:8px;bottom:0;color:rgba(148,163,184,.58);font:800 8px/1 system-ui;letter-spacing:.06em;white-space:nowrap;pointer-events:none}
-#ydg-robot-widget.act-wave .yr-dog{animation:realWave 1.2s cubic-bezier(.3,.8,.3,1)}
-#ydg-robot-widget.act-jump{animation:realJump 1.2s cubic-bezier(.18,.78,.25,1)}
-#ydg-robot-widget.act-run{animation:realRun 2.4s cubic-bezier(.55,.05,.35,1)}
-#ydg-robot-widget.act-run .yr-dog{animation:runStride .24s ease-in-out infinite alternate}
-@keyframes realWave{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-3px) rotate(-1.5deg)}55%{transform:translateY(1px) rotate(1deg)}}
-@keyframes realJump{0%{transform:translateY(0) scaleY(1)}18%{transform:translateY(4px) scaleY(.96)}43%{transform:translateY(-62px) scaleY(1.02)}63%{transform:translateY(-52px)}84%{transform:translateY(5px) scaleY(.97)}100%{transform:translateY(0) scaleY(1)}}
-@keyframes realRun{0%{transform:translateX(0) scaleX(1)}37%{transform:translateX(calc(100vw - 240px)) scaleX(1)}45%{transform:translateX(calc(100vw - 240px)) scaleX(-1)}88%{transform:translateX(0) scaleX(-1)}96%,100%{transform:translateX(0) scaleX(1)}}
+
+#ydg-robot-widget .yr-dog{
+  position:absolute;
+  left:0;
+  bottom:13px;
+  width:225px;
+  height:180px;
+  object-fit:contain;
+  object-position:left bottom;
+  pointer-events:none;
+  background:transparent!important;
+  filter:none!important;
+}
+
+#ydg-robot-widget .yr-close{
+  position:absolute;
+  left:210px;
+  top:5px;
+  z-index:6;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  border:1px solid rgba(103,232,249,.35);
+  background:rgba(3,8,15,.82);
+  color:#dffcff;
+  display:grid;
+  place-items:center;
+  font:700 15px/1 system-ui;
+  cursor:pointer;
+}
+
+#ydg-robot-widget .yr-help{
+  position:absolute;
+  left:7px;
+  bottom:0;
+  color:rgba(148,163,184,.58);
+  font:800 8px/1 system-ui;
+  letter-spacing:.06em;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+/* HUD sits to the RIGHT of the robot, not behind it */
+.ydg01-hud{
+  position:absolute;
+  left:235px;
+  top:23px;
+  width:150px;
+  height:150px;
+  border:1px solid rgba(34,211,238,.42);
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(3,10,19,.88),rgba(4,12,22,.78));
+  box-shadow:0 0 0 1px rgba(255,255,255,.025) inset,0 12px 28px rgba(0,0,0,.28);
+  overflow:hidden;
+  pointer-events:none;
+}
+.ydg01-hud::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,transparent 49%,rgba(34,211,238,.055) 50%,transparent 51%),
+    linear-gradient(0deg,transparent 49%,rgba(34,211,238,.045) 50%,transparent 51%);
+  background-size:22px 22px;
+}
+.ydg01-hud-top{
+  position:absolute;
+  left:10px;right:10px;top:9px;
+  display:flex;align-items:flex-start;justify-content:space-between;
+  z-index:2;
+}
+.ydg01-hud-top b{
+  display:block;color:#c9fbff;font:900 11px/1 system-ui;letter-spacing:.1em
+}
+.ydg01-hud-top small{
+  display:block;margin-top:3px;color:#38bdf8;font:800 6px/1 system-ui;letter-spacing:.12em
+}
+.ydg01-online{
+  color:#6ee7b7;font:900 6px/1 system-ui;letter-spacing:.08em
+}
+.ydg01-online i{
+  display:inline-block;width:5px;height:5px;border-radius:50%;background:#34d399;box-shadow:0 0 7px #34d399;margin-right:3px
+}
+
+.ydg01-scan{
+  position:absolute;
+  left:12px;
+  top:48px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  border:1px solid rgba(34,211,238,.35);
+  box-shadow:0 0 13px rgba(34,211,238,.10) inset;
+}
+.scan-ring{
+  position:absolute;inset:8px;border:1px dashed rgba(34,211,238,.32);border-radius:50%;
+  animation:scanSpin 5s linear infinite;
+}
+.scan-line{
+  position:absolute;left:27px;top:4px;width:1px;height:25px;
+  background:linear-gradient(#67e8f9,transparent);
+  transform-origin:bottom center;
+  animation:scanSpin 2.2s linear infinite;
+}
+.ydg01-scan strong{
+  position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);
+  color:#67e8f9;font:900 6px/1 system-ui;letter-spacing:.12em;
+}
+
+.ydg01-skills{
+  position:absolute;
+  left:78px;
+  top:47px;
+  right:8px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  z-index:2;
+}
+.ydg01-skills>b{
+  color:#c4f6ff;font:900 7px/1 system-ui;letter-spacing:.09em;margin-bottom:2px
+}
+.ydg01-skills>span{
+  display:block;
+  padding:6px 6px;
+  border-radius:7px;
+  border:1px solid rgba(56,189,248,.16);
+  background:rgba(12,24,40,.62);
+  color:#b9d8ec;
+  font:800 6px/1 system-ui;
+  white-space:nowrap;
+}
+@keyframes scanSpin{to{transform:rotate(360deg)}}
+
+#ydg-robot-widget.act-wave .yr-dog{
+  animation:realWave 1.25s cubic-bezier(.3,.8,.3,1)
+}
+#ydg-robot-widget.act-jump{
+  animation:realJump 1.3s cubic-bezier(.18,.78,.25,1)
+}
+#ydg-robot-widget.act-run{
+  animation:realRun 2.45s cubic-bezier(.55,.05,.35,1)
+}
+#ydg-robot-widget.act-run .yr-dog{
+  animation:runStride .22s ease-in-out infinite alternate
+}
+@keyframes realWave{
+  0%,100%{transform:translateY(0) rotate(0)}
+  24%{transform:translateY(-3px) rotate(-1.5deg)}
+  55%{transform:translateY(1px) rotate(1deg)}
+}
+@keyframes realJump{
+  0%{transform:translateY(0) scaleY(1)}
+  18%{transform:translateY(4px) scaleY(.96)}
+  43%{transform:translateY(-64px) scaleY(1.02)}
+  64%{transform:translateY(-52px)}
+  84%{transform:translateY(5px) scaleY(.97)}
+  100%{transform:translateY(0) scaleY(1)}
+}
+@keyframes realRun{
+  0%{transform:translateX(0) scaleX(1)}
+  37%{transform:translateX(calc(100vw - 400px)) scaleX(1)}
+  45%{transform:translateX(calc(100vw - 400px)) scaleX(-1)}
+  88%{transform:translateX(0) scaleX(-1)}
+  96%,100%{transform:translateX(0) scaleX(1)}
+}
 @keyframes runStride{from{margin-bottom:0}to{margin-bottom:3px}}
-#ydg-robot-reopen{display:none;position:fixed;left:9px;bottom:20px;z-index:2147483000;border:1px solid rgba(255,255,255,.18);background:#07101b;color:#bceeff;border-radius:999px;padding:7px 9px;font:800 9px system-ui;letter-spacing:.08em}#ydg-robot-reopen.show{display:block}
-@media(max-width:767px){#ydg-robot-widget{left:3px;bottom:max(112px,calc(env(safe-area-inset-bottom) + 104px));width:158px;height:138px}#ydg-robot-widget .yr-dog{width:151px;height:124px;bottom:10px}#ydg-robot-widget .yr-close{width:21px;height:21px;font-size:13px}.yr-help{font-size:6px!important}@keyframes realRun{0%{transform:translateX(0) scaleX(1)}37%{transform:translateX(calc(100vw - 164px)) scaleX(1)}45%{transform:translateX(calc(100vw - 164px)) scaleX(-1)}88%{transform:translateX(0) scaleX(-1)}96%,100%{transform:translateX(0) scaleX(1)}}}
+
+#ydg-robot-reopen{
+  display:none;
+  position:fixed;
+  left:9px;
+  bottom:max(20px,calc(env(safe-area-inset-bottom) + 14px));
+  z-index:2147483000;
+  border:1px solid rgba(34,211,238,.24);
+  background:#07101b;
+  color:#bceeff;
+  border-radius:999px;
+  padding:7px 9px;
+  font:800 9px system-ui;
+  letter-spacing:.08em;
+}
+#ydg-robot-reopen.show{display:block}
+
+@media(max-width:767px){
+  #ydg-robot-widget{
+    left:3px;
+    bottom:max(112px,calc(env(safe-area-inset-bottom) + 104px));
+    width:245px;
+    height:145px;
+  }
+  #ydg-robot-widget .yr-dog{
+    width:150px;
+    height:126px;
+    bottom:10px;
+  }
+  #ydg-robot-widget .yr-close{
+    left:139px;
+    width:22px;height:22px;font-size:13px
+  }
+  #ydg-robot-widget .yr-help{font-size:6px}
+  .ydg01-hud{
+    left:154px;
+    top:21px;
+    width:88px;
+    height:100px;
+    border-radius:11px;
+  }
+  .ydg01-hud-top{left:7px;right:7px;top:7px}
+  .ydg01-hud-top b{font-size:7px}
+  .ydg01-hud-top small{font-size:4px}
+  .ydg01-online{font-size:4px}
+  .ydg01-scan{left:7px;top:38px;width:35px;height:35px}
+  .scan-line{left:17px;height:15px}
+  .ydg01-scan strong{font-size:4px;bottom:-10px}
+  .ydg01-skills{left:47px;top:36px;right:4px;gap:3px}
+  .ydg01-skills>b{font-size:4px}
+  .ydg01-skills>span{font-size:4px;padding:4px 3px}
+  @keyframes realRun{
+    0%{transform:translateX(0) scaleX(1)}
+    37%{transform:translateX(calc(100vw - 250px)) scaleX(1)}
+    45%{transform:translateX(calc(100vw - 250px)) scaleX(-1)}
+    88%{transform:translateX(0) scaleX(-1)}
+    96%,100%{transform:translateX(0) scaleX(1)}
+  }
+}
