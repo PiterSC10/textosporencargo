@@ -1,59 +1,9 @@
 
-/* YourDesignGPT · Final promotion state */
-:root{--promo-green:#34d399;--promo-red:#ff465d;--promo-gold:#fbbf24}
-.ydg-final-price{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin:16px auto;max-width:820px}
-.ydg-final-price>div{position:relative;padding:16px 18px;border-radius:20px;border:1px solid rgba(148,163,184,.09);background:rgba(7,12,21,.65);transition:.3s ease}
-.ydg-final-price .pf-arrow{align-self:center;color:#475569;font-size:1.6rem;font-weight:900}
-.ydg-final-price small{display:block;font-size:.51rem;font-weight:950;letter-spacing:.15em;color:#64748b}
-.ydg-final-price strong{display:block;margin:4px 0;font-family:'Space Grotesk',sans-serif;font-size:2rem;line-height:1;color:#dbeafe;transition:.3s ease}
-.ydg-final-price span{display:block;color:#718096;font-size:.64rem;line-height:1.4}
-.ydg-final-price .pf-promo em{display:inline-flex;margin-top:9px;padding:5px 8px;border-radius:999px;font-style:normal;color:#fef3c7;background:rgba(245,158,11,.08);border:1px solid rgba(251,191,36,.13);font-size:.48rem;font-weight:900;letter-spacing:.08em}
-body.ydg-promo-on .ydg-final-price .pf-normal{border-color:rgba(255,70,93,.25);background:rgba(55,7,18,.20)}
-body.ydg-promo-on .ydg-final-price .pf-normal strong{color:var(--promo-red);opacity:.74}
-body.ydg-promo-on .ydg-final-price .pf-normal::before,body.ydg-promo-on .ydg-final-price .pf-normal::after{
- content:"";position:absolute;left:10%;right:10%;top:48%;height:4px;border-radius:999px;background:linear-gradient(90deg,#ff304f,#ff6541,#ff304f);
- box-shadow:0 0 8px rgba(255,48,79,.5)}
-body.ydg-promo-on .ydg-final-price .pf-normal::before{transform:rotate(9deg)}
-body.ydg-promo-on .ydg-final-price .pf-normal::after{transform:rotate(-9deg)}
-body.ydg-promo-on .ydg-final-price .pf-promo{border-color:rgba(52,211,153,.34);background:linear-gradient(145deg,rgba(5,55,42,.38),rgba(5,17,25,.75));box-shadow:0 0 32px rgba(52,211,153,.07)}
-body.ydg-promo-on .ydg-final-price .pf-promo strong{color:#78f5bd;text-shadow:0 0 18px rgba(52,211,153,.2)}
-body.ydg-promo-off .ydg-final-price .pf-normal{border-color:rgba(56,189,248,.22);background:linear-gradient(145deg,rgba(10,35,57,.35),rgba(6,13,22,.74))}
-body.ydg-promo-off .ydg-final-price .pf-normal strong{color:#e2f3ff}
-body.ydg-promo-off .ydg-final-price .pf-promo{opacity:.42;filter:saturate(.45)}
-body.ydg-promo-off .ydg-final-price .pf-promo strong{color:#94a3b8}
-body.ydg-promo-on #ydg-launch-toggle-card{border-color:rgba(52,211,153,.34)!important;background:linear-gradient(180deg,rgba(5,48,37,.45),rgba(5,15,23,.82))!important}
-body.ydg-promo-off #ydg-launch-toggle-card{border-color:rgba(56,189,248,.14)!important;background:linear-gradient(180deg,rgba(13,24,39,.72),rgba(6,12,20,.84))!important}
-body.ydg-promo-on #ydg-promo-slider,.ydg-promo-switch input:checked + .ydg-promo-slider{background:linear-gradient(90deg,#059669,#34d399)!important;border-color:rgba(110,231,183,.45)!important}
-body.ydg-promo-off .budget-new-price{color:#64748b!important;opacity:.45}
-body.ydg-promo-on .budget-new-price{color:#78f5bd!important;text-shadow:0 0 16px rgba(52,211,153,.18)}
-body.ydg-promo-off .budget-old-price{color:#e2f3ff!important;opacity:1!important}
-body.ydg-promo-off .budget-old-price::before,body.ydg-promo-off .budget-old-price::after{display:none!important}
-body.ydg-promo-on .budget-old-price{color:#ff6275!important}
-body.ydg-promo-dead #ydg-promo-switch{pointer-events:none}
-.promo-dead-note{color:#fca5a5!important}
-@media(max-width:640px){.ydg-final-price{grid-template-columns:1fr}.ydg-final-price .pf-arrow{text-align:center;transform:rotate(90deg)}}
-
-
-/* Synchronise the original price components too */
-body.ydg-promo-on .launch-price-old{
-  color:#ff6275!important;opacity:.82!important;text-shadow:0 0 10px rgba(255,70,93,.18)
-}
+body.ydg-promo-on .launch-price-old,.ydg-promo-on .budget-old-price{color:#ff5368!important;opacity:.82!important}
 body.ydg-promo-on .launch-cross-line{display:block!important}
-body.ydg-promo-on .launch-offer-pill strong,
-body.ydg-promo-on .promo-main-price{
-  color:#78f5bd!important;text-shadow:0 0 18px rgba(52,211,153,.23)!important
-}
-body.ydg-promo-on .launch-offer-pill{
-  border-color:rgba(52,211,153,.34)!important;
-  background:linear-gradient(145deg,rgba(5,55,42,.34),rgba(9,18,31,.76))!important
-}
-body.ydg-promo-off .launch-price-old{
-  color:#e2f3ff!important;opacity:1!important;text-shadow:none!important
-}
+body.ydg-promo-on .promo-main-price,body.ydg-promo-on .launch-offer-pill strong,body.ydg-promo-on .budget-new-price{color:#68f0b4!important;text-shadow:0 0 18px rgba(52,211,153,.22)}
 body.ydg-promo-off .launch-cross-line{display:none!important}
-body.ydg-promo-off .launch-offer-pill,
-body.ydg-promo-off .promo-main-price{opacity:.38!important;filter:saturate(.35)}
-body.ydg-promo-off .launch-offer-pill strong{color:#94a3b8!important;text-shadow:none!important}
-body.ydg-promo-on .ydg-product-price-promo{border-color:rgba(52,211,153,.18)!important}
-body.ydg-promo-off .ydg-product-price-promo{border-color:rgba(56,189,248,.12)!important}
-body.ydg-promo-on .ydg-launch-price{color:#78f5bd!important;text-shadow:0 0 24px rgba(52,211,153,.18)!important}
+body.ydg-promo-off .launch-price-old,body.ydg-promo-off .budget-old-price{color:#e2f3ff!important;opacity:1!important}
+body.ydg-promo-off .launch-offer-pill,body.ydg-promo-off .promo-main-price,body.ydg-promo-off .budget-new-price{opacity:.4!important;filter:saturate(.35)}
+#ydg-launch-toggle-card{transition:.3s ease}body.ydg-promo-on #ydg-launch-toggle-card{border-color:rgba(52,211,153,.34)!important;background:linear-gradient(180deg,rgba(5,48,37,.45),rgba(5,15,23,.82))!important}
+body.ydg-promo-off #ydg-launch-toggle-card{border-color:rgba(56,189,248,.14)!important;background:linear-gradient(180deg,rgba(13,24,39,.72),rgba(6,12,20,.84))!important}
