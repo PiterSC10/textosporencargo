@@ -1,0 +1,12 @@
+YourDesignGPT V94 · PROJECT FINAL
+- Todo en raíz, sin carpetas.
+- Jet Ski: imágenes locales, sin dependencias externas ni permisos de carga.
+- YDG-01: mayor calidad, orientado hacia la derecha.
+- Haz de neón permanente apuntando a la web.
+- 1 clic: saludo / 2 clics: salto / 3 clics: carrera ida y vuelta.
+- X para cerrar y mini YDG-01 para reabrir.
+- Promo OFF: solo precio normal 495 € + 150 €/año.
+- Promo ON: solo 99 € + 100 €/año en verde.
+- Oferta válida hasta 31/12/2026.
+- Portfolio Jet Ski primero y portada local.
+- Menú flotante común en todas las demos.

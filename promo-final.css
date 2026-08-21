@@ -1,9 +1,28 @@
 
-body.ydg-promo-on .launch-price-old,.ydg-promo-on .budget-old-price{color:#ff5368!important;opacity:.82!important}
-body.ydg-promo-on .launch-cross-line{display:block!important}
-body.ydg-promo-on .promo-main-price,body.ydg-promo-on .launch-offer-pill strong,body.ydg-promo-on .budget-new-price{color:#68f0b4!important;text-shadow:0 0 18px rgba(52,211,153,.22)}
+/* V94 · decisive promotion states */
+#ydg-launch-toggle-card{transition:border-color .3s ease,background .3s ease,box-shadow .3s ease}
+body.ydg-promo-on #ydg-launch-toggle-card{border-color:rgba(52,211,153,.38)!important;background:linear-gradient(180deg,rgba(4,55,40,.48),rgba(4,15,23,.88))!important;box-shadow:0 0 30px rgba(52,211,153,.07)!important}
+body.ydg-promo-off #ydg-launch-toggle-card{border-color:rgba(56,189,248,.20)!important;background:linear-gradient(180deg,rgba(11,30,48,.72),rgba(5,12,20,.90))!important}
+/* Existing include/price widgets */
+body.ydg-promo-on .launch-price-box,
+body.ydg-promo-on .budget-old-price{display:none!important}
+body.ydg-promo-on .launch-offer-pill,
+body.ydg-promo-on .promo-main-price,
+body.ydg-promo-on .budget-new-price{display:flex!important;opacity:1!important;filter:none!important}
+body.ydg-promo-on .launch-offer-pill strong,
+body.ydg-promo-on .promo-main-price,
+body.ydg-promo-on .budget-new-price{color:#68f0b4!important;text-shadow:0 0 20px rgba(52,211,153,.28)!important}
+body.ydg-promo-off .launch-price-box,
+body.ydg-promo-off .budget-old-price{display:inline-flex!important;opacity:1!important;color:#e5f3ff!important}
 body.ydg-promo-off .launch-cross-line{display:none!important}
-body.ydg-promo-off .launch-price-old,body.ydg-promo-off .budget-old-price{color:#e2f3ff!important;opacity:1!important}
-body.ydg-promo-off .launch-offer-pill,body.ydg-promo-off .promo-main-price,body.ydg-promo-off .budget-new-price{opacity:.4!important;filter:saturate(.35)}
-#ydg-launch-toggle-card{transition:.3s ease}body.ydg-promo-on #ydg-launch-toggle-card{border-color:rgba(52,211,153,.34)!important;background:linear-gradient(180deg,rgba(5,48,37,.45),rgba(5,15,23,.82))!important}
-body.ydg-promo-off #ydg-launch-toggle-card{border-color:rgba(56,189,248,.14)!important;background:linear-gradient(180deg,rgba(13,24,39,.72),rgba(6,12,20,.84))!important}
+body.ydg-promo-off .launch-offer-pill,
+body.ydg-promo-off .promo-main-price,
+body.ydg-promo-off .budget-new-price{display:none!important}
+/* When promo is OFF, no fake sale language in the main pricing blocks */
+body.ydg-promo-off .included-price-promo{align-items:flex-start!important}
+body.ydg-promo-on .included-price-promo{align-items:flex-end!important}
+/* toggle styling */
+body.ydg-promo-on .ydg-promo-slider{background:linear-gradient(90deg,#059669,#34d399)!important;border-color:rgba(110,231,183,.48)!important;box-shadow:0 0 18px rgba(52,211,153,.20)!important}
+body.ydg-promo-off .ydg-promo-slider{background:#182536!important;border-color:rgba(96,165,250,.18)!important;box-shadow:none!important}
+body.ydg-promo-off .ydg-promo-slider::before{background:#9fb0c4!important}
+body.ydg-promo-on .ydg-promo-slider::before{background:#d1fae5!important}
