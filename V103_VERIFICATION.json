@@ -1,0 +1,14 @@
+{
+  "idle_true_transparency": true,
+  "wave_true_transparency": true,
+  "jump_true_transparency": true,
+  "run_true_transparency": true,
+  "three_real_pose_files": true,
+  "hud_small": true,
+  "hud_minimize_close": true,
+  "scan_powered": true,
+  "beam_from_face": true,
+  "robot_background_transparent": true,
+  "js_errors": 0,
+  "root_only": true
+}
