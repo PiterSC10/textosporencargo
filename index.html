@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=90" rel="manifest"/>
+<link href="site.webmanifest?v=91" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4848,6 +4848,9 @@ body.ydg-launch-open{overflow:hidden!important}
       ]
     }
     </script>
+
+<link rel="stylesheet" href="robot-widget.css?v=91">
+<link rel="stylesheet" href="promo-final.css?v=91">
 </head>
 <body class="antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -4863,7 +4866,7 @@ body.ydg-launch-open{overflow:hidden!important}
       <div class="ydg-launch-price-block">
         <small data-lang-key="launch-web-label">TU WEB PROFESIONAL</small>
         <div class="ydg-launch-price">99<span>€</span></div>
-        <p data-lang-key="launch-maintenance">+ 100 €/año de dominio, hosting y mantenimiento</p>
+        <p data-lang-key="launch-maintenance">+ 100 €/año · válida hasta 31/12/2026</p>
       </div>
       <div class="ydg-launch-divider"></div>
       <div class="ydg-launch-code-block">
@@ -4880,7 +4883,7 @@ body.ydg-launch-open{overflow:hidden!important}
     </div>
     <div class="ydg-launch-terms">
       <span class="ydg-launch-dot"></span>
-      <p data-lang-key="launch-terms">Promoción para proyectos web estándar. Funciones, integraciones o ampliaciones especiales se presupuestan aparte.</p>
+      <p data-lang-key="launch-terms">Oferta válida hasta el 31/12/2026. Después: 495 € de desarrollo + 150 €/año. Funciones o integraciones especiales se presupuestan aparte.</p>
     </div>
   </div>
 </div>
@@ -5553,16 +5556,7 @@ body.ydg-launch-open{overflow:hidden!important}
 
 </main>
 
-<div class="ydg-dog-mascot" id="ydg-dog-mascot" aria-label="YDG-01 mascota robótica" role="button" tabindex="0">
-  <div class="ydg-dog-glow"></div>
-  <div class="ydg-dog-orb">
-    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot de YourDesignGPT">
-    <span class="ydg-dog-eye"></span>
-    <span class="ydg-dog-scan"></span>
-  </div>
-  <div class="ydg-dog-bubble"><b>YDG-01</b><span>HELLO 👋</span></div>
-  <div class="ydg-dog-hint"><span>1× HELLO</span><span>2× JUMP</span><span>3× RUN</span></div>
-</div>
+
 
 <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
 <div class="container mx-auto section-box footer-box">
@@ -5801,7 +5795,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'robot-config-desc': 'Completa la idea de tu web. El sistema irá activándose mientras rellenas el configurador.',
                 'promo-toggle-label': 'OFERTA DE LANZAMIENTO',
                 'promo-toggle-title': 'Aplicar código YOURDESIGNGPT · 99 €',
-                'promo-toggle-desc': 'Puedes activar o quitar la promoción desde aquí aunque hayas cerrado el popup.',
+                'promo-toggle-desc': 'Oferta limitada hasta el 31 de diciembre de 2026. Puedes activarla o desactivarla aquí.',
 
 
                 'important-links-title': 'Links importantes',
@@ -7020,7 +7014,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=90', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=91', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7728,5 +7722,8 @@ try{
   window.ydgSetPromo=setPromo;
 })();
 </script>
+
+<script src="promo-manager.js?v=91" defer></script>
+<script src="robot-widget.js?v=91" defer></script>
 </body>
 </html>

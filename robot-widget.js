@@ -1,118 +1,76 @@
+
 (()=>{
-if(document.getElementById('ydg01-widget-host'))return;const host=document.createElement('div');host.id='ydg01-widget-host';document.body.appendChild(host);const root=host.attachShadow({mode:'open'}
-);
-root.innerHTML=`<style>
-:host{all:initial;position:fixed;z-index:2147483000;left:8px;bottom:8px;width:300px;height:260px;pointer-events:none;font-family:Inter,system-ui,sans-serif}
-*{box-sizing:border-box}
-.unit{position:absolute;inset:0;opacity:0;transform:translateX(-120%);pointer-events:none}
-.unit.online{opacity:1;animation:enter 2.1s cubic-bezier(.18,.78,.2,1) forwards}
-@keyframes enter{0%{transform:translateX(-120%) translateY(10px)}
-40%{transform:translateX(-48%) translateY(-9px)}
-72%{transform:translateX(-10%) translateY(2px)}
-100%{transform:none}
-}
-.stage{position:absolute;left:0;bottom:0;width:280px;height:225px;pointer-events:auto;cursor:pointer;transform-origin:50% 90%}
-.stage.idle{animation:idle 4s ease-in-out infinite}
-@keyframes idle{0%,100%{transform:translateY(0)}
-48%,56%{transform:translateY(-5px) rotate(.2deg)}
-}
-.pose{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;transition:opacity .18s,transform .18s}
-.pose img{display:block;max-width:100%;max-height:100%;user-select:none;pointer-events:none;filter:drop-shadow(0 18px 15px rgba(0,0,0,.5))}
-.normal{opacity:1}
-.greeting{opacity:0;transform:translateY(18px) scale(.75)}
-.stage.greet .normal{opacity:0;transform:scale(.85)}
-.stage.greet .greeting{opacity:1;transform:none;animation:wave 2.7s ease-in-out}
-@keyframes wave{0%{transform:translateY(22px) scale(.78)}
-22%{transform:none}
-42%{transform:rotate(-1.3deg)}
-58%{transform:rotate(1.4deg)}
-75%{transform:rotate(-.8deg)}
-100%{transform:none}
-}
-.stage.jump{animation:jump 1.12s cubic-bezier(.2,.7,.2,1)}
-@keyframes jump{0%{transform:none}
-13%{transform:translateY(10px) scaleY(.92) scaleX(1.025)}
-24%{transform:translateY(4px) scaleY(1.03)}
-51%{transform:translateY(-78px) rotate(-1deg)}
-70%{transform:translateY(-42px) rotate(.5deg)}
-86%{transform:translateY(7px) scaleY(.93) scaleX(1.025)}
-100%{transform:none}
-}
-.shadow{position:absolute;left:44px;bottom:3px;width:185px;height:20px;border-radius:50%;background:rgba(0,0,0,.68);filter:blur(8px)}
-.unit.jumping .shadow{animation:shadowJump 1.12s ease}
-@keyframes shadowJump{0%,100%{transform:scale(1);opacity:1}
-52%{transform:scale(.48);opacity:.28}
-86%{transform:scale(1.12);opacity:.9}
-}
-.eye{position:absolute;right:9.5%;top:23%;width:4.5%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff 0 8%,#67e8f9 21%,#0284c7 47%,transparent 73%);box-shadow:0 0 6px #fff,0 0 15px #22d3ee,0 0 28px #0284c7;animation:blink 2.7s infinite}
-@keyframes blink{0%,92%,100%{transform:scaleY(1)}
-95%{transform:scaleY(.1)}
-}
-.scan-cone{position:absolute;left:91%;top:24%;width:0;height:230px;transform-origin:left top;clip-path:polygon(0 5%,100% 34%,100% 70%,0 16%);background:linear-gradient(90deg,rgba(103,232,249,.72),rgba(34,211,238,.28) 36%,rgba(59,130,246,.11) 72%,transparent);filter:drop-shadow(0 0 14px #22d3ee);opacity:0;pointer-events:none}
-.scan-cone.on{animation:cone 5.8s ease-in-out}
-@keyframes cone{0%{width:0;opacity:0;transform:rotate(-8deg)}
-10%{width:560px;opacity:.94}
-28%{transform:rotate(8deg)}
-48%{transform:rotate(-6deg)}
-68%{transform:rotate(7deg)}
-88%{width:560px;opacity:.8;transform:rotate(-2deg)}
-100%{width:0;opacity:0}
-}
-.grid{position:fixed;inset:0;z-index:-1;opacity:0;pointer-events:none;background:linear-gradient(rgba(34,211,238,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.055) 1px,transparent 1px);background-size:44px 44px}
-.grid.on{animation:grid 5.8s ease}
-@keyframes grid{0%,100%{opacity:0}
-15%,86%{opacity:1}
-}
-.panel{position:absolute;left:16px;bottom:228px;width:222px;padding:10px 11px;border:1px solid rgba(34,211,238,.26);border-radius:14px;background:linear-gradient(135deg,rgba(5,23,35,.97),rgba(12,12,28,.96));box-shadow:0 18px 55px rgba(0,0,0,.45),0 0 28px rgba(34,211,238,.07);backdrop-filter:blur(14px);opacity:0;transform:translate(-8px,8px) scale(.96);transition:.3s;pointer-events:none}
-.panel.show{opacity:1;transform:none;pointer-events:auto}
-.panel small{display:block;color:#67e8f9;font-size:8px;font-weight:950;letter-spacing:.15em}
-.panel strong{display:block;margin:5px 0;color:#fff;font-size:13px}
-.panel p{margin:0;color:#94a3b8;font-size:10px;line-height:1.45}
-.progress{height:5px;margin:9px 0;border-radius:99px;background:#101c28;overflow:hidden}
-.progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,#22d3ee,#3b82f6,#a855f7)}
-.panel.scanning .progress i{animation:progress 5.5s linear forwards}
-@keyframes progress{to{width:100%}
-}
-.actions{display:flex;gap:6px;margin-top:10px}
-.actions button,.actions a{flex:1;padding:8px;border-radius:9px;border:1px solid rgba(34,211,238,.2);background:rgba(34,211,238,.05);color:#a5f3fc;text-align:center;text-decoration:none;font-size:8px;font-weight:950;letter-spacing:.06em;cursor:pointer}
-.actions a{border:0;background:linear-gradient(90deg,#22d3ee,#60a5fa);color:#071117}
-.close{position:absolute;right:4px;top:4px;width:25px;height:25px;border:1px solid rgba(148,163,184,.15);border-radius:50%;background:rgba(3,9,15,.8);color:#94a3b8;pointer-events:auto;cursor:pointer}
-.hint{position:absolute;left:40px;bottom:0;padding:5px 8px;border-radius:99px;background:rgba(3,9,15,.84);border:1px solid rgba(34,211,238,.13);color:#7dd3fc;font-size:7px;font-weight:900;letter-spacing:.08em}
+'use strict';
+const IMG={
+ idle:'robot-idle.webp',
+ wave:'robot-wave.webp',
+ jump:'robot-jump.webp',
+ run:'robot-run.webp'
+};
+function mount(){
+ if(document.getElementById('ydg-robot-widget')) return;
+ // remove any legacy mascot left in old HTML
+ document.querySelectorAll('.ydg-dog-mascot,#ydg-dog-mascot,#ydg-dog-3d').forEach(n=>n.remove());
 
-@media(max-width:680px){:host{left:4px;bottom:5px;width:190px;height:178px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.28))}
-.stage{width:186px;height:158px;transform-style:preserve-3d;perspective:700px}
-.pose img{filter:drop-shadow(0 18px 15px rgba(0,0,0,.62)) drop-shadow(0 0 8px rgba(34,211,238,.10))}
-.panel{position:fixed;left:8px;right:auto;bottom:188px;width:208px;padding:9px 10px;border-radius:13px}
-.shadow{left:26px;width:120px}
-.hint{left:18px;font-size:6px}
-.scan-cone{left:90%;top:23%;height:190px;max-width:calc(100vw - 160px)}
-.scan-cone.on{animation-name:coneMobile}
-@keyframes coneMobile{0%{width:0;opacity:0}
-12%{width:360px;opacity:.92}
-30%{transform:rotate(7deg)}
-55%{transform:rotate(-6deg)}
-84%{width:360px;opacity:.78}
-100%{width:0;opacity:0}
-}
-}
-@media(prefers-reduced-motion:reduce){.unit.online,.stage,.eye{animation:none!important}
-.unit.online{transform:none}
-}
+ const w=document.createElement('div');
+ w.id='ydg-robot-widget';
+ w.setAttribute('role','button');w.tabIndex=0;
+ w.setAttribute('aria-label','YDG-01: un clic saluda, dos clics salta, tres clics corre');
+ w.innerHTML=`<div class="rw-stage">
+   <span class="rw-aura"></span>
+   <img class="rw-img" src="${IMG.idle}" alt="YDG-01 robot perro">
+   <div class="rw-status"><i></i><b>YDG-01</b><span class="rw-state">ONLINE</span></div>
+   <button class="rw-close" type="button" aria-label="Cerrar YDG-01">×</button>
+   <span class="rw-scan"></span>
+   <div class="rw-message"><b>YDG-01</b><span>HOLA 👋</span></div>
+   <div class="rw-guide"><span>1× HOLA</span><span>2× SALTO</span><span>3× RUN</span></div>
+ </div>`;
+ const reopen=document.createElement('button');
+ reopen.id='ydg-robot-reopen';reopen.type='button';reopen.setAttribute('aria-label','Abrir YDG-01');
+ reopen.innerHTML=`<img src="robot-thumb.webp" alt="">`;
+ document.body.append(w,reopen);
 
-</style><div class="grid" id="grid"></div><div class="unit" id="unit"><div class="shadow"></div><button class="close" id="close" aria-label="Cerrar">×</button><div class="stage idle" id="stage" role="button" tabindex="0" aria-label="YDG-01: un clic salta, doble clic saluda"><div class="pose normal"><img src="ydg01-robot-right.png?v=3" alt="YDG-01 orientado a la derecha"><span class="eye"></span><span class="scan-cone" id="cone"></span></div><div class="pose greeting"><img src="ydg01-robot-greet.png?v=3" alt="YDG-01 saludando"></div></div><span class="hint">1 CLIC: SALTA · 2: SALUDA</span><section class="panel show" id="panel"><small>YDG NEURAL SYSTEM</small><strong id="title">Hola, soy YDG‑01.</strong><p id="text">Un clic para saltar. Doble clic para saludar.</p><div class="progress"><i></i></div><div class="actions"><button id="scan">ESCANEAR</button><a href="#configurador">CONFIGURAR →</a></div></section></div>`;
-const unit=root.getElementById('unit'),stage=root.getElementById('stage'),panel=root.getElementById('panel'),title=root.getElementById('title'),text=root.getElementById('text'),cone=root.getElementById('cone'),grid=root.getElementById('grid');let clickTimer,busy=false;const reset=()=>{stage.className='stage idle';unit.classList.remove('jumping')}
-;const jump=()=>{if(busy)return;busy=true;stage.className='stage jump';unit.classList.add('jumping');title.textContent='Salto estabilizado.';text.textContent='Amortiguadores y equilibrio dinámico operativos.';setTimeout(()=>{reset();busy=false}
-,1160)}
-;const greet=()=>{if(busy)return;busy=true;stage.className='stage greet';title.textContent='¡Hola! Encantado de conocerte.';text.textContent='YDG‑01 activa su protocolo de bienvenida.';setTimeout(()=>{reset();busy=false}
-,2900)}
-;
-stage.addEventListener('click',()=>{clearTimeout(clickTimer);clickTimer=setTimeout(jump,260)}
-);stage.addEventListener('dblclick',e=>{e.preventDefault();clearTimeout(clickTimer);greet()}
-);stage.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();jump()}
+ const img=w.querySelector('.rw-img'),state=w.querySelector('.rw-state'),msg=w.querySelector('.rw-message span'),close=w.querySelector('.rw-close');
+ let count=0,timer=0,busy=false,lastTouch=0;
+
+ function label(s,m){state.textContent=s;msg.textContent=m||s}
+ function clear(){w.classList.remove('rw-greeting','rw-jumping','rw-running')}
+ function idle(){clear();img.src=IMG.idle;label('ONLINE','HOLA 👋');busy=false}
+ function greet(){
+   if(busy)return;busy=true;clear();img.src=IMG.wave;label('HELLO','HOLA 👋');void w.offsetWidth;w.classList.add('rw-greeting');
+   setTimeout(idle,960)
+ }
+ function jump(){
+   if(busy)return;busy=true;clear();img.src=IMG.jump;label('JUMP','SALTO ↟');void w.offsetWidth;w.classList.add('rw-jumping');
+   setTimeout(idle,1080)
+ }
+ function run(){
+   if(busy)return;busy=true;clear();img.src=IMG.run;label('RUN MODE','MODO CARRERA');void w.offsetWidth;w.classList.add('rw-running');
+   setTimeout(()=>{idle();setTimeout(greet,130)},2190)
+ }
+ function execute(){const n=Math.min(count,3);count=0;if(n===1)greet();else if(n===2)jump();else if(n>=3)run()}
+ function register(){
+   if(busy)return;count=Math.min(3,count+1);clearTimeout(timer);timer=setTimeout(execute,335)
+ }
+ w.addEventListener('pointerup',e=>{
+   if(e.target===close)return;
+   if(e.pointerType==='touch'){lastTouch=Date.now();e.preventDefault();register()}
+ });
+ w.addEventListener('click',e=>{
+   if(e.target===close)return;
+   if(Date.now()-lastTouch<550)return;register()
+ });
+ w.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();register()}});
+ close.addEventListener('click',e=>{
+   e.stopPropagation();w.hidden=true;reopen.classList.add('is-visible');try{sessionStorage.setItem('ydgRobotClosed','1')}catch(_){}
+ });
+ reopen.addEventListener('click',()=>{
+   w.hidden=false;reopen.classList.remove('is-visible');try{sessionStorage.removeItem('ydgRobotClosed')}catch(_){}
+   setTimeout(greet,120)
+ });
+ try{if(sessionStorage.getItem('ydgRobotClosed')==='1'){w.hidden=true;reopen.classList.add('is-visible')}}catch(_){}
+ // visual proof-of-life once the page is available
+ if(!w.hidden)setTimeout(greet,1250);
 }
-);root.getElementById('scan').addEventListener('click',()=>{if(busy)return;busy=true;panel.classList.add('scanning');cone.classList.add('on');grid.classList.add('on');title.textContent='Analizando interfaz · 0%';text.textContent='Iniciando sensores ópticos y mapa de profundidad.';[[900,'Analizando interfaz · 24%','Detectando estructura y puntos de interacción.'],[2100,'Comprobando responsive · 51%','Validando adaptación de pantalla y contenido.'],[3500,'Revisando experiencia · 78%','Procesando navegación y llamadas a la acción.'],[5350,'Sistema verificado · 100%','Interfaz detectada. Preparada para iniciar un nuevo proyecto.']].forEach(([t,a,b])=>setTimeout(()=>{title.textContent=a;text.textContent=b}
-,t));setTimeout(()=>{panel.classList.remove('scanning');cone.classList.remove('on');grid.classList.remove('on');busy=false}
-,5900)}
-);root.getElementById('close').addEventListener('click',()=>host.remove());setTimeout(()=>unit.classList.add('online'),3300);
-}
-)();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
+})();

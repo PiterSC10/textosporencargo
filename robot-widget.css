@@ -1,0 +1,66 @@
+
+/* YourDesignGPT · Robot Widget FINAL
+   Original YDG-01 visual pack. Self-contained and responsive. */
+#ydg-robot-widget{
+  --rw-cyan:#22d3ee;--rw-blue:#3b82f6;--rw-bg:rgba(4,10,19,.84);
+  position:fixed;left:14px;bottom:max(20px,calc(env(safe-area-inset-bottom) + 14px));
+  z-index:2147483000;width:196px;height:190px;user-select:none;-webkit-user-select:none;
+  touch-action:manipulation;filter:drop-shadow(0 18px 28px rgba(0,0,0,.42));
+  transform-origin:left bottom;transition:opacity .25s ease,filter .25s ease;
+}
+#ydg-robot-widget[hidden]{display:none!important}
+.rw-stage{position:absolute;inset:0;cursor:pointer}
+.rw-aura{position:absolute;left:18px;right:22px;bottom:24px;height:64px;border-radius:50%;
+ background:radial-gradient(ellipse,rgba(34,211,238,.26),rgba(59,130,246,.08) 52%,transparent 74%);
+ filter:blur(13px);opacity:.62;transition:.25s ease}
+.rw-img{position:absolute;left:0;bottom:20px;width:174px;height:166px;object-fit:contain;
+ filter:saturate(1.04) contrast(1.05);pointer-events:none;transition:filter .18s ease}
+.rw-status{position:absolute;left:13px;top:4px;display:flex;align-items:center;gap:5px;padding:5px 8px;
+ border-radius:999px;border:1px solid rgba(103,232,249,.14);background:rgba(4,10,18,.70);
+ backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);pointer-events:none}
+.rw-status i{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.rw-status b{color:#baf6ff;font-size:.45rem;letter-spacing:.12em}.rw-status span{color:#7d8da2;font-size:.36rem;font-weight:900;letter-spacing:.08em}
+.rw-close{position:absolute;right:2px;top:3px;width:27px;height:27px;display:grid;place-items:center;border-radius:50%;
+ border:1px solid rgba(148,163,184,.16);background:rgba(4,10,18,.77);color:#94a3b8;font-size:15px;cursor:pointer;z-index:4}
+.rw-close:hover{color:white;border-color:rgba(34,211,238,.35)}
+.rw-guide{position:absolute;left:12px;right:13px;bottom:1px;display:flex;justify-content:center;gap:4px;pointer-events:none}
+.rw-guide span{padding:2px 5px;border-radius:999px;background:rgba(3,9,17,.68);border:1px solid rgba(103,232,249,.07);
+ color:#667a91;font-size:.34rem;font-weight:950;letter-spacing:.07em}
+.rw-scan{position:absolute;left:19px;right:36px;top:46%;height:1px;
+ background:linear-gradient(90deg,transparent,var(--rw-cyan),var(--rw-blue),transparent);
+ box-shadow:0 0 8px rgba(34,211,238,.75);opacity:.42;animation:rwScan 2.7s ease-in-out infinite alternate;pointer-events:none}
+.rw-message{position:absolute;left:109px;top:43px;min-width:94px;padding:7px 9px;border-radius:11px;
+ border:1px solid rgba(34,211,238,.19);background:var(--rw-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+ opacity:0;transform:translateX(-5px) scale(.96);transition:.2s ease;pointer-events:none}
+.rw-message b{display:block;color:#67e8f9;font-size:.48rem;letter-spacing:.12em}.rw-message span{display:block;color:#edf8ff;font-size:.51rem;margin-top:2px}
+#ydg-robot-widget.rw-greeting .rw-message,#ydg-robot-widget.rw-jumping .rw-message,#ydg-robot-widget.rw-running .rw-message{opacity:1;transform:none}
+#ydg-robot-widget.rw-greeting{animation:rwHello .92s ease}
+#ydg-robot-widget.rw-jumping{animation:rwJump 1.02s cubic-bezier(.2,.85,.3,1)}
+#ydg-robot-widget.rw-running{animation:rwRun 2.12s cubic-bezier(.63,0,.37,1);filter:drop-shadow(0 18px 28px rgba(0,0,0,.36)) drop-shadow(0 0 15px rgba(34,211,238,.32))}
+#ydg-robot-widget.rw-running .rw-aura{opacity:1;transform:scale(1.45);filter:blur(17px)}
+#ydg-robot-widget.rw-running::before{content:"";position:absolute;right:142px;top:77px;width:170px;height:40px;border-radius:50%;
+ background:linear-gradient(90deg,transparent,rgba(59,130,246,.10),rgba(34,211,238,.34));filter:blur(11px);animation:rwTrail 2.12s ease;z-index:-1}
+#ydg-robot-widget.rw-jumping .rw-aura,#ydg-robot-widget.rw-greeting .rw-aura{opacity:.95;transform:scale(1.15)}
+#ydg-robot-reopen{position:fixed;left:12px;bottom:max(25px,calc(env(safe-area-inset-bottom) + 18px));z-index:2147483000;
+ width:48px;height:48px;border-radius:50%;border:1px solid rgba(34,211,238,.23);background:rgba(4,10,18,.88);
+ box-shadow:0 12px 28px rgba(0,0,0,.34),0 0 18px rgba(34,211,238,.08);padding:3px;cursor:pointer;display:none}
+#ydg-robot-reopen img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+#ydg-robot-reopen.is-visible{display:block}
+@keyframes rwScan{from{transform:translateY(-33px)}to{transform:translateY(42px)}}
+@keyframes rwHello{0%,100%{transform:rotate(0)}23%{transform:rotate(-2.5deg)}48%{transform:rotate(2.5deg)}72%{transform:rotate(-1deg)}}
+@keyframes rwJump{0%,100%{transform:translateY(0) scale(1)}34%{transform:translateY(-44px) scale(1.03)}58%{transform:translateY(-33px) scale(1.02)}80%{transform:translateY(5px) scale(.99)}}
+@keyframes rwRun{0%{transform:translateX(0) scaleX(1)}34%{transform:translateX(calc(100vw - 220px)) scaleX(1)}
+ 49%{transform:translateX(calc(100vw - 220px)) scaleX(-1)}84%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
+@keyframes rwTrail{0%,100%{opacity:0}15%,83%{opacity:1}}
+@media(max-width:767px){
+ #ydg-robot-widget{left:5px;bottom:max(124px,calc(env(safe-area-inset-bottom) + 110px));width:146px;height:143px}
+ .rw-img{width:132px;height:126px;bottom:16px}.rw-status{left:8px;top:1px;padding:4px 6px}
+ .rw-status b{font-size:.39rem}.rw-status span{font-size:.31rem}.rw-message{left:79px;top:32px;min-width:78px;padding:6px 7px}
+ .rw-message b{font-size:.40rem}.rw-message span{font-size:.43rem}.rw-close{right:0;top:0;width:24px;height:24px}
+ .rw-guide{left:4px;right:4px;gap:2px}.rw-guide span{font-size:.29rem;padding:2px 3px}
+ #ydg-robot-reopen{left:8px;bottom:max(128px,calc(env(safe-area-inset-bottom) + 114px))}
+ @keyframes rwRun{0%{transform:translateX(0) scaleX(1)}34%{transform:translateX(calc(100vw - 158px)) scaleX(1)}
+  49%{transform:translateX(calc(100vw - 158px)) scaleX(-1)}84%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
+}
+@media(max-width:390px){#ydg-robot-widget{transform:scale(.88);transform-origin:left bottom}}
+@media(prefers-reduced-motion:reduce){.rw-scan{animation:none!important}}
