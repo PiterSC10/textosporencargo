@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=84" rel="manifest"/>
+<link href="site.webmanifest?v=86" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4227,6 +4227,103 @@ body.ydg-launch-open{overflow:hidden!important}
 .budget-primary-promo>span:last-child{grid-column:1/-1;color:#9aa8ba!important}
 @media(max-width:640px){.budget-primary-promo{display:block!important}.budget-price-promo{margin:7px 0 8px}.budget-new-price{font-size:1.7rem!important}}
 
+
+/* ===== V85 · YDG-01 iPhone / Android visibility fix ===== */
+.ydg-dog-mascot{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  position:fixed!important;
+  left:max(10px,env(safe-area-inset-left))!important;
+  bottom:max(132px,calc(env(safe-area-inset-bottom) + 118px))!important;
+  width:116px!important;
+  height:auto!important;
+  margin:0!important;
+  z-index:96!important;
+  transform:translate3d(0,0,0);
+  -webkit-transform:translate3d(0,0,0);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  pointer-events:auto!important;
+  touch-action:manipulation!important;
+}
+.ydg-dog-orb{width:100px!important;height:100px!important;margin:0!important}
+.ydg-dog-glow{left:-8px!important;top:-8px!important;width:116px!important;height:116px!important}
+.ydg-dog-bubble{left:82px!important;bottom:34px!important}
+.ydg-dog-mascot.is-running{animation:ydgDogRunSafe 1.65s cubic-bezier(.64,0,.36,1)!important}
+@keyframes ydgDogRunSafe{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  8%{transform:translate3d(-5px,0,0) scale(.97)}
+  32%{transform:translate3d(calc(100vw - 150px),0,0) scale(1.02)}
+  49%{transform:translate3d(calc(100vw - 150px),0,0) scale(1)}
+  72%{transform:translate3d(34vw,0,0) scale(1.02)}
+  100%{transform:translate3d(0,0,0) scale(1)}
+}
+@media(max-width:767px){
+  .ydg-dog-mascot{
+    display:block!important;
+    position:fixed!important;
+    left:max(8px,env(safe-area-inset-left))!important;
+    bottom:max(142px,calc(env(safe-area-inset-bottom) + 126px))!important;
+    width:94px!important;
+    z-index:96!important;
+  }
+  .ydg-dog-orb{width:82px!important;height:82px!important;border-radius:21px!important}
+  .ydg-dog-glow{left:-7px!important;top:-7px!important;width:96px!important;height:96px!important}
+  .ydg-dog-bubble{left:68px!important;bottom:27px!important;min-width:92px!important;padding:6px 8px!important}
+  .ydg-dog-bubble b{font-size:.48rem!important}.ydg-dog-bubble span{font-size:.51rem!important}
+  .ydg-dog-hint{font-size:.36rem!important;margin-top:4px!important}
+  .ydg-dog-eye{right:17px!important;top:22px!important}
+}
+@media(max-width:390px){
+  .ydg-dog-mascot{width:88px!important;bottom:max(148px,calc(env(safe-area-inset-bottom) + 130px))!important}
+  .ydg-dog-orb{width:76px!important;height:76px!important}
+  .ydg-dog-glow{width:89px!important;height:89px!important}
+}
+
+
+/* V86 legacy image mascot cleanup */
+.ydg-dog-orb,.ydg-dog-glow,.ydg-dog-bubble,.ydg-dog-hint{display:none!important}
+
+
+/* ===== V86 · CSS ROBOT DOG MASCOT (NO PHOTO CARD) ===== */
+#ydg-dog-mascot{position:fixed;left:18px;bottom:max(24px,calc(env(safe-area-inset-bottom) + 18px));z-index:86;width:150px;height:115px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;transform-origin:50% 100%;filter:drop-shadow(0 16px 18px rgba(0,0,0,.38))}
+.ydg-dog-stage{position:relative;width:100%;height:100%}
+.ydg-dog-aura{position:absolute;left:12px;top:20px;width:110px;height:72px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.20),rgba(59,130,246,.08) 48%,transparent 74%);filter:blur(10px);opacity:.65;transition:.25s ease}
+.ydg-dog-body{position:absolute;left:35px;top:38px;width:72px;height:38px;border-radius:18px 22px 16px 18px;background:linear-gradient(145deg,#e8eef5 0%,#aeb8c6 34%,#2b3340 36%,#111827 72%,#0b1020 100%);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 -8px 16px rgba(0,0,0,.32),0 0 0 1px rgba(34,211,238,.08)}
+.ydg-dog-body::before{content:"YDG";position:absolute;left:18px;top:9px;color:#0f172a;font:900 11px/1 system-ui;letter-spacing:.08em;text-shadow:0 1px 0 rgba(255,255,255,.3)}
+.ydg-dog-body::after{content:"";position:absolute;right:7px;top:9px;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#67e8f9,#0284c7 55%,#0c4a6e);box-shadow:0 0 10px rgba(34,211,238,.7)}
+.ydg-dog-neck{position:absolute;left:94px;top:31px;width:19px;height:26px;border-radius:8px;background:linear-gradient(180deg,#7c8798,#1f2937);transform:rotate(-12deg)}
+.ydg-dog-head{position:absolute;left:102px;top:20px;width:39px;height:29px;border-radius:12px 16px 13px 9px;background:linear-gradient(145deg,#dce5ed 0%,#778394 34%,#151c28 38%,#070b12 100%);border:1px solid rgba(255,255,255,.14);transform:rotate(4deg);box-shadow:0 0 14px rgba(34,211,238,.10)}
+.ydg-dog-head::after{content:"";position:absolute;right:5px;top:9px;width:8px;height:7px;border-radius:5px;background:#22d3ee;box-shadow:0 0 8px #22d3ee,0 0 14px rgba(56,189,248,.65);animation:ydgEyeBlink 2.4s ease-in-out infinite}
+.ydg-dog-ear{position:absolute;left:109px;top:12px;width:14px;height:14px;border-radius:4px 8px 2px 8px;background:#303b49;transform:rotate(-18deg)}
+.ydg-dog-tail{position:absolute;left:24px;top:38px;width:24px;height:8px;border-radius:8px;background:linear-gradient(90deg,#475569,#cbd5e1);transform-origin:100% 50%;transform:rotate(-24deg);animation:ydgTail 1.6s ease-in-out infinite}
+.ydg-leg{position:absolute;width:10px;height:32px;border-radius:7px;background:linear-gradient(180deg,#667384,#1f2937 54%,#0f172a);transform-origin:50% 0}
+.ydg-leg::after{content:"";position:absolute;left:-4px;bottom:-5px;width:18px;height:8px;border-radius:8px 10px 5px 5px;background:#0b1220;border:1px solid rgba(34,211,238,.12)}
+.ydg-leg.l1{left:45px;top:66px}.ydg-leg.l2{left:69px;top:67px}.ydg-leg.l3{left:93px;top:64px}.ydg-leg.l4{left:111px;top:61px}
+.ydg-dog-scanline{position:absolute;left:18px;right:3px;top:45px;height:1px;background:linear-gradient(90deg,transparent,#22d3ee 35%,#60a5fa 70%,transparent);box-shadow:0 0 8px rgba(34,211,238,.8);opacity:.42;animation:ydgScanSweep 2.4s ease-in-out infinite alternate}
+.ydg-dog-label{position:absolute;left:28px;bottom:0;color:#5f728a;font:900 8px/1 system-ui;letter-spacing:.18em;opacity:.72;white-space:nowrap}
+.ydg-dog-wave{position:absolute;left:116px;top:54px;width:10px;height:31px;border-radius:7px;background:linear-gradient(180deg,#7f8b9a,#111827);transform-origin:50% 0;opacity:0}
+#ydg-dog-mascot.is-greeting .ydg-dog-wave{opacity:1;animation:ydgWavePaw .8s ease-in-out}
+#ydg-dog-mascot.is-greeting .l4{opacity:0}
+.ydg-dog-hello{position:absolute;left:92px;top:-7px;padding:5px 8px;border-radius:9px;background:rgba(4,10,18,.88);border:1px solid rgba(34,211,238,.22);color:#dff8ff;font:800 9px/1.1 system-ui;letter-spacing:.09em;opacity:0;transform:translateY(4px);transition:.18s ease;white-space:nowrap}
+#ydg-dog-mascot.is-greeting .ydg-dog-hello{opacity:1;transform:none}
+#ydg-dog-mascot.is-greeting .ydg-dog-aura{opacity:1;transform:scale(1.12)}
+#ydg-dog-mascot.is-running{animation:ydgRunAcross 1.7s cubic-bezier(.65,0,.35,1)}
+#ydg-dog-mascot.is-running .ydg-dog-aura{opacity:1;transform:scale(1.35);filter:blur(14px)}
+#ydg-dog-mascot.is-running .ydg-leg.l1,#ydg-dog-mascot.is-running .ydg-leg.l3{animation:ydgLegRun .18s ease-in-out infinite alternate}
+#ydg-dog-mascot.is-running .ydg-leg.l2,#ydg-dog-mascot.is-running .ydg-leg.l4{animation:ydgLegRun .18s ease-in-out infinite alternate-reverse}
+#ydg-dog-mascot.is-running::before{content:"";position:absolute;right:116px;top:43px;width:95px;height:28px;border-radius:50%;background:linear-gradient(90deg,transparent,rgba(56,189,248,.16),rgba(34,211,238,.30));filter:blur(8px);animation:ydgTrail 1.7s ease}
+@keyframes ydgEyeBlink{0%,42%,48%,100%{transform:scaleY(1)}45%{transform:scaleY(.15)}}
+@keyframes ydgTail{0%,100%{transform:rotate(-24deg)}50%{transform:rotate(16deg)}}
+@keyframes ydgScanSweep{from{transform:translateY(-17px)}to{transform:translateY(24px)}}
+@keyframes ydgWavePaw{0%,100%{transform:rotate(-5deg)}25%{transform:rotate(-48deg)}50%{transform:rotate(-12deg)}75%{transform:rotate(-52deg)}}
+@keyframes ydgLegRun{from{transform:rotate(22deg)}to{transform:rotate(-20deg)}}
+@keyframes ydgRunAcross{0%{transform:translateX(0)}36%{transform:translateX(calc(100vw - 205px))}54%{transform:translateX(calc(100vw - 205px)) scaleX(-1)}86%{transform:translateX(0) scaleX(-1)}100%{transform:translateX(0) scaleX(1)}}
+@keyframes ydgTrail{0%,100%{opacity:0}25%,72%{opacity:1}}
+@media(max-width:767px){#ydg-dog-mascot{left:8px;bottom:max(138px,calc(env(safe-area-inset-bottom) + 118px));width:118px;height:92px;transform:scale(.84);transform-origin:left bottom}.ydg-dog-label{font-size:7px}.ydg-dog-hello{left:80px;top:-8px}}
+@media(max-width:390px){#ydg-dog-mascot{transform:scale(.76)}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -4910,35 +5007,12 @@ body.ydg-launch-open{overflow:hidden!important}
 </section>
 <!-- Footer Section -->
 <!-- CTA final de conversión -->
-<section aria-labelledby="final-cta-title" class="final-conversion" id="contacto">
-<div class="final-conversion-inner">
-<div class="final-conversion-label" data-lang-key="final-cta-label">YourDesignGPT · Diseño Web</div>
-<h2 data-lang-key="final-cta-title" id="final-cta-title">Tu negocio ya existe.<br/><strong>Ahora haz que parezca profesional.</strong></h2>
-<p data-lang-key="final-cta-desc">Cuéntanos qué necesitas y transformamos tu idea en una presencia digital moderna, responsive y preparada para presentar tu negocio como merece.</p>
-<a class="gradient-button inline-flex items-center justify-center text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="final-cta-button" href="#configurador">Quiero mi web</a>
-<div class="ydg-month-capacity">
-  <span class="capacity-pulse"></span>
-  <div>
-    <small data-lang-key="capacity-month">AGENDA · AGOSTO 2026</small>
-    <strong data-lang-key="capacity-slots">2 plazas disponibles</strong>
-  </div>
-  <a href="#configurador" data-lang-key="capacity-cta">Consultar proyecto →</a>
-</div>
-<div class="final-conversion-meta" data-lang-key="final-cta-meta">Desarrollo desde 495 € · Objetivo 72h · Dominio, hosting y mantenimiento 150 €/año</div>
-</div>
-</section>
+
+<!-- V85: CTA final duplicado eliminado; el mensaje principal solo aparece en el hero -->
+
 </main>
 
-<div class="ydg-dog-mascot" id="ydg-dog-mascot" aria-label="YDG-01 mascota robótica" role="button" tabindex="0">
-  <div class="ydg-dog-glow"></div>
-  <div class="ydg-dog-orb">
-    <img src="ydg01_robotdog.jpg" alt="YDG-01 perro robot de YourDesignGPT">
-    <span class="ydg-dog-eye"></span>
-    <span class="ydg-dog-scan"></span>
-  </div>
-  <div class="ydg-dog-bubble"><b>YDG-01</b><span>HELLO 👋</span></div>
-  <div class="ydg-dog-hint">3× CLICK · RUN</div>
-</div>
+
 
 <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
 <div class="container mx-auto section-box footer-box">
@@ -6388,7 +6462,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=84', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=86', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7003,15 +7077,67 @@ try{
   };
   setTimeout(greet,900);
   dog.addEventListener('mouseenter',greet);
-  dog.addEventListener('click',()=>{
+  let lastPointerTap=0;
+  const registerTap=()=>{
     const now=Date.now();
-    clicks=clicks.filter(t=>now-t<1350);
+    clicks=clicks.filter(t=>now-t<1500);
     clicks.push(now);
     if(clicks.length>=3){clicks=[];run();} else greet();
+  };
+  dog.addEventListener('pointerup',e=>{
+    if(e.pointerType==='touch'){lastPointerTap=Date.now();registerTap();}
+  });
+  dog.addEventListener('click',()=>{
+    if(Date.now()-lastPointerTap<450) return;
+    registerTap();
   });
   dog.addEventListener('keydown',e=>{
     if(e.key==='Enter'||e.key===' '){e.preventDefault();run();}
   });
+})();
+</script>
+
+
+<div id="ydg-dog-mascot" role="button" tabindex="0" aria-label="YDG-01, perro robot interactivo. Triple clic para correr.">
+  <div class="ydg-dog-stage">
+    <span class="ydg-dog-aura"></span>
+    <span class="ydg-dog-tail"></span>
+    <span class="ydg-dog-body"></span>
+    <span class="ydg-dog-neck"></span>
+    <span class="ydg-dog-head"></span>
+    <span class="ydg-dog-ear"></span>
+    <span class="ydg-leg l1"></span><span class="ydg-leg l2"></span><span class="ydg-leg l3"></span><span class="ydg-leg l4"></span>
+    <span class="ydg-dog-wave"></span>
+    <span class="ydg-dog-scanline"></span>
+    <span class="ydg-dog-hello">HELLO 👋</span>
+    <span class="ydg-dog-label">YDG-01 · 3× CLICK</span>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  const dog=document.getElementById('ydg-dog-mascot');
+  if(!dog) return;
+  let clicks=[], greetTimer, running=false;
+  function greet(){
+    if(running) return;
+    dog.classList.remove('is-greeting'); void dog.offsetWidth; dog.classList.add('is-greeting');
+    clearTimeout(greetTimer); greetTimer=setTimeout(()=>dog.classList.remove('is-greeting'),900);
+  }
+  function run(){
+    if(running) return;
+    running=true; dog.classList.remove('is-greeting','is-running'); void dog.offsetWidth; dog.classList.add('is-running');
+    setTimeout(()=>{dog.classList.remove('is-running'); running=false; setTimeout(greet,120)},1750);
+  }
+  function hit(){
+    const now=Date.now(); clicks=clicks.filter(t=>now-t<1250); clicks.push(now);
+    if(clicks.length>=3){clicks=[];run()} else greet();
+  }
+  dog.addEventListener('click',hit);
+  dog.addEventListener('touchend',e=>{e.preventDefault();hit()},{passive:false});
+  dog.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hit()}});
+  setTimeout(greet,1100);
 })();
 </script>
 
