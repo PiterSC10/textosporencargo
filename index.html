@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=99" rel="manifest"/>
+<link href="site.webmanifest?v=100" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4979,6 +4979,22 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* V100 · final portfolio system */
+#portfolio .portfolio-card{background:linear-gradient(180deg,rgba(23,34,51,.97),rgba(11,18,31,.98))!important;border:1px solid rgba(56,189,248,.20)!important;box-shadow:0 18px 44px rgba(2,6,23,.18)!important}
+#portfolio .portfolio-card:hover{border-color:rgba(45,212,191,.38)!important;box-shadow:0 24px 55px rgba(2,6,23,.28),0 0 28px rgba(45,212,191,.06)!important}
+#portfolio .portfolio-cover{aspect-ratio:16/9!important;background:#07111f!important}
+#portfolio .portfolio-browser{height:27px!important;background:rgba(3,9,17,.80)!important;border-color:rgba(148,163,184,.14)!important}
+#portfolio .portfolio-browser i{width:7px!important;height:7px!important}
+#portfolio .portfolio-browser i:first-child{background:#fb7185!important;box-shadow:0 0 7px rgba(251,113,133,.28)}
+#portfolio .portfolio-browser i:nth-child(2){background:#fbbf24!important;box-shadow:0 0 7px rgba(251,191,36,.25)}
+#portfolio .portfolio-browser i:nth-child(3){background:#34d399!important;box-shadow:0 0 7px rgba(52,211,153,.25)}
+#portfolio .portfolio-cover img{object-fit:cover!important;object-position:center!important;filter:saturate(1.03) contrast(1.03)!important}
+#portfolio .portfolio-tech{display:flex!important;gap:6px!important;flex-wrap:wrap!important;min-height:31px!important}
+#portfolio .portfolio-tech span{flex:0 0 auto!important;padding:6px 8px!important;border-radius:999px!important;background:rgba(15,23,42,.72)!important;border:1px solid rgba(56,189,248,.14)!important;color:#b6c9dc!important;font-size:.56rem!important;font-weight:850!important;letter-spacing:.02em!important}
+#portfolio .portfolio-link{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:38px!important;border-radius:11px!important;border:1px solid rgba(56,189,248,.18)!important;background:rgba(7,15,27,.52)!important;color:#e7f6ff!important}
+#portfolio .portfolio-link:hover{border-color:rgba(45,212,191,.38)!important;background:linear-gradient(90deg,rgba(13,148,136,.12),rgba(37,99,235,.12))!important}
+
 </style>
 <script type="application/ld+json">
     {
@@ -4994,11 +5010,11 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=99">
-<link rel="stylesheet" href="robot-widget.css?v=99">
-<link rel="stylesheet" href="compact-final.css?v=99">
+<link rel="stylesheet" href="promo-final.css?v=100">
+<link rel="stylesheet" href="robot-widget.css?v=100">
+<link rel="stylesheet" href="compact-final.css?v=100">
 </head>
-<body class="antialiased">
+<body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
 <div class="ydg-launch-backdrop" id="ydg-launch-backdrop" aria-hidden="true">
   <div class="ydg-launch-modal" role="dialog" aria-modal="true" aria-labelledby="ydg-launch-title" aria-describedby="ydg-launch-desc">
@@ -5309,7 +5325,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-jetski-sector">Jet Ski · Experiencias premium</div>
 <h3 class="portfolio-title" data-lang-key="portfolio-jetski-title">Ibiza Jet Experience</h3>
 <p class="portfolio-description" data-lang-key="portfolio-jetski-desc">Web comercial para motos de agua en Ibiza con experiencias, rutas, galería, seguridad, contacto y sistema preparado para reservas.</p>
-<div class="portfolio-tech"><span>Responsive</span><span data-lang-key="tag-bookings">Reservas</span><span>Ibiza</span></div>
+<div class="portfolio-tech"><span>Reservas</span><span>Responsive</span><span>Rutas</span></div>
 <a class="portfolio-link" href="ibiza-jetski.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -5323,7 +5339,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-restaurant-sector">Restauración · Web premium</div>
 <h3 class="portfolio-title">Áurea Málaga</h3>
 <p class="portfolio-description" data-lang-key="portfolio-restaurant-desc">Web gastronómica elegante con carta, especialidades, galería, reservas, contacto y una experiencia visual orientada a conversión.</p>
-<div class="portfolio-tech"><span>Responsive</span><span data-lang-key="tag-bookings">Reservas</span><span>SEO</span></div>
+<div class="portfolio-tech"><span>Carta digital</span><span>Reservas</span><span>Galería</span></div>
 <a class="portfolio-link" href="restaurante.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -5337,7 +5353,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-electrician-sector">Electricidad · Servicios locales</div>
 <h3 class="portfolio-title">Voltio Málaga</h3>
 <p class="portfolio-description" data-lang-key="portfolio-electrician-desc">Diseño profesional enfocado a averías, urgencias, instalaciones y captación local mediante llamadas, formularios y WhatsApp.</p>
-<div class="portfolio-tech"><span>Responsive</span><span>Leads</span><span data-lang-key="tag-local-seo">SEO local</span></div>
+<div class="portfolio-tech"><span>Servicios</span><span>Contacto</span><span>Responsive</span></div>
 <a class="portfolio-link" href="electricista.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -5351,7 +5367,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-plumber-sector">Fontanería · Captación local</div>
 <h3 class="portfolio-title">AquaFix Málaga</h3>
 <p class="portfolio-description" data-lang-key="portfolio-plumber-desc">Web de servicios con urgencias, fugas, atascos, zonas de trabajo, contacto inmediato y estructura preparada para SEO local.</p>
-<div class="portfolio-tech"><span>Responsive</span><span>Contacto</span><span data-lang-key="tag-local-seo">SEO local</span></div>
+<div class="portfolio-tech"><span>Urgencias</span><span>Contacto</span><span>Responsive</span></div>
 <a class="portfolio-link" href="fontanero.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -5365,7 +5381,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-beauty-sector">Estética · Imagen premium</div>
 <h3 class="portfolio-title">Lúmina Estética Málaga</h3>
 <p class="portfolio-description" data-lang-key="portfolio-beauty-desc">Experiencia visual sofisticada para tratamientos, packs, galería, reservas y confianza de marca en un centro de estética.</p>
-<div class="portfolio-tech"><span>Responsive</span><span data-lang-key="tag-bookings">Reservas</span><span>Branding</span></div>
+<div class="portfolio-tech"><span>Tratamientos</span><span>Reservas</span><span>Galería</span></div>
 <a class="portfolio-link" href="estetica.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -5379,7 +5395,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-personal-sector">Marca personal · Portfolio</div>
 <h3 class="portfolio-title" data-lang-key="portfolio-personal-title">Web Personal</h3>
 <p class="portfolio-description" data-lang-key="portfolio-personal-desc">Carta de presentación digital con perfil, proyectos, experiencia, blog, galería, redes sociales y contacto en una sola web.</p>
-<div class="portfolio-tech"><span>Responsive</span><span>Portfolio</span><span>Branding</span></div>
+<div class="portfolio-tech"><span>Portfolio</span><span>Contacto</span><span>Responsive</span></div>
 <a class="portfolio-link" href="webpersonal.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -5393,7 +5409,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="portfolio-sector" data-lang-key="portfolio-hotel-sector">Hotel · Web dossier</div>
 <h3 class="portfolio-title" data-lang-key="portfolio-hotel-title">Hotel Málaga Central</h3>
 <p class="portfolio-description" data-lang-key="portfolio-hotel-desc">Web oficial tipo dossier para presentar habitaciones, servicios, ubicación y conducir al huésped al motor real de reservas del hotel.</p>
-<div class="portfolio-tech"><span>Responsive</span><span>Hotel</span><span>SEO</span></div>
+<div class="portfolio-tech"><span>Habitaciones</span><span>Reservas</span><span>Responsive</span></div>
 <a class="portfolio-link" href="hotelmalaga.html" data-lang-key="portfolio-case">Ver web →</a>
 </div>
 </article>
@@ -7158,7 +7174,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=99', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=100', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7867,7 +7883,7 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=99" defer></script>
-<script src="robot-widget.js?v=99" defer></script>
+<script src="promo-manager.js?v=100" defer></script>
+<script src="robot-widget.js?v=100" defer></script>
 </body>
 </html>

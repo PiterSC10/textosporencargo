@@ -1,0 +1,14 @@
+YourDesignGPT V100 · FINAL PRODUCTION
+- Base V99.
+- YDG-01 recupera el diseño visual V98 y queda como PNG transparente, sin fondo.
+- Siempre mira hacia la derecha; haz alineado desde el visor/cara.
+- 1 clic saludo / 2 clics salto / 3 clics carrera ida/vuelta.
+- X cerrar y mini robot reabrir.
+- Popup de lanzamiento amarillo/ámbar, 99 € protagonista.
+- PROMO ON: solo 99 € + 100 €/año, verde.
+- PROMO OFF: solo 495 € + 150 €/año, azul/blanco.
+- Sin tachados.
+- Portfolio: 7 tarjetas con mismo formato, 3 luces de navegador y exactamente 3 capacidades.
+- Jet Ski: imágenes locales y galería verificada.
+- Todas las demos con navegación flotante común.
+- Todo en raíz.
