@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=109" rel="manifest"/>
+<link href="site.webmanifest?v=111" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5440,6 +5440,102 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* ===== V110 · SYSTEM STATUS ===== */
+.ydg-system-status{padding:56px 18px}
+.ydg-status-shell{
+  max-width:1180px;margin:auto;padding:30px;
+  border:1px solid rgba(45,212,191,.26);border-radius:28px;
+  background:radial-gradient(circle at 50% 0%,rgba(34,211,238,.05),transparent 34%),linear-gradient(180deg,rgba(8,18,31,.95),rgba(5,13,23,.97));
+  box-shadow:0 22px 60px rgba(0,0,0,.24),0 0 0 1px rgba(255,255,255,.015) inset
+}
+.ydg-status-heading{text-align:center}
+.ydg-status-kicker{display:block;color:#2dd4bf;font-size:.68rem;font-weight:900;letter-spacing:.20em}
+.ydg-status-heading h2{margin:12px 0 14px;color:#eaf7ff;font-size:clamp(2rem,5vw,3.7rem);line-height:1;font-weight:900}
+.ydg-status-heading h2 strong{background:linear-gradient(90deg,#5eead4,#38bdf8,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ydg-operational-pill{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;
+  border:1px solid rgba(52,211,153,.22);background:rgba(3,24,18,.55);color:#86efac;
+  font-size:.62rem;font-weight:900;letter-spacing:.10em
+}
+.ydg-operational-pill i{
+  width:7px;height:7px;border-radius:50%;background:#22c55e;
+  box-shadow:0 0 0 4px rgba(34,197,94,.08),0 0 12px rgba(34,197,94,.55);
+  animation:ydgStatusPulse 1.5s ease-in-out infinite alternate
+}
+@keyframes ydgStatusPulse{to{transform:scale(1.3);opacity:.7}}
+.ydg-status-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+.ydg-status-card{
+  position:relative;min-height:180px;padding:18px;border:1px solid rgba(45,212,191,.16);border-radius:18px;
+  background:linear-gradient(180deg,rgba(17,29,43,.78),rgba(12,23,35,.84));overflow:hidden
+}
+.ydg-status-card::after{
+  content:"";position:absolute;inset:auto 0 0;height:1px;
+  background:linear-gradient(90deg,transparent,#2dd4bf,transparent);opacity:.35
+}
+.ydg-status-icon{font-size:1.35rem;margin-bottom:14px}
+.ydg-status-label{display:block;color:#34d399;font-size:.60rem;font-weight:900;letter-spacing:.13em}
+.ydg-status-card strong{display:block;margin-top:7px;color:#f4fbff;font-size:.94rem}
+.ydg-status-card p{margin:8px 0 0;color:#9ab0c5;font-size:.78rem;line-height:1.55}
+.ydg-status-actions{display:flex;justify-content:center;margin-top:20px}
+.ydg-tech-check-toggle{
+  appearance:none;border:1px solid rgba(56,189,248,.22);border-radius:999px;
+  background:linear-gradient(90deg,rgba(8,29,49,.82),rgba(10,22,39,.82));color:#c9f8ff;
+  padding:10px 16px;font-size:.72rem;font-weight:850;cursor:pointer;transition:.2s ease
+}
+.ydg-tech-check-toggle:hover{border-color:#22d3ee;box-shadow:0 0 18px rgba(34,211,238,.10)}
+.ydg-tech-check-toggle span{display:inline-block;margin-left:7px;transition:transform .2s ease}
+.ydg-tech-check-toggle[aria-expanded="true"] span{transform:rotate(90deg)}
+.ydg-tech-check-panel{
+  margin-top:18px;border:1px solid rgba(34,211,238,.20);border-radius:16px;overflow:hidden;
+  background:#050b13;box-shadow:0 18px 45px rgba(0,0,0,.30),0 0 24px rgba(34,211,238,.04) inset
+}
+.ydg-tech-check-panel[hidden]{display:none!important}
+.ydg-tech-terminal-head{
+  height:42px;padding:0 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(34,211,238,.10);background:#07111d
+}
+.ydg-tech-terminal-head .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px}
+.ydg-tech-terminal-head .red{background:#fb7185}.ydg-tech-terminal-head .amber{background:#fbbf24}.ydg-tech-terminal-head .green{background:#34d399}
+.ydg-tech-terminal-head strong{color:#67e8f9;font-size:.62rem;letter-spacing:.12em}
+.ydg-live{color:#34d399;font-size:.56rem;font-weight:900;letter-spacing:.12em}
+.ydg-tech-terminal-body{padding:12px 14px}
+.ydg-check-row{display:flex;justify-content:space-between;gap:18px;padding:9px 0;border-bottom:1px solid rgba(148,163,184,.07)}
+.ydg-check-row:last-child{border-bottom:0}
+.ydg-check-row span{color:#8da0b5;font-size:.64rem;letter-spacing:.05em}
+.ydg-check-row b{color:#6ee7b7;font-size:.62rem;white-space:nowrap}
+.ydg-tech-terminal-foot{
+  padding:11px 14px;display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(34,211,238,.10);background:rgba(5,16,27,.92)
+}
+.ydg-tech-terminal-foot>span{color:#60758b;font-size:.56rem;font-weight:900;letter-spacing:.12em}
+.ydg-tech-terminal-foot strong{color:#86efac;font-size:.61rem;letter-spacing:.08em}
+.ydg-tech-terminal-foot strong i{
+  display:inline-block;width:6px;height:6px;border-radius:50%;background:#22c55e;
+  box-shadow:0 0 8px rgba(34,197,94,.55);margin-right:6px
+}
+@media(max-width:900px){.ydg-status-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){
+  .ydg-system-status{padding:42px 12px}.ydg-status-shell{padding:20px 15px;border-radius:20px}
+  .ydg-status-grid{grid-template-columns:1fr}.ydg-status-card{min-height:0}
+  .ydg-check-row{align-items:flex-start;flex-direction:column;gap:4px}
+  .ydg-tech-terminal-foot{align-items:flex-start;flex-direction:column;gap:6px}
+}
+
+
+/* ===== V111 · SYSTEM STATUS UNIFICADO ===== */
+#portfolio + .ydg-system-status{
+  padding-top:34px!important;
+}
+.ydg-system-status{
+  scroll-margin-top:92px;
+}
+@media(max-width:767px){
+  #portfolio + .ydg-system-status{
+    padding-top:26px!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5455,9 +5551,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=109">
-<link rel="stylesheet" href="robot-widget.css?v=109">
-<link rel="stylesheet" href="compact-final.css?v=109">
+<link rel="stylesheet" href="promo-final.css?v=111">
+<link rel="stylesheet" href="robot-widget.css?v=111">
+<link rel="stylesheet" href="compact-final.css?v=111">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -6012,27 +6108,85 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 <p class="portfolio-note" data-lang-key="portfolio-note">Los proyectos mostrados son conceptos de portfolio con datos ficticios creados para enseñar distintos estilos, sectores y posibilidades de diseño.</p>
 </div>
-</section><section aria-label="Indicadores del servicio" class="metric-strip"><div class="metric-grid"><div class="metric"><b>72h</b><span data-lang-key="metric-delivery">Objetivo de entrega</span></div><div class="metric"><b>Responsive</b><span data-lang-key="metric-responsive">Móvil · tablet · PC</span></div><div class="metric"><b>SEO Ready</b><span data-lang-key="metric-seo">Base técnica inicial</span></div><div class="metric"><b data-lang-key="metric-support-title">Soporte</b><span data-lang-key="metric-support">Revisión incluida</span></div></div></section>
-
-
-<section class="ydg-terminal-section" aria-label="Estado técnico YourDesignGPT">
-<div class="ydg-terminal" id="ydg-terminal">
-    <div class="ydg-terminal-head">
-      <span><i></i><i></i><i></i></span>
-      <b>YDG / BUILD SYSTEM</b>
-      <small>ONLINE</small>
-    </div>
-    <div class="ydg-terminal-body">
-      <div class="terminal-line"><span>&gt;</span> DESIGN_SYSTEM <b>READY</b></div>
-      <div class="terminal-line"><span>&gt;</span> RESPONSIVE_UI <b>READY</b></div>
-      <div class="terminal-line"><span>&gt;</span> SEO_BASE <b>READY</b></div>
-      <div class="terminal-line"><span>&gt;</span> DEPLOY_PIPELINE <b>READY</b></div>
-      <div class="terminal-cursor"><span>ydg@malaga:~$</span><i></i></div>
-    </div>
-  </div>
-  </div>
-
 </section>
+
+<section id="calidad" class="ydg-system-status" aria-labelledby="system-status-title">
+  <div class="ydg-status-shell">
+    <div class="ydg-status-heading">
+      <span class="ydg-status-kicker">SYSTEM STATUS</span>
+      <h2 id="system-status-title">Todo preparado para <strong>funcionar</strong></h2>
+      <div class="ydg-operational-pill">
+        <i></i><span>ALL SYSTEMS OPERATIONAL</span>
+      </div>
+    </div>
+
+    <div class="ydg-status-grid">
+      <article class="ydg-status-card">
+        <div class="ydg-status-icon">🔒</div>
+        <span class="ydg-status-label">SSL / HTTPS</span>
+        <strong>SEGURO</strong>
+        <p>Conexión cifrada y certificado activo al publicar.</p>
+      </article>
+
+      <article class="ydg-status-card">
+        <div class="ydg-status-icon">📱</div>
+        <span class="ydg-status-label">RESPONSIVE</span>
+        <strong>VERIFICADO</strong>
+        <p>Móvil · Tablet · PC.</p>
+      </article>
+
+      <article class="ydg-status-card">
+        <div class="ydg-status-icon">🔍</div>
+        <span class="ydg-status-label">SEO READY</span>
+        <strong>ACTIVO</strong>
+        <p>Metadatos, estructura y base preparada para Google.</p>
+      </article>
+
+      <article class="ydg-status-card">
+        <div class="ydg-status-icon">⚙️</div>
+        <span class="ydg-status-label">HOSTING & SUPPORT</span>
+        <strong>GESTIONADO</strong>
+        <p>Dominio · Hosting · Mantenimiento · 3 ajustes/año.</p>
+      </article>
+    </div>
+
+    <div class="ydg-status-actions">
+      <button type="button" id="ydg-tech-check-toggle" class="ydg-tech-check-toggle" aria-expanded="false" aria-controls="ydg-tech-check-panel">
+        Verificación técnica <span>→</span>
+      </button>
+    </div>
+
+    <div id="ydg-tech-check-panel" class="ydg-tech-check-panel" hidden>
+      <div class="ydg-tech-terminal-head">
+        <div>
+          <span class="dot red"></span>
+          <span class="dot amber"></span>
+          <span class="dot green"></span>
+        </div>
+        <strong>YDG SYSTEM CHECK</strong>
+        <span class="ydg-live">LIVE</span>
+      </div>
+
+      <div class="ydg-tech-terminal-body">
+        <div class="ydg-check-row"><span>HTTPS / SSL READY</span><b>✓ READY</b></div>
+        <div class="ydg-check-row"><span>RESPONSIVE UI</span><b>✓ VERIFIED</b></div>
+        <div class="ydg-check-row"><span>SEO BASE</span><b>✓ ACTIVE</b></div>
+        <div class="ydg-check-row"><span>FORMULARIOS</span><b>✓ READY</b></div>
+        <div class="ydg-check-row"><span>PORTFOLIO</span><b>✓ ONLINE</b></div>
+        <div class="ydg-check-row"><span>NAVEGACIÓN INTERNA</span><b>✓ OK</b></div>
+        <div class="ydg-check-row"><span>HOSTING</span><b>✓ MANAGED</b></div>
+        <div class="ydg-check-row"><span>MANTENIMIENTO</span><b>✓ INCLUDED</b></div>
+      </div>
+
+      <div class="ydg-tech-terminal-foot">
+        <span>STATUS</span>
+        <strong><i></i> ALL SYSTEMS OPERATIONAL</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- Qué incluye tu web por 495 € -->
 
@@ -6260,7 +6414,9 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="faq-item"><button class="faq-question" data-lang-key="faq-q12"><span>¿Puedo modificarla después?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a12">Sí. Se pueden realizar cambios y ampliaciones posteriores. Según el alcance, algunos trabajos adicionales pueden presupuestarse aparte.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q13"><span>¿Qué pasa si ya tengo dominio?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a13">Podemos valorar el dominio existente y conectarlo al proyecto siempre que tengas acceso a su gestión y sea técnicamente compatible.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q14"><span>¿La web será mía?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a14">Sí. Una vez abonado el desarrollo y completado el primer periodo anual contratado, puedes solicitar una copia de los archivos de tu web para gestionarla por tu cuenta. Los componentes, plantillas base y recursos reutilizables propios de YourDesignGPT pueden seguir formando parte de nuestra metodología de trabajo.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q15"><span>¿Qué incluye el mantenimiento anual?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a15">Incluye hosting, gestión o renovación del dominio, certificado SSL cuando corresponda, soporte técnico y hasta 3 cambios menores al año, como modificar textos, precios, horarios, teléfonos o imágenes. Nuevas páginas, rediseños u otras ampliaciones se presupuestan aparte.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q16"><span>¿Puedo llevarme la web a otro hosting?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a16">Sí. Después del primer año contratado puedes solicitar los archivos de la web sin coste de entrega. Si quieres que realicemos también la migración, configuración del nuevo hosting o transferencia técnica, ese trabajo se presupuesta aparte.</p></div></div><div class="faq-item"><button class="faq-question" data-lang-key="faq-q17"><span>¿Incluye posicionamiento en Google?</span><svg class="faq-icon w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button><div class="faq-answer"><p data-lang-key="faq-a17">Incluye una base SEO inicial para facilitar el rastreo e indexación. No se garantiza una posición concreta en Google; el posicionamiento depende de competencia, contenido, autoridad y evolución del sitio.</p></div></div> </div>
 </div>
 </section>
-<section class="py-20 px-4 bg-[#0d1117]" id="calidad"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="quality-eyebrow">Calidad técnica</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="quality-title">Preparada para rendir y medir</h2></div><div class="quality-grid"><div class="quality-item"><span class="quality-state" data-lang-key="quality-included">Incluido</span><strong>Responsive</strong><span data-lang-key="quality-responsive-desc">Diseño adaptable a móvil, tablet y escritorio.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-tech-base">Base técnica</span><strong>SEO</strong><span data-lang-key="quality-seo-desc">Semántica, metadatos y estructura preparada para indexación.</span></div><div class="quality-item"><span class="quality-state" data-lang-key="quality-after-publish">Tras publicar</span><strong>Core Web Vitals</strong><span data-lang-key="quality-cwv-desc">Se pueden medir y optimizar con datos reales una vez online.</span></div><div class="quality-item"><span class="quality-state">Hosting</span><strong data-lang-key="quality-https-title">Seguridad HTTPS</strong><span data-lang-key="quality-https-desc">Certificado HTTPS cuando el alojamiento configurado lo proporciona.</span></div></div></div></section>
+
+
+
 
 
 <!-- Features/Benefits Section -->
@@ -6883,7 +7039,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'config-domain-label': '¿Tienes dominio?', 'config-no': 'No', 'config-yes': 'Sí', 'config-unsure': 'No estoy seguro', 'config-idea-label': 'Cuéntanos la idea', 'config-idea-ph': 'Estilo, referencias, colores, objetivo, web que te guste...',
                 'config-submit': 'Enviar mi configuración', 'config-note': 'Los campos marcados con * son obligatorios. Recibiremos tu configuración directamente para preparar tu propuesta.', 'config-success-title': 'Gracias por confiar en YourDesignGPT', 'config-success-desc': 'Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.', 'config-reset': 'Enviar otra configuración',
                 'config-sending': 'Enviando…', 'config-sending-status': 'Enviando tu configuración…', 'config-error': 'No se ha podido enviar ahora mismo. Inténtalo de nuevo en unos segundos o contacta con nosotros por email.',
-                'quality-eyebrow': 'Calidad técnica', 'quality-title': 'Preparada para rendir y medir', 'quality-included': 'Incluido', 'quality-responsive-desc': 'Diseño adaptable a móvil, tablet y escritorio.', 'quality-tech-base': 'Base técnica', 'quality-seo-desc': 'Semántica, metadatos y estructura preparada para indexación.', 'quality-after-publish': 'Tras publicar', 'quality-cwv-desc': 'Se pueden medir y optimizar con datos reales una vez online.', 'quality-https-title': 'Seguridad HTTPS', 'quality-https-desc': 'Certificado HTTPS cuando el alojamiento configurado lo proporciona.',
+                'quality-eyebrow': '', 'quality-title': '', 'quality-included': 'Incluido', 'quality-responsive-desc': 'Diseño adaptable a móvil, tablet y escritorio.', 'quality-tech-base': 'Base técnica', 'quality-seo-desc': '', 'quality-after-publish': 'Tras publicar', 'quality-cwv-desc': '', 'quality-https-title': 'Seguridad HTTPS', 'quality-https-desc': '',
                 'contact-disabled-desc': 'Formulario temporalmente desactivado mientras terminamos de optimizar el sistema de envío.', 'contact-disabled-help': 'Para solicitar información o presupuesto, utiliza ahora <strong class="text-white">Configura la idea de tu web</strong>.', 'contact-disabled-button': 'Ir al presupuesto guiado',
                 'install-label': 'Añadir YourDesignGPT a favoritos', 'install-modal-title': 'Guardar YourDesignGPT',
                 'smart-top-text': 'Descubre lo que podemos crear', 'smart-top-button': 'Ver trabajos', 'smart-mid-text': 'Cuéntanos qué necesita tu negocio', 'smart-mid-button': 'Pedir presupuesto', 'smart-bottom-text': '¿Listo para estrenar tu nueva web?', 'smart-bottom-button': 'Quiero mi web',
@@ -7777,7 +7933,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=109', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=111', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -8486,8 +8642,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=109" defer></script>
-<script src="robot-widget.js?v=109" defer></script>
+<script src="promo-manager.js?v=111" defer></script>
+<script src="robot-widget.js?v=111" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 <script>
@@ -8572,6 +8728,20 @@ form.addEventListener('submit',async e=>{
 });
 typeField.value='Negocio / Empresa';
 syncSummary();
+})();
+</script>
+
+
+<script>
+(()=>{'use strict';
+const btn=document.getElementById('ydg-tech-check-toggle');
+const panel=document.getElementById('ydg-tech-check-panel');
+if(!btn||!panel)return;
+btn.addEventListener('click',()=>{
+  const open=btn.getAttribute('aria-expanded')==='true';
+  btn.setAttribute('aria-expanded',String(!open));
+  panel.hidden=open;
+});
 })();
 </script>
 
