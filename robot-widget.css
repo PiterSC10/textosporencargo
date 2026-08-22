@@ -299,3 +299,221 @@ body.ydg-robot-live #ydg-robot-reopen.show{
     animation:none!important;
   }
 }
+
+
+/* =========================================================
+   V121 · YDG-01 MOTION LAB
+   Mismo PNG, mismo diseño, cero fondos añadidos.
+   Solo física/animación refinada.
+   ========================================================= */
+
+/* Base: action transforms always win over idle */
+#ydg-robot-widget.act-wave,
+#ydg-robot-widget.act-jump,
+#ydg-robot-widget.act-run{
+  animation:none!important;
+}
+#ydg-robot-widget.act-wave .yr-dog,
+#ydg-robot-widget.act-jump .yr-dog,
+#ydg-robot-widget.act-run .yr-dog{
+  transform-origin:52% 76%!important;
+  will-change:transform,filter!important;
+}
+
+/* ---------- 1 CLICK · SALUDO ----------
+   Simula carga de peso + elevación del tren delantero +
+   dos gestos cortos de saludo. Con una sola imagen no
+   se deforma el diseño ni se inventan piezas. */
+#ydg-robot-widget.act-wave .yr-dog{
+  animation:ydgV121Wave 1.82s cubic-bezier(.28,.72,.28,1) both!important;
+}
+#ydg-robot-widget.act-wave .yr-laser{
+  animation:ydgV121LaserWave 1.82s ease-in-out both!important;
+}
+@keyframes ydgV121Wave{
+  0%   {transform:translate(0,0) rotate(0deg) scale(1,1)}
+  10%  {transform:translate(-2px,2px) rotate(-.35deg) scale(1.002,.994)}
+  22%  {transform:translate(2px,-5px) rotate(1.05deg) scale(.998,1.006)}
+  34%  {transform:translate(4px,-9px) rotate(2.15deg) scale(.997,1.008)}
+  46%  {transform:translate(2px,-5px) rotate(.55deg) scale(1.001,1.003)}
+  58%  {transform:translate(5px,-9px) rotate(2.0deg) scale(.998,1.007)}
+  70%  {transform:translate(2px,-4px) rotate(.35deg) scale(1,1.003)}
+  82%  {transform:translate(-1px,1px) rotate(-.30deg) scale(1.002,.996)}
+  91%  {transform:translate(0,3px) rotate(.10deg) scale(1.001,.992)}
+  100% {transform:translate(0,0) rotate(0deg) scale(1,1)}
+}
+@keyframes ydgV121LaserWave{
+  0%,100%{opacity:.76;filter:brightness(1)}
+  25%,60%{opacity:.92;filter:brightness(1.12)}
+  45%,75%{opacity:.68;filter:brightness(.98)}
+}
+
+/* ---------- 2 CLICKS · SALTO ----------
+   Preparación -> extensión -> vuelo -> caída -> compresión -> recuperación */
+#ydg-robot-widget.act-jump{
+  animation:ydgV121JumpPath 1.68s cubic-bezier(.24,.68,.24,1) both!important;
+  transform-origin:50% 100%!important;
+}
+#ydg-robot-widget.act-jump .yr-dog{
+  animation:ydgV121JumpBody 1.68s cubic-bezier(.24,.68,.24,1) both!important;
+}
+#ydg-robot-widget.act-jump .yr-laser{
+  animation:ydgV121JumpLaser 1.68s ease-in-out both!important;
+}
+@keyframes ydgV121JumpPath{
+  0%   {transform:translateY(0)}
+  13%  {transform:translateY(7px)}
+  24%  {transform:translateY(-28px)}
+  39%  {transform:translateY(-76px)}
+  51%  {transform:translateY(-92px)}
+  62%  {transform:translateY(-82px)}
+  76%  {transform:translateY(-38px)}
+  88%  {transform:translateY(6px)}
+  94%  {transform:translateY(2px)}
+  100% {transform:translateY(0)}
+}
+@keyframes ydgV121JumpBody{
+  0%   {transform:rotate(0deg) scale(1,1)}
+  12%  {transform:rotate(-.5deg) scale(1.025,.94)}
+  22%  {transform:rotate(1deg) scale(.985,1.045)}
+  40%  {transform:rotate(1.8deg) scale(.99,1.02)}
+  52%  {transform:rotate(.7deg) scale(1,1)}
+  68%  {transform:rotate(-1.1deg) scale(1.005,.995)}
+  84%  {transform:rotate(-.6deg) scale(1.01,.98)}
+  90%  {transform:rotate(.35deg) scale(1.035,.925)}
+  96%  {transform:rotate(-.15deg) scale(.995,1.018)}
+  100% {transform:rotate(0deg) scale(1,1)}
+}
+@keyframes ydgV121JumpLaser{
+  0%,100%{opacity:.78;filter:brightness(1)}
+  18%{opacity:1;filter:brightness(1.18)}
+  50%{opacity:.64;filter:brightness(.92)}
+  89%{opacity:.95;filter:brightness(1.12)}
+}
+
+/* ---------- 3 CLICKS · CARRERA ----------
+   Arranque, aceleración, crucero, frenada, giro y regreso.
+   El cuerpo mantiene un stride corto para evitar efecto "pegatina". */
+#ydg-robot-widget.act-run{
+  animation:ydgV121RunPath 3.22s cubic-bezier(.42,.02,.28,1) both!important;
+}
+#ydg-robot-widget.act-run .yr-dog{
+  animation:ydgV121RunStride .25s ease-in-out infinite alternate!important;
+}
+#ydg-robot-widget.act-run .yr-laser{
+  animation:ydgV121RunLaser .42s ease-in-out infinite alternate!important;
+}
+@keyframes ydgV121RunPath{
+  0%   {transform:translateX(0) scaleX(1)}
+  5%   {transform:translateX(-3px) scaleX(1)}
+  12%  {transform:translateX(5vw) scaleX(1)}
+  25%  {transform:translateX(28vw) scaleX(1)}
+  39%  {transform:translateX(calc(100vw - 285px)) scaleX(1)}
+  46%  {transform:translateX(calc(100vw - 270px)) scaleX(1)}
+  51%  {transform:translateX(calc(100vw - 270px)) scaleX(-1)}
+  57%  {transform:translateX(calc(100vw - 278px)) scaleX(-1)}
+  70%  {transform:translateX(58vw) scaleX(-1)}
+  84%  {transform:translateX(22vw) scaleX(-1)}
+  94%  {transform:translateX(2px) scaleX(-1)}
+  98%  {transform:translateX(0) scaleX(-1)}
+  100% {transform:translateX(0) scaleX(1)}
+}
+@keyframes ydgV121RunStride{
+  0%  {transform:translateY(2px) rotate(-1.25deg) scale(1.012,.984)}
+  45% {transform:translateY(-3px) rotate(1.1deg) scale(.995,1.014)}
+  100%{transform:translateY(1px) rotate(-.55deg) scale(1.006,.992)}
+}
+@keyframes ydgV121RunLaser{
+  from{opacity:.66;filter:brightness(.98)}
+  to{opacity:.93;filter:brightness(1.14)}
+}
+
+/* Sombra dinámica solo durante acciones */
+#ydg-robot-widget.act-jump::before,
+#ydg-robot-widget.act-run::before,
+#ydg-robot-widget.act-wave::before{
+  content:"";
+  position:absolute;
+  left:32px;
+  bottom:12px;
+  width:155px;
+  height:12px;
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,0,0,.30),rgba(0,0,0,0) 72%);
+  filter:blur(3px);
+  pointer-events:none;
+  z-index:-1;
+}
+#ydg-robot-widget.act-jump::before{
+  animation:ydgV121JumpShadow 1.68s ease-in-out both!important;
+}
+#ydg-robot-widget.act-run::before{
+  animation:ydgV121RunShadow .25s ease-in-out infinite alternate!important;
+}
+#ydg-robot-widget.act-wave::before{
+  animation:ydgV121WaveShadow 1.82s ease-in-out both!important;
+}
+@keyframes ydgV121JumpShadow{
+  0%,100%{transform:scaleX(1);opacity:.55}
+  12%,90%{transform:scaleX(1.08);opacity:.60}
+  52%{transform:scaleX(.62);opacity:.22}
+}
+@keyframes ydgV121RunShadow{
+  from{transform:scaleX(.94);opacity:.46}
+  to{transform:scaleX(1.05);opacity:.58}
+}
+@keyframes ydgV121WaveShadow{
+  0%,100%{transform:translateX(0) scaleX(1);opacity:.50}
+  35%,60%{transform:translateX(5px) scaleX(.94);opacity:.43}
+}
+
+/* Acción > idle: aseguramos que no se mezclen movimientos */
+#ydg-robot-widget.act-wave:not([hidden]),
+#ydg-robot-widget.act-jump:not([hidden]),
+#ydg-robot-widget.act-run:not([hidden]){
+  will-change:transform!important;
+}
+
+/* Mobile: salto menos alto y recorrido de carrera seguro */
+@media(max-width:767px){
+  @keyframes ydgV121JumpPath{
+    0%{transform:translateY(0)}
+    13%{transform:translateY(5px)}
+    24%{transform:translateY(-18px)}
+    39%{transform:translateY(-48px)}
+    51%{transform:translateY(-61px)}
+    62%{transform:translateY(-54px)}
+    76%{transform:translateY(-25px)}
+    88%{transform:translateY(4px)}
+    94%{transform:translateY(1px)}
+    100%{transform:translateY(0)}
+  }
+  @keyframes ydgV121RunPath{
+    0%{transform:translateX(0) scaleX(1)}
+    5%{transform:translateX(-2px) scaleX(1)}
+    12%{transform:translateX(3vw) scaleX(1)}
+    26%{transform:translateX(26vw) scaleX(1)}
+    40%{transform:translateX(calc(100vw - 178px)) scaleX(1)}
+    47%{transform:translateX(calc(100vw - 172px)) scaleX(1)}
+    52%{transform:translateX(calc(100vw - 172px)) scaleX(-1)}
+    58%{transform:translateX(calc(100vw - 177px)) scaleX(-1)}
+    72%{transform:translateX(52vw) scaleX(-1)}
+    86%{transform:translateX(18vw) scaleX(-1)}
+    96%{transform:translateX(0) scaleX(-1)}
+    100%{transform:translateX(0) scaleX(1)}
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #ydg-robot-widget.act-wave,
+  #ydg-robot-widget.act-jump,
+  #ydg-robot-widget.act-run,
+  #ydg-robot-widget.act-wave .yr-dog,
+  #ydg-robot-widget.act-jump .yr-dog,
+  #ydg-robot-widget.act-run .yr-dog,
+  #ydg-robot-widget.act-wave .yr-laser,
+  #ydg-robot-widget.act-jump .yr-laser,
+  #ydg-robot-widget.act-run .yr-laser{
+    animation:none!important;
+  }
+}

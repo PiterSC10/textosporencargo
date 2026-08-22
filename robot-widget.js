@@ -42,9 +42,9 @@ function mount(){
 
   const clear=()=>w.classList.remove('act-wave','act-jump','act-run');
   function idle(){clear();busy=false}
-  function wave(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-wave');setTimeout(idle,1250)}
-  function jump(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-jump');setTimeout(idle,1400)}
-  function run(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-run');setTimeout(idle,2600)}
+  function wave(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-wave');setTimeout(idle,1900)}
+  function jump(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-jump');setTimeout(idle,1750)}
+  function run(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-run');setTimeout(idle,3300)}
 
   function fire(){
     const n=Math.min(clicks,3);
