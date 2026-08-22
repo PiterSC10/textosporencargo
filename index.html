@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=113" rel="manifest"/>
+<link href="site.webmanifest?v=115" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5686,6 +5686,244 @@ body.ydg-launch-open{overflow:hidden!important}
   .ydg-flag-svg{width:34px!important;height:23px!important}
 }
 
+
+/* ===== V114 · ESPAÑOL BASE + 1 IDIOMA EXTRA ===== */
+.ydg-language-help{
+  margin:-2px 0 9px!important;
+  color:#72869b!important;
+  font-size:.58rem!important;
+  line-height:1.35!important;
+}
+.ydg-flag-choice.is-base{
+  position:relative!important;
+  cursor:default!important;
+  opacity:1!important;
+  border-color:rgba(34,211,238,.48)!important;
+  background:radial-gradient(circle at 50% 28%,rgba(34,211,238,.16),transparent 65%),rgba(8,31,50,.90)!important;
+  box-shadow:0 0 0 1px rgba(34,211,238,.14) inset,0 0 14px rgba(34,211,238,.10)!important;
+}
+.ydg-flag-choice.is-base:hover{
+  transform:none!important;
+}
+.ydg-base-badge{
+  position:absolute;
+  right:-6px;
+  bottom:-7px;
+  padding:2px 5px;
+  border-radius:999px;
+  border:1px solid rgba(34,211,238,.26);
+  background:#06111e;
+  color:#67e8f9;
+  font-size:.38rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  line-height:1;
+}
+.ydg-flag-choice.is-base::after{
+  content:"";
+  position:absolute;
+  left:6px;
+  top:6px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#22d3ee;
+  box-shadow:0 0 8px rgba(34,211,238,.65);
+}
+.ydg-flag-choice:not(.is-base).is-selected{
+  border-color:#22d3ee!important;
+  box-shadow:0 0 0 1px rgba(34,211,238,.16) inset,0 0 18px rgba(34,211,238,.18)!important;
+}
+
+
+/* ===== V115 · SYSTEM CHECK ANIMADO ===== */
+.ydg-tech-check-toggle{
+  position:relative;
+  overflow:hidden;
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease,
+    box-shadow .25s ease!important;
+}
+.ydg-tech-check-toggle.is-checking{
+  border-color:rgba(245,158,11,.55)!important;
+  background:linear-gradient(90deg,rgba(120,53,15,.72),rgba(69,26,3,.78))!important;
+  color:#fde68a!important;
+  box-shadow:0 0 20px rgba(245,158,11,.12)!important;
+}
+.ydg-tech-check-toggle.is-complete{
+  border-color:rgba(34,197,94,.45)!important;
+  background:linear-gradient(90deg,rgba(5,46,22,.82),rgba(3,35,19,.86))!important;
+  color:#86efac!important;
+  box-shadow:0 0 20px rgba(34,197,94,.12)!important;
+}
+.ydg-check-progress-wrap{
+  padding:12px 14px 8px;
+  border-bottom:1px solid rgba(34,211,238,.08);
+  background:rgba(4,13,23,.74);
+}
+.ydg-check-progress-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:7px;
+}
+.ydg-check-progress-head span{
+  color:#7f93a8;
+  font-size:.58rem;
+  letter-spacing:.05em;
+}
+.ydg-check-progress-head b{
+  color:#f59e0b;
+  font-size:.60rem;
+  font-weight:900;
+  transition:color .2s ease;
+}
+.ydg-check-progress{
+  position:relative;
+  width:100%;
+  height:4px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(30,41,59,.75);
+}
+.ydg-check-progress i{
+  display:block;
+  width:0%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#f59e0b,#fbbf24);
+  box-shadow:0 0 10px rgba(245,158,11,.30);
+  transition:width .28s ease,background .25s ease,box-shadow .25s ease;
+}
+.ydg-check-progress.is-complete i{
+  background:linear-gradient(90deg,#10b981,#22c55e,#6ee7b7);
+  box-shadow:0 0 12px rgba(34,197,94,.35);
+}
+.ydg-check-progress.is-complete + *{}
+.ydg-check-placeholder{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:26px;
+  color:#536b82;
+  font:700 .62rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.ydg-check-placeholder span{
+  color:#3b82f6;
+}
+.ydg-terminal-cursor{
+  color:#67e8f9;
+  animation:ydgCursorBlink .72s steps(1) infinite;
+}
+@keyframes ydgCursorBlink{
+  0%,49%{opacity:1}
+  50%,100%{opacity:0}
+}
+.ydg-check-row{
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity .18s ease,transform .18s ease;
+}
+.ydg-check-row.is-visible{
+  opacity:1;
+  transform:none;
+}
+.ydg-check-row .ydg-check-name{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#8da0b5;
+  font-size:.64rem;
+  letter-spacing:.05em;
+}
+.ydg-check-row .ydg-check-name::before{
+  content:">";
+  color:#38bdf8;
+}
+.ydg-check-state{
+  color:#fbbf24!important;
+  font-size:.62rem!important;
+  white-space:nowrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.ydg-check-row.is-ok .ydg-check-state{
+  color:#6ee7b7!important;
+}
+.ydg-check-row.is-ok .ydg-check-name{
+  color:#9ab0c5;
+}
+.ydg-check-row.is-checking .ydg-check-state::after{
+  content:"";
+  display:inline-block;
+  width:6px;
+  height:6px;
+  margin-left:6px;
+  border-radius:50%;
+  background:#f59e0b;
+  box-shadow:0 0 8px rgba(245,158,11,.55);
+  animation:ydgCheckingDot .75s ease-in-out infinite alternate;
+}
+@keyframes ydgCheckingDot{
+  to{transform:scale(1.45);opacity:.55}
+}
+#ydg-check-live.is-idle{
+  color:#64748b!important;
+}
+#ydg-check-live.is-checking{
+  color:#fbbf24!important;
+}
+#ydg-check-live.is-checking::before{
+  background:#f59e0b!important;
+  box-shadow:0 0 0 0 rgba(245,158,11,.50)!important;
+  animation:ydgAmberPulse 1s ease-out infinite!important;
+}
+#ydg-check-live.is-complete{
+  color:#34d399!important;
+}
+@keyframes ydgAmberPulse{
+  0%{box-shadow:0 0 0 0 rgba(245,158,11,.50)}
+  70%{box-shadow:0 0 0 8px rgba(245,158,11,0)}
+  100%{box-shadow:0 0 0 0 rgba(245,158,11,0)}
+}
+#ydg-check-final-status{
+  color:#64748b;
+  transition:color .2s ease;
+}
+#ydg-check-final-status i{
+  background:#64748b;
+  box-shadow:none;
+}
+#ydg-check-final-status.is-checking{
+  color:#fbbf24;
+}
+#ydg-check-final-status.is-checking i{
+  background:#f59e0b;
+  box-shadow:0 0 9px rgba(245,158,11,.55);
+  animation:ydgCheckingDot .75s ease-in-out infinite alternate;
+}
+#ydg-check-final-status.is-complete{
+  color:#86efac;
+}
+#ydg-check-final-status.is-complete i{
+  background:#22c55e;
+  box-shadow:0 0 9px rgba(34,197,94,.60);
+  animation:ydgTerminalHeartbeat 1.35s ease-in-out infinite!important;
+}
+.ydg-check-progress-wrap.is-complete .ydg-check-progress-head b{
+  color:#34d399;
+}
+@media(prefers-reduced-motion:reduce){
+  .ydg-terminal-cursor,
+  .ydg-check-row.is-checking .ydg-check-state::after,
+  #ydg-check-live.is-checking::before,
+  #ydg-check-final-status.is-checking i{
+    animation:none!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5701,9 +5939,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=113">
-<link rel="stylesheet" href="robot-widget.css?v=113">
-<link rel="stylesheet" href="compact-final.css?v=113">
+<link rel="stylesheet" href="promo-final.css?v=115">
+<link rel="stylesheet" href="robot-widget.css?v=115">
+<link rel="stylesheet" href="compact-final.css?v=115">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -6021,28 +6259,28 @@ body.ydg-launch-open{overflow:hidden!important}
 
           <div class="ydg-subgrid">
             <div>
-              <h4>Idioma</h4>
+              <h4>Idioma</h4><p class="ydg-language-help">Español incluido · máximo 1 idioma adicional</p>
               <div class="ydg-language-row">
-                <button type="button" class="ydg-flag-choice is-selected" data-language="Español" aria-label="Español" title="Español"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice is-selected is-base" data-language="Español" aria-label="Español · idioma base incluido" title="Español · idioma base incluido" aria-pressed="true" disabled><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#AA151B"/>
           <rect y="6" width="36" height="12" fill="#F1BF00"/>
           <rect x="9" y="9" width="2.7" height="6" rx=".4" fill="#AA151B"/>
           <circle cx="10.35" cy="11.2" r=".55" fill="#F1BF00"/>
           <rect x="8.1" y="14.5" width="4.5" height=".7" rx=".35" fill="#AA151B"/>
-        </svg><span class="ydg-flag-tip" role="tooltip">Español</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-label="English" title="English"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+        </svg><span class="ydg-flag-tip" role="tooltip">Español</span><span class="ydg-base-badge">BASE</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-label="English" title="English" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#012169"/>
           <path d="M0 0L36 24M36 0L0 24" stroke="#FFF" stroke-width="5"/>
           <path d="M0 0L36 24M36 0L0 24" stroke="#C8102E" stroke-width="2.2"/>
           <path d="M18 0V24M0 12H36" stroke="#FFF" stroke-width="7"/>
           <path d="M18 0V24M0 12H36" stroke="#C8102E" stroke-width="4"/>
         </svg><span class="ydg-flag-tip" role="tooltip">English</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-label="Italiano" title="Italiano"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-label="Italiano" title="Italiano" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#FFF"/>
           <path d="M0 3a3 3 0 0 1 3-3h9v24H3a3 3 0 0 1-3-3z" fill="#009246"/>
           <path d="M24 0h9a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3h-9z" fill="#CE2B37"/>
         </svg><span class="ydg-flag-tip" role="tooltip">Italiano</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-label="Français" title="Français"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-label="Français" title="Français" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#FFF"/>
           <path d="M0 3a3 3 0 0 1 3-3h9v24H3a3 3 0 0 1-3-3z" fill="#002395"/>
           <path d="M24 0h9a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3h-9z" fill="#ED2939"/>
@@ -6326,35 +6564,43 @@ body.ydg-launch-open{overflow:hidden!important}
       </button>
     </div>
 
-    <div id="ydg-tech-check-panel" class="ydg-tech-check-panel" hidden>
-      <div class="ydg-tech-terminal-head">
-        <div>
-          <span class="dot red"></span>
-          <span class="dot amber"></span>
-          <span class="dot green"></span>
-        </div>
-        <strong>YDG SYSTEM CHECK</strong>
-        <span class="ydg-live">LIVE</span>
-      </div>
+    
+<div id="ydg-tech-check-panel" class="ydg-tech-check-panel" hidden>
+  <div class="ydg-tech-terminal-head">
+    <div>
+      <span class="dot red"></span>
+      <span class="dot amber"></span>
+      <span class="dot green"></span>
+    </div>
+    <strong>YDG SYSTEM CHECK</strong>
+    <span class="ydg-live is-idle" id="ydg-check-live">STANDBY</span>
+  </div>
 
-      <div class="ydg-tech-terminal-body">
-        <div class="ydg-check-row"><span>HTTPS / SSL READY</span><b>✓ READY</b></div>
-        <div class="ydg-check-row"><span>RESPONSIVE UI</span><b>✓ VERIFIED</b></div>
-        <div class="ydg-check-row"><span>SEO BASE</span><b>✓ ACTIVE</b></div>
-        <div class="ydg-check-row"><span>FORMULARIOS</span><b>✓ READY</b></div>
-        <div class="ydg-check-row"><span>PORTFOLIO</span><b>✓ ONLINE</b></div>
-        <div class="ydg-check-row"><span>NAVEGACIÓN INTERNA</span><b>✓ OK</b></div>
-        <div class="ydg-check-row"><span>HOSTING</span><b>✓ MANAGED</b></div>
-        <div class="ydg-check-row"><span>MANTENIMIENTO</span><b>✓ INCLUDED</b></div>
-      </div>
-
-      <div class="ydg-tech-terminal-foot">
-        <span>STATUS</span>
-        <strong><i></i> ALL SYSTEMS OPERATIONAL</strong>
-      </div>
+  <div class="ydg-check-progress-wrap">
+    <div class="ydg-check-progress-head">
+      <span id="ydg-check-progress-label">Preparado para verificar</span>
+      <b id="ydg-check-progress-value">0%</b>
+    </div>
+    <div class="ydg-check-progress">
+      <i id="ydg-check-progress-bar"></i>
     </div>
   </div>
+
+  <div class="ydg-tech-terminal-body" id="ydg-check-lines">
+    <div class="ydg-check-placeholder">
+      <span>system@ydg:~$</span>
+      <b class="ydg-terminal-cursor">▌</b>
+    </div>
+  </div>
+
+  <div class="ydg-tech-terminal-foot">
+    <span>STATUS</span>
+    <strong id="ydg-check-final-status"><i></i> STANDBY</strong>
+  </div>
+</div>
+</div>
 </section>
+
 
 
 
@@ -8103,7 +8349,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=113', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=115', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -8812,8 +9058,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=113" defer></script>
-<script src="robot-widget.js?v=113" defer></script>
+<script src="promo-manager.js?v=115" defer></script>
+<script src="robot-widget.js?v=115" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 <script>
@@ -8835,7 +9081,7 @@ function syncSummary(){
  const type=typeField.value||'Negocio / Empresa';
  const funcs=[...form.querySelectorAll('.ydg-mini-choice.is-selected')].map(b=>b.dataset.function);
  fnField.value=funcs.join(', ');
- summary.textContent=[type, funcs.join(' + ')||'Sin funciones extra', langField.value, styleField.value].join(' · ');
+ summary.textContent=[type, funcs.join(' + ')||'Sin funciones extra', `Idiomas: ${langField.value}`, styleField.value].join(' · ');
 }
 function setStep(n){
  step=Math.max(1,Math.min(3,n));
@@ -8865,6 +9111,27 @@ form.querySelectorAll('[data-language]').forEach(btn=>{
    syncSummary();
  });
 });
+
+const extraLanguageButtons=[...form.querySelectorAll('.ydg-flag-choice[data-language]:not(.is-base)')];
+
+function updateLanguageState(selectedBtn){
+  extraLanguageButtons.forEach(btn=>{
+    const active=btn===selectedBtn;
+    btn.classList.toggle('is-selected',active);
+    btn.setAttribute('aria-pressed',active?'true':'false');
+  });
+  const extra=selectedBtn ? selectedBtn.dataset.language : '';
+  langField.value=extra ? `Español + ${extra}` : 'Español';
+  syncSummary();
+}
+
+extraLanguageButtons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const alreadySelected=btn.classList.contains('is-selected');
+    updateLanguageState(alreadySelected ? null : btn);
+  });
+});
+
 form.querySelectorAll('[data-style]').forEach(btn=>{
  btn.addEventListener('click',()=>{
    form.querySelectorAll('[data-style]').forEach(x=>x.classList.remove('is-selected'));
@@ -8918,7 +9185,7 @@ btn.addEventListener('click',()=>{
 
 <script>
 (()=>{'use strict';
-const flags=[...document.querySelectorAll('.ydg-flag-choice')];
+const flags=[...document.querySelectorAll('.ydg-flag-choice:not(.is-base)')];
 if(!flags.length)return;
 
 flags.forEach(btn=>{
@@ -8929,6 +9196,163 @@ flags.forEach(btn=>{
     btn._ydgTipTimer=setTimeout(()=>btn.classList.remove('show-tip'),1100);
   });
 });
+})();
+</script>
+
+
+<script>
+(()=>{'use strict';
+
+const btn=document.getElementById('ydg-tech-check-toggle');
+const panel=document.getElementById('ydg-tech-check-panel');
+const lines=document.getElementById('ydg-check-lines');
+const live=document.getElementById('ydg-check-live');
+const finalStatus=document.getElementById('ydg-check-final-status');
+const progressBar=document.getElementById('ydg-check-progress-bar');
+const progressValue=document.getElementById('ydg-check-progress-value');
+const progressLabel=document.getElementById('ydg-check-progress-label');
+const progressWrap=document.querySelector('.ydg-check-progress-wrap');
+const progressTrack=document.querySelector('.ydg-check-progress');
+
+if(!btn||!panel||!lines||!live||!finalStatus||!progressBar||!progressValue||!progressLabel)return;
+
+const checks=[
+  ['HTTPS / SSL READY','READY'],
+  ['RESPONSIVE UI','VERIFIED'],
+  ['SEO BASE','ACTIVE'],
+  ['FORMULARIOS','READY'],
+  ['PORTFOLIO','ONLINE'],
+  ['NAVEGACIÓN INTERNA','OK'],
+  ['HOSTING','MANAGED'],
+  ['MANTENIMIENTO','INCLUDED']
+];
+
+let running=false;
+let completed=false;
+let runToken=0;
+
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+
+async function typeText(el,text,speed=24,token){
+  el.textContent='';
+  for(let i=0;i<text.length;i++){
+    if(token!==runToken)return false;
+    el.textContent+=text[i];
+    await wait(speed);
+  }
+  return true;
+}
+
+function resetPanel(){
+  lines.innerHTML='<div class="ydg-check-placeholder"><span>system@ydg:~$</span><b class="ydg-terminal-cursor">▌</b></div>';
+  progressBar.style.width='0%';
+  progressValue.textContent='0%';
+  progressLabel.textContent='Preparado para verificar';
+  progressWrap.classList.remove('is-complete');
+  progressTrack.classList.remove('is-complete');
+  live.className='ydg-live is-idle';
+  live.textContent='STANDBY';
+  finalStatus.className='';
+  finalStatus.innerHTML='<i></i> STANDBY';
+  btn.classList.remove('is-checking','is-complete');
+  btn.innerHTML='Verificación técnica <span>→</span>';
+}
+
+async function runCheck(){
+  if(running)return;
+  running=true;
+  completed=false;
+  const token=++runToken;
+
+  btn.classList.remove('is-complete');
+  btn.classList.add('is-checking');
+  btn.innerHTML='VERIFICANDO... <span>↻</span>';
+
+  live.className='ydg-live is-checking';
+  live.textContent='CHECKING';
+
+  finalStatus.className='is-checking';
+  finalStatus.innerHTML='<i></i> VERIFYING';
+
+  progressLabel.textContent='Ejecutando comprobaciones del sistema';
+  lines.innerHTML='';
+
+  for(let i=0;i<checks.length;i++){
+    if(token!==runToken)return;
+
+    const [name,result]=checks[i];
+    const row=document.createElement('div');
+    row.className='ydg-check-row is-visible is-checking';
+    row.innerHTML='<span class="ydg-check-name"></span><b class="ydg-check-state">checking...</b>';
+    lines.appendChild(row);
+
+    const nameEl=row.querySelector('.ydg-check-name');
+    const stateEl=row.querySelector('.ydg-check-state');
+
+    await typeText(nameEl,name,18,token);
+    await wait(120 + Math.random()*110);
+
+    row.classList.remove('is-checking');
+    row.classList.add('is-ok');
+    stateEl.textContent='✓ '+result;
+
+    const pct=Math.round(((i+1)/checks.length)*100);
+    progressBar.style.width=pct+'%';
+    progressValue.textContent=pct+'%';
+
+    await wait(110);
+  }
+
+  if(token!==runToken)return;
+
+  progressWrap.classList.add('is-complete');
+  progressTrack.classList.add('is-complete');
+  progressLabel.textContent='Verificación visual completada';
+
+  live.className='ydg-live is-complete';
+  live.textContent='LIVE';
+
+  finalStatus.className='is-complete';
+  finalStatus.innerHTML='<i></i> ALL SYSTEMS OPERATIONAL';
+
+  btn.classList.remove('is-checking');
+  btn.classList.add('is-complete');
+  btn.innerHTML='✓ VERIFICACIÓN COMPLETADA <span>↓</span>';
+
+  completed=true;
+  running=false;
+}
+
+btn.addEventListener('click',async()=>{
+  const open=btn.getAttribute('aria-expanded')==='true';
+
+  if(open){
+    runToken++;
+    running=false;
+    btn.setAttribute('aria-expanded','false');
+    panel.hidden=true;
+    btn.classList.remove('is-checking');
+    if(completed){
+      btn.classList.add('is-complete');
+      btn.innerHTML='✓ VERIFICACIÓN COMPLETADA <span>→</span>';
+    }else{
+      resetPanel();
+    }
+    return;
+  }
+
+  btn.setAttribute('aria-expanded','true');
+  panel.hidden=false;
+
+  if(completed){
+    // Replay the visual system check every time the user opens it.
+    resetPanel();
+  }
+
+  requestAnimationFrame(()=>runCheck());
+});
+
+resetPanel();
 })();
 </script>
 
