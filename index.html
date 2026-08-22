@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=111" rel="manifest"/>
+<link href="site.webmanifest?v=112" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5536,6 +5536,125 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* ===== V112 · LIVE STATUS MÁS VIVO ===== */
+.ydg-operational-pill i{
+  animation:ydgStatusHeartbeat 1.35s ease-in-out infinite!important;
+}
+.ydg-tech-terminal-foot strong i{
+  animation:ydgTerminalHeartbeat 1.35s ease-in-out infinite!important;
+}
+.ydg-live{
+  position:relative;
+  padding-left:10px;
+}
+.ydg-live::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#22c55e;
+  transform:translateY(-50%);
+  box-shadow:0 0 0 0 rgba(34,197,94,.55);
+  animation:ydgLivePulse 1.35s ease-out infinite;
+}
+@keyframes ydgStatusHeartbeat{
+  0%,100%{
+    transform:scale(1);
+    opacity:1;
+    box-shadow:0 0 0 4px rgba(34,197,94,.08),0 0 12px rgba(34,197,94,.55);
+  }
+  45%{
+    transform:scale(1.28);
+    opacity:.72;
+    box-shadow:0 0 0 8px rgba(34,197,94,.03),0 0 18px rgba(34,197,94,.72);
+  }
+}
+@keyframes ydgTerminalHeartbeat{
+  0%,100%{transform:scale(1);opacity:1;box-shadow:0 0 8px rgba(34,197,94,.55)}
+  45%{transform:scale(1.35);opacity:.68;box-shadow:0 0 16px rgba(34,197,94,.85)}
+}
+@keyframes ydgLivePulse{
+  0%{box-shadow:0 0 0 0 rgba(34,197,94,.55);opacity:1}
+  70%{box-shadow:0 0 0 8px rgba(34,197,94,0);opacity:.75}
+  100%{box-shadow:0 0 0 0 rgba(34,197,94,0);opacity:1}
+}
+
+/* ===== V112 · IDIOMAS SOLO BANDERAS ===== */
+.ydg-language-row{
+  display:flex!important;
+  align-items:center!important;
+  gap:9px!important;
+}
+.ydg-flag-choice{
+  position:relative;
+  appearance:none;
+  width:48px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  border:1px solid rgba(59,130,246,.20);
+  background:linear-gradient(180deg,rgba(12,29,50,.72),rgba(8,18,32,.80));
+  cursor:pointer;
+  transition:.2s ease;
+}
+.ydg-flag-choice:hover,
+.ydg-flag-choice.is-selected{
+  border-color:#22d3ee;
+  background:radial-gradient(circle at 50% 28%,rgba(34,211,238,.18),transparent 65%),rgba(8,31,50,.88);
+  box-shadow:0 0 0 1px rgba(34,211,238,.12) inset,0 0 16px rgba(34,211,238,.14);
+  transform:translateY(-1px);
+}
+.ydg-flag-emoji{
+  font-size:1.5rem;
+  line-height:1;
+  filter:saturate(1.08);
+}
+.ydg-flag-tip{
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 8px);
+  transform:translate(-50%,4px);
+  padding:6px 8px;
+  border-radius:8px;
+  background:rgba(3,10,18,.96);
+  border:1px solid rgba(34,211,238,.20);
+  color:#dff9ff;
+  font-size:.62rem;
+  font-weight:800;
+  white-space:nowrap;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:.16s ease;
+  z-index:20;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+.ydg-flag-choice:hover .ydg-flag-tip,
+.ydg-flag-choice:focus-visible .ydg-flag-tip,
+.ydg-flag-choice.show-tip .ydg-flag-tip{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0);
+}
+.ydg-flag-choice:focus-visible{
+  outline:2px solid rgba(34,211,238,.55);
+  outline-offset:2px;
+}
+@media(max-width:560px){
+  .ydg-flag-choice{
+    width:44px;
+    height:42px;
+  }
+  .ydg-flag-emoji{
+    font-size:1.35rem;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5551,9 +5670,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=111">
-<link rel="stylesheet" href="robot-widget.css?v=111">
-<link rel="stylesheet" href="compact-final.css?v=111">
+<link rel="stylesheet" href="promo-final.css?v=112">
+<link rel="stylesheet" href="robot-widget.css?v=112">
+<link rel="stylesheet" href="compact-final.css?v=112">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -5873,10 +5992,10 @@ body.ydg-launch-open{overflow:hidden!important}
             <div>
               <h4>Idioma</h4>
               <div class="ydg-language-row">
-                <button type="button" class="ydg-pill-choice is-selected" data-language="Español">🇪🇸 <span>Español</span></button>
-                <button type="button" class="ydg-pill-choice" data-language="Inglés">🇬🇧 <span>Inglés</span></button>
-                <button type="button" class="ydg-pill-choice" data-language="Italiano">🇮🇹 <span>Italiano</span></button>
-                <button type="button" class="ydg-pill-choice" data-language="Francés">🇫🇷 <span>Francés</span></button>
+                <button type="button" class="ydg-flag-choice is-selected" data-language="Español" aria-label="Español" title="Español"><span class="ydg-flag-emoji" aria-hidden="true">🇪🇸</span><span class="ydg-flag-tip" role="tooltip">Español</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-label="English" title="English"><span class="ydg-flag-emoji" aria-hidden="true">🇬🇧</span><span class="ydg-flag-tip" role="tooltip">English</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-label="Italiano" title="Italiano"><span class="ydg-flag-emoji" aria-hidden="true">🇮🇹</span><span class="ydg-flag-tip" role="tooltip">Italiano</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-label="Français" title="Français"><span class="ydg-flag-emoji" aria-hidden="true">🇫🇷</span><span class="ydg-flag-tip" role="tooltip">Français</span></button>
               </div>
             </div>
             <div>
@@ -7933,7 +8052,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=111', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=112', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -8642,8 +8761,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=111" defer></script>
-<script src="robot-widget.js?v=111" defer></script>
+<script src="promo-manager.js?v=112" defer></script>
+<script src="robot-widget.js?v=112" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 <script>
@@ -8741,6 +8860,23 @@ btn.addEventListener('click',()=>{
   const open=btn.getAttribute('aria-expanded')==='true';
   btn.setAttribute('aria-expanded',String(!open));
   panel.hidden=open;
+});
+})();
+</script>
+
+
+<script>
+(()=>{'use strict';
+const flags=[...document.querySelectorAll('.ydg-flag-choice')];
+if(!flags.length)return;
+
+flags.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    flags.forEach(x=>x.classList.remove('show-tip'));
+    btn.classList.add('show-tip');
+    clearTimeout(btn._ydgTipTimer);
+    btn._ydgTipTimer=setTimeout(()=>btn.classList.remove('show-tip'),1100);
+  });
 });
 })();
 </script>
