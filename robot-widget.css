@@ -213,3 +213,39 @@ body.ydg-robot-live #ydg-robot-reopen.show{
 @media(max-width:767px){
   #ydg-robot-widget .yr-laser{left:131px!important;top:44px!important;transform:translateY(-34px) rotate(-1.5deg)!important}
 }
+
+/* ===== V118 · VIDA PROPIA SUAVE DEL ROBOT ===== */
+#ydg-robot-widget:not(.act-wave):not(.act-jump):not(.act-run) .yr-dog{
+  animation:ydgRobotIdleLife 4.8s ease-in-out infinite!important;
+  transform-origin:52% 72%!important;
+}
+#ydg-robot-widget:not(.act-wave):not(.act-jump):not(.act-run) .yr-laser{
+  animation:laserFocus 3.2s ease-in-out infinite alternate,ydgLaserMicroDrift 5.4s ease-in-out infinite!important;
+}
+@keyframes ydgRobotIdleLife{
+  0%,100%{
+    transform:translateY(0) rotate(0deg) scaleY(1);
+  }
+  18%{
+    transform:translateY(-1px) rotate(.18deg) scaleY(1.002);
+  }
+  36%{
+    transform:translateY(-2px) rotate(-.22deg) scaleY(1.004);
+  }
+  58%{
+    transform:translateY(-1px) rotate(.12deg) scaleY(1.002);
+  }
+  78%{
+    transform:translateY(0) rotate(-.10deg) scaleY(.999);
+  }
+}
+@keyframes ydgLaserMicroDrift{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.08)}
+}
+@media(prefers-reduced-motion:reduce){
+  #ydg-robot-widget:not(.act-wave):not(.act-jump):not(.act-run) .yr-dog,
+  #ydg-robot-widget:not(.act-wave):not(.act-jump):not(.act-run) .yr-laser{
+    animation:none!important;
+  }
+}

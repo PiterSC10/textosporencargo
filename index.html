@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=116" rel="manifest"/>
+<link href="site.webmanifest?v=118" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5999,6 +5999,156 @@ body.ydg-launch-open{overflow:hidden!important}
   user-select:none;
 }
 
+
+/* ===== V117 · CONFIGURADOR FUNCIONAL ===== */
+.ydg-type-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+.ydg-type-grid .ydg-choice-card:last-child{
+  grid-column:auto!important;
+}
+@media(max-width:800px){
+  .ydg-type-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+
+/* ===== V118 · BOTÓN ESCANEAR SISTEMA ===== */
+#ydg-tech-check-toggle{
+  position:relative!important;
+  min-width:245px!important;
+  min-height:54px!important;
+  padding:9px 18px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(34,211,238,.34)!important;
+  background:
+    linear-gradient(90deg,rgba(4,20,34,.96),rgba(6,27,44,.92),rgba(4,20,34,.96))!important;
+  color:#dffbff!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  box-shadow:
+    0 0 0 1px rgba(34,211,238,.08) inset,
+    0 0 14px rgba(34,211,238,.08)!important;
+  animation:ydgScanButtonPulse 2.5s ease-in-out infinite!important;
+}
+#ydg-tech-check-toggle::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:inherit;
+  padding:1px;
+  background:conic-gradient(
+    from 0deg,
+    transparent 0 25%,
+    rgba(34,211,238,.15) 35%,
+    rgba(34,211,238,.92) 50%,
+    rgba(96,165,250,.80) 62%,
+    transparent 76% 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:ydgScanBorder 3.2s linear infinite;
+  pointer-events:none;
+}
+#ydg-tech-check-toggle::after{
+  content:"";
+  position:absolute;
+  left:-45%;
+  top:0;
+  width:32%;
+  height:100%;
+  transform:skewX(-22deg);
+  background:linear-gradient(90deg,transparent,rgba(125,211,252,.18),transparent);
+  animation:ydgScanSweep 3.4s ease-in-out infinite;
+  pointer-events:none;
+}
+.ydg-scan-dot{
+  width:8px;
+  height:8px;
+  flex:none;
+  border-radius:50%;
+  background:#22d3ee;
+  box-shadow:0 0 8px rgba(34,211,238,.75),0 0 16px rgba(34,211,238,.32);
+  animation:ydgScanDot 1.35s ease-in-out infinite;
+}
+.ydg-scan-copy{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1.05;
+}
+.ydg-scan-copy b{
+  color:#e8fdff;
+  font-size:.69rem;
+  font-weight:950;
+  letter-spacing:.06em;
+}
+.ydg-scan-copy small{
+  margin-top:4px;
+  color:#7290a8;
+  font-size:.48rem;
+  font-weight:750;
+  letter-spacing:.02em;
+}
+.ydg-scan-arrow{
+  margin-left:4px;
+  color:#67e8f9;
+  font-weight:900;
+  transition:transform .2s ease;
+}
+#ydg-tech-check-toggle:hover{
+  border-color:#67e8f9!important;
+  box-shadow:
+    0 0 0 1px rgba(34,211,238,.14) inset,
+    0 0 24px rgba(34,211,238,.16),
+    0 0 44px rgba(59,130,246,.06)!important;
+}
+#ydg-tech-check-toggle:hover .ydg-scan-arrow{
+  transform:translateX(4px);
+}
+
+/* Preserve checking/completed states from V115/V116 */
+#ydg-tech-check-toggle.is-checking .ydg-scan-dot{
+  background:#f59e0b!important;
+  box-shadow:0 0 10px rgba(245,158,11,.65)!important;
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-dot{
+  background:#22c55e!important;
+  box-shadow:0 0 10px rgba(34,197,94,.65)!important;
+}
+@keyframes ydgScanButtonPulse{
+  0%,100%{box-shadow:0 0 0 1px rgba(34,211,238,.08) inset,0 0 12px rgba(34,211,238,.06)}
+  50%{box-shadow:0 0 0 1px rgba(34,211,238,.16) inset,0 0 22px rgba(34,211,238,.15)}
+}
+@keyframes ydgScanBorder{
+  to{transform:rotate(360deg)}
+}
+@keyframes ydgScanSweep{
+  0%,55%{left:-45%;opacity:0}
+  65%{opacity:1}
+  90%{left:120%;opacity:.75}
+  100%{left:120%;opacity:0}
+}
+@keyframes ydgScanDot{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.35);opacity:.68}
+}
+
+@media(max-width:560px){
+  #ydg-tech-check-toggle{
+    min-width:220px!important;
+    min-height:52px!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -6014,9 +6164,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=116">
-<link rel="stylesheet" href="robot-widget.css?v=116">
-<link rel="stylesheet" href="compact-final.css?v=116">
+<link rel="stylesheet" href="promo-final.css?v=118">
+<link rel="stylesheet" href="robot-widget.css?v=118">
+<link rel="stylesheet" href="compact-final.css?v=118">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -6284,11 +6434,7 @@ body.ydg-launch-open{overflow:hidden!important}
               <b>Hotel / Alojamiento</b>
               <small>Habitaciones y reservas</small>
             </button>
-            <button type="button" class="ydg-choice-card" data-type="Tienda Online">
-              <span class="ydg-choice-icon">◫</span>
-              <b>Tienda Online</b>
-              <small>Productos y venta online</small>
-            </button>
+            
             <button type="button" class="ydg-choice-card" data-type="Web Personal">
               <span class="ydg-choice-icon">◉</span>
               <b>Web Personal</b>
@@ -6352,19 +6498,19 @@ body.ydg-launch-open{overflow:hidden!important}
           <circle cx="10.35" cy="11.2" r=".55" fill="#F1BF00"/>
           <rect x="8.1" y="14.5" width="4.5" height=".7" rx=".35" fill="#AA151B"/>
         </svg><span class="ydg-flag-tip" role="tooltip">Español</span><span class="ydg-base-badge">BASE</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-label="English" title="English" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-pressed="false" aria-label="English" title="English" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#012169"/>
           <path d="M0 0L36 24M36 0L0 24" stroke="#FFF" stroke-width="5"/>
           <path d="M0 0L36 24M36 0L0 24" stroke="#C8102E" stroke-width="2.2"/>
           <path d="M18 0V24M0 12H36" stroke="#FFF" stroke-width="7"/>
           <path d="M18 0V24M0 12H36" stroke="#C8102E" stroke-width="4"/>
         </svg><span class="ydg-flag-tip" role="tooltip">English</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-label="Italiano" title="Italiano" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-pressed="false" aria-label="Italiano" title="Italiano" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#FFF"/>
           <path d="M0 3a3 3 0 0 1 3-3h9v24H3a3 3 0 0 1-3-3z" fill="#009246"/>
           <path d="M24 0h9a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3h-9z" fill="#CE2B37"/>
         </svg><span class="ydg-flag-tip" role="tooltip">Italiano</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-label="Français" title="Français" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-pressed="false" aria-label="Français" title="Français" aria-pressed="false"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#FFF"/>
           <path d="M0 3a3 3 0 0 1 3-3h9v24H3a3 3 0 0 1-3-3z" fill="#002395"/>
           <path d="M24 0h9a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3h-9z" fill="#ED2939"/>
@@ -6644,8 +6790,13 @@ body.ydg-launch-open{overflow:hidden!important}
 
     <div class="ydg-status-actions">
       <button type="button" id="ydg-tech-check-toggle" class="ydg-tech-check-toggle" aria-expanded="false" aria-controls="ydg-tech-check-panel">
-        Verificación técnica <span>→</span>
-      </button>
+      <span class="ydg-scan-dot" aria-hidden="true"></span>
+      <span class="ydg-scan-copy">
+        <b>ESCANEAR SISTEMA</b>
+        <small>Click para iniciar verificación</small>
+      </span>
+      <span class="ydg-scan-arrow" aria-hidden="true">→</span>
+    </button>
     </div>
 
     
@@ -8435,7 +8586,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=116', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=118', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -9144,8 +9295,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=116" defer></script>
-<script src="robot-widget.js?v=116" defer></script>
+<script src="promo-manager.js?v=118" defer></script>
+<script src="robot-widget.js?v=118" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 
@@ -9160,131 +9311,7 @@ try{
 
 
 
-<script>
-(()=>{'use strict';
 
-function initV116Configurator(){
-  const form=document.getElementById('ydg-visual-config-form');
-  if(!form)return;
-
-  const langField=document.getElementById('ydg-language-field');
-  const summary=document.getElementById('ydg-summary-text');
-  const baseBtn=form.querySelector('.ydg-flag-choice.is-base[data-language="Español"]');
-  const extraBtns=[...form.querySelectorAll('.ydg-flag-choice[data-language]:not(.is-base)')];
-  const otherBtn=form.querySelector('.ydg-mini-choice[data-function="Otros"]');
-  const otherWrap=document.getElementById('ydg-other-function-wrap');
-  const otherInput=document.getElementById('ydg-other-function-input');
-
-  function currentType(){
-    return form.querySelector('.ydg-choice-card.is-selected')?.dataset.type || 'Negocio / Empresa';
-  }
-  function currentFunctions(){
-    return [...form.querySelectorAll('.ydg-mini-choice.is-selected')]
-      .map(b=>{
-        if(b.dataset.function==='Otros' && otherInput?.value.trim()){
-          return `Otros: ${otherInput.value.trim()}`;
-        }
-        return b.dataset.function;
-      });
-  }
-  function currentStyle(){
-    return form.querySelector('[data-style].is-selected')?.dataset.style || 'Moderno';
-  }
-  function refreshSummary(){
-    if(!summary)return;
-    const funcs=currentFunctions();
-    summary.textContent=[
-      currentType(),
-      funcs.join(' + ') || 'Sin funciones extra',
-      `Idiomas: ${langField?.value || 'Español'}`,
-      currentStyle()
-    ].join(' · ');
-  }
-
-  // Spanish always stays selected.
-  if(baseBtn){
-    baseBtn.classList.add('is-selected');
-    baseBtn.setAttribute('aria-pressed','true');
-    baseBtn.addEventListener('click',e=>{
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      baseBtn.classList.add('is-selected');
-      baseBtn.setAttribute('aria-pressed','true');
-      if(langField && !langField.value.startsWith('Español')){
-        langField.value='Español';
-      }
-      refreshSummary();
-    },true);
-  }
-
-  // Maximum 1 extra language.
-  extraBtns.forEach(btn=>{
-    btn.addEventListener('click',e=>{
-      e.preventDefault();
-      e.stopImmediatePropagation();
-
-      const wasSelected=btn.classList.contains('is-selected');
-
-      extraBtns.forEach(x=>{
-        x.classList.remove('is-selected','show-tip');
-        x.setAttribute('aria-pressed','false');
-      });
-
-      if(!wasSelected){
-        btn.classList.add('is-selected','show-tip');
-        btn.setAttribute('aria-pressed','true');
-        if(langField)langField.value=`Español + ${btn.dataset.language}`;
-
-        clearTimeout(btn._ydgTipTimer);
-        btn._ydgTipTimer=setTimeout(()=>btn.classList.remove('show-tip'),1000);
-      }else{
-        if(langField)langField.value='Español';
-      }
-
-      if(baseBtn){
-        baseBtn.classList.add('is-selected');
-        baseBtn.setAttribute('aria-pressed','true');
-      }
-      refreshSummary();
-    },true);
-  });
-
-  // Others field.
-  if(otherBtn && otherWrap){
-    const syncOther=()=>{
-      const active=otherBtn.classList.contains('is-selected');
-      otherWrap.hidden=!active;
-      if(!active && otherInput)otherInput.value='';
-      refreshSummary();
-    };
-
-    otherBtn.addEventListener('click',()=>{
-      // Existing listener toggles class; run after it.
-      setTimeout(syncOther,0);
-    });
-
-    otherInput?.addEventListener('input',refreshSummary);
-    syncOther();
-  }
-
-  // Keep summary synchronized when other visual choices change.
-  form.addEventListener('click',e=>{
-    if(e.target.closest('.ydg-choice-card,.ydg-mini-choice,[data-style]')){
-      setTimeout(refreshSummary,0);
-    }
-  });
-
-  if(langField && !langField.value.startsWith('Español')){
-    langField.value='Español';
-  }
-  refreshSummary();
-}
-
-document.readyState==='loading'
-  ? document.addEventListener('DOMContentLoaded',initV116Configurator,{once:true})
-  : initV116Configurator();
-})();
-</script>
 
 
 <script>
@@ -9304,6 +9331,35 @@ function initYDGSystemCheck(){
 
   if(!btn||!panel||!lines||!live||!finalStatus||!progressBar||!progressValue||!progressLabel||!progressWrap||!progressTrack){
     return;
+  }
+
+  function setScanButtonState(state){
+    const dot=btn.querySelector('.ydg-scan-dot');
+    const title=btn.querySelector('.ydg-scan-copy b');
+    const sub=btn.querySelector('.ydg-scan-copy small');
+    const arrow=btn.querySelector('.ydg-scan-arrow');
+
+    btn.classList.remove('is-checking','is-complete');
+
+    if(state==='checking'){
+      btn.classList.add('is-checking');
+      if(title)title.textContent='VERIFICANDO...';
+      if(sub)sub.textContent='Comprobando módulos del sistema';
+      if(arrow)arrow.textContent='↻';
+      return;
+    }
+
+    if(state==='complete'){
+      btn.classList.add('is-complete');
+      if(title)title.textContent='VERIFICACIÓN COMPLETADA';
+      if(sub)sub.textContent='Todos los sistemas operativos';
+      if(arrow)arrow.textContent='✓';
+      return;
+    }
+
+    if(title)title.textContent='ESCANEAR SISTEMA';
+    if(sub)sub.textContent='Click para iniciar verificación';
+    if(arrow)arrow.textContent='→';
   }
 
   const checks=[
@@ -9334,7 +9390,7 @@ function initYDGSystemCheck(){
     finalStatus.className='';
     finalStatus.innerHTML='<i></i> STANDBY';
     btn.classList.remove('is-checking','is-complete');
-    btn.innerHTML='Verificación técnica <span>→</span>';
+    setScanButtonState('idle');
   }
 
   async function typeInto(el,text,run){
@@ -9361,7 +9417,7 @@ function initYDGSystemCheck(){
 
     btn.classList.remove('is-complete');
     btn.classList.add('is-checking');
-    btn.innerHTML='VERIFICANDO... <span>↻</span>';
+    setScanButtonState('checking');
 
     live.className='ydg-live is-checking';
     live.textContent='CHECKING';
@@ -9402,7 +9458,7 @@ function initYDGSystemCheck(){
 
     btn.classList.remove('is-checking');
     btn.classList.add('is-complete');
-    btn.innerHTML='✓ VERIFICACIÓN COMPLETADA <span>↓</span>';
+    setScanButtonState('complete');
 
     busy=false;
   }
@@ -9431,6 +9487,278 @@ function initYDGSystemCheck(){
 document.readyState==='loading'
   ? document.addEventListener('DOMContentLoaded',initYDGSystemCheck,{once:true})
   : initYDGSystemCheck();
+})();
+</script>
+
+
+<script>
+(()=>{'use strict';
+
+function initYDGConfigurator117(){
+  const form=document.getElementById('ydg-visual-config-form');
+  if(!form)return;
+
+  const panels=[...form.querySelectorAll('.ydg-step-panel')];
+  const stepButtons=[...document.querySelectorAll('.ydg-config-steps [data-step-jump]')];
+  const nextButtons=[...form.querySelectorAll('.ydg-next-step')];
+  const prevButtons=[...form.querySelectorAll('.ydg-prev-step')];
+
+  const typeButtons=[...form.querySelectorAll('.ydg-choice-card[data-type]')];
+  const functionButtons=[...form.querySelectorAll('.ydg-mini-choice[data-function]')];
+  const styleButtons=[...form.querySelectorAll('[data-style]')];
+
+  const baseLanguage=form.querySelector('.ydg-flag-choice.is-base[data-language="Español"]');
+  const extraLanguages=[...form.querySelectorAll('.ydg-flag-choice[data-language]:not(.is-base)')];
+
+  const typeField=document.getElementById('ydg-type-field');
+  const functionsField=document.getElementById('ydg-functions-field');
+  const languageField=document.getElementById('ydg-language-field');
+  const styleField=document.getElementById('ydg-style-field');
+  const summary=document.getElementById('ydg-summary-text');
+  const status=document.getElementById('ydg-config-status');
+
+  const otherButton=form.querySelector('.ydg-mini-choice[data-function="Otros"]');
+  const otherWrap=document.getElementById('ydg-other-function-wrap');
+  const otherInput=document.getElementById('ydg-other-function-input');
+
+  let currentStep=1;
+
+  function selectedType(){
+    return form.querySelector('.ydg-choice-card.is-selected')?.dataset.type || 'Negocio / Empresa';
+  }
+
+  function selectedFunctions(){
+    return [...form.querySelectorAll('.ydg-mini-choice.is-selected')].map(btn=>{
+      if(btn.dataset.function==='Otros' && otherInput?.value.trim()){
+        return `Otros: ${otherInput.value.trim()}`;
+      }
+      return btn.dataset.function;
+    });
+  }
+
+  function selectedStyle(){
+    return form.querySelector('[data-style].is-selected')?.dataset.style || 'Moderno';
+  }
+
+  function syncHiddenFields(){
+    if(typeField)typeField.value=selectedType();
+
+    const funcs=selectedFunctions();
+    if(functionsField)functionsField.value=funcs.join(', ');
+
+    if(styleField)styleField.value=selectedStyle();
+
+    if(languageField && !languageField.value.startsWith('Español')){
+      languageField.value='Español';
+    }
+  }
+
+  function updateSummary(){
+    syncHiddenFields();
+    if(!summary)return;
+
+    const funcs=selectedFunctions();
+    summary.textContent=[
+      selectedType(),
+      funcs.join(' + ') || 'Sin funciones extra',
+      `Idiomas: ${languageField?.value || 'Español'}`,
+      selectedStyle()
+    ].join(' · ');
+  }
+
+  function renderStep(step,scroll=true){
+    currentStep=Math.max(1,Math.min(3,Number(step)||1));
+
+    panels.forEach(panel=>{
+      panel.classList.toggle('is-active',Number(panel.dataset.step)===currentStep);
+    });
+
+    stepButtons.forEach(btn=>{
+      const active=Number(btn.dataset.stepJump)===currentStep;
+      btn.classList.toggle('is-active',active);
+      btn.setAttribute('aria-current',active?'step':'false');
+    });
+
+    if(scroll){
+      document.getElementById('configurador')?.scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
+    }
+  }
+
+  // STEP NAVIGATION
+  nextButtons.forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      renderStep(currentStep+1);
+    });
+  });
+
+  prevButtons.forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      renderStep(currentStep-1);
+    });
+  });
+
+  stepButtons.forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      renderStep(Number(btn.dataset.stepJump));
+    });
+  });
+
+  // TYPE: single selection
+  typeButtons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      typeButtons.forEach(x=>x.classList.remove('is-selected'));
+      btn.classList.add('is-selected');
+      updateSummary();
+    });
+  });
+
+  // FUNCTIONS: multi-select
+  functionButtons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btn.classList.toggle('is-selected');
+
+      if(btn===otherButton && otherWrap){
+        const active=btn.classList.contains('is-selected');
+        otherWrap.hidden=!active;
+        if(active){
+          setTimeout(()=>otherInput?.focus(),100);
+        }else if(otherInput){
+          otherInput.value='';
+        }
+      }
+
+      updateSummary();
+    });
+  });
+
+  if(otherInput){
+    otherInput.addEventListener('input',updateSummary);
+  }
+
+  // LANGUAGES: Spanish always on + max one extra
+  if(baseLanguage){
+    baseLanguage.classList.add('is-selected');
+    baseLanguage.setAttribute('aria-pressed','true');
+
+    baseLanguage.addEventListener('click',e=>{
+      e.preventDefault();
+      baseLanguage.classList.add('is-selected');
+      baseLanguage.setAttribute('aria-pressed','true');
+      updateSummary();
+    });
+  }
+
+  extraLanguages.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const wasSelected=btn.classList.contains('is-selected');
+
+      extraLanguages.forEach(x=>{
+        x.classList.remove('is-selected','show-tip');
+        x.setAttribute('aria-pressed','false');
+      });
+
+      if(wasSelected){
+        if(languageField)languageField.value='Español';
+      }else{
+        btn.classList.add('is-selected','show-tip');
+        btn.setAttribute('aria-pressed','true');
+        if(languageField)languageField.value=`Español + ${btn.dataset.language}`;
+
+        clearTimeout(btn._ydgTipTimer);
+        btn._ydgTipTimer=setTimeout(()=>btn.classList.remove('show-tip'),1000);
+      }
+
+      if(baseLanguage){
+        baseLanguage.classList.add('is-selected');
+        baseLanguage.setAttribute('aria-pressed','true');
+      }
+
+      updateSummary();
+    });
+  });
+
+  // STYLE: single selection
+  styleButtons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      styleButtons.forEach(x=>x.classList.remove('is-selected'));
+      btn.classList.add('is-selected');
+      if(styleField)styleField.value=btn.dataset.style;
+      updateSummary();
+    });
+  });
+
+  // FORM SEND
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    updateSummary();
+
+    const submit=form.querySelector('.ydg-submit-budget');
+    if(status){
+      status.textContent='Enviando tu configuración…';
+      status.style.color='#7dd3fc';
+    }
+    if(submit)submit.disabled=true;
+
+    try{
+      const res=await fetch(form.action,{
+        method:'POST',
+        body:new FormData(form),
+        headers:{Accept:'application/json'}
+      });
+      if(!res.ok)throw new Error('send');
+
+      if(status){
+        status.textContent='✓ Solicitud enviada. Nos pondremos en contacto contigo.';
+        status.style.color='#6ee7b7';
+      }
+      const text=submit?.querySelector('span');
+      if(text)text.textContent='Solicitud enviada';
+    }catch(_){
+      if(status){
+        status.textContent='No se pudo enviar ahora. Puedes usar el botón de contacto o WhatsApp.';
+        status.style.color='#fca5a5';
+      }
+    }finally{
+      if(submit)submit.disabled=false;
+    }
+  });
+
+  // INITIAL STATE
+  if(!form.querySelector('.ydg-choice-card.is-selected') && typeButtons[0]){
+    typeButtons[0].classList.add('is-selected');
+  }
+
+  if(languageField)languageField.value='Español';
+
+  if(baseLanguage){
+    baseLanguage.classList.add('is-selected');
+    baseLanguage.setAttribute('aria-pressed','true');
+  }
+
+  extraLanguages.forEach(x=>{
+    x.classList.remove('is-selected');
+    x.setAttribute('aria-pressed','false');
+  });
+
+  if(otherWrap){
+    otherWrap.hidden=!(otherButton?.classList.contains('is-selected'));
+  }
+
+  renderStep(1,false);
+  updateSummary();
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',initYDGConfigurator117,{once:true});
+}else{
+  initYDGConfigurator117();
+}
 })();
 </script>
 
