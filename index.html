@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=119" rel="manifest"/>
+<link href="site.webmanifest?v=120" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -6203,6 +6203,165 @@ body.ydg-launch-open{overflow:hidden!important}
   .ydg-scan-mini-progress i{width:4px}
 }
 
+
+/* ===== V120 · BOTÓN SCAN HORIZONTAL CORREGIDO ===== */
+#ydg-tech-check-toggle{
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  white-space:nowrap!important;
+  transform:none!important;
+  writing-mode:horizontal-tb!important;
+}
+
+#ydg-tech-check-toggle .ydg-scan-copy,
+#ydg-tech-check-toggle .ydg-scan-copy b,
+#ydg-tech-check-toggle .ydg-scan-copy small,
+#ydg-tech-check-toggle .ydg-scan-arrow,
+#ydg-tech-check-toggle .ydg-scan-mini-progress,
+#ydg-tech-check-toggle .ydg-scan-mini-percent{
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
+}
+
+#ydg-tech-check-toggle.is-checking{
+  min-width:420px!important;
+  max-width:min(92vw,520px)!important;
+  padding:9px 18px!important;
+  gap:10px!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-copy{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  min-width:115px!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-copy b{
+  font-size:.64rem!important;
+  line-height:1!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-copy small{
+  display:none!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-arrow{
+  display:none!important;
+}
+
+#ydg-tech-check-toggle .ydg-scan-mini-progress{
+  position:relative!important;
+  display:none;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:3px!important;
+  width:176px!important;
+  height:18px!important;
+  margin:0 6px!important;
+  padding:3px 5px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(34,197,94,.16)!important;
+  background:rgba(2,14,20,.68)!important;
+  overflow:hidden!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-mini-progress,
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-progress{
+  display:flex!important;
+}
+
+#ydg-tech-check-toggle .ydg-scan-mini-progress i{
+  flex:1 1 0!important;
+  width:auto!important;
+  min-width:5px!important;
+  height:10px!important;
+  border-radius:2px!important;
+  background:rgba(148,163,184,.13)!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:
+    background .16s ease,
+    box-shadow .16s ease,
+    opacity .16s ease!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-mini-progress i.is-on{
+  background:#22c55e!important;
+  box-shadow:
+    0 0 6px rgba(34,197,94,.70),
+    0 0 10px rgba(34,197,94,.24)!important;
+  opacity:1!important;
+}
+
+#ydg-tech-check-toggle .ydg-scan-mini-percent{
+  display:none;
+  min-width:34px!important;
+  margin-left:0!important;
+  color:#86efac!important;
+  font:900 .58rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;
+  text-align:right!important;
+  writing-mode:horizontal-tb!important;
+}
+
+#ydg-tech-check-toggle.is-checking .ydg-scan-mini-percent,
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-percent{
+  display:inline-block!important;
+}
+
+/* Completed = all bars green */
+#ydg-tech-check-toggle.is-complete{
+  min-width:420px!important;
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-progress i{
+  background:#22c55e!important;
+  box-shadow:0 0 6px rgba(34,197,94,.60)!important;
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-copy small{
+  display:none!important;
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-arrow{
+  display:none!important;
+}
+
+/* Keep all pieces in one horizontal line */
+#ydg-tech-check-toggle.is-checking > *,
+#ydg-tech-check-toggle.is-complete > *{
+  flex-shrink:0!important;
+}
+
+/* Mobile */
+@media(max-width:560px){
+  #ydg-tech-check-toggle.is-checking,
+  #ydg-tech-check-toggle.is-complete{
+    min-width:0!important;
+    width:min(94vw,390px)!important;
+    max-width:94vw!important;
+    padding:8px 12px!important;
+    gap:7px!important;
+  }
+
+  #ydg-tech-check-toggle.is-checking .ydg-scan-copy,
+  #ydg-tech-check-toggle.is-complete .ydg-scan-copy{
+    min-width:92px!important;
+  }
+
+  #ydg-tech-check-toggle .ydg-scan-mini-progress{
+    width:140px!important;
+    gap:2px!important;
+    margin:0 2px!important;
+  }
+
+  #ydg-tech-check-toggle .ydg-scan-mini-percent{
+    min-width:30px!important;
+    font-size:.52rem!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -6218,9 +6377,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=119">
-<link rel="stylesheet" href="robot-widget.css?v=119">
-<link rel="stylesheet" href="compact-final.css?v=119">
+<link rel="stylesheet" href="promo-final.css?v=120">
+<link rel="stylesheet" href="robot-widget.css?v=120">
+<link rel="stylesheet" href="compact-final.css?v=120">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -8645,7 +8804,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=119', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=120', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -9354,8 +9513,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=119" defer></script>
-<script src="robot-widget.js?v=119" defer></script>
+<script src="promo-manager.js?v=120" defer></script>
+<script src="robot-widget.js?v=120" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 
@@ -9441,7 +9600,7 @@ function initYDGSystemCheck(){
 
   function setMiniProgress(pct){
     const clamped=Math.max(0,Math.min(100,Number(pct)||0));
-    const active=Math.round((clamped/100)*miniBars.length);
+    const active=Math.min(miniBars.length,Math.floor((clamped/100)*miniBars.length + 0.0001));
     miniBars.forEach((bar,i)=>bar.classList.toggle('is-on',i<active));
     if(miniPercent)miniPercent.textContent=clamped+'%';
   }
@@ -9522,6 +9681,7 @@ function initYDGSystemCheck(){
     progressTrack.classList.add('is-complete');
     progressLabel.textContent='Verificación visual completada';
     setMiniProgress(100);
+    miniBars.forEach(bar=>bar.classList.add('is-on'));
     live.className='ydg-live is-complete';
     live.textContent='LIVE';
     finalStatus.className='is-complete';
