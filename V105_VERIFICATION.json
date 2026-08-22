@@ -1,0 +1,11 @@
+{
+  "robot_true_transparency": true,
+  "only_clean_robot_assets": true,
+  "triangle_laser": true,
+  "no_cursor_tracking": true,
+  "config_first": true,
+  "portfolio_second": true,
+  "sales_intro_first": true,
+  "root_only": true,
+  "js_errors": 0
+}
