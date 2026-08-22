@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=105" rel="manifest"/>
+<link href="site.webmanifest?v=106" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5013,6 +5013,63 @@ body.ydg-launch-open{overflow:hidden!important}
 #incluye,#como-funciona,#opiniones,#faq,#calidad{padding-top:46px!important;padding-bottom:46px!important}
 @media(max-width:767px){.ydg-sales-intro{padding-top:102px;padding-bottom:18px}.ydg-sales-intro p{font-size:.9rem}#configurador{padding-top:22px!important;padding-bottom:36px!important}#configurador .section-box{padding:18px!important}#portfolio{padding-top:38px!important}}
 
+
+/* V106 · orden definitivo y navegación consistente */
+#hero-section,
+#configurador,
+#portfolio,
+#incluye,
+#como-funciona,
+#faq{
+  scroll-margin-top:92px;
+}
+
+/* Evita cualquier resto de la cabecera comercial V105 */
+.ydg-sales-intro{display:none!important}
+
+/* Segundo bloque: configurador compacto, sin texto innecesario */
+#configurador{
+  padding-top:46px!important;
+  padding-bottom:48px!important;
+}
+#configurador .section-box{
+  max-width:1120px!important;
+  margin-inline:auto!important;
+}
+#configurador .text-center{
+  margin-bottom:22px!important;
+}
+#configurador .text-center p{
+  max-width:660px!important;
+  margin-inline:auto!important;
+}
+
+/* Tercer bloque: portfolio inmediatamente después */
+#portfolio{
+  padding-top:48px!important;
+  padding-bottom:58px!important;
+}
+
+/* Ritmo del resto */
+#incluye,#como-funciona,#opiniones,#faq,#calidad{
+  padding-top:52px!important;
+  padding-bottom:52px!important;
+}
+
+@media(max-width:767px){
+  #hero-section,#configurador,#portfolio,#incluye,#como-funciona,#faq{
+    scroll-margin-top:78px;
+  }
+  #configurador{
+    padding-top:36px!important;
+    padding-bottom:40px!important;
+  }
+  #portfolio{
+    padding-top:38px!important;
+    padding-bottom:44px!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5028,9 +5085,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=105">
-<link rel="stylesheet" href="robot-widget.css?v=105">
-<link rel="stylesheet" href="compact-final.css?v=105">
+<link rel="stylesheet" href="promo-final.css?v=106">
+<link rel="stylesheet" href="robot-widget.css?v=106">
+<link rel="stylesheet" href="compact-final.css?v=106">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -5144,14 +5201,13 @@ body.ydg-launch-open{overflow:hidden!important}
 </button>
 </div>
 <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="nav-content">
-<div class="text-sm lg:flex-grow mt-4 lg:mt-0 lg:ml-auto"> <!-- Añadido lg:ml-auto para empujar a la derecha -->
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link nav-first-link" data-lang-key="nav-services" href="#incluye">Servicios</a>
+<div class="text-sm lg:flex-grow mt-4 lg:mt-0 lg:ml-auto">
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link nav-first-link" data-lang-key="nav-services" href="#hero-section">Inicio</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-contact" href="#configurador">Presupuesto</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-portfolio" href="#portfolio">Proyectos</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-how-it-works" href="#como-funciona">Cómo Funciona</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-reviews" href="#opiniones">Reseñas</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-faq" href="#faq">FAQ</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-important-links" href="#links-importantes">Links importantes</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" data-lang-key="nav-contact" href="#configurador">Contacto</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-important-links" href="#incluye">Qué incluye</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-how-it-works" href="#como-funciona">Proceso</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" data-lang-key="nav-faq" href="#faq">FAQ</a>
 </div>
 <div class="mt-4 lg:mt-0 flex items-center">
 
@@ -5199,7 +5255,50 @@ body.ydg-launch-open{overflow:hidden!important}
 </header>
 <main id="main-content">
 <!-- Hero Section -->
-<section class="ydg-sales-intro" aria-label="Prepara tu presupuesto"><div class="ydg-sales-intro-inner"><span>DISEÑO WEB PROFESIONAL</span><h1>Prepara tu <strong>presupuesto</strong></h1><p>Tu web profesional en 72 horas. Rápida, moderna y lista para crecer.</p><div class="ydg-sales-pills"><b>99 € lanzamiento</b><b>+100 €/año</b><b>Responsive</b><b>SEO Ready</b></div></div></section><section class="py-20 px-4 bg-[#0d1117]" id="configurador"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="config-eyebrow">Presupuesto guiado</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="config-title">Prepara tu presupuesto</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="config-desc">Cuéntanos lo esencial. Con esto podemos preparar una propuesta clara y rápida.</p></div>
+
+<section class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-12 px-4" id="hero-section">
+<div class="hero-brand-block hero-sales-block hero-cinematic mb-8">
+<div class="hero-aurora" aria-hidden="true"></div>
+<div class="hero-grid-fx" aria-hidden="true"></div>
+<div class="hero-particles" aria-hidden="true">
+<i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
+<div class="hero-scan" aria-hidden="true"></div>
+<div class="final-conversion-label mb-6" data-lang-key="hero-eyebrow">YourDesignGPT · Diseño Web</div>
+<h1 class="hero-digital-title hero-brand-title hero-sales-title hero-cinematic-title" data-lang-key="hero-title">
+<span>Tu negocio ya existe.</span>
+<span><strong>Ahora haz que parezca profesional.</strong></span>
+</h1>
+<div aria-hidden="true" class="hero-brand-divider hero-sales-divider hero-energy-line">
+<span></span>
+<b></b>
+</div>
+<div class="hero-mini-status" aria-hidden="true">
+<span class="hero-status-dot"></span>
+<span class="hero-status-text">DESIGN / BUILD / LAUNCH</span>
+</div>
+</div>
+<div class="ydg-month-capacity hero-capacity-embed">
+  <span class="capacity-pulse"></span>
+  <div>
+    <small data-lang-key="capacity-month">AGENDA · AGOSTO 2026</small>
+    <strong data-lang-key="capacity-slots">2 plazas disponibles</strong>
+  </div>
+  <a href="#configurador" data-lang-key="capacity-cta">Consultar proyecto →</a>
+</div>
+<p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 hero-main-description" data-lang-key="hero-subtitle">
+            Cuéntanos qué necesitas y transformamos tu idea en una presencia digital moderna, responsive y preparada para presentar tu negocio como merece.
+        </p>
+<div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+<a class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="hero-button" href="#configurador">
+                Quiero mi web
+            </a>
+<a class="border border-teal-400/60 hover:border-teal-300 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition hover:-translate-y-0.5" data-lang-key="hero-portfolio-button" href="#portfolio">
+                Ver nuestros trabajos
+            </a>
+</div>
+<div class="final-conversion-meta hero-promo-meta" data-lang-key="hero-meta">Promoción lanzamiento: 99 € · Dominio, hosting y mantenimiento 100 €/año con código YOURDESIGNGPT</div>
+</section><section class="py-20 px-4 bg-[#0d1117]" id="configurador"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="config-eyebrow">Presupuesto guiado</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="config-title">Configura la idea de tu web</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="config-desc">Marca lo que necesitas y cuéntanos lo esencial para preparar una propuesta clara.</p></div>
 
 <div class="ydg-launch-toggle-card ydg-launch-toggle-v87" id="ydg-launch-toggle-card">
   <div class="ydg-launch-toggle-copy">
@@ -5243,7 +5342,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <form action="https://formsubmit.co/iampetersc@gmail.com" class="config-shell" id="web-config-form" method="POST">
 <input type="hidden" name="Código promocional" id="ydg-promo-field" value="">
 <input type="hidden" name="Precio promocional" id="ydg-promo-price" value="">
-<input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="En una frase: ¿qué necesitas que haga tu web?" rows="3"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Preparar mi presupuesto</button><p class="form-note mt-3" data-lang-key="config-note">Sin compromiso · Revisamos tu idea y te respondemos con una propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section aria-labelledby="portfolio-title" class="py-20 bg-[#0d1117] px-4" id="portfolio">
+<input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="En una frase: ¿qué necesitas que haga tu web?" rows="3"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Pedir presupuesto</button><p class="form-note mt-3" data-lang-key="config-note">Sin compromiso · Revisamos tu idea y te respondemos con una propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section aria-labelledby="portfolio-title" class="py-20 bg-[#0d1117] px-4" id="portfolio">
 <div class="container mx-auto section-box">
 <div class="text-center mb-12">
 <p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="portfolio-eyebrow">Portfolio</p>
@@ -5369,50 +5468,7 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 <p class="portfolio-note" data-lang-key="portfolio-note">Los proyectos mostrados son conceptos de portfolio con datos ficticios creados para enseñar distintos estilos, sectores y posibilidades de diseño.</p>
 </div>
-</section><section class="min-h-screen flex flex-col items-center justify-center text-center bg-[#0d1117] pt-12 px-4" id="hero-section">
-<div class="hero-brand-block hero-sales-block hero-cinematic mb-8">
-<div class="hero-aurora" aria-hidden="true"></div>
-<div class="hero-grid-fx" aria-hidden="true"></div>
-<div class="hero-particles" aria-hidden="true">
-<i></i><i></i><i></i><i></i><i></i><i></i>
-</div>
-<div class="hero-scan" aria-hidden="true"></div>
-<div class="final-conversion-label mb-6" data-lang-key="hero-eyebrow">YourDesignGPT · Diseño Web</div>
-<h1 class="hero-digital-title hero-brand-title hero-sales-title hero-cinematic-title" data-lang-key="hero-title">
-<span>Tu negocio ya existe.</span>
-<span><strong>Ahora haz que parezca profesional.</strong></span>
-</h1>
-<div aria-hidden="true" class="hero-brand-divider hero-sales-divider hero-energy-line">
-<span></span>
-<b></b>
-</div>
-<div class="hero-mini-status" aria-hidden="true">
-<span class="hero-status-dot"></span>
-<span class="hero-status-text">DESIGN / BUILD / LAUNCH</span>
-</div>
-</div>
-<div class="ydg-month-capacity hero-capacity-embed">
-  <span class="capacity-pulse"></span>
-  <div>
-    <small data-lang-key="capacity-month">AGENDA · AGOSTO 2026</small>
-    <strong data-lang-key="capacity-slots">2 plazas disponibles</strong>
-  </div>
-  <a href="#configurador" data-lang-key="capacity-cta">Consultar proyecto →</a>
-</div>
-<p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8 hero-main-description" data-lang-key="hero-subtitle">
-            Cuéntanos qué necesitas y transformamos tu idea en una presencia digital moderna, responsive y preparada para presentar tu negocio como merece.
-        </p>
-<div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-<a class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="hero-button" href="#configurador">
-                Quiero mi web
-            </a>
-<a class="border border-teal-400/60 hover:border-teal-300 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transition hover:-translate-y-0.5" data-lang-key="hero-portfolio-button" href="#portfolio">
-                Ver nuestros trabajos
-            </a>
-</div>
-<div class="final-conversion-meta hero-promo-meta" data-lang-key="hero-meta">Promoción lanzamiento: 99 € · Dominio, hosting y mantenimiento 100 €/año con código YOURDESIGNGPT</div>
-</section>
-<section aria-label="Indicadores del servicio" class="metric-strip"><div class="metric-grid"><div class="metric"><b>72h</b><span data-lang-key="metric-delivery">Objetivo de entrega</span></div><div class="metric"><b>Responsive</b><span data-lang-key="metric-responsive">Móvil · tablet · PC</span></div><div class="metric"><b>SEO Ready</b><span data-lang-key="metric-seo">Base técnica inicial</span></div><div class="metric"><b data-lang-key="metric-support-title">Soporte</b><span data-lang-key="metric-support">Revisión incluida</span></div></div></section>
+</section><section aria-label="Indicadores del servicio" class="metric-strip"><div class="metric-grid"><div class="metric"><b>72h</b><span data-lang-key="metric-delivery">Objetivo de entrega</span></div><div class="metric"><b>Responsive</b><span data-lang-key="metric-responsive">Móvil · tablet · PC</span></div><div class="metric"><b>SEO Ready</b><span data-lang-key="metric-seo">Base técnica inicial</span></div><div class="metric"><b data-lang-key="metric-support-title">Soporte</b><span data-lang-key="metric-support">Revisión incluida</span></div></div></section>
 
 
 <section class="ydg-terminal-section" aria-label="Estado técnico YourDesignGPT">
@@ -5924,13 +5980,13 @@ body.ydg-launch-open{overflow:hidden!important}
         const translations = {
             'es': {
                 'page-title': 'Diseño Web Profesional en Málaga | Web en 72h | YourDesignGPT',
-                'nav-services': 'Servicios',
+                 'nav-services': 'Inicio',
                 'nav-portfolio': 'Proyectos',
-                'nav-how-it-works': 'Cómo Funciona',
+                 'nav-how-it-works': 'Proceso',
                 'nav-reviews': 'Reseñas',
                 'nav-faq': 'FAQ',
-                'nav-contact': 'Contacto',
-                'nav-important-links': 'Links importantes',
+                 'nav-contact': 'Presupuesto',
+                 'nav-important-links': 'Qué incluye',
                 'hero-title': '<span>Tu negocio ya existe.</span><span><strong>Ahora haz que parezca profesional.</strong></span>',
                 'hero-subtitle': 'Cuéntanos qué necesitas y transformamos tu idea en una presencia digital moderna, responsive y preparada para presentar tu negocio como merece.',
                 'hero-eyebrow': 'YourDesignGPT · Diseño Web',
@@ -6308,13 +6364,13 @@ body.ydg-launch-open{overflow:hidden!important}
             },
             'en': {
                 'page-title': 'Professional Web Design in Málaga | Website in 72h | YourDesignGPT',
-                'nav-services': 'Services',
+                 'nav-services': 'Home',
                 'nav-portfolio': 'Projects',
-                'nav-how-it-works': 'How It Works',
+                 'nav-how-it-works': 'Process',
                 'nav-reviews': 'Reviews',
                 'nav-faq': 'FAQ',
-                'nav-contact': 'Contact',
-                'nav-important-links': 'Important links',
+                 'nav-contact': 'Quote',
+                 'nav-important-links': 'What’s included',
                 'hero-title': '<span>Your business already exists.</span><span><strong>Now make it look professional.</strong></span>',
                 'hero-subtitle': 'Professional web design for businesses, freelancers and brands in Málaga and across Spain. We create a modern, fast, responsive website and handle the design, setup and launch.',
                 'hero-button': 'See what is included',
@@ -7192,7 +7248,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=105', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=106', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7901,8 +7957,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=105" defer></script>
-<script src="robot-widget.js?v=105" defer></script>
+<script src="promo-manager.js?v=106" defer></script>
+<script src="robot-widget.js?v=106" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 </body>
 </html>

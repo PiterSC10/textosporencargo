@@ -1,20 +1,200 @@
 
-#ydg-robot-widget{position:fixed;left:7px;bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));z-index:2147483000;width:250px;height:196px;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;transform-origin:left bottom}
+/* V106 · robot limpio, sin fondo ni HUD */
+#ydg-robot-widget{
+  position:fixed;
+  left:7px;
+  bottom:max(18px,calc(env(safe-area-inset-bottom) + 12px));
+  z-index:2147483000;
+  width:250px;
+  height:196px;
+  cursor:pointer;
+  touch-action:manipulation;
+  user-select:none;
+  -webkit-user-select:none;
+  transform-origin:left bottom;
+}
 #ydg-robot-widget[hidden]{display:none!important}
-#ydg-robot-widget .yr-dog{position:absolute;left:0;bottom:10px;width:226px;height:180px;object-fit:contain;object-position:left bottom;pointer-events:none;background:transparent!important;filter:none!important}
-#ydg-robot-widget .yr-close{position:absolute;right:7px;top:6px;z-index:8;width:23px;height:23px;border-radius:50%;border:1px solid rgba(103,232,249,.24);background:rgba(3,8,15,.78);color:#e3fbff;display:grid;place-items:center;font:700 14px/1 system-ui;cursor:pointer}
-.yr-help{position:absolute;left:6px;bottom:0;color:rgba(148,163,184,.58);font:800 7px/1 system-ui;letter-spacing:.05em;white-space:nowrap;pointer-events:none}
-.yr-laser{position:absolute;left:186px;top:61px;z-index:5;width:510px;height:108px;transform-origin:left center;transform:translateY(-54px) rotate(-2deg);clip-path:polygon(0 49%,100% 0,100% 100%,0 51%);background:linear-gradient(90deg,rgba(34,211,238,.08),rgba(34,211,238,.16) 14%,rgba(56,189,248,.28) 34%,rgba(59,130,246,.44) 58%,rgba(37,99,235,.25) 79%,rgba(37,99,235,0));opacity:.82;pointer-events:none;animation:laserBreathe 2.8s ease-in-out infinite alternate}
-.yr-laser::after{content:"";position:absolute;inset:43% 0 43% 0;background:linear-gradient(90deg,rgba(224,252,255,.42),rgba(103,232,249,.78) 18%,rgba(56,189,248,.68) 50%,rgba(59,130,246,.20) 82%,transparent);filter:blur(1px)}
-@keyframes laserBreathe{from{opacity:.58;transform:translateY(-54px) rotate(-4deg) scaleX(.96)}to{opacity:.88;transform:translateY(-54px) rotate(3deg) scaleX(1.04)}}
-#ydg-robot-widget.act-wave .yr-dog{animation:cleanWave 1.2s cubic-bezier(.3,.8,.3,1)}
-#ydg-robot-widget.act-jump{animation:cleanJump 1.35s cubic-bezier(.18,.78,.25,1)}
-#ydg-robot-widget.act-run{animation:cleanRun 2.5s cubic-bezier(.55,.05,.35,1)}
-#ydg-robot-widget.act-run .yr-dog{animation:cleanStride .18s ease-in-out infinite alternate}
-@keyframes cleanWave{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-2.2deg) translateY(-4px)}52%{transform:rotate(1.6deg) translateY(1px)}76%{transform:rotate(-.8deg) translateY(-1px)}}
-@keyframes cleanJump{0%{transform:translateY(0) scaleY(1)}17%{transform:translateY(5px) scaleY(.96)}43%{transform:translateY(-68px) scaleY(1.03)}64%{transform:translateY(-52px)}84%{transform:translateY(6px) scaleY(.97)}100%{transform:translateY(0) scaleY(1)}}
-@keyframes cleanRun{0%{transform:translateX(0) scaleX(1)}36%{transform:translateX(calc(100vw - 260px)) scaleX(1)}44%{transform:translateX(calc(100vw - 260px)) scaleX(-1)}88%{transform:translateX(0) scaleX(-1)}97%,100%{transform:translateX(0) scaleX(1)}}
-@keyframes cleanStride{from{transform:translateY(0)}to{transform:translateY(-3px)}}
-#ydg-robot-reopen{display:none;position:fixed;left:8px;bottom:max(20px,calc(env(safe-area-inset-bottom) + 14px));z-index:2147483000;width:46px;height:46px;padding:2px;border-radius:50%;border:1px solid rgba(34,211,238,.24);background:#07101b;cursor:pointer}
-#ydg-robot-reopen.show{display:block}#ydg-robot-reopen img{width:100%;height:100%;object-fit:contain;background:transparent}
-@media(max-width:767px){#ydg-robot-widget{left:3px;bottom:max(112px,calc(env(safe-area-inset-bottom) + 104px));width:166px;height:141px}#ydg-robot-widget .yr-dog{width:154px;height:127px;bottom:9px}#ydg-robot-widget .yr-close{right:0;width:21px;height:21px;font-size:12px}.yr-help{font-size:5.5px}.yr-laser{left:129px;top:47px;width:260px;height:66px;transform:translateY(-33px) rotate(-2deg)}@keyframes laserBreathe{from{opacity:.52;transform:translateY(-33px) rotate(-5deg) scaleX(.95)}to{opacity:.82;transform:translateY(-33px) rotate(4deg) scaleX(1.03)}}@keyframes cleanRun{0%{transform:translateX(0) scaleX(1)}36%{transform:translateX(calc(100vw - 172px)) scaleX(1)}44%{transform:translateX(calc(100vw - 172px)) scaleX(-1)}88%{transform:translateX(0) scaleX(-1)}97%,100%{transform:translateX(0) scaleX(1)}}}
+
+#ydg-robot-widget .yr-dog{
+  position:absolute;
+  left:0;
+  bottom:10px;
+  width:226px;
+  height:180px;
+  object-fit:contain;
+  object-position:left bottom;
+  pointer-events:none;
+  background:transparent!important;
+  filter:none!important;
+}
+
+#ydg-robot-widget .yr-close{
+  position:absolute;
+  right:7px;
+  top:6px;
+  z-index:8;
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  border:1px solid rgba(103,232,249,.24);
+  background:rgba(3,8,15,.78);
+  color:#e3fbff;
+  display:grid;
+  place-items:center;
+  font:700 14px/1 system-ui;
+  cursor:pointer;
+}
+
+.yr-help{
+  position:absolute;
+  left:6px;
+  bottom:0;
+  color:rgba(148,163,184,.56);
+  font:800 7px/1 system-ui;
+  letter-spacing:.05em;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+/* Haz triangular: nace fino en la cara y se abre progresivamente. */
+.yr-laser{
+  position:absolute;
+  left:188px;
+  top:61px;
+  z-index:5;
+  width:520px;
+  height:112px;
+  transform-origin:left center;
+  transform:translateY(-56px) rotate(-2deg);
+  clip-path:polygon(0 49.4%,100% 0,100% 100%,0 50.6%);
+  background:linear-gradient(
+    90deg,
+    rgba(34,211,238,.06) 0%,
+    rgba(34,211,238,.14) 15%,
+    rgba(56,189,248,.25) 35%,
+    rgba(59,130,246,.40) 58%,
+    rgba(37,99,235,.23) 78%,
+    rgba(37,99,235,0) 100%
+  );
+  opacity:.84;
+  pointer-events:none;
+  animation:laserFocus 3.2s ease-in-out infinite alternate;
+}
+.yr-laser::after{
+  content:"";
+  position:absolute;
+  inset:44% 0 44%;
+  background:linear-gradient(
+    90deg,
+    rgba(207,250,254,.30),
+    rgba(103,232,249,.70) 20%,
+    rgba(56,189,248,.65) 52%,
+    rgba(59,130,246,.18) 82%,
+    transparent
+  );
+  filter:blur(1px);
+}
+@keyframes laserFocus{
+  from{opacity:.62;transform:translateY(-56px) rotate(-4deg) scaleX(.97)}
+  to{opacity:.90;transform:translateY(-56px) rotate(3deg) scaleX(1.03)}
+}
+
+/* Movimientos ligeros y limpios */
+#ydg-robot-widget.act-wave .yr-dog{
+  animation:cleanWave 1.2s cubic-bezier(.3,.8,.3,1);
+}
+#ydg-robot-widget.act-jump{
+  animation:cleanJump 1.35s cubic-bezier(.18,.78,.25,1);
+}
+#ydg-robot-widget.act-run{
+  animation:cleanRun 2.5s cubic-bezier(.55,.05,.35,1);
+}
+#ydg-robot-widget.act-run .yr-dog{
+  animation:cleanStride .18s ease-in-out infinite alternate;
+}
+@keyframes cleanWave{
+  0%,100%{transform:rotate(0) translateY(0)}
+  25%{transform:rotate(-2.2deg) translateY(-4px)}
+  52%{transform:rotate(1.6deg) translateY(1px)}
+  76%{transform:rotate(-.8deg) translateY(-1px)}
+}
+@keyframes cleanJump{
+  0%{transform:translateY(0) scaleY(1)}
+  17%{transform:translateY(5px) scaleY(.96)}
+  43%{transform:translateY(-68px) scaleY(1.03)}
+  64%{transform:translateY(-52px)}
+  84%{transform:translateY(6px) scaleY(.97)}
+  100%{transform:translateY(0) scaleY(1)}
+}
+@keyframes cleanRun{
+  0%{transform:translateX(0) scaleX(1)}
+  36%{transform:translateX(calc(100vw - 260px)) scaleX(1)}
+  44%{transform:translateX(calc(100vw - 260px)) scaleX(-1)}
+  88%{transform:translateX(0) scaleX(-1)}
+  97%,100%{transform:translateX(0) scaleX(1)}
+}
+@keyframes cleanStride{
+  from{transform:translateY(0)}
+  to{transform:translateY(-3px)}
+}
+
+#ydg-robot-reopen{
+  display:none;
+  position:fixed;
+  left:8px;
+  bottom:max(20px,calc(env(safe-area-inset-bottom) + 14px));
+  z-index:2147483000;
+  width:46px;
+  height:46px;
+  padding:2px;
+  border-radius:50%;
+  border:1px solid rgba(34,211,238,.24);
+  background:#07101b;
+  cursor:pointer;
+}
+#ydg-robot-reopen.show{display:block}
+#ydg-robot-reopen img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:transparent;
+}
+
+@media(max-width:767px){
+  #ydg-robot-widget{
+    left:3px;
+    bottom:max(112px,calc(env(safe-area-inset-bottom) + 104px));
+    width:166px;
+    height:141px;
+  }
+  #ydg-robot-widget .yr-dog{
+    width:154px;
+    height:127px;
+    bottom:9px;
+  }
+  #ydg-robot-widget .yr-close{
+    right:0;
+    width:21px;
+    height:21px;
+    font-size:12px;
+  }
+  .yr-help{font-size:5.5px}
+  .yr-laser{
+    left:129px;
+    top:47px;
+    width:270px;
+    height:68px;
+    transform:translateY(-34px) rotate(-2deg);
+  }
+  @keyframes laserFocus{
+    from{opacity:.52;transform:translateY(-34px) rotate(-5deg) scaleX(.96)}
+    to{opacity:.82;transform:translateY(-34px) rotate(4deg) scaleX(1.03)}
+  }
+  @keyframes cleanRun{
+    0%{transform:translateX(0) scaleX(1)}
+    36%{transform:translateX(calc(100vw - 172px)) scaleX(1)}
+    44%{transform:translateX(calc(100vw - 172px)) scaleX(-1)}
+    88%{transform:translateX(0) scaleX(-1)}
+    97%,100%{transform:translateX(0) scaleX(1)}
+  }
+}
