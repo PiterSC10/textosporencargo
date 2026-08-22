@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=112" rel="manifest"/>
+<link href="site.webmanifest?v=113" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5655,6 +5655,37 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* ===== V113 · BANDERAS SVG REALES ===== */
+.ydg-flag-choice{
+  width:52px!important;
+  height:44px!important;
+  padding:6px!important;
+  overflow:visible!important;
+}
+.ydg-flag-svg{
+  display:block!important;
+  width:36px!important;
+  height:24px!important;
+  border-radius:3px!important;
+  box-shadow:0 2px 7px rgba(0,0,0,.26),0 0 0 1px rgba(255,255,255,.08);
+  transition:transform .18s ease,filter .18s ease!important;
+}
+.ydg-flag-choice:hover .ydg-flag-svg,
+.ydg-flag-choice.is-selected .ydg-flag-svg{
+  transform:scale(1.08)!important;
+  filter:saturate(1.12) brightness(1.05)!important;
+}
+.ydg-flag-choice.is-selected{
+  border-color:#22d3ee!important;
+  box-shadow:0 0 0 1px rgba(34,211,238,.16) inset,0 0 18px rgba(34,211,238,.18)!important;
+}
+.ydg-flag-emoji{display:none!important}
+@media(max-width:560px){
+  .ydg-flag-choice{width:48px!important;height:42px!important;padding:5px!important}
+  .ydg-flag-svg{width:34px!important;height:23px!important}
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5670,9 +5701,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=112">
-<link rel="stylesheet" href="robot-widget.css?v=112">
-<link rel="stylesheet" href="compact-final.css?v=112">
+<link rel="stylesheet" href="promo-final.css?v=113">
+<link rel="stylesheet" href="robot-widget.css?v=113">
+<link rel="stylesheet" href="compact-final.css?v=113">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -5793,10 +5824,10 @@ body.ydg-launch-open{overflow:hidden!important}
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#hero-section">Inicio</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#configurador">Presupuesto</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#portfolio">Proyectos</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#calidad">Calidad</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#incluye">Qué incluye</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#como-funciona">Proceso</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#opiniones">Reseñas</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#calidad">Calidad</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#faq">FAQ</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#links-importantes">Contacto</a>
 </div>
@@ -5992,10 +6023,30 @@ body.ydg-launch-open{overflow:hidden!important}
             <div>
               <h4>Idioma</h4>
               <div class="ydg-language-row">
-                <button type="button" class="ydg-flag-choice is-selected" data-language="Español" aria-label="Español" title="Español"><span class="ydg-flag-emoji" aria-hidden="true">🇪🇸</span><span class="ydg-flag-tip" role="tooltip">Español</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-label="English" title="English"><span class="ydg-flag-emoji" aria-hidden="true">🇬🇧</span><span class="ydg-flag-tip" role="tooltip">English</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-label="Italiano" title="Italiano"><span class="ydg-flag-emoji" aria-hidden="true">🇮🇹</span><span class="ydg-flag-tip" role="tooltip">Italiano</span></button>
-                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-label="Français" title="Français"><span class="ydg-flag-emoji" aria-hidden="true">🇫🇷</span><span class="ydg-flag-tip" role="tooltip">Français</span></button>
+                <button type="button" class="ydg-flag-choice is-selected" data-language="Español" aria-label="Español" title="Español"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+          <rect width="36" height="24" rx="3" fill="#AA151B"/>
+          <rect y="6" width="36" height="12" fill="#F1BF00"/>
+          <rect x="9" y="9" width="2.7" height="6" rx=".4" fill="#AA151B"/>
+          <circle cx="10.35" cy="11.2" r=".55" fill="#F1BF00"/>
+          <rect x="8.1" y="14.5" width="4.5" height=".7" rx=".35" fill="#AA151B"/>
+        </svg><span class="ydg-flag-tip" role="tooltip">Español</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Inglés" aria-label="English" title="English"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+          <rect width="36" height="24" rx="3" fill="#012169"/>
+          <path d="M0 0L36 24M36 0L0 24" stroke="#FFF" stroke-width="5"/>
+          <path d="M0 0L36 24M36 0L0 24" stroke="#C8102E" stroke-width="2.2"/>
+          <path d="M18 0V24M0 12H36" stroke="#FFF" stroke-width="7"/>
+          <path d="M18 0V24M0 12H36" stroke="#C8102E" stroke-width="4"/>
+        </svg><span class="ydg-flag-tip" role="tooltip">English</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Italiano" aria-label="Italiano" title="Italiano"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+          <rect width="36" height="24" rx="3" fill="#FFF"/>
+          <path d="M0 3a3 3 0 0 1 3-3h9v24H3a3 3 0 0 1-3-3z" fill="#009246"/>
+          <path d="M24 0h9a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3h-9z" fill="#CE2B37"/>
+        </svg><span class="ydg-flag-tip" role="tooltip">Italiano</span></button>
+                <button type="button" class="ydg-flag-choice" data-language="Francés" aria-label="Français" title="Français"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+          <rect width="36" height="24" rx="3" fill="#FFF"/>
+          <path d="M0 3a3 3 0 0 1 3-3h9v24H3a3 3 0 0 1-3-3z" fill="#002395"/>
+          <path d="M24 0h9a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3h-9z" fill="#ED2939"/>
+        </svg><span class="ydg-flag-tip" role="tooltip">Français</span></button>
               </div>
             </div>
             <div>
@@ -8052,7 +8103,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=112', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=113', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -8761,8 +8812,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=112" defer></script>
-<script src="robot-widget.js?v=112" defer></script>
+<script src="promo-manager.js?v=113" defer></script>
+<script src="robot-widget.js?v=113" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 <script>
