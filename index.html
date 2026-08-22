@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=115" rel="manifest"/>
+<link href="site.webmanifest?v=116" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5924,6 +5924,81 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* ===== V116 · CORRECCIONES FUNCIONALES ===== */
+
+/* Español base permanece siempre seleccionado */
+.ydg-flag-choice.is-base{
+  cursor:default!important;
+}
+.ydg-flag-choice.is-base:active{
+  transform:none!important;
+}
+
+/* Campo condicional de Otros */
+.ydg-other-function-wrap{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid rgba(34,211,238,.18);
+  border-radius:13px;
+  background:linear-gradient(180deg,rgba(8,26,43,.78),rgba(5,17,30,.82));
+  animation:ydgOtherReveal .22s ease;
+}
+.ydg-other-function-wrap[hidden]{
+  display:none!important;
+}
+.ydg-other-function-wrap label{
+  display:block;
+  margin-bottom:7px;
+  color:#9fb4c8;
+  font-size:.64rem;
+  font-weight:800;
+}
+.ydg-other-function-input-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.ydg-other-function-input-row input{
+  flex:1;
+  min-width:0;
+  height:42px;
+  padding:0 12px;
+  border:1px solid rgba(59,130,246,.20);
+  border-radius:10px;
+  outline:none;
+  background:#071320;
+  color:#e7f5ff;
+  font-size:.74rem;
+}
+.ydg-other-function-input-row input:focus{
+  border-color:#22d3ee;
+  box-shadow:0 0 0 3px rgba(34,211,238,.07);
+}
+.ydg-other-function-input-row span{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  color:#67e8f9;
+  background:rgba(34,211,238,.08);
+  border:1px solid rgba(34,211,238,.16);
+  font-weight:900;
+}
+@keyframes ydgOtherReveal{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:none}
+}
+
+/* Technical check panel: force reliable visible states */
+.ydg-tech-check-panel:not([hidden]){
+  display:block!important;
+}
+#ydg-tech-check-toggle{
+  user-select:none;
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5939,9 +6014,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=115">
-<link rel="stylesheet" href="robot-widget.css?v=115">
-<link rel="stylesheet" href="compact-final.css?v=115">
+<link rel="stylesheet" href="promo-final.css?v=116">
+<link rel="stylesheet" href="robot-widget.css?v=116">
+<link rel="stylesheet" href="compact-final.css?v=116">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -6251,17 +6326,26 @@ body.ydg-launch-open{overflow:hidden!important}
             <button type="button" class="ydg-mini-choice" data-function="Reservas"><i>✓</i><span>Reservas</span></button>
             <button type="button" class="ydg-mini-choice" data-function="Galería"><i>▧</i><span>Galería</span></button>
             <button type="button" class="ydg-mini-choice is-selected" data-function="Contacto"><i>✉</i><span>Contacto</span></button>
-            <button type="button" class="ydg-mini-choice" data-function="Tienda"><i>◫</i><span>Tienda</span></button>
+            <button type="button" class="ydg-mini-choice" data-function="Reseñas"><i>★</i><span>Reseñas</span></button>
             <button type="button" class="ydg-mini-choice" data-function="Blog"><i>▤</i><span>Blog</span></button>
             <button type="button" class="ydg-mini-choice" data-function="FAQ"><i>?</i><span>FAQ</span></button>
             <button type="button" class="ydg-mini-choice" data-function="Otros"><i>•••</i><span>Otros</span></button>
+          
+</div>
+
+          <div id="ydg-other-function-wrap" class="ydg-other-function-wrap" hidden>
+            <label for="ydg-other-function-input">¿Qué apartado quieres añadir?</label>
+            <div class="ydg-other-function-input-row">
+              <input id="ydg-other-function-input" type="text" name="Otro apartado" maxlength="80" placeholder="Ej.: Área privada, carta digital, testimonios, reservas especiales...">
+              <span>+</span>
+            </div>
           </div>
 
           <div class="ydg-subgrid">
             <div>
               <h4>Idioma</h4><p class="ydg-language-help">Español incluido · máximo 1 idioma adicional</p>
               <div class="ydg-language-row">
-                <button type="button" class="ydg-flag-choice is-selected is-base" data-language="Español" aria-label="Español · idioma base incluido" title="Español · idioma base incluido" aria-pressed="true" disabled><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
+                <button type="button" class="ydg-flag-choice is-selected is-base" data-language="Español" aria-label="Español · idioma base incluido" title="Español · idioma base incluido" aria-pressed="true"><svg class="ydg-flag-svg" viewBox="0 0 36 24" aria-hidden="true">
           <rect width="36" height="24" rx="3" fill="#AA151B"/>
           <rect y="6" width="36" height="12" fill="#F1BF00"/>
           <rect x="9" y="9" width="2.7" height="6" rx=".4" fill="#AA151B"/>
@@ -6565,6 +6649,7 @@ body.ydg-launch-open{overflow:hidden!important}
     </div>
 
     
+
 <div id="ydg-tech-check-panel" class="ydg-tech-check-panel" hidden>
   <div class="ydg-tech-terminal-head">
     <div>
@@ -6576,12 +6661,12 @@ body.ydg-launch-open{overflow:hidden!important}
     <span class="ydg-live is-idle" id="ydg-check-live">STANDBY</span>
   </div>
 
-  <div class="ydg-check-progress-wrap">
+  <div class="ydg-check-progress-wrap" id="ydg-check-progress-wrap">
     <div class="ydg-check-progress-head">
       <span id="ydg-check-progress-label">Preparado para verificar</span>
       <b id="ydg-check-progress-value">0%</b>
     </div>
-    <div class="ydg-check-progress">
+    <div class="ydg-check-progress" id="ydg-check-progress">
       <i id="ydg-check-progress-bar"></i>
     </div>
   </div>
@@ -6600,6 +6685,7 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 </div>
 </section>
+
 
 
 
@@ -8349,7 +8435,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=115', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=116', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -9058,301 +9144,293 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=115" defer></script>
-<script src="robot-widget.js?v=115" defer></script>
+<script src="promo-manager.js?v=116" defer></script>
+<script src="robot-widget.js?v=116" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
-<script>
-(()=>{'use strict';
-const form=document.getElementById('ydg-visual-config-form');
-if(!form)return;
-
-let step=1;
-const panels=[...form.querySelectorAll('.ydg-step-panel')];
-const stepBtns=[...document.querySelectorAll('.ydg-config-steps button')];
-const typeField=document.getElementById('ydg-type-field');
-const fnField=document.getElementById('ydg-functions-field');
-const langField=document.getElementById('ydg-language-field');
-const styleField=document.getElementById('ydg-style-field');
-const summary=document.getElementById('ydg-summary-text');
-const status=document.getElementById('ydg-config-status');
-
-function syncSummary(){
- const type=typeField.value||'Negocio / Empresa';
- const funcs=[...form.querySelectorAll('.ydg-mini-choice.is-selected')].map(b=>b.dataset.function);
- fnField.value=funcs.join(', ');
- summary.textContent=[type, funcs.join(' + ')||'Sin funciones extra', `Idiomas: ${langField.value}`, styleField.value].join(' · ');
-}
-function setStep(n){
- step=Math.max(1,Math.min(3,n));
- panels.forEach(p=>p.classList.toggle('is-active',Number(p.dataset.step)===step));
- stepBtns.forEach(b=>b.classList.toggle('is-active',Number(b.dataset.stepJump)===step));
- document.getElementById('configurador').scrollIntoView({behavior:'smooth',block:'start'});
-}
-form.querySelectorAll('.ydg-choice-card').forEach(btn=>{
- btn.addEventListener('click',()=>{
-   form.querySelectorAll('.ydg-choice-card').forEach(x=>x.classList.remove('is-selected'));
-   btn.classList.add('is-selected');
-   typeField.value=btn.dataset.type;
-   syncSummary();
- });
-});
-form.querySelectorAll('.ydg-mini-choice').forEach(btn=>{
- btn.addEventListener('click',()=>{
-   btn.classList.toggle('is-selected');
-   syncSummary();
- });
-});
-form.querySelectorAll('[data-language]').forEach(btn=>{
- btn.addEventListener('click',()=>{
-   form.querySelectorAll('[data-language]').forEach(x=>x.classList.remove('is-selected'));
-   btn.classList.add('is-selected');
-   langField.value=btn.dataset.language;
-   syncSummary();
- });
-});
-
-const extraLanguageButtons=[...form.querySelectorAll('.ydg-flag-choice[data-language]:not(.is-base)')];
-
-function updateLanguageState(selectedBtn){
-  extraLanguageButtons.forEach(btn=>{
-    const active=btn===selectedBtn;
-    btn.classList.toggle('is-selected',active);
-    btn.setAttribute('aria-pressed',active?'true':'false');
-  });
-  const extra=selectedBtn ? selectedBtn.dataset.language : '';
-  langField.value=extra ? `Español + ${extra}` : 'Español';
-  syncSummary();
-}
-
-extraLanguageButtons.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const alreadySelected=btn.classList.contains('is-selected');
-    updateLanguageState(alreadySelected ? null : btn);
-  });
-});
-
-form.querySelectorAll('[data-style]').forEach(btn=>{
- btn.addEventListener('click',()=>{
-   form.querySelectorAll('[data-style]').forEach(x=>x.classList.remove('is-selected'));
-   btn.classList.add('is-selected');
-   styleField.value=btn.dataset.style;
-   syncSummary();
- });
-});
-form.querySelectorAll('.ydg-next-step').forEach(b=>b.addEventListener('click',()=>setStep(step+1)));
-form.querySelectorAll('.ydg-prev-step').forEach(b=>b.addEventListener('click',()=>setStep(step-1)));
-stepBtns.forEach(b=>b.addEventListener('click',()=>setStep(Number(b.dataset.stepJump))));
-
-form.addEventListener('submit',async e=>{
- e.preventDefault();
- status.textContent='Enviando tu configuración…';
- status.style.color='#7dd3fc';
- const submit=form.querySelector('.ydg-submit-budget');
- submit.disabled=true;
- try{
-   const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
-   if(!res.ok)throw new Error('send');
-   status.textContent='✓ Solicitud enviada. Nos pondremos en contacto contigo.';
-   status.style.color='#6ee7b7';
-   submit.querySelector('span').textContent='Solicitud enviada';
- }catch(_){
-   status.textContent='No se pudo enviar ahora. Puedes usar el botón de contacto o WhatsApp.';
-   status.style.color='#fca5a5';
- }finally{
-   submit.disabled=false;
- }
-});
-typeField.value='Negocio / Empresa';
-syncSummary();
-})();
-</script>
 
 
-<script>
-(()=>{'use strict';
-const btn=document.getElementById('ydg-tech-check-toggle');
-const panel=document.getElementById('ydg-tech-check-panel');
-if(!btn||!panel)return;
-btn.addEventListener('click',()=>{
-  const open=btn.getAttribute('aria-expanded')==='true';
-  btn.setAttribute('aria-expanded',String(!open));
-  panel.hidden=open;
-});
-})();
-</script>
 
 
-<script>
-(()=>{'use strict';
-const flags=[...document.querySelectorAll('.ydg-flag-choice:not(.is-base)')];
-if(!flags.length)return;
 
-flags.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    flags.forEach(x=>x.classList.remove('show-tip'));
-    btn.classList.add('show-tip');
-    clearTimeout(btn._ydgTipTimer);
-    btn._ydgTipTimer=setTimeout(()=>btn.classList.remove('show-tip'),1100);
-  });
-});
-})();
-</script>
+
+
+
+
+
 
 
 <script>
 (()=>{'use strict';
 
-const btn=document.getElementById('ydg-tech-check-toggle');
-const panel=document.getElementById('ydg-tech-check-panel');
-const lines=document.getElementById('ydg-check-lines');
-const live=document.getElementById('ydg-check-live');
-const finalStatus=document.getElementById('ydg-check-final-status');
-const progressBar=document.getElementById('ydg-check-progress-bar');
-const progressValue=document.getElementById('ydg-check-progress-value');
-const progressLabel=document.getElementById('ydg-check-progress-label');
-const progressWrap=document.querySelector('.ydg-check-progress-wrap');
-const progressTrack=document.querySelector('.ydg-check-progress');
+function initV116Configurator(){
+  const form=document.getElementById('ydg-visual-config-form');
+  if(!form)return;
 
-if(!btn||!panel||!lines||!live||!finalStatus||!progressBar||!progressValue||!progressLabel)return;
+  const langField=document.getElementById('ydg-language-field');
+  const summary=document.getElementById('ydg-summary-text');
+  const baseBtn=form.querySelector('.ydg-flag-choice.is-base[data-language="Español"]');
+  const extraBtns=[...form.querySelectorAll('.ydg-flag-choice[data-language]:not(.is-base)')];
+  const otherBtn=form.querySelector('.ydg-mini-choice[data-function="Otros"]');
+  const otherWrap=document.getElementById('ydg-other-function-wrap');
+  const otherInput=document.getElementById('ydg-other-function-input');
 
-const checks=[
-  ['HTTPS / SSL READY','READY'],
-  ['RESPONSIVE UI','VERIFIED'],
-  ['SEO BASE','ACTIVE'],
-  ['FORMULARIOS','READY'],
-  ['PORTFOLIO','ONLINE'],
-  ['NAVEGACIÓN INTERNA','OK'],
-  ['HOSTING','MANAGED'],
-  ['MANTENIMIENTO','INCLUDED']
-];
-
-let running=false;
-let completed=false;
-let runToken=0;
-
-const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-
-async function typeText(el,text,speed=24,token){
-  el.textContent='';
-  for(let i=0;i<text.length;i++){
-    if(token!==runToken)return false;
-    el.textContent+=text[i];
-    await wait(speed);
+  function currentType(){
+    return form.querySelector('.ydg-choice-card.is-selected')?.dataset.type || 'Negocio / Empresa';
   }
-  return true;
-}
-
-function resetPanel(){
-  lines.innerHTML='<div class="ydg-check-placeholder"><span>system@ydg:~$</span><b class="ydg-terminal-cursor">▌</b></div>';
-  progressBar.style.width='0%';
-  progressValue.textContent='0%';
-  progressLabel.textContent='Preparado para verificar';
-  progressWrap.classList.remove('is-complete');
-  progressTrack.classList.remove('is-complete');
-  live.className='ydg-live is-idle';
-  live.textContent='STANDBY';
-  finalStatus.className='';
-  finalStatus.innerHTML='<i></i> STANDBY';
-  btn.classList.remove('is-checking','is-complete');
-  btn.innerHTML='Verificación técnica <span>→</span>';
-}
-
-async function runCheck(){
-  if(running)return;
-  running=true;
-  completed=false;
-  const token=++runToken;
-
-  btn.classList.remove('is-complete');
-  btn.classList.add('is-checking');
-  btn.innerHTML='VERIFICANDO... <span>↻</span>';
-
-  live.className='ydg-live is-checking';
-  live.textContent='CHECKING';
-
-  finalStatus.className='is-checking';
-  finalStatus.innerHTML='<i></i> VERIFYING';
-
-  progressLabel.textContent='Ejecutando comprobaciones del sistema';
-  lines.innerHTML='';
-
-  for(let i=0;i<checks.length;i++){
-    if(token!==runToken)return;
-
-    const [name,result]=checks[i];
-    const row=document.createElement('div');
-    row.className='ydg-check-row is-visible is-checking';
-    row.innerHTML='<span class="ydg-check-name"></span><b class="ydg-check-state">checking...</b>';
-    lines.appendChild(row);
-
-    const nameEl=row.querySelector('.ydg-check-name');
-    const stateEl=row.querySelector('.ydg-check-state');
-
-    await typeText(nameEl,name,18,token);
-    await wait(120 + Math.random()*110);
-
-    row.classList.remove('is-checking');
-    row.classList.add('is-ok');
-    stateEl.textContent='✓ '+result;
-
-    const pct=Math.round(((i+1)/checks.length)*100);
-    progressBar.style.width=pct+'%';
-    progressValue.textContent=pct+'%';
-
-    await wait(110);
+  function currentFunctions(){
+    return [...form.querySelectorAll('.ydg-mini-choice.is-selected')]
+      .map(b=>{
+        if(b.dataset.function==='Otros' && otherInput?.value.trim()){
+          return `Otros: ${otherInput.value.trim()}`;
+        }
+        return b.dataset.function;
+      });
+  }
+  function currentStyle(){
+    return form.querySelector('[data-style].is-selected')?.dataset.style || 'Moderno';
+  }
+  function refreshSummary(){
+    if(!summary)return;
+    const funcs=currentFunctions();
+    summary.textContent=[
+      currentType(),
+      funcs.join(' + ') || 'Sin funciones extra',
+      `Idiomas: ${langField?.value || 'Español'}`,
+      currentStyle()
+    ].join(' · ');
   }
 
-  if(token!==runToken)return;
+  // Spanish always stays selected.
+  if(baseBtn){
+    baseBtn.classList.add('is-selected');
+    baseBtn.setAttribute('aria-pressed','true');
+    baseBtn.addEventListener('click',e=>{
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      baseBtn.classList.add('is-selected');
+      baseBtn.setAttribute('aria-pressed','true');
+      if(langField && !langField.value.startsWith('Español')){
+        langField.value='Español';
+      }
+      refreshSummary();
+    },true);
+  }
 
-  progressWrap.classList.add('is-complete');
-  progressTrack.classList.add('is-complete');
-  progressLabel.textContent='Verificación visual completada';
+  // Maximum 1 extra language.
+  extraBtns.forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      e.preventDefault();
+      e.stopImmediatePropagation();
 
-  live.className='ydg-live is-complete';
-  live.textContent='LIVE';
+      const wasSelected=btn.classList.contains('is-selected');
 
-  finalStatus.className='is-complete';
-  finalStatus.innerHTML='<i></i> ALL SYSTEMS OPERATIONAL';
+      extraBtns.forEach(x=>{
+        x.classList.remove('is-selected','show-tip');
+        x.setAttribute('aria-pressed','false');
+      });
 
-  btn.classList.remove('is-checking');
-  btn.classList.add('is-complete');
-  btn.innerHTML='✓ VERIFICACIÓN COMPLETADA <span>↓</span>';
+      if(!wasSelected){
+        btn.classList.add('is-selected','show-tip');
+        btn.setAttribute('aria-pressed','true');
+        if(langField)langField.value=`Español + ${btn.dataset.language}`;
 
-  completed=true;
-  running=false;
-}
+        clearTimeout(btn._ydgTipTimer);
+        btn._ydgTipTimer=setTimeout(()=>btn.classList.remove('show-tip'),1000);
+      }else{
+        if(langField)langField.value='Español';
+      }
 
-btn.addEventListener('click',async()=>{
-  const open=btn.getAttribute('aria-expanded')==='true';
+      if(baseBtn){
+        baseBtn.classList.add('is-selected');
+        baseBtn.setAttribute('aria-pressed','true');
+      }
+      refreshSummary();
+    },true);
+  });
 
-  if(open){
-    runToken++;
-    running=false;
-    btn.setAttribute('aria-expanded','false');
-    panel.hidden=true;
-    btn.classList.remove('is-checking');
-    if(completed){
-      btn.classList.add('is-complete');
-      btn.innerHTML='✓ VERIFICACIÓN COMPLETADA <span>→</span>';
-    }else{
-      resetPanel();
+  // Others field.
+  if(otherBtn && otherWrap){
+    const syncOther=()=>{
+      const active=otherBtn.classList.contains('is-selected');
+      otherWrap.hidden=!active;
+      if(!active && otherInput)otherInput.value='';
+      refreshSummary();
+    };
+
+    otherBtn.addEventListener('click',()=>{
+      // Existing listener toggles class; run after it.
+      setTimeout(syncOther,0);
+    });
+
+    otherInput?.addEventListener('input',refreshSummary);
+    syncOther();
+  }
+
+  // Keep summary synchronized when other visual choices change.
+  form.addEventListener('click',e=>{
+    if(e.target.closest('.ydg-choice-card,.ydg-mini-choice,[data-style]')){
+      setTimeout(refreshSummary,0);
     }
+  });
+
+  if(langField && !langField.value.startsWith('Español')){
+    langField.value='Español';
+  }
+  refreshSummary();
+}
+
+document.readyState==='loading'
+  ? document.addEventListener('DOMContentLoaded',initV116Configurator,{once:true})
+  : initV116Configurator();
+})();
+</script>
+
+
+<script>
+(()=>{'use strict';
+
+function initYDGSystemCheck(){
+  const btn=document.getElementById('ydg-tech-check-toggle');
+  const panel=document.getElementById('ydg-tech-check-panel');
+  const lines=document.getElementById('ydg-check-lines');
+  const live=document.getElementById('ydg-check-live');
+  const finalStatus=document.getElementById('ydg-check-final-status');
+  const progressBar=document.getElementById('ydg-check-progress-bar');
+  const progressValue=document.getElementById('ydg-check-progress-value');
+  const progressLabel=document.getElementById('ydg-check-progress-label');
+  const progressWrap=document.getElementById('ydg-check-progress-wrap');
+  const progressTrack=document.getElementById('ydg-check-progress');
+
+  if(!btn||!panel||!lines||!live||!finalStatus||!progressBar||!progressValue||!progressLabel||!progressWrap||!progressTrack){
     return;
   }
 
-  btn.setAttribute('aria-expanded','true');
-  panel.hidden=false;
+  const checks=[
+    ['HTTPS / SSL READY','READY'],
+    ['RESPONSIVE UI','VERIFIED'],
+    ['SEO BASE','ACTIVE'],
+    ['FORMULARIOS','READY'],
+    ['PORTFOLIO','ONLINE'],
+    ['NAVEGACIÓN INTERNA','OK'],
+    ['HOSTING','MANAGED'],
+    ['MANTENIMIENTO','INCLUDED']
+  ];
 
-  if(completed){
-    // Replay the visual system check every time the user opens it.
-    resetPanel();
+  let runId=0;
+  let busy=false;
+
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+
+  function reset(){
+    lines.innerHTML='<div class="ydg-check-placeholder"><span>system@ydg:~$</span><b class="ydg-terminal-cursor">▌</b></div>';
+    progressBar.style.width='0%';
+    progressValue.textContent='0%';
+    progressLabel.textContent='Preparado para verificar';
+    progressWrap.classList.remove('is-complete');
+    progressTrack.classList.remove('is-complete');
+    live.className='ydg-live is-idle';
+    live.textContent='STANDBY';
+    finalStatus.className='';
+    finalStatus.innerHTML='<i></i> STANDBY';
+    btn.classList.remove('is-checking','is-complete');
+    btn.innerHTML='Verificación técnica <span>→</span>';
   }
 
-  requestAnimationFrame(()=>runCheck());
-});
+  async function typeInto(el,text,run){
+    el.textContent='';
+    for(const ch of text){
+      if(run!==runId)return false;
+      el.textContent+=ch;
+      await wait(12);
+    }
+    return true;
+  }
 
-resetPanel();
+  async function runCheck(){
+    if(busy)return;
+    busy=true;
+    const run=++runId;
+
+    lines.innerHTML='';
+    progressBar.style.width='0%';
+    progressValue.textContent='0%';
+    progressLabel.textContent='Ejecutando comprobaciones del sistema';
+    progressWrap.classList.remove('is-complete');
+    progressTrack.classList.remove('is-complete');
+
+    btn.classList.remove('is-complete');
+    btn.classList.add('is-checking');
+    btn.innerHTML='VERIFICANDO... <span>↻</span>';
+
+    live.className='ydg-live is-checking';
+    live.textContent='CHECKING';
+    finalStatus.className='is-checking';
+    finalStatus.innerHTML='<i></i> VERIFYING';
+
+    for(let i=0;i<checks.length;i++){
+      if(run!==runId){busy=false;return;}
+
+      const [name,result]=checks[i];
+      const row=document.createElement('div');
+      row.className='ydg-check-row is-visible is-checking';
+      row.innerHTML='<span class="ydg-check-name"></span><b class="ydg-check-state">checking...</b>';
+      lines.appendChild(row);
+
+      const ok=await typeInto(row.querySelector('.ydg-check-name'),name,run);
+      if(!ok){busy=false;return;}
+
+      await wait(90);
+
+      row.classList.remove('is-checking');
+      row.classList.add('is-ok');
+      row.querySelector('.ydg-check-state').textContent='✓ '+result;
+
+      const pct=Math.round(((i+1)/checks.length)*100);
+      progressBar.style.width=pct+'%';
+      progressValue.textContent=pct+'%';
+      await wait(90);
+    }
+
+    progressWrap.classList.add('is-complete');
+    progressTrack.classList.add('is-complete');
+    progressLabel.textContent='Verificación visual completada';
+    live.className='ydg-live is-complete';
+    live.textContent='LIVE';
+    finalStatus.className='is-complete';
+    finalStatus.innerHTML='<i></i> ALL SYSTEMS OPERATIONAL';
+
+    btn.classList.remove('is-checking');
+    btn.classList.add('is-complete');
+    btn.innerHTML='✓ VERIFICACIÓN COMPLETADA <span>↓</span>';
+
+    busy=false;
+  }
+
+  btn.addEventListener('click',()=>{
+    const open=btn.getAttribute('aria-expanded')==='true';
+
+    if(open){
+      runId++;
+      busy=false;
+      panel.hidden=true;
+      btn.setAttribute('aria-expanded','false');
+      reset();
+      return;
+    }
+
+    panel.hidden=false;
+    btn.setAttribute('aria-expanded','true');
+    reset();
+    requestAnimationFrame(()=>runCheck());
+  });
+
+  reset();
+}
+
+document.readyState==='loading'
+  ? document.addEventListener('DOMContentLoaded',initYDGSystemCheck,{once:true})
+  : initYDGSystemCheck();
 })();
 </script>
 
