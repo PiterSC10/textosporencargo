@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=106" rel="manifest"/>
+<link href="site.webmanifest?v=107" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -5070,6 +5070,141 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* ===== V107 · CABECERA / NAVEGACIÓN ===== */
+.ydg-header-brand{display:inline-flex!important;align-items:center!important;gap:.62rem!important;text-decoration:none!important;white-space:nowrap!important}
+.ydg-header-logo{width:38px!important;height:38px!important;object-fit:contain!important;border-radius:9px!important;flex:none!important}
+#nav-content > div{display:flex;align-items:center;justify-content:flex-end;gap:.78rem;flex-wrap:nowrap}
+#nav-content .nav-link{margin-right:0!important;white-space:nowrap;font-size:.74rem;line-height:1;font-weight:650}
+@media(max-width:1023px){
+  #nav-content > div{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+  #nav-content .nav-link{width:100%;padding:.48rem 0;font-size:.92rem}
+}
+
+/* ===== V107 · QUÉ INCLUYE: horizontal y legible ===== */
+#incluye .included-shell{max-width:1180px!important}
+#incluye .included-top{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.05fr) minmax(430px,.95fr)!important;
+  gap:clamp(2rem,4vw,4rem)!important;
+  align-items:center!important
+}
+#incluye .included-top > div:first-child{width:100%!important;min-width:0!important}
+#incluye #included-title{
+  width:100%!important;max-width:760px!important;white-space:normal!important;
+  word-break:normal!important;overflow-wrap:normal!important;
+  font-size:clamp(2.35rem,4.8vw,4.4rem)!important;line-height:1.02!important
+}
+#incluye .included-top > div:first-child > p:last-child{
+  width:100%!important;max-width:680px!important;font-size:1rem!important;line-height:1.7!important
+}
+#incluye .included-price-promo{
+  width:100%!important;min-width:0!important;display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:12px!important
+}
+#incluye .launch-offer-pill{
+  width:100%!important;min-width:0!important;display:grid!important;
+  grid-template-columns:auto minmax(0,1fr)!important;
+  grid-template-areas:"label label" "price note"!important;
+  align-items:center!important;column-gap:14px!important;row-gap:4px!important;text-align:left!important
+}
+#incluye .launch-offer-pill small{grid-area:label!important;justify-self:start!important}
+#incluye .launch-offer-pill strong{grid-area:price!important;font-size:clamp(3rem,5vw,4.7rem)!important;white-space:nowrap!important}
+#incluye .launch-offer-pill span{
+  grid-area:note!important;margin:0!important;max-width:330px!important;
+  font-size:.79rem!important;line-height:1.5!important;text-align:left!important
+}
+#incluye .included-info-btn{align-self:center!important}
+@media(max-width:900px){
+  #incluye .included-top{grid-template-columns:1fr!important;gap:1.5rem!important}
+  #incluye .included-price-promo{max-width:680px!important;margin:0 auto!important}
+}
+@media(max-width:560px){
+  #incluye .included-price-promo{grid-template-columns:1fr!important}
+  #incluye .launch-offer-pill{grid-template-columns:1fr!important;grid-template-areas:"label" "price" "note"!important}
+  #incluye .included-info-btn{justify-self:start!important}
+}
+
+/* ===== V107 · ANCLAS ===== */
+#hero-section,#configurador,#portfolio,#incluye,#como-funciona,#opiniones,#calidad,#faq,#links-importantes{scroll-margin-top:92px}
+
+
+/* ===== V108 · CONFIGURADOR VISUAL ===== */
+.ydg-config-v108{
+  padding:52px 18px 58px;
+  background:
+    radial-gradient(circle at 12% 12%,rgba(34,211,238,.08),transparent 28%),
+    radial-gradient(circle at 88% 20%,rgba(168,85,247,.06),transparent 26%),
+    #0d1117;
+}
+.ydg-config-shell{
+  max-width:1260px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(300px,.75fr);
+  gap:22px;
+  align-items:start;
+}
+.ydg-config-main,.ydg-config-side{
+  border:1px solid rgba(56,189,248,.19);
+  background:linear-gradient(180deg,rgba(7,17,31,.95),rgba(4,10,19,.96));
+  border-radius:24px;
+  box-shadow:0 24px 70px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.015) inset;
+}
+.ydg-config-main{padding:26px}
+.ydg-config-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:24px}
+.ydg-config-kicker{display:inline-block;color:#34d399;font-size:.68rem;font-weight:900;letter-spacing:.16em;margin-bottom:8px}
+.ydg-config-head h2{margin:0;color:white;font-size:clamp(2rem,4.2vw,3.6rem);line-height:.98;font-weight:900}
+.ydg-config-head h2 strong{background:linear-gradient(90deg,#5eead4,#38bdf8,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ydg-config-head p{margin:10px 0 0;color:#9fb0c4;font-size:.92rem}
+.ydg-config-steps{display:flex;align-items:center;gap:5px}
+.ydg-config-steps button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(59,130,246,.30);background:#0b1626;color:#70839a;font-weight:900;cursor:pointer;transition:.2s}
+.ydg-config-steps button.is-active{background:#22d3ee;color:#021019;border-color:#67e8f9;box-shadow:0 0 18px rgba(34,211,238,.42)}
+.ydg-config-steps span{width:15px;height:1px;background:rgba(59,130,246,.28)}
+.ydg-step-panel{display:none}.ydg-step-panel.is-active{display:block;animation:ydgStepIn .28s ease}
+@keyframes ydgStepIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ydg-block-title{margin-bottom:14px}.ydg-block-title>span{color:#38bdf8;font-size:.60rem;font-weight:900;letter-spacing:.15em}.ydg-block-title h3{margin:4px 0 0;color:#eaf5ff;font-size:1rem;font-weight:850}
+.ydg-type-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ydg-choice-card,.ydg-mini-choice,.ydg-pill-choice{
+  appearance:none;border:1px solid rgba(59,130,246,.20);background:linear-gradient(180deg,rgba(12,29,50,.72),rgba(8,18,32,.80));color:white;cursor:pointer;transition:.22s ease
+}
+.ydg-choice-card{min-height:132px;border-radius:16px;padding:15px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}
+.ydg-choice-card:hover,.ydg-choice-card.is-selected{border-color:#22d3ee;background:radial-gradient(circle at 50% 10%,rgba(34,211,238,.18),transparent 52%),linear-gradient(180deg,rgba(9,33,54,.90),rgba(4,18,32,.90));box-shadow:0 0 0 1px rgba(34,211,238,.18) inset,0 0 22px rgba(34,211,238,.12);transform:translateY(-2px)}
+.ydg-choice-icon{font-size:1.8rem;color:#22d3ee;filter:drop-shadow(0 0 9px rgba(34,211,238,.35))}
+.ydg-choice-card b{font-size:.82rem}.ydg-choice-card small{max-width:120px;color:#8294aa;font-size:.64rem;line-height:1.35}
+.ydg-functions-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.ydg-mini-choice{border-radius:12px;padding:12px 7px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ydg-mini-choice i{font-style:normal;color:#7c3aed;font-size:1.15rem}.ydg-mini-choice span{font-size:.67rem;color:#c8d8e8}
+.ydg-mini-choice:hover,.ydg-mini-choice.is-selected{border-color:#22d3ee;box-shadow:0 0 18px rgba(34,211,238,.10);background:linear-gradient(180deg,rgba(10,42,61,.90),rgba(5,23,39,.90))}
+.ydg-mini-choice.is-selected i{color:#22d3ee}
+.ydg-subgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.ydg-subgrid h4{color:#dbeafe;font-size:.78rem;margin:0 0 8px}
+.ydg-language-row,.ydg-style-row{display:flex;flex-wrap:wrap;gap:7px}
+.ydg-pill-choice{border-radius:10px;padding:9px 11px;font-size:.68rem;color:#aebfd2}
+.ydg-pill-choice:hover,.ydg-pill-choice.is-selected{border-color:#22d3ee;color:#eafcff;box-shadow:0 0 14px rgba(34,211,238,.08);background:rgba(8,43,61,.75)}
+.ydg-step-actions{display:flex;justify-content:flex-end;margin-top:20px}.ydg-step-actions.dual{justify-content:space-between}
+.ydg-next-step,.ydg-prev-step{border:0;border-radius:12px;padding:11px 16px;font-weight:850;cursor:pointer}
+.ydg-next-step{background:linear-gradient(90deg,#22d3ee,#3b82f6,#a855f7);color:#06111b;box-shadow:0 8px 20px rgba(59,130,246,.18)}
+.ydg-prev-step{background:#0c1828;color:#9db0c4;border:1px solid rgba(59,130,246,.18)}
+.ydg-final-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.ydg-input-wide{grid-column:1/-1}
+.ydg-input-wrap{display:flex;flex-direction:column;gap:6px}.ydg-input-wrap>span{color:#9fb0c4;font-size:.68rem;font-weight:800}
+.ydg-input-wrap input,.ydg-input-wrap textarea{width:100%;border:1px solid rgba(59,130,246,.18);border-radius:12px;background:#081321;color:#e8f5ff;padding:12px 13px;outline:none}
+.ydg-input-wrap input:focus,.ydg-input-wrap textarea:focus{border-color:#22d3ee;box-shadow:0 0 0 3px rgba(34,211,238,.08)}
+.ydg-summary{margin-top:16px;padding:14px;border-radius:14px;border:1px solid rgba(56,189,248,.16);background:linear-gradient(90deg,rgba(8,29,49,.78),rgba(12,20,39,.72));display:flex;justify-content:space-between;align-items:center;gap:18px}
+.ydg-summary>div:first-child span{display:block;color:#57d8c5;font-size:.58rem;font-weight:900;letter-spacing:.12em}.ydg-summary>div:first-child strong{display:block;color:#e8f4ff;font-size:.76rem;margin-top:5px}
+.ydg-price-summary{text-align:right}.ydg-price-summary small{display:block;color:#fde047;font-size:.52rem;font-weight:900;letter-spacing:.10em}.ydg-price-summary b{font-size:1.5rem;color:#fde047}.ydg-price-summary span{color:#7dd3fc;font-size:.68rem;margin-left:5px}
+.ydg-submit-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
+.ydg-submit-budget{min-width:260px;border:0;border-radius:999px;padding:14px 22px;background:linear-gradient(90deg,#22d3ee,#60a5fa,#c026d3,#ec4899);color:#07101a;font-weight:950;display:inline-flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;box-shadow:0 12px 30px rgba(192,38,211,.18)}
+.ydg-submit-note{text-align:right;color:#64748b;font-size:.61rem;margin:8px 0 0}.ydg-config-status{min-height:20px;margin-top:8px;font-size:.72rem;text-align:right}
+.ydg-config-side{padding:24px;position:sticky;top:96px}
+.ydg-selling-head>span{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(34,211,238,.32);color:#22d3ee;font-size:.56rem;font-weight:900;letter-spacing:.08em}.ydg-selling-head h3{font-size:2rem;line-height:.98;color:white;margin:13px 0 8px;font-weight:900}.ydg-selling-head h3 strong{background:linear-gradient(90deg,#22d3ee,#3b82f6,#d946ef);-webkit-background-clip:text;background-clip:text;color:transparent}.ydg-selling-head p{margin:0;color:#e5edf6;font-size:1rem;font-weight:800}.ydg-selling-head>small{display:block;margin-top:4px;color:#8394a8;font-size:.66rem}
+.ydg-selling-points{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.ydg-selling-points>div{display:flex;gap:9px;align-items:center;padding:10px;border-radius:12px;border:1px solid rgba(59,130,246,.17);background:rgba(8,20,35,.72)}.ydg-selling-points i{font-style:normal;color:#22d3ee;font-size:1.05rem}.ydg-selling-points b{display:block;color:#e6f3ff;font-size:.68rem}.ydg-selling-points small{display:block;color:#718399;font-size:.52rem;margin-top:2px}
+.ydg-launch-box{margin-top:18px;padding:16px;border-radius:16px;border:1px solid rgba(56,189,248,.20);background:linear-gradient(120deg,rgba(7,18,31,.96),rgba(10,18,35,.90));display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ydg-launch-price-v108 small{display:block;color:#e7eef7;font-size:.55rem;font-weight:850}.ydg-launch-price-v108 strong{display:block;color:#facc15;font-size:3rem;line-height:.9;margin-top:7px;text-shadow:0 0 16px rgba(250,204,21,.18)}.ydg-launch-price-v108>span{display:block;color:#93a4b8;font-size:.52rem;margin-top:7px}.ydg-launch-price-v108>b{display:inline-block;margin-top:8px;padding:5px 7px;border-radius:999px;border:1px solid rgba(34,211,238,.22);color:#22d3ee;font-size:.45rem}
+.ydg-launch-yearly>strong{color:#eaf6ff;font-size:1.1rem}.ydg-launch-yearly>strong span{color:#7dd3fc;font-size:.66rem}.ydg-launch-yearly ul{list-style:none;padding:0;margin:9px 0 5px}.ydg-launch-yearly li{position:relative;padding-left:12px;color:#c6d5e3;font-size:.55rem;margin:5px 0}.ydg-launch-yearly li::before{content:"✓";position:absolute;left:0;color:#22d3ee}.ydg-launch-yearly>small{color:#64748b;font-size:.48rem}
+@media(max-width:1050px){.ydg-config-shell{grid-template-columns:1fr}.ydg-config-side{position:static}.ydg-config-side{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ydg-launch-box{margin-top:0}}
+@media(max-width:800px){.ydg-type-grid{grid-template-columns:repeat(2,1fr)}.ydg-functions-grid{grid-template-columns:repeat(4,1fr)}.ydg-subgrid{grid-template-columns:1fr}.ydg-final-grid{grid-template-columns:1fr 1fr}.ydg-config-side{grid-template-columns:1fr}.ydg-launch-box{margin-top:0}}
+@media(max-width:560px){.ydg-config-v108{padding:38px 12px}.ydg-config-main{padding:16px}.ydg-config-head{flex-direction:column}.ydg-config-steps{align-self:flex-end}.ydg-type-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.ydg-choice-card{min-height:112px;padding:11px 7px}.ydg-choice-card small{font-size:.58rem}.ydg-functions-grid{grid-template-columns:repeat(3,1fr)}.ydg-final-grid{grid-template-columns:1fr}.ydg-summary{align-items:flex-start;flex-direction:column}.ydg-price-summary{text-align:left}.ydg-submit-row{align-items:stretch;flex-direction:column}.ydg-submit-budget{width:100%;min-width:0}.ydg-selling-points{grid-template-columns:1fr 1fr}.ydg-launch-box{grid-template-columns:1fr 1fr}}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5085,9 +5220,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=106">
-<link rel="stylesheet" href="robot-widget.css?v=106">
-<link rel="stylesheet" href="compact-final.css?v=106">
+<link rel="stylesheet" href="promo-final.css?v=108">
+<link rel="stylesheet" href="robot-widget.css?v=108">
+<link rel="stylesheet" href="compact-final.css?v=107">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -5187,7 +5322,10 @@ body.ydg-launch-open{overflow:hidden!important}
 <header class="bg-[#0d1117] text-white py-4 px-6 shadow-lg fixed w-full z-50 top-0">
 <nav aria-label="Navegación principal" class="container mx-auto flex justify-between items-center flex-wrap">
 <div class="text-2xl font-bold">
-<a class="text-white hover:text-gray-300" href="#hero-section" id="ydg-brand-home">YourDesignGPT</a>
+<a class="ydg-header-brand text-white hover:text-gray-300" href="#hero-section" id="ydg-brand-home" aria-label="YourDesignGPT · Inicio">
+<img src="favicon.png" alt="" class="ydg-header-logo" width="38" height="38">
+<span>YourDesignGPT</span>
+</a>
 </div>
 <div class="mobile-weather-mini" aria-label="Tiempo actual en Málaga">
   <span class="mobile-weather-icon" data-weather-icon aria-hidden="true">
@@ -5202,12 +5340,15 @@ body.ydg-launch-open{overflow:hidden!important}
 </div>
 <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="nav-content">
 <div class="text-sm lg:flex-grow mt-4 lg:mt-0 lg:ml-auto">
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link nav-first-link" data-lang-key="nav-services" href="#hero-section">Inicio</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-contact" href="#configurador">Presupuesto</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-portfolio" href="#portfolio">Proyectos</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-important-links" href="#incluye">Qué incluye</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4 nav-link" data-lang-key="nav-how-it-works" href="#como-funciona">Proceso</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" data-lang-key="nav-faq" href="#faq">FAQ</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#hero-section">Inicio</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#configurador">Presupuesto</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#portfolio">Proyectos</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#incluye">Qué incluye</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#como-funciona">Proceso</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#opiniones">Reseñas</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#calidad">Calidad</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#faq">FAQ</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#links-importantes">Contacto</a>
 </div>
 <div class="mt-4 lg:mt-0 flex items-center">
 
@@ -5298,51 +5439,219 @@ body.ydg-launch-open{overflow:hidden!important}
             </a>
 </div>
 <div class="final-conversion-meta hero-promo-meta" data-lang-key="hero-meta">Promoción lanzamiento: 99 € · Dominio, hosting y mantenimiento 100 €/año con código YOURDESIGNGPT</div>
-</section><section class="py-20 px-4 bg-[#0d1117]" id="configurador"><div class="container mx-auto section-box"><div class="text-center mb-10"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="config-eyebrow">Presupuesto guiado</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="config-title">Configura la idea de tu web</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="config-desc">Marca lo que necesitas y cuéntanos lo esencial para preparar una propuesta clara.</p></div>
+</section>
+<section id="configurador" class="ydg-config-v108" aria-labelledby="config-title">
+  <div class="ydg-config-shell">
+    <div class="ydg-config-main">
+      <div class="ydg-config-head">
+        <div>
+          <span class="ydg-config-kicker">PRESUPUESTO GUIADO</span>
+          <h2 id="config-title">Configura <strong>tu web</strong></h2>
+          <p>Elige lo esencial y prepara tu solicitud en menos de un minuto.</p>
+        </div>
+        <div class="ydg-config-steps" aria-label="Progreso">
+          <button type="button" class="is-active" data-step-jump="1">1</button>
+          <span></span>
+          <button type="button" data-step-jump="2">2</button>
+          <span></span>
+          <button type="button" data-step-jump="3">3</button>
+        </div>
+      </div>
 
-<div class="ydg-launch-toggle-card ydg-launch-toggle-v87" id="ydg-launch-toggle-card">
-  <div class="ydg-launch-toggle-copy">
-    <span aria-hidden="true">⚡</span>
-    <div>
-      <small data-lang-key="promo-toggle-label">OFERTA DE LANZAMIENTO</small>
-      <strong data-lang-key="promo-toggle-title">Aplicar código YOURDESIGNGPT · 99 €</strong>
-      <p data-lang-key="promo-toggle-desc">Activa o desactiva la promoción directamente desde aquí.</p>
+      <form id="ydg-visual-config-form" class="ydg-visual-form" method="POST" action="https://formsubmit.co/ajax/iampetersc@gmail.com">
+        <input type="hidden" name="_subject" value="Nuevo presupuesto · YourDesignGPT">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Promoción" id="ydg-promo-field-v108" value="YOURDESIGNGPT">
+        <input type="hidden" name="Precio" value="99 € + 100 €/año">
+        <input type="hidden" name="Tipo de web" id="ydg-type-field">
+        <input type="hidden" name="Funciones" id="ydg-functions-field">
+        <input type="hidden" name="Idioma" id="ydg-language-field" value="Español">
+        <input type="hidden" name="Estilo" id="ydg-style-field" value="Moderno">
+
+        <div class="ydg-step-panel is-active" data-step="1">
+          <div class="ydg-block-title">
+            <span>PASO 1</span>
+            <h3>¿Qué tipo de web necesitas?</h3>
+          </div>
+
+          <div class="ydg-type-grid">
+            <button type="button" class="ydg-choice-card is-selected" data-type="Negocio / Empresa">
+              <span class="ydg-choice-icon">◎</span>
+              <b>Negocio / Empresa</b>
+              <small>Web para empresas y profesionales</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Restaurante / Bar">
+              <span class="ydg-choice-icon">🍴</span>
+              <b>Restaurante / Bar</b>
+              <small>Carta, reservas y mucho más</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Hotel / Alojamiento">
+              <span class="ydg-choice-icon">▣</span>
+              <b>Hotel / Alojamiento</b>
+              <small>Habitaciones y reservas</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Tienda Online">
+              <span class="ydg-choice-icon">◫</span>
+              <b>Tienda Online</b>
+              <small>Productos y venta online</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Web Personal">
+              <span class="ydg-choice-icon">◉</span>
+              <b>Web Personal</b>
+              <small>Marca personal o portfolio</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Blog">
+              <span class="ydg-choice-icon">✎</span>
+              <b>Blog</b>
+              <small>Contenido y publicaciones</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Landing Page">
+              <span class="ydg-choice-icon">↗</span>
+              <b>Landing Page</b>
+              <small>Una página enfocada a convertir</small>
+            </button>
+            <button type="button" class="ydg-choice-card" data-type="Otro proyecto">
+              <span class="ydg-choice-icon">•••</span>
+              <b>Otro proyecto</b>
+              <small>Cuéntanos tu idea</small>
+            </button>
+          </div>
+
+          <div class="ydg-step-actions">
+            <button type="button" class="ydg-next-step">Continuar <span>→</span></button>
+          </div>
+        </div>
+
+        <div class="ydg-step-panel" data-step="2">
+          <div class="ydg-block-title">
+            <span>PASO 2</span>
+            <h3>¿Qué funciones quieres?</h3>
+          </div>
+
+          <div class="ydg-functions-grid">
+            <button type="button" class="ydg-mini-choice" data-function="Reservas"><i>✓</i><span>Reservas</span></button>
+            <button type="button" class="ydg-mini-choice" data-function="Galería"><i>▧</i><span>Galería</span></button>
+            <button type="button" class="ydg-mini-choice is-selected" data-function="Contacto"><i>✉</i><span>Contacto</span></button>
+            <button type="button" class="ydg-mini-choice" data-function="Tienda"><i>◫</i><span>Tienda</span></button>
+            <button type="button" class="ydg-mini-choice" data-function="Blog"><i>▤</i><span>Blog</span></button>
+            <button type="button" class="ydg-mini-choice" data-function="FAQ"><i>?</i><span>FAQ</span></button>
+            <button type="button" class="ydg-mini-choice" data-function="Otros"><i>•••</i><span>Otros</span></button>
+          </div>
+
+          <div class="ydg-subgrid">
+            <div>
+              <h4>Idioma</h4>
+              <div class="ydg-language-row">
+                <button type="button" class="ydg-pill-choice is-selected" data-language="Español">🇪🇸 <span>Español</span></button>
+                <button type="button" class="ydg-pill-choice" data-language="Inglés">🇬🇧 <span>Inglés</span></button>
+                <button type="button" class="ydg-pill-choice" data-language="Italiano">🇮🇹 <span>Italiano</span></button>
+                <button type="button" class="ydg-pill-choice" data-language="Francés">🇫🇷 <span>Francés</span></button>
+              </div>
+            </div>
+            <div>
+              <h4>Estilo</h4>
+              <div class="ydg-style-row">
+                <button type="button" class="ydg-pill-choice is-selected" data-style="Moderno">Moderno</button>
+                <button type="button" class="ydg-pill-choice" data-style="Minimalista">Minimalista</button>
+                <button type="button" class="ydg-pill-choice" data-style="Premium">Premium</button>
+                <button type="button" class="ydg-pill-choice" data-style="Creativo">Creativo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="ydg-step-actions dual">
+            <button type="button" class="ydg-prev-step">← Volver</button>
+            <button type="button" class="ydg-next-step">Continuar <span>→</span></button>
+          </div>
+        </div>
+
+        <div class="ydg-step-panel" data-step="3">
+          <div class="ydg-block-title">
+            <span>PASO 3</span>
+            <h3>Cuéntanos lo justo para empezar</h3>
+          </div>
+
+          <div class="ydg-final-grid">
+            <label class="ydg-input-wrap">
+              <span>Nombre *</span>
+              <input type="text" name="Nombre" required placeholder="Tu nombre">
+            </label>
+            <label class="ydg-input-wrap">
+              <span>Email *</span>
+              <input type="email" name="Email" required placeholder="tu@email.com">
+            </label>
+            <label class="ydg-input-wrap">
+              <span>Teléfono</span>
+              <input type="tel" name="Teléfono" placeholder="+34 ...">
+            </label>
+            <label class="ydg-input-wrap ydg-input-wide">
+              <span>¿Qué necesitas que haga tu web?</span>
+              <textarea name="Idea" rows="3" placeholder="Ej.: mostrar mis servicios y recibir reservas por WhatsApp"></textarea>
+            </label>
+          </div>
+
+          <div class="ydg-summary">
+            <div>
+              <span>Tu configuración</span>
+              <strong id="ydg-summary-text">Negocio / Empresa · Contacto · Español · Moderno</strong>
+            </div>
+            <div class="ydg-price-summary">
+              <small>OFERTA LANZAMIENTO</small>
+              <b>99 €</b>
+              <span>+100 €/año</span>
+            </div>
+          </div>
+
+          <div class="ydg-submit-row">
+            <button type="button" class="ydg-prev-step">← Volver</button>
+            <button type="submit" class="ydg-submit-budget">
+              <span>Solicitar presupuesto</span>
+              <i>→</i>
+            </button>
+          </div>
+          <p class="ydg-submit-note">Sin compromiso · Respuesta lo antes posible · Dominio + hosting + mantenimiento + 3 ajustes menores incluidos en los 100 €/año.</p>
+          <div id="ydg-config-status" class="ydg-config-status" aria-live="polite"></div>
+        </div>
+      </form>
     </div>
-  </div>
-  <label class="ydg-promo-switch" aria-label="Activar o desactivar oferta de lanzamiento">
-    <input type="checkbox" id="ydg-promo-switch">
-    <span class="ydg-promo-slider"></span>
-  </label>
-</div>
 
-<div class="ydg-live-budget" id="ydg-live-budget" aria-live="polite">
-  <div class="budget-primary budget-primary-promo">
-    <small data-lang-key="budget-label">ESTIMACIÓN BASE</small>
-    <div class="budget-price-promo" aria-label="Precio según estado de la promoción">
-      <span class="budget-old-price">495 € + 150 €/año</span>
-      <span class="budget-arrow">→</span>
-      <strong class="budget-new-price">99 € + 100 €/año</strong>
-    </div>
-    <span data-lang-key="budget-first-year">Oferta de lanzamiento: 99 € + 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores</span>
-  </div>
-  <div class="budget-live-data">
-    <div><small data-lang-key="budget-sections">Secciones</small><b id="budget-sections-value">Hasta 5</b></div>
-    <div><small data-lang-key="budget-functions">Funciones</small><b id="budget-functions-value">0</b></div>
-    <div><small data-lang-key="budget-languages">Idiomas</small><b id="budget-languages-value">Español</b></div>
-    <div><small data-lang-key="budget-scope">Alcance</small><b id="budget-scope-value">Estándar</b></div>
-  </div>
-  <p data-lang-key="budget-disclaimer">La cifra es la base del primer año. Funciones, integraciones o ampliaciones especiales se valoran según el alcance real del proyecto.</p>
-</div>
+    <aside class="ydg-config-side">
+      <div class="ydg-selling-head">
+        <span>DISEÑO WEB PROFESIONAL</span>
+        <h3>Prepara tu <strong>presupuesto</strong></h3>
+        <p>Tu web lista en 72 horas ⚡</p>
+        <small>Rápida · Moderna · Optimizada</small>
+      </div>
 
-<div class="ydg-promo-applied" id="ydg-promo-applied" aria-live="polite">
-  <span>✓</span>
-  <div><small data-lang-key="promo-applied-label">CÓDIGO DE LANZAMIENTO APLICADO</small><strong>YOURDESIGNGPT · 99 €</strong></div>
-  <button id="ydg-promo-remove" type="button" aria-label="Quitar código">×</button>
-</div>
-<form action="https://formsubmit.co/iampetersc@gmail.com" class="config-shell" id="web-config-form" method="POST">
-<input type="hidden" name="Código promocional" id="ydg-promo-field" value="">
-<input type="hidden" name="Precio promocional" id="ydg-promo-price" value="">
-<input name="_subject" type="hidden" value="Nueva configuración web - YourDesignGPT"/><input name="_template" type="hidden" value="table"/><input name="_url" type="hidden" value="https://pitersc10.github.io/textosporencargo/"/><input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/><div class="config-grid"><div class="config-field"><label data-lang-key="config-name-label">Nombre <span class="text-teal-300">*</span></label><input autocomplete="name" name="nombre" data-lang-placeholder-key="config-name-ph" placeholder="Tu nombre" required=""/></div><div class="config-field"><label data-lang-key="config-email-label">Email <span class="text-teal-300">*</span></label><input autocomplete="email" name="email" data-lang-placeholder-key="config-email-ph" placeholder="tu@email.com" required="" type="email"/></div><div class="config-field"><label data-lang-key="config-phone-label">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label><input autocomplete="tel" inputmode="tel" name="telefono" data-lang-placeholder-key="config-phone-ph" placeholder="Ej. 600 000 000" type="tel"/></div><div class="config-field"><label data-lang-key="config-sector-label">Sector</label><select id="sector-select" name="sector"><option data-lang-key="config-sector-restaurant">Restaurante</option><option data-lang-key="config-sector-beauty">Estética</option><option data-lang-key="config-sector-electric">Electricidad</option><option data-lang-key="config-sector-plumbing">Fontanería</option><option data-lang-key="config-sector-hotel">Hotel</option><option data-lang-key="config-sector-professional">Autónomo / profesional</option><option data-lang-key="config-sector-other">Otro</option></select></div><div class="config-field"><label data-lang-key="config-sections-label">Número aproximado de secciones</label><select name="secciones"><option data-lang-key="config-sections-5">Hasta 5</option><option data-lang-key="config-sections-8">6 - 8</option><option data-lang-key="config-sections-12">9 - 12</option><option data-lang-key="config-sections-unknown">No lo sé todavía</option></select></div><div class="config-field full"><label data-lang-key="config-features-label">Funcionalidades</label><div class="config-checks"><label class="config-check"><input name="funciones" type="checkbox" value="WhatsApp"/> WhatsApp</label><label class="config-check"><input name="funciones" type="checkbox" value="Reservas"/> <span data-lang-key="config-feature-bookings">Reservas</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Mapa"/> <span data-lang-key="config-feature-map">Mapa</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Galería"/> <span data-lang-key="config-feature-gallery">Galería</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Formularios"/> <span data-lang-key="config-feature-forms">Formularios</span></label><label class="config-check"><input name="funciones" type="checkbox" value="Multidioma"/> <span data-lang-key="config-feature-multilang">Multidioma</span></label></div></div><div class="config-field"><label data-lang-key="config-languages-label">Idiomas</label><select name="idiomas"><option data-lang-key="config-lang-es">Español</option><option data-lang-key="config-lang-es-en">Español + Inglés</option><option data-lang-key="config-lang-multi">Varios idiomas</option></select></div><div class="config-field"><label data-lang-key="config-domain-label">¿Tienes dominio?</label><select name="dominio"><option data-lang-key="config-no">No</option><option data-lang-key="config-yes">Sí</option><option data-lang-key="config-unsure">No estoy seguro</option></select></div><div class="config-field full"><label data-lang-key="config-idea-label">Cuéntanos la idea</label><textarea name="brief" data-lang-placeholder-key="config-idea-ph" placeholder="En una frase: ¿qué necesitas que haga tu web?" rows="3"></textarea></div><div class="config-field full config-submit-row"><button class="gradient-button text-white font-bold py-3 px-8 rounded-full config-submit-btn" id="config-submit-btn" data-lang-key="config-submit" type="submit">Pedir presupuesto</button><p class="form-note mt-3" data-lang-key="config-note">Sin compromiso · Revisamos tu idea y te respondemos con una propuesta.</p><div aria-live="polite" class="config-status" id="config-status" role="status"></div></div></div><div class="config-success-panel" id="config-success-panel"><div class="config-success-icon">✓</div><h3 data-lang-key="config-success-title">Gracias por confiar en YourDesignGPT</h3><p data-lang-key="config-success-desc">Hemos recibido correctamente la información de tu proyecto. Revisaremos tu idea y nos pondremos en contacto contigo lo antes posible.</p><button class="config-reset-btn" id="config-reset-btn" data-lang-key="config-reset" type="button">Enviar otra configuración</button></div></form></div></section><section aria-labelledby="portfolio-title" class="py-20 bg-[#0d1117] px-4" id="portfolio">
+      <div class="ydg-selling-points">
+        <div><i>✎</i><span><b>Diseño a medida</b><small>100% personalizado</small></span></div>
+        <div><i>⌘</i><span><b>Responsive</b><small>Móvil · Tablet · PC</small></span></div>
+        <div><i>↗</i><span><b>SEO Ready</b><small>Base preparada para Google</small></span></div>
+        <div><i>⚡</i><span><b>Entrega 72h</b><small>Objetivo de entrega</small></span></div>
+      </div>
+
+      <div class="ydg-launch-box">
+        <div class="ydg-launch-price-v108">
+          <small>PROMO LANZAMIENTO</small>
+          <strong>99€</strong>
+          <span>Oferta hasta 31/12/2026</span>
+          <b>CÓDIGO: YOURDESIGNGPT</b>
+        </div>
+        <div class="ydg-launch-yearly">
+          <strong>+ 100€ <span>/ año</span></strong>
+          <ul>
+            <li>Dominio incluido</li>
+            <li>Hosting incluido</li>
+            <li>Mantenimiento</li>
+            <li>Hasta 3 cambios o ajustes</li>
+          </ul>
+          <small>(No incluye proyectos extra)</small>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section aria-labelledby="portfolio-title" class="py-20 bg-[#0d1117] px-4" id="portfolio">
 <div class="container mx-auto section-box">
 <div class="text-center mb-12">
 <p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="portfolio-eyebrow">Portfolio</p>
@@ -5547,21 +5856,6 @@ body.ydg-launch-open{overflow:hidden!important}
 <!-- Proceso real -->
 <section class="py-20 bg-[#0d1117] px-4" id="como-funciona"><div class="container mx-auto section-box"><div class="text-center mb-14"><p class="text-teal-400 font-bold uppercase tracking-[0.18em] text-sm mb-3" data-lang-key="process-eyebrow">Proceso real</p><h2 class="text-4xl md:text-5xl font-extrabold gradient-text mb-4" data-lang-key="process-title">Briefing → Diseño → Revisión → Publicación</h2><p class="text-gray-300 max-w-3xl mx-auto" data-lang-key="process-desc">Cuatro pasos claros para avanzar rápido sin perder control sobre el resultado.</p></div>
 <div class="process-track" id="process-track"><div class="process-progress"></div><div class="process-grid"><div class="process-step"><div class="process-dot">01</div><h3 data-lang-key="process-step1-title">Briefing</h3><p data-lang-key="process-step1-desc">Nos cuentas actividad, estilo, contenidos y objetivos.</p></div><div class="process-step"><div class="process-dot">02</div><h3 data-lang-key="process-step2-title">Diseño</h3><p data-lang-key="process-step2-desc">Construimos estructura, identidad visual y experiencia responsive.</p></div><div class="process-step"><div class="process-dot">03</div><h3 data-lang-key="process-step3-title">Revisión</h3><p data-lang-key="process-step3-desc">Te mostramos el resultado y aplicamos los ajustes acordados.</p></div><div class="process-step"><div class="process-dot">04</div><h3 data-lang-key="process-step4-title">Publicación</h3><p data-lang-key="process-step4-desc">Configuramos, publicamos y dejamos la web lista para funcionar.</p></div></div></div></div></section>
-<!-- Call to Action Section: Listo para transformar tus ideas -->
-<section class="py-16 bg-[#1a202c] px-4">
-<div class="container mx-auto text-center section-box">
-<h2 class="text-4xl font-extrabold gradient-text mb-6" data-lang-key="cta-title">
-                ¿Listo para tener una web profesional que trabaje por ti?
-            </h2>
-<p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10" data-lang-key="cta-desc">
-                Cuéntanos tu idea y la convertimos en una web moderna, clara y preparada para presentar tu proyecto, negocio o marca con una imagen profesional.
-            </p>
-<a class="gradient-button text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg" data-lang-key="cta-button" href="#configurador">
-                Quiero mi nueva web
-            </a>
-</div>
-</section>
-
 <!-- Opiniones sobre nuestras webs Section -->
 <section class="py-16 bg-[#1a202c] px-4" id="opiniones">
 <div class="container mx-auto text-center section-box">
@@ -5798,7 +6092,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <p class="mb-2" data-lang-key="footer-copyright">© 2025 Pedro Soriano Calderón · Diseño Web Profesional. Todos los derechos reservados.</p>
 <p class="mb-4" data-lang-key="footer-design">Diseñado con ❤️</p>
 <div class="connect-block" id="links-importantes">
-<div class="important-links-title" data-lang-key="important-links-title">Links importantes</div>
+<div class="important-links-title" data-lang-key="important-links-title">Mis enlaces de contacto</div>
 <div aria-label="Enlaces personales de Pedro Soriano Calderón" class="social-links">
 <a aria-label="Instagram de Pedro Soriano Calderón" class="social-link" href="https://www.instagram.com/petersoriano10" rel="noopener noreferrer" target="_blank">
 <span class="social-tooltip" data-lang-key="tip-instagram">Mi Instagram</span>
@@ -6032,7 +6326,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'promo-toggle-desc': 'Oferta limitada hasta el 31 de diciembre de 2026. Puedes activarla o desactivarla aquí.',
 
 
-                'important-links-title': 'Links importantes',
+                'important-links-title': 'Mis enlaces de contacto',
                 'tip-instagram': 'Mi Instagram',
                 'tip-youtube': 'Mi canal de YouTube',
                 'tip-maps': 'Mis reseñas de Google Maps',
@@ -6104,9 +6398,9 @@ body.ydg-launch-open{overflow:hidden!important}
                 'step2-desc': 'Revisamos contigo las necesidades de la web, confirmamos el alcance del proyecto y realizas el pago de forma segura.',
                 'step3-title': 'Paso 3: Estrena tu nueva web',
                 'step3-desc': 'En un plazo objetivo de 72h tendrás tu web preparada para revisión y puesta online, con todo configurado para empezar.',
-                'cta-title': '¿Listo para tener una web profesional que trabaje por ti?',
-                'cta-desc': 'Cuéntanos tu idea y la convertimos en una web moderna, clara y preparada para presentar tu proyecto, negocio o marca con una imagen profesional.',
-                'cta-button': 'Quiero mi nueva web',
+                
+                
+                
                 'order-title': 'Solicita tu proyecto web',
                 'order-desc': 'Haz clic en el botón, cuéntanos qué web necesitas y nos pondremos en contacto contigo para organizar el proyecto. Sin complicaciones técnicas.',
                 'order-button': 'Pide información',
@@ -6414,7 +6708,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'promo-toggle-desc': 'You can enable or remove the promotion here even after closing the popup.',
 
 
-                'important-links-title': 'Important links',
+                'important-links-title': 'Contact & links',
                 'tip-instagram': 'My Instagram',
                 'tip-youtube': 'My YouTube channel',
                 'tip-maps': 'My Google Maps reviews',
@@ -6486,9 +6780,9 @@ body.ydg-launch-open{overflow:hidden!important}
                 'step2-desc': 'We review your website needs, confirm the project scope and you complete the payment securely.',
                 'step3-title': 'Step 3: Launch your new website',
                 'step3-desc': 'Our target is to have your website ready for review and launch within 72 hours once we have the required information.',
-                'cta-title': 'Ready for a professional website that works for you?',
-                'cta-desc': 'Tell us your idea and we will turn it into a modern, clear website designed to present your project, business or personal brand professionally.',
-                'cta-button': 'I want my new website',
+                
+                
+                
                 'order-title': 'Request your web project',
                 'order-desc': 'Tell us what kind of website you need and we will contact you to organize the project. No technical headaches.',
                 'order-button': 'Request information',
@@ -7248,7 +7542,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=106', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=108', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -7957,8 +8251,94 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=106" defer></script>
-<script src="robot-widget.js?v=106" defer></script>
+<script src="promo-manager.js?v=108" defer></script>
+<script src="robot-widget.js?v=108" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
+
+<script>
+(()=>{'use strict';
+const form=document.getElementById('ydg-visual-config-form');
+if(!form)return;
+
+let step=1;
+const panels=[...form.querySelectorAll('.ydg-step-panel')];
+const stepBtns=[...document.querySelectorAll('.ydg-config-steps button')];
+const typeField=document.getElementById('ydg-type-field');
+const fnField=document.getElementById('ydg-functions-field');
+const langField=document.getElementById('ydg-language-field');
+const styleField=document.getElementById('ydg-style-field');
+const summary=document.getElementById('ydg-summary-text');
+const status=document.getElementById('ydg-config-status');
+
+function syncSummary(){
+ const type=typeField.value||'Negocio / Empresa';
+ const funcs=[...form.querySelectorAll('.ydg-mini-choice.is-selected')].map(b=>b.dataset.function);
+ fnField.value=funcs.join(', ');
+ summary.textContent=[type, funcs.join(' + ')||'Sin funciones extra', langField.value, styleField.value].join(' · ');
+}
+function setStep(n){
+ step=Math.max(1,Math.min(3,n));
+ panels.forEach(p=>p.classList.toggle('is-active',Number(p.dataset.step)===step));
+ stepBtns.forEach(b=>b.classList.toggle('is-active',Number(b.dataset.stepJump)===step));
+ document.getElementById('configurador').scrollIntoView({behavior:'smooth',block:'start'});
+}
+form.querySelectorAll('.ydg-choice-card').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+   form.querySelectorAll('.ydg-choice-card').forEach(x=>x.classList.remove('is-selected'));
+   btn.classList.add('is-selected');
+   typeField.value=btn.dataset.type;
+   syncSummary();
+ });
+});
+form.querySelectorAll('.ydg-mini-choice').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+   btn.classList.toggle('is-selected');
+   syncSummary();
+ });
+});
+form.querySelectorAll('[data-language]').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+   form.querySelectorAll('[data-language]').forEach(x=>x.classList.remove('is-selected'));
+   btn.classList.add('is-selected');
+   langField.value=btn.dataset.language;
+   syncSummary();
+ });
+});
+form.querySelectorAll('[data-style]').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+   form.querySelectorAll('[data-style]').forEach(x=>x.classList.remove('is-selected'));
+   btn.classList.add('is-selected');
+   styleField.value=btn.dataset.style;
+   syncSummary();
+ });
+});
+form.querySelectorAll('.ydg-next-step').forEach(b=>b.addEventListener('click',()=>setStep(step+1)));
+form.querySelectorAll('.ydg-prev-step').forEach(b=>b.addEventListener('click',()=>setStep(step-1)));
+stepBtns.forEach(b=>b.addEventListener('click',()=>setStep(Number(b.dataset.stepJump))));
+
+form.addEventListener('submit',async e=>{
+ e.preventDefault();
+ status.textContent='Enviando tu configuración…';
+ status.style.color='#7dd3fc';
+ const submit=form.querySelector('.ydg-submit-budget');
+ submit.disabled=true;
+ try{
+   const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+   if(!res.ok)throw new Error('send');
+   status.textContent='✓ Solicitud enviada. Nos pondremos en contacto contigo.';
+   status.style.color='#6ee7b7';
+   submit.querySelector('span').textContent='Solicitud enviada';
+ }catch(_){
+   status.textContent='No se pudo enviar ahora. Puedes usar el botón de contacto o WhatsApp.';
+   status.style.color='#fca5a5';
+ }finally{
+   submit.disabled=false;
+ }
+});
+typeField.value='Negocio / Empresa';
+syncSummary();
+})();
+</script>
+
 </body>
 </html>

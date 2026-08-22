@@ -26,6 +26,17 @@ function mount(){
 
   document.body.append(w,reopen);
 
+  // Mantener el robot oculto mientras se reproduce la presentación.
+  const intro=document.getElementById('fx-intro');
+  const revealRobot=()=>document.body.classList.add('ydg-robot-live');
+  if(intro){
+    const done=()=>{revealRobot();intro.removeEventListener('animationend',done)};
+    intro.addEventListener('animationend',done);
+    setTimeout(revealRobot,4700);
+  }else{
+    revealRobot();
+  }
+
   const close=w.querySelector('.yr-close');
   let clicks=0,timer=0,busy=false,lastTouch=0;
 

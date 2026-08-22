@@ -198,3 +198,18 @@
     97%,100%{transform:translateX(0) scaleX(1)}
   }
 }
+
+/* V107 · robot oculto durante presentación */
+#ydg-robot-widget,#ydg-robot-reopen{
+  opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+  transition:opacity .38s ease,visibility .38s ease!important
+}
+body.ydg-robot-live #ydg-robot-widget:not([hidden]),
+body.ydg-robot-live #ydg-robot-reopen.show{
+  opacity:1!important;visibility:visible!important;pointer-events:auto!important
+}
+/* Origen del haz alineado con los ojos/visor */
+#ydg-robot-widget .yr-laser{left:191px!important;top:58px!important;transform:translateY(-56px) rotate(-1.5deg)!important}
+@media(max-width:767px){
+  #ydg-robot-widget .yr-laser{left:131px!important;top:44px!important;transform:translateY(-34px) rotate(-1.5deg)!important}
+}
