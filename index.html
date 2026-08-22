@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=118" rel="manifest"/>
+<link href="site.webmanifest?v=119" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -6149,6 +6149,60 @@ body.ydg-launch-open{overflow:hidden!important}
   }
 }
 
+
+/* ===== V119 · PROGRESO DENTRO DEL BOTÓN ===== */
+#ydg-tech-check-toggle{
+  padding-right:16px!important;
+}
+.ydg-scan-mini-progress{
+  display:none;
+  align-items:center;
+  gap:2px;
+  width:72px;
+  height:12px;
+  margin-left:4px;
+}
+.ydg-scan-mini-progress i{
+  display:block;
+  width:5px;
+  height:10px;
+  border-radius:2px;
+  background:rgba(148,163,184,.16);
+  box-shadow:none;
+  transition:background .14s ease,box-shadow .14s ease,transform .14s ease;
+}
+.ydg-scan-mini-progress i.is-on{
+  background:#fbbf24;
+  box-shadow:0 0 7px rgba(245,158,11,.58);
+  transform:scaleY(1.08);
+}
+.ydg-scan-mini-percent{
+  display:none;
+  min-width:28px;
+  color:#fcd34d;
+  font:900 .48rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  text-align:right;
+}
+#ydg-tech-check-toggle.is-checking .ydg-scan-mini-progress,
+#ydg-tech-check-toggle.is-checking .ydg-scan-mini-percent{
+  display:flex;
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-progress,
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-percent{
+  display:flex;
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-progress i{
+  background:#22c55e;
+  box-shadow:0 0 7px rgba(34,197,94,.55);
+}
+#ydg-tech-check-toggle.is-complete .ydg-scan-mini-percent{
+  color:#86efac;
+}
+@media(max-width:560px){
+  .ydg-scan-mini-progress{width:60px;gap:1px}
+  .ydg-scan-mini-progress i{width:4px}
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -6164,9 +6218,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=118">
-<link rel="stylesheet" href="robot-widget.css?v=118">
-<link rel="stylesheet" href="compact-final.css?v=118">
+<link rel="stylesheet" href="promo-final.css?v=119">
+<link rel="stylesheet" href="robot-widget.css?v=119">
+<link rel="stylesheet" href="compact-final.css?v=119">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -6796,6 +6850,11 @@ body.ydg-launch-open{overflow:hidden!important}
         <small>Click para iniciar verificación</small>
       </span>
       <span class="ydg-scan-arrow" aria-hidden="true">→</span>
+    
+      <span class="ydg-scan-mini-progress" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span class="ydg-scan-mini-percent" aria-hidden="true">0%</span>
     </button>
     </div>
 
@@ -7322,7 +7381,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'nav-portfolio': 'Proyectos',
                  'nav-how-it-works': 'Proceso',
                 'nav-reviews': 'Reseñas',
-                'nav-faq': 'FAQ',
+                 'nav-faq': 'FAQ',
                  'nav-contact': 'Presupuesto',
                  'nav-important-links': 'Qué incluye',
                 'hero-title': '<span>Tu negocio ya existe.</span><span><strong>Ahora haz que parezca profesional.</strong></span>',
@@ -7702,13 +7761,13 @@ body.ydg-launch-open{overflow:hidden!important}
             },
             'en': {
                 'page-title': 'Professional Web Design in Málaga | Website in 72h | YourDesignGPT',
-                 'nav-services': 'Home',
+                  'nav-services': 'Home',
                 'nav-portfolio': 'Projects',
-                 'nav-how-it-works': 'Process',
+                  'nav-how-it-works': 'Process',
                 'nav-reviews': 'Reviews',
-                'nav-faq': 'FAQ',
-                 'nav-contact': 'Quote',
-                 'nav-important-links': 'What’s included',
+                 'nav-faq': 'FAQ',
+                  'nav-contact': 'Quote',
+                  'nav-important-links': 'What’s included',
                 'hero-title': '<span>Your business already exists.</span><span><strong>Now make it look professional.</strong></span>',
                 'hero-subtitle': 'Professional web design for businesses, freelancers and brands in Málaga and across Spain. We create a modern, fast, responsive website and handle the design, setup and launch.',
                 'hero-button': 'See what is included',
@@ -7752,7 +7811,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'promo-toggle-desc': 'You can enable or remove the promotion here even after closing the popup.',
 
 
-                'important-links-title': 'Contact & links',
+                 'important-links-title': 'Contact & links',
                 'tip-instagram': 'My Instagram',
                 'tip-youtube': 'My YouTube channel',
                 'tip-maps': 'My Google Maps reviews',
@@ -8586,7 +8645,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=118', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=119', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -9295,8 +9354,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=118" defer></script>
-<script src="robot-widget.js?v=118" defer></script>
+<script src="promo-manager.js?v=119" defer></script>
+<script src="robot-widget.js?v=119" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 
@@ -9328,6 +9387,8 @@ function initYDGSystemCheck(){
   const progressLabel=document.getElementById('ydg-check-progress-label');
   const progressWrap=document.getElementById('ydg-check-progress-wrap');
   const progressTrack=document.getElementById('ydg-check-progress');
+  const miniBars=[...btn.querySelectorAll('.ydg-scan-mini-progress i')];
+  const miniPercent=btn.querySelector('.ydg-scan-mini-percent');
 
   if(!btn||!panel||!lines||!live||!finalStatus||!progressBar||!progressValue||!progressLabel||!progressWrap||!progressTrack){
     return;
@@ -9343,8 +9404,8 @@ function initYDGSystemCheck(){
 
     if(state==='checking'){
       btn.classList.add('is-checking');
-      if(title)title.textContent='VERIFICANDO...';
-      if(sub)sub.textContent='Comprobando módulos del sistema';
+      if(title)title.textContent='ESCANEANDO...';
+      if(sub)sub.textContent='Analizando sistema · 0% → 100%';
       if(arrow)arrow.textContent='↻';
       return;
     }
@@ -9378,10 +9439,18 @@ function initYDGSystemCheck(){
 
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
 
+  function setMiniProgress(pct){
+    const clamped=Math.max(0,Math.min(100,Number(pct)||0));
+    const active=Math.round((clamped/100)*miniBars.length);
+    miniBars.forEach((bar,i)=>bar.classList.toggle('is-on',i<active));
+    if(miniPercent)miniPercent.textContent=clamped+'%';
+  }
+
   function reset(){
     lines.innerHTML='<div class="ydg-check-placeholder"><span>system@ydg:~$</span><b class="ydg-terminal-cursor">▌</b></div>';
     progressBar.style.width='0%';
     progressValue.textContent='0%';
+    setMiniProgress(0);
     progressLabel.textContent='Preparado para verificar';
     progressWrap.classList.remove('is-complete');
     progressTrack.classList.remove('is-complete');
@@ -9445,12 +9514,14 @@ function initYDGSystemCheck(){
       const pct=Math.round(((i+1)/checks.length)*100);
       progressBar.style.width=pct+'%';
       progressValue.textContent=pct+'%';
+      setMiniProgress(pct);
       await wait(90);
     }
 
     progressWrap.classList.add('is-complete');
     progressTrack.classList.add('is-complete');
     progressLabel.textContent='Verificación visual completada';
+    setMiniProgress(100);
     live.className='ydg-live is-complete';
     live.textContent='LIVE';
     finalStatus.className='is-complete';
