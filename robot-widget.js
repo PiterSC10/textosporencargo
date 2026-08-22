@@ -42,9 +42,9 @@ function mount(){
 
   const clear=()=>w.classList.remove('act-wave','act-jump','act-run');
   function idle(){clear();busy=false}
-  function wave(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-wave');setTimeout(idle,1900)}
-  function jump(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-jump');setTimeout(idle,1750)}
-  function run(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-run');setTimeout(idle,3300)}
+  function wave(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-wave'); if(window.YDG01FrameMotion)window.YDG01FrameMotion.wave();setTimeout(idle,1250)}
+  function jump(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-jump'); if(window.YDG01FrameMotion)window.YDG01FrameMotion.jump();setTimeout(idle,1400)}
+  function run(){if(busy)return;busy=true;clear();void w.offsetWidth;w.classList.add('act-run'); if(window.YDG01FrameMotion)window.YDG01FrameMotion.run();setTimeout(idle,2600)}
 
   function fire(){
     const n=Math.min(clicks,3);
@@ -98,4 +98,57 @@ function mount(){
 document.readyState==='loading'
  ? document.addEventListener('DOMContentLoaded',mount,{once:true})
  : mount();
+})();
+
+
+/* V121 frame-motion controller: original YDG-01 master-derived frames only */
+(()=>{
+  'use strict';
+  const SEQ = {"idle": ["ydg01-idle-01.png", "ydg01-idle-02.png", "ydg01-idle-03.png", "ydg01-idle-04.png", "ydg01-idle-05.png"], "wave": ["ydg01-wave-01.png", "ydg01-wave-02.png", "ydg01-wave-03.png", "ydg01-wave-04.png", "ydg01-wave-05.png", "ydg01-wave-06.png", "ydg01-wave-07.png", "ydg01-wave-08.png"], "jump": ["ydg01-jump-01.png", "ydg01-jump-02.png", "ydg01-jump-03.png", "ydg01-jump-04.png", "ydg01-jump-05.png", "ydg01-jump-06.png", "ydg01-jump-07.png", "ydg01-jump-08.png", "ydg01-jump-09.png", "ydg01-jump-10.png"], "run": ["ydg01-run-01.png", "ydg01-run-02.png", "ydg01-run-03.png", "ydg01-run-04.png", "ydg01-run-05.png", "ydg01-run-06.png"]};
+  const wait = ms => new Promise(r=>setTimeout(r,ms));
+  function getRobot(){
+    const w=document.getElementById('ydg-robot-widget');
+    if(!w)return null;
+    const img=w.querySelector('.yr-dog img, img.yr-dog, .yr-dog');
+    return {w,img};
+  }
+  function srcFor(name){ return name; }
+  async function playFrames(img,names,frameMs,flip=false){
+    if(!img || !('src' in img)) return;
+    for(const name of names){
+      img.style.transform = flip ? 'scaleX(-1)' : '';
+      img.src=srcFor(name);
+      await wait(frameMs);
+    }
+  }
+  async function ydgFrameWave(){
+    const r=getRobot(); if(!r||r.w.dataset.frameBusy==='1')return;
+    r.w.dataset.frameBusy='1';
+    await playFrames(r.img,SEQ.wave,145,false);
+    r.img.src='ydg01-clean-v106.png'; r.img.style.transform='';
+    r.w.dataset.frameBusy='0';
+  }
+  async function ydgFrameJump(){
+    const r=getRobot(); if(!r||r.w.dataset.frameBusy==='1')return;
+    r.w.dataset.frameBusy='1';
+    await playFrames(r.img,SEQ.jump,105,false);
+    r.img.src='ydg01-clean-v106.png'; r.img.style.transform='';
+    r.w.dataset.frameBusy='0';
+  }
+  async function ydgFrameRun(){
+    const r=getRobot(); if(!r||r.w.dataset.frameBusy==='1')return;
+    r.w.dataset.frameBusy='1';
+    const start=performance.now(), duration=1250;
+    while(performance.now()-start<duration){
+      await playFrames(r.img,SEQ.run,70,false);
+    }
+    await wait(100);
+    const start2=performance.now();
+    while(performance.now()-start2<duration){
+      await playFrames(r.img,SEQ.run,70,true);
+    }
+    r.img.src='ydg01-clean-v106.png'; r.img.style.transform='';
+    r.w.dataset.frameBusy='0';
+  }
+  window.YDG01FrameMotion={wave:ydgFrameWave,jump:ydgFrameJump,run:ydgFrameRun};
 })();
