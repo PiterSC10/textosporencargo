@@ -25,7 +25,7 @@
 <link href="apple-touch-icon.png?v=25" rel="apple-touch-icon" sizes="180x180"/>
 <link href="favicon-32x32.png?v=25" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16.png?v=25" rel="icon" sizes="16x16" type="image/png"/>
-<link href="site.webmanifest?v=107" rel="manifest"/>
+<link href="site.webmanifest?v=109" rel="manifest"/>
 <!-- Open Graph: WhatsApp, Facebook, LinkedIn, etc. -->
 <meta content="website" property="og:type"/>
 <meta content="YourDesignGPT" property="og:site_name"/>
@@ -4721,7 +4721,7 @@ body.ydg-launch-open{overflow:hidden!important}
 @keyframes ydgDogRun{0%{transform:translateX(0) scale(1)}9%{transform:translateX(-8px) scale(.97)}30%{transform:translateX(calc(100vw - 180px)) scale(1.02) rotate(1deg)}48%{transform:translateX(calc(100vw - 180px)) scale(1) rotate(-1deg)}68%{transform:translateX(42vw) scale(1.02)}100%{transform:translateX(0) scale(1)}}
 @keyframes ydgDogTrail{0%,100%{opacity:0;transform:scaleX(.4)}25%,75%{opacity:1;transform:scaleX(1)}}
 @media(max-width:767px){.ydg-dog-mascot{position:relative;left:auto;bottom:auto;width:112px;margin:22px auto 6px;z-index:3}.ydg-dog-orb{width:96px;height:96px;margin:auto}.ydg-dog-glow{left:0;top:-7px;width:110px;height:110px}.ydg-dog-bubble{left:76px;bottom:34px}.ydg-dog-hint{font-size:.4rem}@keyframes ydgDogRun{0%{transform:translateX(0)}30%{transform:translateX(46vw)}55%{transform:translateX(46vw)}100%{transform:translateX(0)}}}
-@media(prefers-reduced-motion:reduce){.ydg-dog-eye,.ydg-dog-scan{animation:none!important}
+@media(prefers-reduced-motion:reduce){.ydg-dog-eye,.ydg-dog-scan{animation:none!important}}
 
 /* ===== V90 · original YDG-01 restored + reliable mobile ===== */
 
@@ -5205,6 +5205,241 @@ body.ydg-launch-open{overflow:hidden!important}
 @media(max-width:800px){.ydg-type-grid{grid-template-columns:repeat(2,1fr)}.ydg-functions-grid{grid-template-columns:repeat(4,1fr)}.ydg-subgrid{grid-template-columns:1fr}.ydg-final-grid{grid-template-columns:1fr 1fr}.ydg-config-side{grid-template-columns:1fr}.ydg-launch-box{margin-top:0}}
 @media(max-width:560px){.ydg-config-v108{padding:38px 12px}.ydg-config-main{padding:16px}.ydg-config-head{flex-direction:column}.ydg-config-steps{align-self:flex-end}.ydg-type-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.ydg-choice-card{min-height:112px;padding:11px 7px}.ydg-choice-card small{font-size:.58rem}.ydg-functions-grid{grid-template-columns:repeat(3,1fr)}.ydg-final-grid{grid-template-columns:1fr}.ydg-summary{align-items:flex-start;flex-direction:column}.ydg-price-summary{text-align:left}.ydg-submit-row{align-items:stretch;flex-direction:column}.ydg-submit-budget{width:100%;min-width:0}.ydg-selling-points{grid-template-columns:1fr 1fr}.ydg-launch-box{grid-template-columns:1fr 1fr}}
 
+
+/* ===== V109 · HEADER CORREGIDO ===== */
+.ydg-header-brand{
+  display:inline-flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:8px!important;
+  white-space:nowrap!important;
+  line-height:1!important;
+}
+.ydg-header-brand .ydg-header-logo{
+  display:block!important;
+  flex:0 0 30px!important;
+  width:30px!important;
+  height:30px!important;
+  max-width:30px!important;
+  object-fit:contain!important;
+  border-radius:7px!important;
+  margin:0!important;
+}
+.ydg-header-brand span{
+  display:block!important;
+  margin:0!important;
+  font-size:1.5rem!important;
+  line-height:1!important;
+  font-weight:800!important;
+  letter-spacing:-.035em!important;
+}
+
+/* Recupera la lectura del menú anterior, sin hacerlo mini */
+#nav-content .nav-link{
+  margin-right:1rem!important;
+  font-size:.875rem!important;
+  line-height:1.25rem!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  font-family:inherit!important;
+}
+#nav-content > div:first-child{
+  gap:0!important;
+}
+@media(min-width:1024px){
+  #nav-content{
+    min-width:0!important;
+  }
+}
+@media(max-width:1023px){
+  #nav-content .nav-link{
+    margin-right:0!important;
+    font-size:.92rem!important;
+    padding:.48rem 0!important;
+  }
+}
+
+
+/* ===== V109 · CONFIGURADOR VISUAL CORREGIDO ===== */
+.ydg-config-v108{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:visible!important;
+}
+.ydg-config-shell{
+  max-width:1380px!important;
+  grid-template-columns:320px minmax(0,1fr)!important;
+  gap:24px!important;
+  align-items:stretch!important;
+}
+
+/* The markup is main then aside; visually place aside on the left */
+.ydg-config-side{
+  grid-column:1!important;
+  grid-row:1!important;
+  position:relative!important;
+  top:auto!important;
+  height:auto!important;
+  align-self:stretch!important;
+}
+.ydg-config-main{
+  grid-column:2!important;
+  grid-row:1!important;
+  min-width:0!important;
+  align-self:stretch!important;
+}
+
+/* Make cards properly graphical and separated */
+.ydg-type-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:11px!important;
+}
+.ydg-choice-card{
+  width:100%!important;
+  min-width:0!important;
+  min-height:142px!important;
+  padding:16px 10px!important;
+  border-radius:16px!important;
+}
+.ydg-choice-icon{
+  display:grid!important;
+  place-items:center!important;
+  width:48px!important;
+  height:48px!important;
+  margin-bottom:2px!important;
+  border-radius:14px!important;
+  background:radial-gradient(circle,rgba(34,211,238,.20),rgba(59,130,246,.05) 68%,transparent 70%)!important;
+  font-size:1.8rem!important;
+}
+.ydg-choice-card b{
+  display:block!important;
+  font-size:.82rem!important;
+  line-height:1.25!important;
+}
+.ydg-choice-card small{
+  display:block!important;
+  line-height:1.35!important;
+}
+
+.ydg-functions-grid{
+  grid-template-columns:repeat(7,minmax(0,1fr))!important;
+  gap:8px!important;
+}
+.ydg-mini-choice{
+  min-width:0!important;
+  min-height:72px!important;
+}
+
+.ydg-config-head{
+  margin-bottom:24px!important;
+}
+.ydg-config-main{
+  padding:28px!important;
+}
+.ydg-config-side{
+  padding:24px!important;
+}
+
+/* Side sales pitch closer to the approved mockup */
+.ydg-selling-head h3{
+  font-size:2.25rem!important;
+  line-height:.98!important;
+}
+.ydg-selling-points{
+  grid-template-columns:1fr!important;
+}
+.ydg-selling-points>div{
+  min-height:58px!important;
+}
+.ydg-launch-box{
+  grid-template-columns:1fr!important;
+  gap:12px!important;
+}
+.ydg-launch-price-v108 strong{
+  font-size:3.55rem!important;
+}
+.ydg-launch-yearly{
+  padding-top:12px!important;
+  border-top:1px solid rgba(56,189,248,.12)!important;
+}
+
+/* Prevent any content from collapsing into raw inline text */
+.ydg-step-panel,
+.ydg-step-panel *{
+  box-sizing:border-box!important;
+}
+.ydg-step-panel.is-active{
+  display:block!important;
+}
+.ydg-step-panel:not(.is-active){
+  display:none!important;
+}
+.ydg-choice-card,
+.ydg-mini-choice,
+.ydg-pill-choice,
+.ydg-next-step,
+.ydg-prev-step,
+.ydg-submit-budget{
+  font-family:inherit!important;
+}
+
+/* Better tablet fallback */
+@media(max-width:1100px){
+  .ydg-config-shell{
+    grid-template-columns:1fr!important;
+  }
+  .ydg-config-side{
+    grid-column:1!important;
+    grid-row:1!important;
+    display:grid!important;
+    grid-template-columns:1.05fr .95fr!important;
+    gap:18px!important;
+  }
+  .ydg-config-main{
+    grid-column:1!important;
+    grid-row:2!important;
+  }
+  .ydg-selling-points{
+    grid-template-columns:1fr 1fr!important;
+  }
+}
+@media(max-width:800px){
+  .ydg-config-side{
+    grid-template-columns:1fr!important;
+  }
+  .ydg-type-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .ydg-functions-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:560px){
+  .ydg-config-main{
+    padding:16px!important;
+  }
+  .ydg-config-side{
+    padding:17px!important;
+  }
+  .ydg-type-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+  .ydg-choice-card{
+    min-height:116px!important;
+    padding:10px 7px!important;
+  }
+  .ydg-choice-icon{
+    width:39px!important;
+    height:39px!important;
+    font-size:1.4rem!important;
+  }
+  .ydg-functions-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
     {
@@ -5220,9 +5455,9 @@ body.ydg-launch-open{overflow:hidden!important}
     }
     </script>
 
-<link rel="stylesheet" href="promo-final.css?v=108">
-<link rel="stylesheet" href="robot-widget.css?v=108">
-<link rel="stylesheet" href="compact-final.css?v=107">
+<link rel="stylesheet" href="promo-final.css?v=109">
+<link rel="stylesheet" href="robot-widget.css?v=109">
+<link rel="stylesheet" href="compact-final.css?v=109">
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -7542,7 +7777,7 @@ try{
   if('serviceWorker' in navigator){
     window.addEventListener('load', async function(){
       try{
-        const reg = await navigator.serviceWorker.register('./service-worker.js?v=108', {updateViaCache:'none'});
+        const reg = await navigator.serviceWorker.register('./service-worker.js?v=109', {updateViaCache:'none'});
         if(reg && reg.update) reg.update();
       }catch(err){}
     });
@@ -8251,8 +8486,8 @@ try{
 })();
 </script>
 
-<script src="promo-manager.js?v=108" defer></script>
-<script src="robot-widget.js?v=108" defer></script>
+<script src="promo-manager.js?v=109" defer></script>
+<script src="robot-widget.js?v=109" defer></script>
 <p class="ydg-v104-maintenance-note" hidden>Los 100 €/año incluyen dominio, hosting, mantenimiento y hasta 3 cambios o ajustes menores. No incluye proyectos extra.</p>
 
 <script>
