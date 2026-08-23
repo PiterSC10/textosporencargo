@@ -1397,7 +1397,33 @@
         }
         .included-item h3 { margin:0 0 .35rem;color:#f8fafc;font-size:.98rem;font-weight:800; }
         .included-item p { margin:0;color:#94a3b8;font-size:.82rem;line-height:1.5; }
-        .included-note { margin-top:1.25rem;text-align:center;color:#64748b;font-size:.8rem; }
+         .included-note {
+            margin:1.25rem auto 0;
+            width:fit-content;
+            max-width:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:.42rem .7rem;
+            padding:.72rem 1rem;
+            border:1px solid rgba(45,212,191,.22);
+            border-radius:999px;
+            background:linear-gradient(135deg,rgba(20,184,166,.08),rgba(59,130,246,.07),rgba(139,92,246,.06));
+            box-shadow:0 10px 30px rgba(2,8,23,.18), inset 0 1px 0 rgba(255,255,255,.025);
+            text-align:center;
+            color:#94a3b8;
+            font-size:.78rem;
+            line-height:1.35;
+        }
+        .included-note .promo-note-label { color:#5eead4;font-weight:800;letter-spacing:.08em;text-transform:uppercase; }
+        .included-note .promo-note-price { font-size:1rem;font-weight:900;background:linear-gradient(90deg,#5eead4,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent; }
+        .included-note .promo-note-year { color:#e2e8f0;font-weight:800; }
+        .included-note .promo-note-details { color:#94a3b8; }
+        @media (max-width:700px){
+            .included-note{width:100%;border-radius:20px;padding:.85rem .9rem;gap:.28rem .45rem;}
+            .included-note .promo-note-details{flex-basis:100%;}
+        }
 
         .final-conversion {
             position:relative;
@@ -5110,14 +5136,22 @@ body.ydg-launch-open{overflow:hidden!important}
 #incluye .launch-offer-pill{
   width:100%!important;min-width:0!important;display:grid!important;
   grid-template-columns:auto minmax(0,1fr)!important;
-  grid-template-areas:"label label" "price note"!important;
-  align-items:center!important;column-gap:14px!important;row-gap:4px!important;text-align:left!important
+  grid-template-areas:"label label" "price note" "price date" "price standard"!important;
+  align-items:center!important;column-gap:14px!important;row-gap:2px!important;text-align:left!important
 }
 #incluye .launch-offer-pill small{grid-area:label!important;justify-self:start!important}
 #incluye .launch-offer-pill strong{grid-area:price!important;font-size:clamp(3rem,5vw,4.7rem)!important;white-space:nowrap!important}
 #incluye .launch-offer-pill span{
-  grid-area:note!important;margin:0!important;max-width:330px!important;
-  font-size:.79rem!important;line-height:1.5!important;text-align:left!important
+  grid-area:note!important;margin:0!important;max-width:360px!important;
+  font-size:.79rem!important;line-height:1.42!important;text-align:left!important
+}
+#incluye .launch-offer-pill .launch-offer-date{
+  grid-area:date!important;color:#67e8f9!important;font-size:.72rem!important;font-weight:900!important;letter-spacing:.035em!important;
+  margin-top:2px!important;padding:0!important;border:0!important
+}
+#incluye .launch-offer-pill .launch-offer-after{
+  grid-area:standard!important;color:#94a3b8!important;font-size:.7rem!important;font-weight:800!important;
+  margin-top:2px!important;padding-top:4px!important;border-top:1px solid rgba(148,163,184,.16)!important
 }
 #incluye .included-info-btn{align-self:center!important}
 @media(max-width:900px){
@@ -5126,8 +5160,33 @@ body.ydg-launch-open{overflow:hidden!important}
 }
 @media(max-width:560px){
   #incluye .included-price-promo{grid-template-columns:1fr!important}
-  #incluye .launch-offer-pill{grid-template-columns:1fr!important;grid-template-areas:"label" "price" "note"!important}
+  #incluye .launch-offer-pill{grid-template-columns:1fr!important;grid-template-areas:"label" "price" "note" "date" "standard"!important}
   #incluye .included-info-btn{justify-self:start!important}
+}
+
+
+/* ===== PROMO · PASTILLA LIMPIA ===== */
+#incluye .launch-offer-pill{
+  grid-template-columns:1fr!important;
+  grid-template-areas:"label" "main" "services" "date" "standard"!important;
+  gap:4px!important;align-items:start!important;
+  padding:15px 18px!important;border-radius:22px!important;
+  background:linear-gradient(135deg,rgba(20,184,166,.10),rgba(59,130,246,.08),rgba(139,92,246,.07))!important;
+  border:1px solid rgba(45,212,191,.24)!important;
+  box-shadow:0 12px 30px rgba(4,10,24,.18)!important
+}
+#incluye .launch-offer-pill small{grid-area:label!important;margin:0 0 2px!important}
+#incluye .launch-offer-main{grid-area:main!important;display:flex!important;align-items:baseline!important;gap:10px!important;flex-wrap:wrap!important}
+#incluye .launch-offer-main strong{font-size:clamp(3rem,5vw,4.6rem)!important;line-height:.92!important;background:linear-gradient(90deg,#5eead4,#38bdf8,#a78bfa)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;text-shadow:none!important}
+#incluye .launch-offer-yearly{font-size:.92rem!important;font-weight:800!important;color:#cbd5e1!important;white-space:nowrap!important;max-width:none!important}
+#incluye .launch-offer-services{grid-area:services!important;font-size:.76rem!important;line-height:1.4!important;color:#9fb5ce!important;max-width:390px!important}
+#incluye .launch-offer-pill .launch-offer-date{grid-area:date!important;margin-top:3px!important;color:#67e8f9!important;font-size:.72rem!important;font-weight:900!important;letter-spacing:.035em!important}
+#incluye .launch-offer-pill .launch-offer-after{grid-area:standard!important;margin-top:5px!important;padding-top:6px!important;border-top:1px solid rgba(148,163,184,.14)!important;color:#8291a7!important;font-size:.68rem!important;font-weight:750!important}
+#incluye .ydg-product-deck-clean{grid-template-columns:repeat(4,1fr)!important}
+@media(max-width:560px){
+  #incluye .launch-offer-main{gap:7px!important}
+  #incluye .launch-offer-yearly{font-size:.8rem!important}
+  #incluye .ydg-product-deck-clean{grid-template-columns:repeat(2,1fr)!important}
 }
 
 /* ===== V107 · ANCLAS ===== */
@@ -7074,21 +7133,18 @@ body.ydg-launch-open{overflow:hidden!important}
 <div aria-label="Promoción de lanzamiento de YourDesignGPT" class="included-price included-price-promo">
 <div class="launch-offer-pill">
   <small data-lang-key="launch-offer-small">PROMO LANZAMIENTO</small>
-  <strong>99 €</strong>
-  <span class="launch-offer-date" data-lang-key="launch-offer-date">Hasta 31/12/2026</span>
-  <span data-lang-key="launch-offer-note">+ 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores</span>
-  <span class="launch-offer-after" data-lang-key="launch-offer-after">Después de la promoción · 495 € + 150 €/año</span>
+  <div class="launch-offer-main">
+    <strong>99 €</strong>
+    <span class="launch-offer-yearly" data-lang-key="launch-offer-yearly">+ 100 €/año</span>
+  </div>
+  <span class="launch-offer-services" data-lang-key="launch-offer-note">dominio · hosting · mantenimiento · 3 cambios/ajustes menores</span>
+  <span class="launch-offer-date" data-lang-key="launch-offer-date">Hasta fin de promoción · 31/12/2026</span>
+  <span class="launch-offer-after" data-lang-key="launch-offer-after">Precio sin promoción · 495 € + 150 €/año</span>
 </div>
 <button class="included-info-btn service-button" data-lang-key="info-button" data-service="web-info" type="button">Info</button>
 </div>
 </div>
-<div class="ydg-product-deck" aria-label="Resumen del producto web">
-  <div class="ydg-product-price ydg-product-price-promo">
-    <small data-lang-key="product-from">DESARROLLO WEB</small>
-    <strong class="promo-main-price">99 €</strong>
-    <span class="product-promo-date" data-lang-key="product-promo-date">Hasta 31/12/2026</span>
-    <span data-lang-key="product-price-note">+ 100 €/año · después 495 € + 150 €/año</span>
-  </div>
+<div class="ydg-product-deck ydg-product-deck-clean" aria-label="Resumen técnico del producto web">
   <div class="ydg-product-spec"><b>72h</b><span data-lang-key="product-72">Objetivo de entrega</span></div>
   <div class="ydg-product-spec"><b>100%</b><span data-lang-key="product-responsive">Responsive</span></div>
   <div class="ydg-product-spec"><b>SEO</b><span data-lang-key="product-seo">Base inicial</span></div>
@@ -7104,7 +7160,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <article class="included-item"><div class="inc-icon">07</div><h3 data-lang-key="inc-review-title">Revisión del proyecto</h3><p data-lang-key="inc-review-desc">Revisamos contigo la web antes de dar por finalizada la entrega.</p></article>
 <article class="included-item"><div class="inc-icon">08</div><h3 data-lang-key="inc-time-title">Objetivo 72 horas</h3><p data-lang-key="inc-time-desc">Plazo objetivo desde que disponemos de toda la información necesaria del proyecto.</p></article>
 </div>
-<p class="included-note" data-lang-key="included-note">Promoción de lanzamiento: 99 € de desarrollo con el código YOURDESIGNGPT + 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores. Una vez finalizada la promoción, se recuperará la tarifa general. El mantenimiento anual incluye hosting, gestión del dominio, SSL, soporte técnico y hasta 3 cambios menores al año. El alcance final puede variar según las necesidades del proyecto.</p>
+<p class="included-note" data-lang-key="included-note"><span class="promo-note-label">Promo lanzamiento</span><span class="promo-note-price">99 €</span><span class="promo-note-year">+ 100 €/año</span><span class="promo-note-details">dominio · hosting · mantenimiento · 3 cambios/ajustes durante el año</span></p>
 </div>
 </div>
 </section>
@@ -7549,8 +7605,8 @@ body.ydg-launch-open{overflow:hidden!important}
                 'hero-portfolio-button': 'Ver nuestros trabajos',
                 'ydg-availability': 'Disponible para nuevos proyectos · Agosto 2026',
                 'product-from': 'DESARROLLO WEB',
-                'product-promo-date': 'Hasta 31/12/2026',
-                'product-price-note': '+ 100 €/año · después 495 € + 150 €/año',
+                'product-promo-date': 'Promo hasta 31/12/2026',
+                'product-price-note': '+ 100 €/año · precio sin promoción 495 € + 150 €/año',
                 'product-72': 'Objetivo de entrega',
                 'product-responsive': 'Responsive',
                 'product-seo': 'Base inicial',
@@ -7644,14 +7700,14 @@ body.ydg-launch-open{overflow:hidden!important}
                 'inc-review-desc': 'Revisamos contigo la web antes de dar por finalizada la entrega.',
                 'inc-time-title': 'Objetivo 72 horas',
                 'inc-time-desc': 'Plazo objetivo desde que disponemos de toda la información necesaria del proyecto.',
-                'included-note': 'Promoción de lanzamiento: 99 € de desarrollo con el código YOURDESIGNGPT + 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores. Una vez finalizada la promoción, se recuperará la tarifa general. El mantenimiento anual incluye hosting, gestión del dominio, SSL, soporte técnico y hasta 3 cambios menores al año. El alcance final puede variar según las necesidades del proyecto.',
+                'included-note': '<span class="promo-note-label">Promo lanzamiento</span><span class="promo-note-price">99 €</span><span class="promo-note-year">+ 100 €/año</span><span class="promo-note-details">dominio · hosting · mantenimiento · 3 cambios/ajustes durante el año</span>',
                 'final-cta-label': 'YourDesignGPT · Diseño Web',
                 'final-cta-title': 'Tu negocio ya existe.<br><strong>Ahora haz que parezca profesional.</strong>',
                 'final-cta-desc': 'Cuéntanos qué necesitas y transformamos tu idea en una presencia digital moderna, responsive y preparada para presentar tu negocio como merece.',
                 'final-cta-button': 'Quiero mi web',
                 'final-cta-meta': 'Desarrollo desde 495 € · Objetivo 72h · Dominio, hosting y mantenimiento 150 €/año',
                 'services-title': 'Diseño Web Profesional',
-                'info-button': 'Info', 'launch-offer-small': 'PROMO LANZAMIENTO', 'launch-offer-date': 'Hasta 31/12/2026', 'launch-offer-note': '+ 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores', 'launch-offer-after': 'Después de la promoción · 495 € + 150 €/año',
+                'info-button': 'Info', 'launch-offer-small': 'PROMO LANZAMIENTO', 'launch-offer-yearly': '+ 100 €/año', 'launch-offer-date': 'Hasta fin de promoción · 31/12/2026', 'launch-offer-note': 'dominio · hosting · mantenimiento · 3 cambios/ajustes menores', 'launch-offer-after': 'Precio sin promoción · 495 € + 150 €/año',
                 'how-it-works-title': '¿Cómo creamos tu web?',
                 'step1-title': 'Paso 1: Cuéntanos cómo quieres tu web',
                 'step1-desc': 'Rellena el formulario y cuéntanos tu negocio, estilo, secciones, colores, referencias y todo lo que quieres incluir en tu página.',
@@ -7934,7 +7990,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'hero-portfolio-button': 'View our work',
                 'ydg-availability': 'Available for new projects · August 2026',
                 'product-from': 'WEB DEVELOPMENT',
-                'product-promo-date': 'Until 31/12/2026',
+                'product-promo-date': 'Promo until 31/12/2026',
                 'product-price-note': '+ €100/year · after promotion €495 + €150/year',
                 'product-72': 'Delivery target',
                 'product-responsive': 'Responsive',
@@ -8029,14 +8085,14 @@ body.ydg-launch-open{overflow:hidden!important}
                 'inc-review-desc': 'We review the website with you before considering the delivery complete.',
                 'inc-time-title': '72-hour target',
                 'inc-time-desc': 'Target timeframe once we have all the information required for the project.',
-                'included-note': 'Launch offer: €99 development with the code YOURDESIGNGPT + €100/year for domain, hosting and maintenance. Once the launch promotion ends, the regular rate will apply. Annual service includes hosting, domain management, SSL, technical support and up to 3 minor changes per year.',
+                'included-note': '<span class="promo-note-label">Launch offer</span><span class="promo-note-price">€99</span><span class="promo-note-year">+ €100/year</span><span class="promo-note-details">domain · hosting · maintenance · 3 minor changes/adjustments during the year</span>',
                 'final-cta-label': 'YourDesignGPT · Web Design',
                 'final-cta-title': 'Your business already exists.<br><strong>Make it look professional.</strong>',
                 'final-cta-desc': 'Tell us what you need and we will turn your idea into a modern, responsive digital presence built to present your business professionally.',
                 'final-cta-button': 'I want my website',
                 'final-cta-meta': 'Development from €495 · 72h target · Domain, hosting and maintenance €150/year',
                 'services-title': 'Professional Web Design',
-                'info-button': 'Info', 'launch-offer-small': 'LAUNCH OFFER', 'launch-offer-date': 'Until 31/12/2026', 'launch-offer-note': '+ €100/year · domain + hosting + maintenance + 3 minor changes/adjustments', 'launch-offer-after': 'After the promotion · €495 + €150/year',
+                'info-button': 'Info', 'launch-offer-small': 'LAUNCH OFFER', 'launch-offer-yearly': '+ €100/year', 'launch-offer-date': 'Until promotion ends · 31/12/2026', 'launch-offer-note': 'domain · hosting · maintenance · 3 minor changes/adjustments', 'launch-offer-after': 'Standard price · €495 + €150/year',
                 'how-it-works-title': 'How do we create your website?',
                 'step1-title': 'Step 1: Tell us how you want your website',
                 'step1-desc': 'Tell us about your business, preferred style, sections, colors, references and everything you want to include.',
