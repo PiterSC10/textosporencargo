@@ -6384,32 +6384,15 @@ body.ydg-launch-open{overflow:hidden!important}
 <link rel="stylesheet" href="compact-final.css?v=120">
 
 <style id="ydg-v110-hero-clean">
-/* V110 · Hero limpio: marca + proceso + agenda */
-#hero-section{min-height:auto!important;padding-top:64px!important;padding-bottom:42px!important}
-#hero-section .hero-brand-block{padding:54px 28px 42px!important;margin-bottom:26px!important}
-#hero-section .ydg-hero-brand-name{
-  position:relative;z-index:2;margin:0 auto 26px;
-  font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(3.1rem,9vw,7.6rem);font-weight:900;line-height:.92;letter-spacing:-.065em;
-  background:linear-gradient(105deg,#f8fafc 0%,#dffcff 30%,#55d9d3 50%,#6f92ff 72%,#f8fafc 100%);
-  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 20px rgba(80,190,235,.10));
-  animation:ydgBrandSweep 7s ease-in-out infinite;
-}
-#hero-section .ydg-hero-brand-name::after{
-  content:'';position:absolute;left:14%;right:14%;bottom:-18px;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(79,209,197,.62),rgba(99,102,241,.58),transparent);
-  box-shadow:0 0 16px rgba(73,190,225,.24);opacity:.75;
-}
-#hero-section .hero-mini-status{margin-top:18px!important}
+/* V110 · Hero compacto: etiqueta + proceso + agenda */
+#hero-section{min-height:auto!important;padding-top:64px!important;padding-bottom:32px!important}
+#hero-section .hero-brand-block{padding:34px 28px 30px!important;margin-bottom:20px!important}
+#hero-section .hero-mini-status{margin-top:14px!important}
 #hero-section .hero-capacity-embed{margin-bottom:0!important}
-@keyframes ydgBrandSweep{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 @media(max-width:640px){
-  #hero-section{padding-top:42px!important;padding-bottom:32px!important}
-  #hero-section .hero-brand-block{padding:42px 18px 34px!important;border-radius:28px!important}
-  #hero-section .ydg-hero-brand-name{font-size:clamp(2.7rem,15vw,4.7rem);letter-spacing:-.06em;margin-bottom:24px}
+  #hero-section{padding-top:48px!important;padding-bottom:26px!important}
+  #hero-section .hero-brand-block{padding:30px 18px 26px!important;border-radius:28px!important}
 }
-@media(prefers-reduced-motion:reduce){#hero-section .ydg-hero-brand-name{animation:none!important}}
 </style>
 </head>
 <body class="ydg-promo-on antialiased">
@@ -6593,7 +6576,7 @@ body.ydg-launch-open{overflow:hidden!important}
 <i></i><i></i><i></i><i></i><i></i><i></i>
 </div>
 <div class="hero-scan" aria-hidden="true"></div>
-<h1 class="ydg-hero-brand-name" aria-label="YourDesignGPT">YourDesignGPT</h1>
+<div class="final-conversion-label mb-6" data-lang-key="hero-eyebrow">YourDesignGPT · Diseño Web</div>
 <div aria-hidden="true" class="hero-brand-divider hero-sales-divider hero-energy-line">
 <span></span>
 <b></b>
