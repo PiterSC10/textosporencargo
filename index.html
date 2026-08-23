@@ -4037,7 +4037,10 @@ body.ydg-launch-open{overflow:hidden!important}
 .launch-offer-pill small{font-size:.68rem;font-weight:900;letter-spacing:.22em;color:#a7f3d0}
 .launch-offer-pill strong,.promo-main-price{font-size:2.1rem;line-height:1;color:#fff;font-weight:900;text-shadow:0 0 16px rgba(34,211,238,.18)}
 .launch-offer-pill span{font-size:.82rem;color:#cbd5e1;max-width:240px;text-align:right}
+.launch-offer-pill .launch-offer-date{margin-top:3px;color:#67e8f9;font-size:.72rem;font-weight:800;letter-spacing:.08em}
+.launch-offer-pill .launch-offer-after{margin-top:6px;padding-top:6px;border-top:1px solid rgba(148,163,184,.16);color:#94a3b8;font-size:.68rem;font-weight:700}
 .ydg-product-price-promo{display:flex;flex-direction:column;align-items:flex-start}
+.ydg-product-price-promo .product-promo-date{margin-top:2px;color:#67e8f9;font-size:.66rem;font-weight:800;letter-spacing:.06em}
 @media (max-width: 767px){.included-price-promo{align-items:flex-start}.launch-offer-pill{align-items:flex-start}.launch-offer-pill span{text-align:left}.hero-capacity-embed{padding:12px 14px}.ydg-terminal-robot::after{font-size:.45rem}.ydg-robot-paw{width:42px;height:42px;right:12px;top:12px}.ydg-robot-greet{right:12px;top:58px;font-size:.5rem}}
   .ydg-process-companion{position:relative;right:auto;top:auto;width:100%;height:125px;margin:0 0 16px;opacity:.76}
   .ydg-config-robot{grid-template-columns:92px 1fr}
@@ -7069,13 +7072,12 @@ body.ydg-launch-open{overflow:hidden!important}
 <p class="text-gray-300 max-w-2xl" data-lang-key="included-subtitle">Una base profesional pensada para que puedas presentar tu negocio con una imagen moderna, clara y preparada para convertir visitas en contactos.</p>
 </div>
 <div aria-label="Promoción de lanzamiento de YourDesignGPT" class="included-price included-price-promo">
-<div class="launch-price-box" aria-hidden="true">
-  <span class="launch-price-old">495 €</span>
-</div>
 <div class="launch-offer-pill">
   <small data-lang-key="launch-offer-small">PROMO LANZAMIENTO</small>
   <strong>99 €</strong>
+  <span class="launch-offer-date" data-lang-key="launch-offer-date">Hasta 31/12/2026</span>
   <span data-lang-key="launch-offer-note">+ 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores</span>
+  <span class="launch-offer-after" data-lang-key="launch-offer-after">Después de la promoción · 495 € + 150 €/año</span>
 </div>
 <button class="included-info-btn service-button" data-lang-key="info-button" data-service="web-info" type="button">Info</button>
 </div>
@@ -7083,11 +7085,9 @@ body.ydg-launch-open{overflow:hidden!important}
 <div class="ydg-product-deck" aria-label="Resumen del producto web">
   <div class="ydg-product-price ydg-product-price-promo">
     <small data-lang-key="product-from">DESARROLLO WEB</small>
-    <div class="launch-price-box mini" aria-hidden="true">
-      <span class="launch-price-old">495 €</span>
-    </div>
     <strong class="promo-main-price">99 €</strong>
-    <span data-lang-key="product-price-note">Promoción de lanzamiento + 100 €/año</span>
+    <span class="product-promo-date" data-lang-key="product-promo-date">Hasta 31/12/2026</span>
+    <span data-lang-key="product-price-note">+ 100 €/año · después 495 € + 150 €/año</span>
   </div>
   <div class="ydg-product-spec"><b>72h</b><span data-lang-key="product-72">Objetivo de entrega</span></div>
   <div class="ydg-product-spec"><b>100%</b><span data-lang-key="product-responsive">Responsive</span></div>
@@ -7549,7 +7549,8 @@ body.ydg-launch-open{overflow:hidden!important}
                 'hero-portfolio-button': 'Ver nuestros trabajos',
                 'ydg-availability': 'Disponible para nuevos proyectos · Agosto 2026',
                 'product-from': 'DESARROLLO WEB',
-                'product-price-note': 'Promoción de lanzamiento + 100 €/año',
+                'product-promo-date': 'Hasta 31/12/2026',
+                'product-price-note': '+ 100 €/año · después 495 € + 150 €/año',
                 'product-72': 'Objetivo de entrega',
                 'product-responsive': 'Responsive',
                 'product-seo': 'Base inicial',
@@ -7650,7 +7651,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'final-cta-button': 'Quiero mi web',
                 'final-cta-meta': 'Desarrollo desde 495 € · Objetivo 72h · Dominio, hosting y mantenimiento 150 €/año',
                 'services-title': 'Diseño Web Profesional',
-                'info-button': 'Info', 'launch-offer-small': 'PROMO LANZAMIENTO', 'launch-offer-note': '+ 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores',
+                'info-button': 'Info', 'launch-offer-small': 'PROMO LANZAMIENTO', 'launch-offer-date': 'Hasta 31/12/2026', 'launch-offer-note': '+ 100 €/año · dominio + hosting + mantenimiento + 3 cambios/ajustes menores', 'launch-offer-after': 'Después de la promoción · 495 € + 150 €/año',
                 'how-it-works-title': '¿Cómo creamos tu web?',
                 'step1-title': 'Paso 1: Cuéntanos cómo quieres tu web',
                 'step1-desc': 'Rellena el formulario y cuéntanos tu negocio, estilo, secciones, colores, referencias y todo lo que quieres incluir en tu página.',
@@ -7933,7 +7934,8 @@ body.ydg-launch-open{overflow:hidden!important}
                 'hero-portfolio-button': 'View our work',
                 'ydg-availability': 'Available for new projects · August 2026',
                 'product-from': 'WEB DEVELOPMENT',
-                'product-price-note': 'Launch offer + €100/year',
+                'product-promo-date': 'Until 31/12/2026',
+                'product-price-note': '+ €100/year · after promotion €495 + €150/year',
                 'product-72': 'Delivery target',
                 'product-responsive': 'Responsive',
                 'product-seo': 'Initial foundation',
@@ -8034,7 +8036,7 @@ body.ydg-launch-open{overflow:hidden!important}
                 'final-cta-button': 'I want my website',
                 'final-cta-meta': 'Development from €495 · 72h target · Domain, hosting and maintenance €150/year',
                 'services-title': 'Professional Web Design',
-                'info-button': 'Info', 'launch-offer-small': 'LAUNCH OFFER', 'launch-offer-note': '+ €100/year domain, hosting and maintenance',
+                'info-button': 'Info', 'launch-offer-small': 'LAUNCH OFFER', 'launch-offer-date': 'Until 31/12/2026', 'launch-offer-note': '+ €100/year · domain + hosting + maintenance + 3 minor changes/adjustments', 'launch-offer-after': 'After the promotion · €495 + €150/year',
                 'how-it-works-title': 'How do we create your website?',
                 'step1-title': 'Step 1: Tell us how you want your website',
                 'step1-desc': 'Tell us about your business, preferred style, sections, colors, references and everything you want to include.',
