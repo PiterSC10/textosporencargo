@@ -6488,6 +6488,114 @@ body.ydg-launch-open{overflow:hidden!important}
 @media(max-width:1050px){#capacidades .ydg-cap-left .ydg-cap-card:after,#capacidades .ydg-cap-right .ydg-cap-card:before{width:50px}#capacidades .ydg-cap-left .ydg-cap-card:after{right:-51px}#capacidades .ydg-cap-right .ydg-cap-card:before{left:-51px}}
 @media(max-width:780px){#capacidades .ydg-cap-card:hover{transform:translateY(-3px)}#capacidades .ydg-cap-left .ydg-cap-card:after,#capacidades .ydg-cap-right .ydg-cap-card:before{display:none}}
 @media(prefers-reduced-motion:reduce){#capacidades .ydg-cap-left .ydg-cap-card:after,#capacidades .ydg-cap-right .ydg-cap-card:before,#capacidades .ydg-cap-core:after,#capacidades .ydg-cap-dog:after{animation:none!important}}
+
+
+/* ===== V112 · HEADER DESKTOP EN UNA SOLA LÍNEA ===== */
+@media (min-width:1280px){
+  header.fixed > nav{
+    max-width:1540px!important;
+    width:100%!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    gap:14px!important;
+  }
+  header.fixed > nav > .text-2xl{
+    flex:0 0 auto!important;
+    min-width:0!important;
+  }
+  .ydg-header-brand{
+    gap:7px!important;
+  }
+  .ydg-header-brand .ydg-header-logo{
+    width:28px!important;
+    height:28px!important;
+    max-width:28px!important;
+    flex-basis:28px!important;
+  }
+  .ydg-header-brand span{
+    font-size:1.28rem!important;
+  }
+  #nav-content{
+    display:flex!important;
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    flex-wrap:nowrap!important;
+    gap:10px!important;
+  }
+  #nav-content > div:first-child{
+    display:flex!important;
+    flex:0 1 auto!important;
+    min-width:0!important;
+    margin:0!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+  }
+  #nav-content .nav-link{
+    display:inline-flex!important;
+    align-items:center!important;
+    margin:0 .43rem 0 0!important;
+    padding:.34rem .12rem!important;
+    font-size:.76rem!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  #nav-content > div:last-child{
+    display:flex!important;
+    flex:0 0 auto!important;
+    min-width:0!important;
+    margin:0!important;
+    align-items:center!important;
+    flex-wrap:nowrap!important;
+    gap:5px!important;
+  }
+  .header-weather{
+    flex:0 1 400px!important;
+    width:400px!important;
+    max-width:400px!important;
+    min-width:320px!important;
+    margin:0 4px 0 0!important;
+    padding:4px 6px!important;
+    gap:5px!important;
+  }
+  .header-weather-desc{display:none!important;}
+  .header-weather-main{flex:0 0 auto!important;}
+  .header-weather-stats{
+    flex:1 1 auto!important;
+    gap:2px!important;
+    overflow:hidden!important;
+  }
+  .header-weather-chip{
+    min-width:35px!important;
+    padding:3px 4px!important;
+  }
+  .header-weather-chip small{font-size:.37rem!important;}
+  .header-weather-chip b{font-size:.50rem!important;}
+  .header-weather-refresh{
+    width:20px!important;
+    height:20px!important;
+    font-size:.72rem!important;
+  }
+  .lang-flag-btn{
+    width:34px!important;
+    height:27px!important;
+    padding:3px!important;
+    flex:0 0 auto!important;
+  }
+  .lang-flag{width:26px!important;height:17px!important;}
+}
+
+/* En tablet horizontal mantenemos la cabecera compacta para evitar cualquier salto. */
+@media (min-width:1024px) and (max-width:1279px){
+  header.fixed > nav{flex-wrap:nowrap!important;}
+  #nav-content{display:none!important;}
+  header.fixed #nav-toggle{display:flex!important;}
+  header.fixed .block.lg\\:hidden{display:block!important;}
+}
 </style>
 </head>
 <body class="ydg-promo-on antialiased">
