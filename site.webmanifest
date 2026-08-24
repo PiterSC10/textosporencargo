@@ -1,20 +1,20 @@
 {
   "name": "YourDesignGPT",
-  "short_name": "YourDesignGPT",
-  "description": "Web profesional desde 99 € | YourDesignGPT",
+  "short_name": "YDG",
+  "description": "Tu web profesional desde 99 € · Promoción hasta 31/12/2026",
   "start_url": "/yourdesigngpt/",
   "scope": "/yourdesigngpt/",
   "display": "standalone",
-  "background_color": "#050814",
+  "background_color": "#000000",
   "theme_color": "#050814",
   "icons": [
     {
-      "src": "android-chrome-192x192.png?v=117",
+      "src": "android-chrome-192x192-v119.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "android-chrome-512x512.png?v=117",
+      "src": "android-chrome-512x512-v119.png",
       "sizes": "512x512",
       "type": "image/png"
     }
