@@ -7130,6 +7130,60 @@ footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em
 @media(max-width:860px){#tienda{padding-top:58px}.ydg-store-next-grid{grid-template-columns:1fr}.ydg-store-next-visual{border-left:0;border-top:1px solid rgba(168,85,247,.10);min-height:230px}.ydg-store-next-copy{padding:28px 24px}}@media(max-width:520px){.ydg-store-intro{padding:26px 12px 0}.ydg-store-intro h2{font-size:clamp(3rem,18vw,5rem)}.ydg-store-eyebrow{font-size:.58rem;letter-spacing:.14em}.ydg-store-eyebrow i{width:24px}.ydg-store-next{width:calc(100% - 18px);border-radius:20px}.ydg-store-next-copy{padding:24px 18px}.ydg-store-live{font-size:.54rem}.ydg-store-enter{font-size:.56rem}}.ydg-store-focus{animation:ydgStoreFocus .9s ease}@keyframes ydgStoreFocus{0%,100%{box-shadow:0 28px 80px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.025)}45%{box-shadow:0 28px 80px rgba(0,0,0,.28),0 0 42px rgba(34,211,238,.17),0 0 70px rgba(168,85,247,.10)}}
 @media(prefers-reduced-motion:reduce){.ydg-store-ambient span,.ydg-store-live.standby b,.ydg-lock-dot,.ydg-store-lock-ring,.ydg-store-lock-ring::before,.ydg-store-lock-ring::after,.ydg-store-scanline{animation:none!important}[data-ydg-store-reveal]{opacity:1;transform:none;transition:none}}
 </style>
+
+<style id="ydg-v128-responsive-polish">
+#tienda{scroll-margin-top:96px;overflow:visible;padding-bottom:clamp(28px,4vw,56px)!important;margin-bottom:0!important}
+#ydg-merch-drop01{margin-bottom:0!important;position:relative;z-index:1}
+footer{clear:both;margin-top:0!important;padding-top:clamp(34px,5vw,64px)!important;position:relative;z-index:1}
+#links-importantes{margin-top:clamp(18px,3vw,34px)!important}
+html,body{max-width:100%;overflow-x:hidden}
+img,video,canvas,svg{max-width:100%}
+.ydg-merch-shell,.ydg-merch-copy,.ydg-merch-viewer,#nav-content{min-width:0}
+
+@media(max-width:1279px){#tienda{scroll-margin-top:88px}}
+@media(max-width:1024px){#nav-content .nav-link{white-space:nowrap}}
+@media(max-width:860px){
+  #tienda{scroll-margin-top:82px}
+  #ydg-merch-drop01{margin-top:1.5rem!important}
+  .ydg-merch-shell{grid-template-columns:1fr!important}
+  .ydg-merch-copy{padding:28px 22px!important}
+  .ydg-merch-viewer{min-height:480px!important}
+}
+@media(max-width:767px){#tienda{scroll-margin-top:78px}}
+@media(max-width:520px){
+  #tienda{padding-left:8px!important;padding-right:8px!important}
+  #ydg-merch-drop01{width:calc(100% - 12px)!important;margin-left:auto!important;margin-right:auto!important}
+  .ydg-merch-copy{padding:24px 18px!important}
+  .ydg-merch-title{font-size:clamp(2.35rem,14vw,3.8rem)!important;line-height:.9!important}
+  .ydg-merch-desc{font-size:.86rem!important;line-height:1.58!important}
+  .ydg-merch-specs{gap:.42rem!important}
+  .ydg-merch-specs span{font-size:.58rem!important;padding:.43rem .6rem!important}
+  .ydg-merch-price-row{align-items:flex-start!important;gap:.65rem!important}
+  .ydg-merch-viewer{min-height:400px!important}
+  .ydg-merch-tabs{left:12px!important;right:12px!important;transform:none!important;justify-content:center!important;flex-wrap:wrap!important}
+  .ydg-merch-tab{min-height:44px}
+  footer{padding-top:34px!important}
+}
+@media(max-width:390px){
+  .ydg-merch-viewer{min-height:370px!important}
+  .ydg-merch-tab{padding:.58rem .62rem!important;font-size:.5rem!important}
+}
+@media(max-width:340px){
+  .ydg-merch-title{font-size:2.2rem!important}
+  .ydg-merch-viewer{min-height:340px!important}
+}
+</style>
+
+
+<style id="ydg-v128-store-footer-final">
+#tienda{padding-bottom:32px!important}
+#tienda + footer{margin-top:0!important}
+@media(max-width:767px){
+  #tienda{padding-bottom:22px!important}
+  #tienda + footer{padding-top:30px!important}
+}
+</style>
+
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -7250,13 +7304,14 @@ footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#hero-section">Inicio</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#configurador">Presupuesto</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#portfolio">Proyectos</a>
-<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link ydg-store-nav-link" href="#tienda" data-ydg-store-nav>YDG-STORE</a>
+
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#calidad">Calidad</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#incluye">Qué incluye</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#como-funciona">Proceso</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#opiniones">Reseñas</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#faq">FAQ</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#capacidades" data-lang-key="nav-capabilities">Capacidades</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link ydg-store-nav-link" href="#tienda" data-ydg-store-nav>YDG-STORE</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#links-importantes">Contacto</a>
 </div>
 <div class="mt-4 lg:mt-0 flex items-center">
@@ -8167,70 +8222,7 @@ footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em
   <p data-ydg-store="subtitle">Diseño, tecnología y cultura YDG en ediciones limitadas.</p>
   <div class="ydg-store-livebar">
     <div class="ydg-store-live"><b></b><span data-ydg-store="archive">DROP 01 · ARCHIVED</span></div>
-    <div class="ydg-store-live standby"><b></b><span data-ydg-store="standby">DROP 02 · STANDBY</span></div>
-  </div>
-  <button class="ydg-store-enter" type="button" data-store-open-drop>
-    <span data-ydg-store="explore">EXPLORAR DROP 01</span><strong>→</strong>
-  </button>
-</div>
-<div id="ydg-merch-drop01" aria-labelledby="ydg-merch-title">
-  <div class="ydg-merch-top">
-    <div class="ydg-merch-tabs-main" role="tablist" aria-label="YDG Merch">
-      <button class="ydg-merch-main-tab active" type="button" data-merch-stage="product">01 PRODUCT</button>
-      <button class="ydg-merch-main-tab" type="button" data-merch-stage="design">02 DESIGN</button>
-      <button class="ydg-merch-main-tab" type="button" data-merch-stage="fit">03 FIT + SIZE</button>
-      <button class="ydg-merch-main-tab" type="button" data-merch-stage="status">04 DROP STATUS</button>
-    </div>
-  </div>
-
-  <div class="ydg-merch-stage ydg-merch-shell active" data-stage="product">
-    <div class="ydg-merch-copy">
-      <div class="ydg-merch-kicker"><i></i><span data-ydg-merch="kicker">YDG // MERCH · DROP 01</span></div>
-      <h2 class="ydg-merch-title" id="ydg-merch-title"><span data-ydg-merch="headline">WEAR THE BUILD.</span></h2>
-      <div class="ydg-merch-product" data-ydg-merch="product">YDG Tech Oversize Tee</div>
-      <p class="ydg-merch-desc" data-ydg-merch="desc">Primera edición conceptual de merchandising YourDesignGPT. Camiseta oversized negra con gráfica tecnológica YDG, impresión frontal y trasera y detalle // 72H en manga.</p>
-      <div class="ydg-merch-specs"><span>100% ALGODÓN PREMIUM</span><span>OVERSIZE FIT</span><span>UNISEX</span><span>FRONT + BACK PRINT</span><span>YDG // 72H</span></div>
-      <div class="ydg-merch-price-row"><div class="ydg-merch-price">49,90 €</div><div class="ydg-merch-sold" data-ydg-merch="sold">AGOTADO</div></div>
-      <div class="ydg-merch-note" data-ydg-merch="note">DROP 01 · TECH EDITION · Archivo YDG 2026</div>
-    </div>
-    <div class="ydg-merch-viewer" aria-label="Vista del producto YDG Tech Oversize Tee">
-      <div class="ydg-merch-view" id="ydg-merch-view" data-view="front"></div><div class="ydg-merch-scan"></div>
-      <div class="ydg-merch-hud"><span>DROP 01</span><span>SOLD OUT</span></div>
-      <div class="ydg-merch-tabs" role="group" aria-label="Vistas del producto"><button class="ydg-merch-tab active" type="button" data-merch-view="front">FRONT</button><button class="ydg-merch-tab" type="button" data-merch-view="back">BACK</button><button class="ydg-merch-tab" type="button" data-merch-view="detail">DETAIL</button></div>
-    </div>
-  </div>
-
-  <div class="ydg-merch-stage ydg-merch-panel" data-stage="design">
-    <div class="ydg-merch-info"><div class="ydg-merch-kicker"><i></i>02 // DESIGN SYSTEM</div><h3>Detalles del diseño</h3><p>Explora los puntos clave del DROP 01. Cada marcador destaca un elemento visual de la edición TECH.</p><div class="ydg-merch-spec-grid"><div class="ydg-merch-spec-card"><b>CHEST LOGO</b><span>Logo YDG pequeño delantero.</span></div><div class="ydg-merch-spec-card"><b>BACK SYSTEM</b><span>Gráfica tecnológica de gran formato.</span></div><div class="ydg-merch-spec-card"><b>SLEEVE // 72H</b><span>Detalle lateral de identidad YDG.</span></div><div class="ydg-merch-spec-card"><b>TECH EDITION</b><span>Acabado visual cyan / magenta.</span></div></div></div>
-    <div class="ydg-hotspots"><div class="ydg-merch-view" data-view="front"></div><button class="ydg-hotspot h1" type="button" data-note="YDG chest logo · identidad frontal minimalista">01</button><button class="ydg-hotspot h2" type="button" data-note="Tech Back System · gráfica principal del DROP 01">02</button><button class="ydg-hotspot h3" type="button" data-note="YDG // 72H · detalle de manga">03</button></div>
-  </div>
-
-  <div class="ydg-merch-stage ydg-merch-panel" data-stage="fit">
-    <div class="ydg-merch-info"><div class="ydg-merch-kicker"><i></i>03 // FIT + SIZE</div><h3>Oversized fit</h3><p>Corte amplio y relajado, pensado para una silueta urbana y cómoda.</p><div class="ydg-merch-size-grid" aria-label="Tallas agotadas"><button class="ydg-size" type="button" disabled>S<small>SOLD OUT</small></button><button class="ydg-size" type="button" disabled>M<small>SOLD OUT</small></button><button class="ydg-size" type="button" disabled>L<small>SOLD OUT</small></button><button class="ydg-size" type="button" disabled>XL<small>SOLD OUT</small></button><button class="ydg-size" type="button" disabled>XXL<small>SOLD OUT</small></button></div><div class="ydg-merch-spec-grid"><div class="ydg-merch-spec-card"><b>FIT</b><span>Oversized / unisex</span></div><div class="ydg-merch-spec-card"><b>FABRIC</b><span>100% algodón premium</span></div><div class="ydg-merch-spec-card"><b>COLOR</b><span>Black</span></div><div class="ydg-merch-spec-card"><b>PRINT</b><span>Front + Back + Sleeve</span></div></div></div>
-    <div class="ydg-merch-viewer"><div class="ydg-merch-view" data-view="back"></div><div class="ydg-merch-hud"><span>OVERSIZED FIT</span><span>ALL SIZES SOLD OUT</span></div></div>
-  </div>
-
-  <div class="ydg-merch-stage ydg-merch-panel" data-stage="status">
-    <div class="ydg-merch-status"><div class="ydg-status-box"><div class="ydg-merch-kicker" style="justify-content:center"><i></i>04 // DROP STATUS</div><div class="status">SOLD OUT</div><div class="ydg-status-meta"><div>RELEASE<br><b>2026</b></div><div>EDITION<br><b>TECH</b></div><div>FIT<br><b>OVERSIZED</b></div><div>UNITS<br><b>LIMITED</b></div></div><div class="ydg-drop-bar"><span></span></div><div class="ydg-merch-note">DROP CLOSED · 100% ARCHIVED</div><div class="ydg-locked">NEXT DROP // STANDBY · ACCESS LOCKED</div></div></div>
-    <div class="ydg-merch-viewer"><div class="ydg-merch-view" data-view="detail"></div><div class="ydg-merch-hud"><span>ARCHIVE ITEM</span><span>NO LONGER AVAILABLE</span></div></div>
-  </div>
-</div>
-
-<div class="ydg-store-next" data-ydg-store-reveal aria-label="Próximo lanzamiento YDG">
-  <div class="ydg-store-next-grid">
-    <div class="ydg-store-next-copy">
-      <span class="ydg-store-next-index">02 // NEXT RELEASE</span>
-      <h3 data-ydg-store="nextTitle">DROP 02</h3>
-      <p data-ydg-store="nextText">El siguiente objeto del sistema YDG permanece bloqueado. El archivo se abrirá cuando exista una nueva edición.</p>
-      <div class="ydg-store-lockline"><span class="ydg-lock-dot"></span><b data-ydg-store="locked">ACCESS LOCKED</b><em>YDG // STANDBY</em></div>
-    </div>
-    <div class="ydg-store-next-visual" aria-hidden="true">
-      <div class="ydg-store-lock-ring"><span>YDG</span><small>02</small></div>
-      <div class="ydg-store-gridlines"></div>
-      <div class="ydg-store-scanline"></div>
-    </div>
-  </div>
-</div>
+    
 </section>
 
 <footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
@@ -11196,8 +11188,8 @@ if(document.readyState==='loading'){
   const openBtn=store.querySelector('[data-store-open-drop]');
   const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const copy={
-    es:{nav:'YDG-STORE',kicker:'YDG // STORE SYSTEM',subtitle:'Diseño, tecnología y cultura YDG en ediciones limitadas.',archive:'DROP 01 · ARCHIVED',standby:'DROP 02 · STANDBY',explore:'EXPLORAR DROP 01',nextTitle:'DROP 02',nextText:'El siguiente objeto del sistema YDG permanece bloqueado. El archivo se abrirá cuando exista una nueva edición.',locked:'ACCESS LOCKED'},
-    en:{nav:'YDG-STORE',kicker:'YDG // STORE SYSTEM',subtitle:'YDG design, technology and culture in limited editions.',archive:'DROP 01 · ARCHIVED',standby:'DROP 02 · STANDBY',explore:'EXPLORE DROP 01',nextTitle:'DROP 02',nextText:'The next YDG system object remains locked. The archive will open when a new edition exists.',locked:'ACCESS LOCKED'}
+    es:{nav:'YDG-STORE',kicker:'YDG // STORE SYSTEM',subtitle:'Diseño, tecnología y cultura YDG en ediciones limitadas.',archive:'DROP 01 · ARCHIVED',explore:'EXPLORAR DROP 01'},
+    en:{nav:'YDG-STORE',kicker:'YDG // STORE SYSTEM',subtitle:'YDG design, technology and culture in limited editions.',archive:'DROP 01 · ARCHIVED',explore:'EXPLORE DROP 01'}
   };
   function apply(lang){
     const d=copy[(lang||'').toLowerCase().startsWith('en')?'en':'es'];
