@@ -7328,6 +7328,12 @@ img,video,canvas,svg{max-width:100%}
 }
 </style>
 
+
+<style id="ydg-client-area-style">
+.ydg-client-area-wrap{display:flex;justify-content:center;margin-top:1rem}
+.ydg-client-area-link{display:inline-flex;align-items:center;justify-content:center;padding:.58rem .95rem;border:1px solid rgba(45,212,191,.28);border-radius:999px;background:rgba(17,24,39,.72);color:#94a3b8;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.01em;transition:color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.ydg-client-area-link:hover,.ydg-client-area-link:focus-visible{color:#fff;border-color:#2dd4bf;box-shadow:0 0 18px rgba(45,212,191,.18);transform:translateY(-1px);outline:none}
+</style>
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -8471,6 +8477,9 @@ img,video,canvas,svg{max-width:100%}
 <span id="install-app-label" data-lang-key="install-label">Añadir YourDesignGPT a favoritos</span>
 </button>
 </div>
+</div>
+<div class="ydg-client-area-wrap">
+<a class="ydg-client-area-link" id="ydg-client-area-link" href="https://pitersc10.github.io/ydg-client-portal/login.html" rel="nofollow">Área de clientes →</a>
 </div>
 <div class="flex justify-center space-x-4 text-sm mt-4">
 <a class="text-gray-400 hover:text-white" data-lang-key="privacy-policy" href="#" id="privacy-policy-link">Política de privacidad</a>
@@ -11482,6 +11491,23 @@ if(document.readyState==='loading'){
   merch.querySelectorAll('[data-merch-stage]').forEach(btn=>btn.addEventListener('click',()=>{const stage=btn.dataset.merchStage;merch.querySelectorAll('[data-merch-stage]').forEach(b=>b.classList.toggle('active',b===btn));merch.querySelectorAll('[data-stage]').forEach(p=>p.classList.toggle('active',p.dataset.stage===stage))}));
   const reveal=[...store.querySelectorAll('[data-ydg-store-reveal]')];
   if('IntersectionObserver' in window&&!reduced){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.14});reveal.forEach(el=>io.observe(el))}else reveal.forEach(el=>el.classList.add('is-visible'));
+})();
+</script>
+
+<script id="ydg-client-area-lang">
+(()=>{
+  const link=document.getElementById('ydg-client-area-link');
+  if(!link)return;
+  const labels={
+    es:'Área de clientes →',
+    en:'Client area →',
+    fr:'Espace clients →',
+    it:'Area clienti →',
+    de:'Kundenbereich →'
+  };
+  const apply=(lang)=>{const k=(lang||'es').toLowerCase().slice(0,2);link.textContent=labels[k]||labels.es;};
+  apply(document.documentElement.lang||'es');
+  window.addEventListener('ydg-language-change',e=>apply(e.detail?.lang||document.documentElement.lang||'es'));
 })();
 </script>
 </body>
