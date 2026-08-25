@@ -7098,6 +7098,26 @@ header.fixed::after{
 @media(max-width:520px){#ydg-merch-drop01{width:calc(100% - 18px);border-radius:20px}.ydg-merch-title{font-size:clamp(2.6rem,15vw,4.2rem)}.ydg-merch-viewer,.ydg-hotspots{min-height:410px}.ydg-merch-view{background-size:auto 100%!important}.ydg-merch-view[data-view="front"]{background-position:9% center}.ydg-merch-view[data-view="back"]{background-position:47% center}.ydg-merch-view[data-view="detail"]{background-position:100% center}.ydg-merch-tab{padding:.6rem .7rem;font-size:.53rem}.ydg-merch-main-tab{padding:.62rem .74rem;font-size:.55rem}.ydg-status-meta{grid-template-columns:1fr}.ydg-merch-info{padding:24px 18px}.ydg-hotspot[data-note]:focus::after,.ydg-hotspot[data-note]:hover::after{left:auto;right:34px;width:150px}}
 @media(prefers-reduced-motion:reduce){.ydg-merch-scan::after{animation:none}.ydg-merch-view{transition:none}}
 </style>
+
+<style id="ydg-v125-merch-footer-separation">
+/* V125 · Merch separado del footer; identidad + enlaces en un único bloque */
+#merch{position:relative;z-index:1}
+#merch #ydg-merch-drop01{margin-top:2.4rem;margin-bottom:2.2rem}
+footer .ydg-footer-cluster{
+  max-width:1180px;
+  margin:0 auto;
+  padding:28px 22px 24px;
+  border:1px solid rgba(45,212,191,.14);
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(10,17,28,.82),rgba(7,13,22,.88));
+}
+footer .ydg-footer-cluster>.connect-block{margin:1.2rem auto .8rem}
+footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em}
+@media(max-width:640px){
+  #merch #ydg-merch-drop01{margin-top:1.25rem;margin-bottom:1.3rem}
+  footer .ydg-footer-cluster{padding:22px 14px 20px;border-radius:20px}
+}
+</style>
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -8126,12 +8146,7 @@ header.fixed::after{
 
 
 
-<footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
-<div class="container mx-auto section-box footer-box">
-<p class="mb-2 text-white font-bold">YourDesignGPT | Diseño Web Profesional</p>
-<p class="mb-2" data-lang-key="footer-copyright">© 2025 Pedro Soriano Calderón · Diseño Web Profesional. Todos los derechos reservados.</p>
-<p class="mb-4" data-lang-key="footer-design">Diseñado con ❤️</p>
-
+<section id="merch" aria-label="YDG Merch · Drop 01" style="margin:0;padding:0 0 1.2rem;background:#0d1117;">
 <div id="ydg-merch-drop01" aria-labelledby="ydg-merch-title">
   <div class="ydg-merch-top">
     <div class="ydg-merch-tabs-main" role="tablist" aria-label="YDG Merch">
@@ -8174,6 +8189,14 @@ header.fixed::after{
     <div class="ydg-merch-viewer"><div class="ydg-merch-view" data-view="detail"></div><div class="ydg-merch-hud"><span>ARCHIVE ITEM</span><span>NO LONGER AVAILABLE</span></div></div>
   </div>
 </div>
+</section>
+
+<footer class="bg-[#0d1117] text-gray-400 py-8 text-center px-4">
+<div class="container mx-auto section-box footer-box ydg-footer-cluster">
+<p class="mb-2 text-white font-bold">YourDesignGPT | Diseño Web Profesional</p>
+<p class="mb-2" data-lang-key="footer-copyright">© 2025 Pedro Soriano Calderón · Diseño Web Profesional. Todos los derechos reservados.</p>
+<p class="mb-4" data-lang-key="footer-design">Diseñado con ❤️</p>
+
 <div class="connect-block" id="links-importantes">
 <div class="important-links-title" data-lang-key="important-links-title">Mis enlaces de contacto</div>
 <div aria-label="Enlaces personales de Pedro Soriano Calderón" class="social-links">
