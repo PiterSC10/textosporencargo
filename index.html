@@ -27,7 +27,6 @@
 <!-- Favicons / App Icons -->
 <link href="apple-touch-icon-v122.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="apple-touch-icon-precomposed-v122.png" rel="apple-touch-icon-precomposed" sizes="180x180"/>
-<link href="apple-touch-icon-v119.png" rel="icon" sizes="180x180" type="image/png"/>
 <link href="favicon-32x32-v122.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="favicon-16x16-v122.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="site.webmanifest?v=122" rel="manifest"/>
@@ -9745,7 +9744,54 @@ img,video,canvas,svg{max-width:100%}
         }
     })();
     </script>
-<script>(function(){const proc=document.getElementById('process-track');if(proc&&'IntersectionObserver'in window){new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)proc.classList.add('active')}),{threshold:.35}).observe(proc)}else if(proc)proc.classList.add('active');const text=document.getElementById('smart-cta-text'),btn=document.getElementById('smart-cta-button');function labels(){const en=document.documentElement.lang==='en';return en?{topT:'Discover what we can create',topB:'View work',midT:'Tell us what your business needs',midB:'Request a quote',botT:'Ready to launch your new website?',botB:'I want my website'}:{topT:'Descubre lo que podemos crear',topB:'Ver trabajos',midT:'Cuéntanos qué necesita tu negocio',midB:'Pedir presupuesto',botT:'¿Listo para estrenar tu nueva web?',botB:'Quiero mi web'}}function sync(){if(!text||!btn)return;const l=labels(),h=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=scrollY/h;if(p<.28){text.textContent=l.topT;btn.textContent=l.topB;btn.href='#portfolio'}else if(p<.68){text.textContent=l.midT;btn.textContent=l.midB;btn.href='#configurador'}else{text.textContent=l.botT;btn.textContent=l.botB;btn.href='#configurador'}btn.removeAttribute('target');btn.removeAttribute('rel')}addEventListener('scroll',sync,{passive:true});addEventListener('ydg-language-change',sync);sync();const grid=document.querySelector('.portfolio-grid');if(grid&&matchMedia('(max-width:767px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){let i=0,timer;const cards=[...grid.children];const run=()=>{if(cards.length<2)return;i=(i+1)%cards.length;grid.scrollTo({left:cards[i].offsetLeft-grid.clientWidth*.07,behavior:'smooth'})};const start=()=>{clearInterval(timer);timer=setInterval(run,5200)};start();grid.addEventListener('touchstart',()=>clearInterval(timer),{passive:true});grid.addEventListener('touchend',start,{passive:true})}})();</script>
+<script id="ydg-smart-cta-stability-v130">
+(function(){
+  const proc=document.getElementById('process-track');
+  if(proc&&'IntersectionObserver'in window){
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){proc.classList.add('active');io.disconnect();}
+    }),{threshold:.35});
+    io.observe(proc);
+  }else if(proc) proc.classList.add('active');
+
+  const text=document.getElementById('smart-cta-text');
+  const btn=document.getElementById('smart-cta-button');
+  const packs={
+    es:{topT:'Descubre lo que podemos crear',topB:'Ver trabajos',midT:'Cuéntanos qué necesita tu negocio',midB:'Pedir presupuesto',botT:'¿Listo para estrenar tu nueva web?',botB:'Quiero mi web'},
+    en:{topT:'Discover what we can create',topB:'View work',midT:'Tell us what your business needs',midB:'Request a quote',botT:'Ready to launch your new website?',botB:'I want my website'},
+    fr:{topT:'Découvrez ce que nous pouvons créer',topB:'Voir les projets',midT:'Dites-nous ce dont votre activité a besoin',midB:'Demander un devis',botT:'Prêt à lancer votre nouveau site ?',botB:'Je veux mon site'},
+    it:{topT:'Scopri cosa possiamo creare',topB:'Vedi i progetti',midT:'Raccontaci cosa serve alla tua attività',midB:'Richiedi un preventivo',botT:'Pronto a lanciare il tuo nuovo sito?',botB:'Voglio il mio sito'},
+    de:{topT:'Entdecken Sie, was wir erstellen können',topB:'Projekte ansehen',midT:'Sagen Sie uns, was Ihr Unternehmen braucht',midB:'Angebot anfragen',botT:'Bereit für Ihre neue Website?',botB:'Ich möchte meine Website'}
+  };
+  function labels(){const l=(document.documentElement.lang||'es').slice(0,2).toLowerCase();return packs[l]||packs.es;}
+  function sync(){
+    if(!text||!btn)return;
+    const l=labels(),h=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=scrollY/h;
+    if(p<.28){text.textContent=l.topT;btn.textContent=l.topB;btn.href='#portfolio'}
+    else if(p<.68){text.textContent=l.midT;btn.textContent=l.midB;btn.href='#configurador'}
+    else{text.textContent=l.botT;btn.textContent=l.botB;btn.href='#configurador'}
+    btn.removeAttribute('target');btn.removeAttribute('rel');
+  }
+  let ticking=false;
+  function requestSync(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;sync();});}
+  addEventListener('scroll',requestSync,{passive:true});
+  addEventListener('resize',requestSync,{passive:true});
+  addEventListener('ydg-language-change',sync);
+  sync();
+
+  const grid=document.querySelector('.portfolio-grid');
+  if(grid&&matchMedia('(max-width:767px)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let i=0,timer;const cards=[...grid.children];
+    const run=()=>{if(cards.length<2||document.hidden)return;i=(i+1)%cards.length;grid.scrollTo({left:cards[i].offsetLeft-grid.clientWidth*.07,behavior:'smooth'})};
+    const stop=()=>clearInterval(timer);
+    const start=()=>{stop();timer=setInterval(run,5200)};
+    start();
+    grid.addEventListener('touchstart',stop,{passive:true});
+    grid.addEventListener('touchend',start,{passive:true});
+    document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  }
+})();
+</script>
 <script>
 (function(){
   const form = document.getElementById('web-config-form');
@@ -9773,9 +9819,17 @@ img,video,canvas,svg{max-width:100%}
     sending = true;
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    const isEn = document.documentElement.lang === 'en';
-    submitBtn.textContent = isEn ? 'Sending…' : 'Enviando…';
-    setStatus(isEn ? 'Sending your configuration…' : 'Enviando tu configuración…', 'success');
+    const uiLang=(document.documentElement.lang||'es').slice(0,2).toLowerCase();
+    const sendCopy={
+      es:{button:'Enviando…',status:'Enviando tu configuración…'},
+      en:{button:'Sending…',status:'Sending your configuration…'},
+      fr:{button:'Envoi…',status:'Envoi de votre configuration…'},
+      it:{button:'Invio…',status:'Invio della configurazione…'},
+      de:{button:'Wird gesendet…',status:'Ihre Konfiguration wird gesendet…'}
+    };
+    const sendText=sendCopy[uiLang]||sendCopy.es;
+    submitBtn.textContent=sendText.button;
+    setStatus(sendText.status, 'success');
 
     const payload = {};
     for(const [key, value] of fd.entries()){
@@ -9817,7 +9871,14 @@ try{
       successPanel?.scrollIntoView({behavior:'smooth', block:'center'});
     } catch(err){
       console.error('FormSubmit AJAX error:', err);
-      setStatus(document.documentElement.lang === 'en' ? 'The form could not be sent. Check that FormSubmit is activated for this website and try again.' : 'No se ha podido enviar. Comprueba que FormSubmit esté activado para esta web y vuelve a intentarlo.', 'error');
+      const errCopy={
+        es:'No se ha podido enviar. Comprueba que FormSubmit esté activado para esta web y vuelve a intentarlo.',
+        en:'The form could not be sent. Check that FormSubmit is activated for this website and try again.',
+        fr:'Le formulaire n’a pas pu être envoyé. Vérifiez que FormSubmit est activé pour ce site et réessayez.',
+        it:'Non è stato possibile inviare il modulo. Verifica che FormSubmit sia attivo per questo sito e riprova.',
+        de:'Das Formular konnte nicht gesendet werden. Prüfen Sie, ob FormSubmit für diese Website aktiviert ist, und versuchen Sie es erneut.'
+      };
+      setStatus(errCopy[(document.documentElement.lang||'es').slice(0,2).toLowerCase()]||errCopy.es, 'error');
     } finally {
       sending = false;
       submitBtn.disabled = false;
@@ -10444,13 +10505,17 @@ try{
     const scopeOut=document.getElementById('budget-scope-value');
 
     function updateBudget(){
-      const en=document.documentElement.lang==='en';
+      const lang=(document.documentElement.lang||'es').slice(0,2).toLowerCase();
       const fn=checks.filter(x=>x.checked).length;
       if(secOut&&sec) secOut.textContent=sec.options[sec.selectedIndex]?.textContent?.trim()||'—';
       if(funOut) funOut.textContent=String(fn);
       if(langOut&&langs) langOut.textContent=langs.options[langs.selectedIndex]?.textContent?.trim()||'—';
       const complex=(sec&&sec.selectedIndex>=2)||(langs&&langs.selectedIndex>=2)||fn>=5;
-      if(scopeOut) scopeOut.textContent=complex?(en?'Review required':'Revisión necesaria'):(en?'Standard':'Estándar');
+      if(scopeOut){
+        const scopeCopy={es:['Estándar','Revisión necesaria'],en:['Standard','Review required'],fr:['Standard','Révision nécessaire'],it:['Standard','Revisione necessaria'],de:['Standard','Prüfung erforderlich']};
+        const c=scopeCopy[lang]||scopeCopy.es;
+        scopeOut.textContent=complex?c[1]:c[0];
+      }
     }
     form.addEventListener('change',updateBudget);
     addEventListener('ydg-language-change',()=>setTimeout(updateBudget,20));
@@ -11508,6 +11573,26 @@ if(document.readyState==='loading'){
   const apply=(lang)=>{const k=(lang||'es').toLowerCase().slice(0,2);link.textContent=labels[k]||labels.es;};
   apply(document.documentElement.lang||'es');
   window.addEventListener('ydg-language-change',e=>apply(e.detail?.lang||document.documentElement.lang||'es'));
+})();
+</script>
+
+<script id="ydg-stability-patch-v130">
+(function(){
+  'use strict';
+  // The cookie-policy inline link is recreated when the language changes.
+  // Delegation keeps it clickable in all five languages without rebinding listeners.
+  document.addEventListener('click',function(e){
+    const link=e.target&&e.target.closest?e.target.closest('#open-cookie-policy'):null;
+    if(!link)return;
+    e.preventDefault();
+    const footerLink=document.getElementById('cookie-policy-link');
+    if(footerLink){footerLink.click();return;}
+  });
+
+  // Recalculate progress after late-loading assets/fonts so 100% remains aligned to the true page height.
+  const refreshProgress=()=>window.dispatchEvent(new Event('resize'));
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refreshProgress).catch(()=>{});
+  window.addEventListener('load',refreshProgress,{once:true});
 })();
 </script>
 </body>
