@@ -9198,15 +9198,6 @@ header.fixed::after{
         document.querySelectorAll('.lang-flag-btn[data-lang]').forEach(btn=>btn.addEventListener('click',()=>{currentLang=btn.dataset.lang;updateLanguage();}));
         try{const saved=localStorage.getItem('ydg-lang');if(['es','en','fr','it','de'].includes(saved))currentLang=saved}catch(e){}
         updateLanguage();
-            });
-        }
-
-        if (langEnBtn) {
-            langEnBtn.addEventListener('click', () => {
-                currentLang = 'en';
-                updateLanguage();
-            });
-        }
 
         // Event listeners para botones de servicio
         document.querySelectorAll('.service-button').forEach(button => {
