@@ -11424,5 +11424,80 @@ if(document.readyState==='loading'){
   window.addEventListener('ydg-language-change',e=>apply(e.detail?.lang||'es'));
 })();
 </script>
+
+<script id="ydg-v132-progress-contact-sync">
+(function(){
+  'use strict';
+
+  const navLinks=[...document.querySelectorAll('#nav-content .nav-link[href^="#"]')];
+  const contactLink=navLinks.find(a=>{
+    const href=(a.getAttribute('href')||'').toLowerCase();
+    const label=(a.textContent||'').trim().toLowerCase();
+    return href==='#contacto'||href==='#links-importantes'||label==='contacto'||label==='contact';
+  });
+
+  if(contactLink && contactLink.getAttribute('href')!=='#links-importantes'){
+    contactLink.setAttribute('href','#links-importantes');
+  }
+
+  const progressBar=
+    document.querySelector('#ydg-progress-bar') ||
+    document.querySelector('.ydg-progress-bar') ||
+    document.querySelector('[data-ydg-progress-bar]') ||
+    document.querySelector('.progress-bar-fill');
+
+  const progressText=
+    document.querySelector('#ydg-progress-value') ||
+    document.querySelector('.ydg-progress-value') ||
+    document.querySelector('[data-ydg-progress-value]') ||
+    document.querySelector('.progress-percent');
+
+  const contactTarget=document.getElementById('links-importantes');
+  const header=document.querySelector('header');
+
+  function setActive(link){
+    navLinks.forEach(a=>a.classList.toggle('is-active',a===link));
+  }
+
+  function sync(){
+    const doc=document.documentElement;
+    const scrollable=Math.max(1,doc.scrollHeight-innerHeight);
+    const y=Math.max(0,Math.min(scrollY,scrollable));
+    let pct=(y/scrollable)*100;
+
+    const atBottom=(scrollable-y)<=2;
+    if(atBottom) pct=100;
+
+    if(progressBar){
+      progressBar.style.width=pct.toFixed(2)+'%';
+      progressBar.setAttribute('aria-valuenow',String(Math.round(pct)));
+    }
+    if(progressText){
+      progressText.textContent=Math.round(pct)+'%';
+    }
+
+    if(contactLink && contactTarget){
+      const headerH=header?header.getBoundingClientRect().height:70;
+      const r=contactTarget.getBoundingClientRect();
+      const contactReached = atBottom || r.top <= headerH + 120;
+      if(contactReached){
+        setActive(contactLink);
+      }
+    }
+  }
+
+  let raf=0;
+  function requestSync(){
+    if(raf) return;
+    raf=requestAnimationFrame(()=>{raf=0;sync()});
+  }
+
+  addEventListener('scroll',requestSync,{passive:true});
+  addEventListener('resize',requestSync,{passive:true});
+  addEventListener('load',sync,{once:true});
+  sync();
+})();
+</script>
+
 </body>
 </html>
