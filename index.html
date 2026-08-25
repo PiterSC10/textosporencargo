@@ -7101,8 +7101,8 @@ header.fixed::after{
 
 <style id="ydg-v125-merch-footer-separation">
 /* V125 · Merch separado del footer; identidad + enlaces en un único bloque */
-#merch{position:relative;z-index:1}
-#merch #ydg-merch-drop01{margin-top:2.4rem;margin-bottom:2.2rem}
+#tienda{position:relative;z-index:1}
+#tienda #ydg-merch-drop01{margin-top:2.4rem;margin-bottom:2.2rem}
 footer .ydg-footer-cluster{
   max-width:1180px;
   margin:0 auto;
@@ -7114,9 +7114,21 @@ footer .ydg-footer-cluster{
 footer .ydg-footer-cluster>.connect-block{margin:1.2rem auto .8rem}
 footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em}
 @media(max-width:640px){
-  #merch #ydg-merch-drop01{margin-top:1.25rem;margin-bottom:1.3rem}
+  #tienda #ydg-merch-drop01{margin-top:1.25rem;margin-bottom:1.3rem}
   footer .ydg-footer-cluster{padding:22px 14px 20px;border-radius:20px}
 }
+</style>
+
+<style id="ydg-store-v126-style">
+/* V126 · YDG STORE SYSTEM — sección de marca, no e-commerce */
+#tienda{scroll-margin-top:88px;padding:76px 0 34px;background:radial-gradient(circle at 18% 8%,rgba(34,211,238,.075),transparent 28%),radial-gradient(circle at 84% 18%,rgba(217,70,239,.07),transparent 27%),#0d1117;overflow:hidden;isolation:isolate}
+.ydg-store-ambient{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:-1}.ydg-store-ambient span{position:absolute;border:1px solid rgba(89,218,255,.08);border-radius:50%;animation:ydgStoreOrbit 18s linear infinite}.ydg-store-ambient span:nth-child(1){width:340px;height:340px;right:-120px;top:90px}.ydg-store-ambient span:nth-child(2){width:220px;height:220px;left:-85px;top:360px;animation-duration:14s;animation-direction:reverse}.ydg-store-ambient span:nth-child(3){width:510px;height:120px;left:50%;top:110px;transform:translateX(-50%) rotate(-8deg);border-radius:50%;animation-duration:24s}@keyframes ydgStoreOrbit{to{transform:rotate(360deg)}}
+.ydg-store-intro{width:min(1180px,calc(100% - 24px));margin:0 auto 1.2rem;text-align:center;position:relative;padding:34px 20px 10px}.ydg-store-eyebrow{display:flex;justify-content:center;align-items:center;gap:11px;color:#67e8f9;font-size:.68rem;font-weight:950;letter-spacing:.20em;text-transform:uppercase}.ydg-store-eyebrow i{display:block;width:42px;height:1px;background:linear-gradient(90deg,transparent,#22d3ee)}.ydg-store-eyebrow i:last-child{transform:scaleX(-1)}.ydg-store-intro h2{margin:12px 0 8px;color:#f8fbff;font-size:clamp(3rem,8.5vw,7.4rem);line-height:.82;font-weight:950;letter-spacing:-.07em}.ydg-store-intro h2 span{background:linear-gradient(93deg,#22d3ee 3%,#60a5fa 43%,#c084fc 72%,#f472b6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.ydg-store-intro>p{max-width:720px;margin:20px auto 0;color:#94a8bd;font-size:clamp(.9rem,1.6vw,1.05rem);line-height:1.7}.ydg-store-livebar{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:22px auto 0}.ydg-store-live{display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(244,63,94,.18);border-radius:999px;background:rgba(244,63,94,.05);color:#fda4af;font-size:.60rem;font-weight:950;letter-spacing:.11em}.ydg-store-live b{width:7px;height:7px;border-radius:50%;background:#fb7185;box-shadow:0 0 11px rgba(251,113,133,.75)}.ydg-store-live.standby{border-color:rgba(168,85,247,.19);background:rgba(168,85,247,.05);color:#c4b5fd}.ydg-store-live.standby b{background:#a855f7;box-shadow:0 0 12px rgba(168,85,247,.72);animation:ydgStorePulse 1.8s ease-in-out infinite}@keyframes ydgStorePulse{50%{opacity:.35;transform:scale(.7)}}
+.ydg-store-enter{margin:22px auto 0;min-height:44px;border:1px solid rgba(103,232,249,.20);border-radius:999px;padding:11px 16px 11px 18px;background:rgba(4,16,27,.72);color:#cceffc;display:inline-flex;align-items:center;gap:12px;font-size:.62rem;font-weight:950;letter-spacing:.12em;cursor:pointer;transition:.25s ease}.ydg-store-enter strong{font-size:1rem;color:#67e8f9;transition:transform .25s ease}.ydg-store-enter:hover{transform:translateY(-2px);border-color:rgba(103,232,249,.5);box-shadow:0 0 24px rgba(34,211,238,.09)}.ydg-store-enter:hover strong{transform:translateX(4px)}
+.ydg-store-next{width:min(1180px,calc(100% - 24px));margin:1rem auto 2.2rem;border:1px solid rgba(168,85,247,.14);border-radius:24px;overflow:hidden;background:linear-gradient(120deg,rgba(7,13,24,.96),rgba(12,10,24,.96));position:relative}.ydg-store-next::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#22d3ee,#a855f7,#ec4899,transparent);opacity:.55}.ydg-store-next-grid{display:grid;grid-template-columns:1fr .78fr;min-height:265px}.ydg-store-next-copy{padding:34px 38px;display:flex;flex-direction:column;justify-content:center}.ydg-store-next-index{color:#8b9eb2;font-size:.62rem;font-weight:950;letter-spacing:.16em}.ydg-store-next-copy h3{margin:7px 0 8px;font-size:clamp(2.3rem,5vw,4.7rem);line-height:.9;color:#eef5ff;font-weight:950;letter-spacing:-.055em}.ydg-store-next-copy p{margin:0;max-width:620px;color:#7f93a7;font-size:.82rem;line-height:1.65}.ydg-store-lockline{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:18px;color:#ad8fe0;font-size:.58rem;letter-spacing:.12em}.ydg-store-lockline em{font-style:normal;color:#596b7d}.ydg-lock-dot{width:7px;height:7px;border-radius:50%;background:#a855f7;box-shadow:0 0 13px rgba(168,85,247,.85);animation:ydgStorePulse 1.8s ease-in-out infinite}.ydg-store-next-visual{position:relative;display:grid;place-items:center;overflow:hidden;border-left:1px solid rgba(168,85,247,.10);min-height:265px;background:radial-gradient(circle,rgba(76,29,149,.14),transparent 58%),#070b12}.ydg-store-lock-ring{width:135px;height:135px;border-radius:50%;border:1px solid rgba(103,232,249,.24);display:grid;place-items:center;position:relative;z-index:2;box-shadow:inset 0 0 35px rgba(59,130,246,.06),0 0 35px rgba(168,85,247,.07);animation:ydgStoreFloat 4s ease-in-out infinite}.ydg-store-lock-ring::before,.ydg-store-lock-ring::after{content:"";position:absolute;border-radius:50%;inset:-18px;border:1px dashed rgba(168,85,247,.18);animation:ydgStoreSpin 12s linear infinite}.ydg-store-lock-ring::after{inset:14px;border-style:solid;border-color:rgba(34,211,238,.12);animation-direction:reverse;animation-duration:8s}.ydg-store-lock-ring span{font-weight:950;color:#d9f9ff;letter-spacing:.1em}.ydg-store-lock-ring small{position:absolute;bottom:23px;color:#a78bfa;font-size:.56rem;font-weight:950}.ydg-store-gridlines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent)}.ydg-store-scanline{position:absolute;left:0;right:0;height:1px;top:12%;background:linear-gradient(90deg,transparent,#22d3ee,#fff,#a855f7,transparent);opacity:.22;box-shadow:0 0 10px rgba(34,211,238,.3);animation:ydgStoreScan 5s ease-in-out infinite}@keyframes ydgStoreScan{50%{top:88%;opacity:.35}}@keyframes ydgStoreSpin{to{transform:rotate(360deg)}}@keyframes ydgStoreFloat{50%{transform:translateY(-5px)}}
+[data-ydg-store-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}[data-ydg-store-reveal].is-visible{opacity:1;transform:none}.ydg-store-nav-link{position:relative}.ydg-store-nav-link::after{content:"";position:absolute;left:50%;bottom:-7px;width:4px;height:4px;border-radius:50%;background:#d946ef;box-shadow:0 0 8px rgba(217,70,239,.8);transform:translateX(-50%);opacity:.65}
+@media(max-width:860px){#tienda{padding-top:58px}.ydg-store-next-grid{grid-template-columns:1fr}.ydg-store-next-visual{border-left:0;border-top:1px solid rgba(168,85,247,.10);min-height:230px}.ydg-store-next-copy{padding:28px 24px}}@media(max-width:520px){.ydg-store-intro{padding:26px 12px 0}.ydg-store-intro h2{font-size:clamp(3rem,18vw,5rem)}.ydg-store-eyebrow{font-size:.58rem;letter-spacing:.14em}.ydg-store-eyebrow i{width:24px}.ydg-store-next{width:calc(100% - 18px);border-radius:20px}.ydg-store-next-copy{padding:24px 18px}.ydg-store-live{font-size:.54rem}.ydg-store-enter{font-size:.56rem}}.ydg-store-focus{animation:ydgStoreFocus .9s ease}@keyframes ydgStoreFocus{0%,100%{box-shadow:0 28px 80px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.025)}45%{box-shadow:0 28px 80px rgba(0,0,0,.28),0 0 42px rgba(34,211,238,.17),0 0 70px rgba(168,85,247,.10)}}
+@media(prefers-reduced-motion:reduce){.ydg-store-ambient span,.ydg-store-live.standby b,.ydg-lock-dot,.ydg-store-lock-ring,.ydg-store-lock-ring::before,.ydg-store-lock-ring::after,.ydg-store-scanline{animation:none!important}[data-ydg-store-reveal]{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body class="ydg-promo-on antialiased">
@@ -7238,6 +7250,7 @@ footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#hero-section">Inicio</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#configurador">Presupuesto</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#portfolio">Proyectos</a>
+<a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link ydg-store-nav-link" href="#tienda" data-ydg-store-nav>Tienda</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#calidad">Calidad</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#incluye">Qué incluye</a>
 <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white nav-link" href="#como-funciona">Proceso</a>
@@ -8146,7 +8159,20 @@ footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em
 
 
 
-<section id="merch" aria-label="YDG Merch · Drop 01" style="margin:0;padding:0 0 1.2rem;background:#0d1117;">
+<section id="tienda" aria-labelledby="ydg-store-title" class="ydg-store-section">
+<div class="ydg-store-ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="ydg-store-intro" data-ydg-store-reveal>
+  <div class="ydg-store-eyebrow"><i></i><span data-ydg-store="kicker">YDG // STORE SYSTEM</span><i></i></div>
+  <h2 id="ydg-store-title"><span>LIMITED</span> DROPS</h2>
+  <p data-ydg-store="subtitle">Diseño, tecnología y cultura YDG en ediciones limitadas.</p>
+  <div class="ydg-store-livebar">
+    <div class="ydg-store-live"><b></b><span data-ydg-store="archive">DROP 01 · ARCHIVED</span></div>
+    <div class="ydg-store-live standby"><b></b><span data-ydg-store="standby">DROP 02 · STANDBY</span></div>
+  </div>
+  <button class="ydg-store-enter" type="button" data-store-open-drop>
+    <span data-ydg-store="explore">EXPLORAR DROP 01</span><strong>→</strong>
+  </button>
+</div>
 <div id="ydg-merch-drop01" aria-labelledby="ydg-merch-title">
   <div class="ydg-merch-top">
     <div class="ydg-merch-tabs-main" role="tablist" aria-label="YDG Merch">
@@ -8187,6 +8213,22 @@ footer .ydg-footer-cluster>p:first-child{font-size:1.05rem;letter-spacing:.015em
   <div class="ydg-merch-stage ydg-merch-panel" data-stage="status">
     <div class="ydg-merch-status"><div class="ydg-status-box"><div class="ydg-merch-kicker" style="justify-content:center"><i></i>04 // DROP STATUS</div><div class="status">SOLD OUT</div><div class="ydg-status-meta"><div>RELEASE<br><b>2026</b></div><div>EDITION<br><b>TECH</b></div><div>FIT<br><b>OVERSIZED</b></div><div>UNITS<br><b>LIMITED</b></div></div><div class="ydg-drop-bar"><span></span></div><div class="ydg-merch-note">DROP CLOSED · 100% ARCHIVED</div><div class="ydg-locked">NEXT DROP // STANDBY · ACCESS LOCKED</div></div></div>
     <div class="ydg-merch-viewer"><div class="ydg-merch-view" data-view="detail"></div><div class="ydg-merch-hud"><span>ARCHIVE ITEM</span><span>NO LONGER AVAILABLE</span></div></div>
+  </div>
+</div>
+
+<div class="ydg-store-next" data-ydg-store-reveal aria-label="Próximo lanzamiento YDG">
+  <div class="ydg-store-next-grid">
+    <div class="ydg-store-next-copy">
+      <span class="ydg-store-next-index">02 // NEXT RELEASE</span>
+      <h3 data-ydg-store="nextTitle">DROP 02</h3>
+      <p data-ydg-store="nextText">El siguiente objeto del sistema YDG permanece bloqueado. El archivo se abrirá cuando exista una nueva edición.</p>
+      <div class="ydg-store-lockline"><span class="ydg-lock-dot"></span><b data-ydg-store="locked">ACCESS LOCKED</b><em>YDG // STANDBY</em></div>
+    </div>
+    <div class="ydg-store-next-visual" aria-hidden="true">
+      <div class="ydg-store-lock-ring"><span>YDG</span><small>02</small></div>
+      <div class="ydg-store-gridlines"></div>
+      <div class="ydg-store-scanline"></div>
+    </div>
   </div>
 </div>
 </section>
@@ -11143,6 +11185,43 @@ if(document.readyState==='loading'){
 })();
 </script>
 
+
+
+<script id="ydg-store-v126-script">
+(()=>{
+  'use strict';
+  const store=document.getElementById('tienda'); if(!store)return;
+  const merch=document.getElementById('ydg-merch-drop01');
+  const nav=document.querySelector('[data-ydg-store-nav]');
+  const openBtn=store.querySelector('[data-store-open-drop]');
+  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const copy={
+    es:{nav:'Tienda',kicker:'YDG // STORE SYSTEM',subtitle:'Diseño, tecnología y cultura YDG en ediciones limitadas.',archive:'DROP 01 · ARCHIVED',standby:'DROP 02 · STANDBY',explore:'EXPLORAR DROP 01',nextTitle:'DROP 02',nextText:'El siguiente objeto del sistema YDG permanece bloqueado. El archivo se abrirá cuando exista una nueva edición.',locked:'ACCESS LOCKED'},
+    en:{nav:'Store',kicker:'YDG // STORE SYSTEM',subtitle:'YDG design, technology and culture in limited editions.',archive:'DROP 01 · ARCHIVED',standby:'DROP 02 · STANDBY',explore:'EXPLORE DROP 01',nextTitle:'DROP 02',nextText:'The next YDG system object remains locked. The archive will open when a new edition exists.',locked:'ACCESS LOCKED'}
+  };
+  function apply(lang){
+    const d=copy[(lang||'').toLowerCase().startsWith('en')?'en':'es'];
+    if(nav)nav.textContent=d.nav;
+    Object.entries(d).forEach(([k,v])=>{const el=store.querySelector(`[data-ydg-store="${k}"]`);if(el)el.textContent=v});
+  }
+  function openDrop(){
+    if(!merch)return;
+    const productBtn=merch.querySelector('[data-merch-stage="product"]');
+    if(productBtn)productBtn.click();
+    merch.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+    merch.classList.remove('ydg-store-focus'); void merch.offsetWidth; merch.classList.add('ydg-store-focus');
+    setTimeout(()=>merch.classList.remove('ydg-store-focus'),900);
+  }
+  if(openBtn)openBtn.addEventListener('click',openDrop);
+  const reveal=[...store.querySelectorAll('[data-ydg-store-reveal]')];
+  if('IntersectionObserver' in window&&!reduced){
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.14});
+    reveal.forEach(el=>io.observe(el));
+  }else reveal.forEach(el=>el.classList.add('is-visible'));
+  apply(document.documentElement.lang||'es');
+  window.addEventListener('ydg-language-change',e=>apply(e.detail?.lang||document.documentElement.lang||'es'));
+})();
+</script>
 
 <script id="ydg-merch-drop01-script">
 (()=>{
