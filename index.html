@@ -7333,82 +7333,6 @@ img,video,canvas,svg{max-width:100%}
 .ydg-client-area-link{display:inline-flex;align-items:center;justify-content:center;padding:.58rem .95rem;border:1px solid rgba(45,212,191,.28);border-radius:999px;background:rgba(17,24,39,.72);color:#94a3b8;text-decoration:none;font-size:.78rem;font-weight:700;letter-spacing:.01em;transition:color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
 .ydg-client-area-link:hover,.ydg-client-area-link:focus-visible{color:#fff;border-color:#2dd4bf;box-shadow:0 0 18px rgba(45,212,191,.18);transform:translateY(-1px);outline:none}
 </style>
-
-<style id="ydg-store-phase2-v132">
-/* V132 · Phase 2.1 · refined mannequin fit */
-.ydg-merch-viewer.ydg-viewer-360{display:block;position:relative;isolation:isolate;background:
-  radial-gradient(circle at 50% 24%,rgba(96,165,250,.13),transparent 30%),
-  radial-gradient(circle at 82% 16%,rgba(217,70,239,.11),transparent 22%),
-  linear-gradient(180deg,#060a10 0%,#04070c 100%)}
-.ydg-viewer-360::before{content:"";position:absolute;inset:18px;pointer-events:none;border-radius:28px;border:1px solid rgba(103,232,249,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
-.ydg-viewer-stage{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) 168px;align-items:center;padding:30px 28px 96px;gap:18px}
-.ydg-viewer-main{position:relative;min-height:434px;display:grid;place-items:center;perspective:1500px}
-.ydg-rotate-hint{position:absolute;left:22px;bottom:72px;display:inline-flex;align-items:center;gap:10px;padding:.65rem .86rem;border-radius:999px;border:1px solid rgba(103,232,249,.18);background:rgba(5,14,23,.72);color:#cbe9f7;font-size:.58rem;font-weight:900;letter-spacing:.12em;z-index:7;backdrop-filter:blur(10px);transition:.25s ease}
-.ydg-rotate-hint i{display:block;width:9px;height:9px;border-radius:50%;background:#67e8f9;box-shadow:0 0 12px rgba(103,232,249,.78);animation:ydgViewerPulse 1.8s ease-in-out infinite}
-.ydg-viewer-360.is-touched .ydg-rotate-hint{opacity:0;transform:translateY(8px);pointer-events:none}
-@keyframes ydgViewerPulse{50%{opacity:.35;transform:scale(.72)}}
-.ydg-mannequin-wrap{position:relative;width:min(100%,360px);height:444px;display:grid;place-items:center}
-.ydg-mannequin-base{position:absolute;bottom:3px;left:50%;width:220px;height:30px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(96,165,250,.25),rgba(96,165,250,.08) 54%,transparent 74%);filter:blur(4px)}
-.ydg-mannequin{position:relative;width:292px;height:416px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .35s ease;filter:drop-shadow(0 22px 46px rgba(3,8,13,.55))}
-.ydg-viewer-360.is-dragging .ydg-mannequin{transition:none}
-.ydg-m-head{position:absolute;left:50%;top:2px;transform:translateX(-50%);width:76px;height:90px;border-radius:50% 50% 46% 46%;background:linear-gradient(180deg,#212932,#10151c);box-shadow:inset 0 -10px 24px rgba(255,255,255,.035),0 0 0 1px rgba(255,255,255,.05)}
-.ydg-m-neck{position:absolute;left:50%;top:82px;transform:translateX(-50%);width:28px;height:34px;border-radius:16px;background:linear-gradient(180deg,#1b222b,#0d1117)}
-.ydg-m-shoulder{position:absolute;left:50%;top:102px;transform:translateX(-50%);width:188px;height:40px;border-radius:28px;background:linear-gradient(180deg,#171e25,#0b1016);filter:blur(.2px)}
-.ydg-m-arm{position:absolute;top:122px;width:46px;height:168px;border-radius:26px;background:linear-gradient(180deg,#1a2028,#0d1218);box-shadow:inset 0 -10px 24px rgba(255,255,255,.02);z-index:1}
-.ydg-m-arm.left{left:34px;transform:rotate(6deg)}
-.ydg-m-arm.right{right:34px;transform:rotate(-6deg)}
-.ydg-m-forearm{position:absolute;bottom:-18px;left:7px;width:32px;height:74px;border-radius:20px;background:linear-gradient(180deg,#141a22,#0b1016)}
-.ydg-m-torso{position:absolute;left:50%;top:118px;transform:translateX(-50%);width:142px;height:186px;border-radius:34px;background:linear-gradient(180deg,#171d25,#0b1016);box-shadow:inset 0 18px 20px rgba(255,255,255,.02)}
-.ydg-m-leg{position:absolute;top:292px;width:54px;height:126px;border-radius:28px;background:linear-gradient(180deg,#171d25,#0c1016)}
-.ydg-m-leg.left{left:84px}.ydg-m-leg.right{right:84px}
-.ydg-shirt{position:absolute;left:50%;top:94px;transform:translateX(-50%);width:226px;height:228px;z-index:4;filter:drop-shadow(0 28px 28px rgba(5,10,16,.5))}
-.ydg-shirt-collar{position:absolute;left:50%;top:11px;transform:translateX(-50%);width:66px;height:30px;border-radius:0 0 42px 42px;background:radial-gradient(circle at 50% 14%,rgba(104,232,249,.22),transparent 48%),#0a0e13;border:1px solid rgba(255,255,255,.05);z-index:3}
-.ydg-shirt-core{position:absolute;inset:22px 30px 16px;border-radius:28px 28px 20px 20px;background:linear-gradient(180deg,#0b0f14 0%,#080b10 100%);border:1px solid rgba(255,255,255,.07);overflow:visible;box-shadow:inset 0 0 0 1px rgba(255,255,255,.022), inset 0 -18px 24px rgba(255,255,255,.02)}
-.ydg-shirt-core::before,.ydg-shirt-core::after{content:"";position:absolute;top:12px;width:76px;height:74px;border-radius:26px 26px 18px 18px;background:linear-gradient(180deg,#0b0f14,#06090d);border:1px solid rgba(255,255,255,.05);z-index:-1;box-shadow:inset 0 -10px 18px rgba(255,255,255,.02)}
-.ydg-shirt-core::before{left:-40px;transform:rotate(22deg)}
-.ydg-shirt-core::after{right:-40px;transform:rotate(-22deg)}
-.ydg-shirt-shadow{position:absolute;inset:18px 10px 8px;border-radius:20px;background:linear-gradient(90deg,rgba(255,255,255,.04),transparent 20%,transparent 78%,rgba(0,0,0,.22));mix-blend-mode:screen;opacity:.3;pointer-events:none}
-.ydg-shirt-surface{position:absolute;inset:10px 9px 14px;border-radius:18px 18px 16px 16px;background-image:url("ydg-tech-tee-drop01.png");background-repeat:no-repeat;background-size:300% 100%;background-position:0% 50%;opacity:.94;filter:saturate(1.05) contrast(1.06);transition:background-position .35s ease, transform .35s ease, opacity .35s ease;clip-path:polygon(8% 0,92% 0,95% 16%,94% 100%,6% 100%,5% 16%);overflow:hidden}
-.ydg-shirt-surface::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent 18%,transparent 84%,rgba(103,232,249,.04));pointer-events:none}
-.ydg-shirt-surface::after{content:"";position:absolute;left:10%;right:10%;bottom:0;height:14px;border-top:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg,transparent,rgba(255,255,255,.04));opacity:.75}
-.ydg-shirt-front-mark{position:absolute;left:50%;top:34px;transform:translateX(-50%);padding:.36rem .52rem;border-radius:999px;background:rgba(8,15,22,.68);border:1px solid rgba(103,232,249,.18);color:#e8fbff;font-size:.46rem;font-weight:950;letter-spacing:.2em;z-index:5;box-shadow:0 0 14px rgba(34,211,238,.08)}
-.ydg-shirt-sleeve-tag{position:absolute;left:-7px;top:86px;padding:.22rem .28rem;border-radius:10px;background:rgba(8,15,22,.76);border:1px solid rgba(217,70,239,.2);color:#f5d9ff;font-size:.44rem;font-weight:900;letter-spacing:.18em;transform:rotate(-90deg);transform-origin:left top;z-index:5}
-.ydg-shirt-fold{position:absolute;top:48px;width:22px;height:132px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,0));filter:blur(8px);opacity:.34;pointer-events:none;z-index:4}
-.ydg-shirt-fold.left{left:42px;transform:rotate(6deg)} .ydg-shirt-fold.right{right:42px;transform:rotate(-6deg)}
-.ydg-hem-label{position:absolute;left:24px;bottom:16px;padding:5px 6px 4px;border-radius:4px 4px 2px 2px;background:#0b1117;border:1px solid rgba(255,255,255,.06);color:#ebf8ff;font-size:.48rem;font-weight:950;letter-spacing:.18em;writing-mode:vertical-rl;text-orientation:mixed;transform:translateX(-50%);box-shadow:0 0 18px rgba(0,0,0,.28);z-index:6}
-.ydg-logo-chip{position:absolute;right:14px;top:18px;padding:.34rem .46rem;border-radius:999px;background:rgba(6,12,18,.72);border:1px solid rgba(103,232,249,.16);color:#67e8f9;font-size:.48rem;font-weight:950;letter-spacing:.16em;z-index:6}
-.ydg-shirt-callout{position:absolute;display:none;align-items:center;gap:8px;padding:.45rem .58rem;border-radius:14px;background:rgba(4,11,19,.74);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);color:#dff8ff;font-size:.52rem;font-weight:850;letter-spacing:.08em;white-space:nowrap;z-index:7}
-.ydg-shirt-callout::before{content:"";width:7px;height:7px;border-radius:50%;background:#d946ef;box-shadow:0 0 10px rgba(217,70,239,.68)}
-.ydg-shirt-callout.front{left:20px;top:124px}.ydg-shirt-callout.back{right:20px;top:118px}.ydg-shirt-callout.sleeve{left:12px;top:178px}.ydg-shirt-callout.hem{right:18px;bottom:82px}
-.ydg-viewer-rail{display:flex;flex-direction:column;gap:10px;align-self:center}
-.ydg-viewer-point{padding:11px 12px;border-radius:18px;border:1px solid rgba(255,255,255,.07);background:rgba(4,10,17,.66);backdrop-filter:blur(10px);color:#86a1b7;transition:.25s ease;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
-.ydg-viewer-point b{display:block;color:#e9f8ff;font-size:.56rem;letter-spacing:.16em;margin-bottom:5px}
-.ydg-viewer-point span{display:block;font-size:.62rem;line-height:1.45}
-.ydg-viewer-point.active{transform:translateX(-4px);border-color:rgba(103,232,249,.28);background:linear-gradient(180deg,rgba(10,21,35,.84),rgba(4,10,17,.84));box-shadow:0 0 22px rgba(34,211,238,.09)}
-.ydg-viewer-point.active b{color:#67e8f9}
-.ydg-merch-tabs [data-merch-view="spin"]{position:relative}.ydg-merch-tabs [data-merch-view="spin"]::after{content:"";position:absolute;top:9px;right:10px;width:6px;height:6px;border-radius:50%;background:#67e8f9;opacity:.6;box-shadow:0 0 8px rgba(103,232,249,.7)}
-.ydg-merch-tab.active[data-merch-view="spin"]{color:#031019;background:linear-gradient(90deg,#67e8f9,#a78bfa,#d946ef)}
-.ydg-mannequin[data-pose="front"]{transform:rotateY(0deg)}
-.ydg-mannequin[data-pose="qfront"]{transform:rotateY(-20deg)}
-.ydg-mannequin[data-pose="side"]{transform:rotateY(-62deg)}
-.ydg-mannequin[data-pose="back"]{transform:rotateY(180deg)}
-.ydg-mannequin[data-pose="qback"]{transform:rotateY(158deg)}
-.ydg-mannequin[data-pose="detail"]{transform:rotateY(-14deg) scale(1.03)}
-.ydg-mannequin[data-pose="front"] .ydg-shirt-surface,.ydg-mannequin[data-pose="qfront"] .ydg-shirt-surface{background-position:0% 50%}
-.ydg-mannequin[data-pose="side"] .ydg-shirt-surface,.ydg-mannequin[data-pose="detail"] .ydg-shirt-surface{background-position:100% 50%}
-.ydg-mannequin[data-pose="back"] .ydg-shirt-surface,.ydg-mannequin[data-pose="qback"] .ydg-shirt-surface{background-position:50% 50%}
-.ydg-mannequin[data-pose="side"] .ydg-shirt,.ydg-mannequin[data-pose="detail"] .ydg-shirt{transform:translateX(-50%) scale(.985)}
-.ydg-mannequin[data-pose="back"] .ydg-shirt-front-mark,.ydg-mannequin[data-pose="qback"] .ydg-shirt-front-mark{opacity:0;transform:translateX(-50%) scale(.88)}
-.ydg-mannequin[data-pose="back"] .ydg-shirt-sleeve-tag,.ydg-mannequin[data-pose="qback"] .ydg-shirt-sleeve-tag{opacity:.18}
-.ydg-mannequin[data-pose="back"] .ydg-shirt-callout.back,.ydg-mannequin[data-pose="qback"] .ydg-shirt-callout.back{display:inline-flex}
-.ydg-mannequin[data-pose="front"] .ydg-shirt-callout.front,.ydg-mannequin[data-pose="qfront"] .ydg-shirt-callout.front{display:inline-flex}
-.ydg-mannequin[data-pose="side"] .ydg-shirt-callout.sleeve,.ydg-mannequin[data-pose="detail"] .ydg-shirt-callout.hem{display:inline-flex}
-.ydg-viewer-360.is-auto .ydg-mannequin{filter:drop-shadow(0 22px 46px rgba(3,8,13,.55)) saturate(1.02)}
-.ydg-viewer-360.is-auto .ydg-rotate-hint{opacity:.75}
-@media(max-width:980px){.ydg-viewer-stage{grid-template-columns:1fr;gap:12px;padding:24px 18px 100px}.ydg-viewer-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.ydg-viewer-point.active{transform:none}.ydg-viewer-main{min-height:390px}.ydg-mannequin-wrap{width:min(100%,320px);height:404px}.ydg-mannequin{transform-origin:50% 44%}}
-@media(max-width:640px){.ydg-mannequin{width:252px;height:364px}.ydg-m-head{width:64px;height:76px}.ydg-m-neck{top:70px}.ydg-m-shoulder{top:88px;width:160px}.ydg-m-arm{top:106px;width:42px;height:146px}.ydg-m-arm.left{left:28px}.ydg-m-arm.right{right:28px}.ydg-m-torso{top:102px;width:130px;height:162px}.ydg-m-leg{top:252px;width:48px;height:112px}.ydg-m-leg.left{left:72px}.ydg-m-leg.right{right:72px}.ydg-shirt{top:80px;width:192px;height:198px}.ydg-shirt-core{inset:20px 24px 14px}.ydg-shirt-core::before,.ydg-shirt-core::after{width:66px;height:64px;top:14px}.ydg-shirt-core::before{left:-34px}.ydg-shirt-core::after{right:-34px}.ydg-rotate-hint{left:14px;right:14px;justify-content:center;font-size:.53rem;padding:.62rem .7rem}.ydg-viewer-point{padding:10px 10px 9px}.ydg-viewer-point b{font-size:.51rem}.ydg-viewer-point span{font-size:.58rem}.ydg-shirt-callout{font-size:.48rem}.ydg-viewer-stage{padding-bottom:104px}.ydg-merch-tabs{left:14px;right:14px;transform:none;justify-content:center;flex-wrap:wrap;border-radius:18px}.ydg-merch-tab{padding:.68rem .78rem}}
-</style>
-
 </head>
 <body class="ydg-promo-on antialiased">
 <!-- V80 · Launch Offer Modal -->
@@ -8449,56 +8373,16 @@ img,video,canvas,svg{max-width:100%}
       <div class="ydg-merch-price-row"><div class="ydg-merch-price">49,90 €</div><div class="ydg-merch-sold" data-ydg-merch="sold" data-store-ui="sold">AGOTADO</div></div>
       <div class="ydg-merch-note" data-ydg-merch="note">DROP 01 · TECH EDITION · Archivo YDG 2026</div>
     </div>
-    <div class="ydg-merch-viewer ydg-viewer-360" id="ydg-merch-viewer360" aria-label="Vista 360 del producto YDG Tech Oversize Tee">
+    <div class="ydg-merch-viewer" aria-label="Vista del producto YDG Tech Oversize Tee">
+      <div class="ydg-merch-view" id="ydg-merch-view" data-view="front"></div><div class="ydg-merch-scan"></div>
       <div class="ydg-merch-hud"><span>DROP 01</span><span data-store-ui="hudSold">AGOTADO</span></div>
-      <div class="ydg-viewer-stage">
-        <div class="ydg-viewer-main">
-          <div class="ydg-rotate-hint" id="ydg-rotate-hint"><i></i><span data-ydg-store2="rotateHint">ARRASTRA PARA GIRAR</span></div>
-          <div class="ydg-mannequin-wrap">
-            <div class="ydg-mannequin-base"></div>
-            <div class="ydg-mannequin" id="ydg-mannequin" data-pose="front">
-              <div class="ydg-m-head"></div>
-              <div class="ydg-m-neck"></div>
-              <div class="ydg-m-shoulder"></div>
-              <div class="ydg-m-arm left"><div class="ydg-m-forearm"></div></div>
-              <div class="ydg-m-arm right"><div class="ydg-m-forearm"></div></div>
-              <div class="ydg-m-torso"></div>
-              <div class="ydg-m-leg left"></div>
-              <div class="ydg-m-leg right"></div>
-              <div class="ydg-shirt">
-                <div class="ydg-shirt-collar"></div>
-                <div class="ydg-shirt-fold left"></div>
-                <div class="ydg-shirt-fold right"></div>
-                <div class="ydg-shirt-core">
-                  <div class="ydg-shirt-shadow"></div>
-                  <div class="ydg-shirt-surface" id="ydg-shirt-surface"></div>
-                  <div class="ydg-shirt-front-mark">YDG</div>
-                </div>
-                <div class="ydg-shirt-sleeve-tag">//72H</div>
-                <div class="ydg-logo-chip">YDG // TECH</div>
-                <div class="ydg-hem-label">YDG</div>
-                <div class="ydg-shirt-callout front" data-ydg-store2="frontCallout">FRONTAL · YDG</div>
-                <div class="ydg-shirt-callout back" data-ydg-store2="backCallout">BACK SYSTEM</div>
-                <div class="ydg-shirt-callout sleeve" data-ydg-store2="sleeveCallout">SLEEVE // 72H</div>
-                <div class="ydg-shirt-callout hem" data-ydg-store2="hemCallout">HEM LABEL · YDG</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ydg-viewer-rail" aria-label="Detalles del producto">
-          <div class="ydg-viewer-point active" data-viewer-key="front"><b data-ydg-store2="frontTitle">FRONTAL</b><span data-ydg-store2="frontDesc2">Logo YDG delantero</span></div>
-          <div class="ydg-viewer-point" data-viewer-key="back"><b data-ydg-store2="backTitle">TRASERA</b><span data-ydg-store2="backDesc2">Gráfica principal</span></div>
-          <div class="ydg-viewer-point" data-viewer-key="sleeves"><b data-ydg-store2="sleevesTitle">MANGAS</b><span data-ydg-store2="sleevesDesc2">Detalle //72H y mangas</span></div>
-          <div class="ydg-viewer-point" data-viewer-key="hem"><b data-ydg-store2="hemTitle">ETIQUETA YDG</b><span data-ydg-store2="hemDesc2">Etiqueta lateral exterior</span></div>
-        </div>
-      </div>
-      <div class="ydg-merch-tabs" role="group" aria-label="Vistas del producto"><button class="ydg-merch-tab active" type="button" data-merch-view="front"><span data-ydg-store2="frontBtn">FRONTAL</span></button><button class="ydg-merch-tab" type="button" data-merch-view="back"><span data-ydg-store2="backBtn">TRASERA</span></button><button class="ydg-merch-tab" type="button" data-merch-view="sleeves"><span data-ydg-store2="sleevesBtn">MANGAS</span></button><button class="ydg-merch-tab" type="button" data-merch-view="detail"><span data-ydg-store2="detailBtn">DETALLES</span></button><button class="ydg-merch-tab" type="button" data-merch-view="spin"><span data-ydg-store2="spinBtn">360°</span></button></div>
+      <div class="ydg-merch-tabs" role="group" aria-label="Vistas del producto"><button class="ydg-merch-tab active" type="button" data-merch-view="front"><span data-store-ui="front">FRONTAL</span></button><button class="ydg-merch-tab" type="button" data-merch-view="back"><span data-store-ui="back">TRASERA</span></button><button class="ydg-merch-tab" type="button" data-merch-view="detail"><span data-store-ui="detail">DETALLE</span></button></div>
     </div>
   </div>
 
   <div class="ydg-merch-stage ydg-merch-panel" data-stage="design">
-    <div class="ydg-merch-info"><div class="ydg-merch-kicker"><i></i>02 // DESIGN SYSTEM</div><h3 data-store-ui="designTitle">Detalles del diseño</h3><p data-store-ui="designDesc">Explora los puntos clave del DROP 01. Cada marcador destaca un elemento visual de la edición TECH.</p><div class="ydg-merch-spec-grid"><div class="ydg-merch-spec-card"><b>CHEST LOGO</b><span data-store-ui="chestDesc">Logo YDG pequeño delantero.</span></div><div class="ydg-merch-spec-card"><b>BACK SYSTEM</b><span data-store-ui="backDesc">Gráfica tecnológica de gran formato.</span></div><div class="ydg-merch-spec-card"><b>SLEEVE // 72H</b><span data-store-ui="sleeveDesc">Detalle lateral de identidad YDG.</span></div><div class="ydg-merch-spec-card"><b>HEM LABEL</b><span data-ydg-store2="hemDesc2">Etiqueta lateral exterior</span></div></div></div>
-    <div class="ydg-hotspots"><div class="ydg-merch-view" data-view="front"></div><button class="ydg-hotspot h1" type="button" data-note="YDG chest logo · identidad frontal minimalista">01</button><button class="ydg-hotspot h2" type="button" data-note="Tech Back System · gráfica principal del DROP 01">02</button><button class="ydg-hotspot h3" type="button" data-note="YDG // 72H · detalle de manga">03</button><button class="ydg-hotspot h4" type="button" data-note="YDG hem label · etiqueta exterior lateral">04</button></div>
+    <div class="ydg-merch-info"><div class="ydg-merch-kicker"><i></i>02 // DESIGN SYSTEM</div><h3 data-store-ui="designTitle">Detalles del diseño</h3><p data-store-ui="designDesc">Explora los puntos clave del DROP 01. Cada marcador destaca un elemento visual de la edición TECH.</p><div class="ydg-merch-spec-grid"><div class="ydg-merch-spec-card"><b>CHEST LOGO</b><span data-store-ui="chestDesc">Logo YDG pequeño delantero.</span></div><div class="ydg-merch-spec-card"><b>BACK SYSTEM</b><span data-store-ui="backDesc">Gráfica tecnológica de gran formato.</span></div><div class="ydg-merch-spec-card"><b>SLEEVE // 72H</b><span data-store-ui="sleeveDesc">Detalle lateral de identidad YDG.</span></div><div class="ydg-merch-spec-card"><b>TECH EDITION</b><span data-store-ui="techDesc">Acabado visual cyan / magenta.</span></div></div></div>
+    <div class="ydg-hotspots"><div class="ydg-merch-view" data-view="front"></div><button class="ydg-hotspot h1" type="button" data-note="YDG chest logo · identidad frontal minimalista">01</button><button class="ydg-hotspot h2" type="button" data-note="Tech Back System · gráfica principal del DROP 01">02</button><button class="ydg-hotspot h3" type="button" data-note="YDG // 72H · detalle de manga">03</button></div>
   </div>
 
   <div class="ydg-merch-stage ydg-merch-panel" data-stage="fit">
@@ -11659,130 +11543,19 @@ if(document.readyState==='loading'){
   window.addEventListener('ydg-language-change',apply);
 })();
 </script>
-<script id="ydg-store-interactions-v131">
+<script id="ydg-store-interactions-v127">
 (()=>{
   'use strict';
-  const store=document.getElementById('tienda'); if(!store) return;
-  const merch=document.getElementById('ydg-merch-drop01'); if(!merch) return;
+  const store=document.getElementById('tienda'); if(!store)return;
+  const merch=document.getElementById('ydg-merch-drop01'); if(!merch)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const openBtn=store.querySelector('[data-store-open-drop]');
-  const setActiveStage=(stage)=>{
-    merch.querySelectorAll('[data-merch-stage]').forEach(b=>b.classList.toggle('active',b.dataset.merchStage===stage));
-    merch.querySelectorAll('[data-stage]').forEach(p=>p.classList.toggle('active',p.dataset.stage===stage));
-  };
-  if(openBtn) openBtn.addEventListener('click',()=>{
-    setActiveStage('product');
-    merch.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
-    merch.classList.remove('ydg-store-focus'); void merch.offsetWidth; merch.classList.add('ydg-store-focus');
-    setTimeout(()=>merch.classList.remove('ydg-store-focus'),900);
-  });
-  merch.querySelectorAll('[data-merch-stage]').forEach(btn=>btn.addEventListener('click',()=>setActiveStage(btn.dataset.merchStage)));
-
-  const viewer=document.getElementById('ydg-merch-viewer360');
-  const mannequin=document.getElementById('ydg-mannequin');
-  const points=[...merch.querySelectorAll('[data-viewer-key]')];
-  const tabs=[...merch.querySelectorAll('[data-merch-view]')];
-  if(!viewer || !mannequin || !tabs.length) return;
-
-  const frames=[
-    {pose:'front', logical:'front', rail:'front'},
-    {pose:'qfront', logical:'front', rail:'front'},
-    {pose:'side', logical:'sleeves', rail:'sleeves'},
-    {pose:'back', logical:'back', rail:'back'},
-    {pose:'qback', logical:'back', rail:'back'},
-    {pose:'detail', logical:'detail', rail:'hem'}
-  ];
-  const map={front:0, back:3, sleeves:2, detail:5};
-  let frameIndex=0, autoTimer=null, dragging=false, lastX=0;
-  const touchFlag=()=>viewer.classList.add('is-touched');
-  const stopSpin=()=>{ if(autoTimer){ clearInterval(autoTimer); autoTimer=null; } viewer.classList.remove('is-auto'); syncTabs(); };
-  const setFrame=(index)=>{
-    frameIndex=(index+frames.length)%frames.length;
-    const frame=frames[frameIndex];
-    mannequin.dataset.pose=frame.pose;
-    points.forEach(p=>p.classList.toggle('active',p.dataset.viewerKey===frame.rail));
-    syncTabs();
-  };
-  const syncTabs=()=>{
-    const frame=frames[frameIndex];
-    tabs.forEach(btn=>{
-      const key=btn.dataset.merchView;
-      let active=false;
-      if(key==='spin') active=viewer.classList.contains('is-auto');
-      else active=frame.logical===key;
-      btn.classList.toggle('active',active);
-    });
-  };
-  const startSpin=()=>{
-    if(reduced) return;
-    stopSpin();
-    viewer.classList.add('is-auto');
-    autoTimer=setInterval(()=>setFrame(frameIndex+1),1350);
-    syncTabs();
-  };
-  tabs.forEach(btn=>btn.addEventListener('click',()=>{
-    const key=btn.dataset.merchView;
-    touchFlag();
-    if(key==='spin'){
-      if(viewer.classList.contains('is-auto')) stopSpin(); else startSpin();
-      return;
-    }
-    stopSpin();
-    setFrame(map[key] ?? 0);
-  }));
-
-  const stepByDrag=(x)=>{
-    const diff=x-lastX;
-    if(Math.abs(diff)<22) return;
-    setFrame(frameIndex + (diff<0 ? 1 : -1));
-    lastX=x;
-  };
-  viewer.addEventListener('pointerdown',(e)=>{
-    if(e.pointerType==='mouse' && e.button!==0) return;
-    dragging=true; lastX=e.clientX; touchFlag(); stopSpin(); viewer.classList.add('is-dragging');
-    try{ viewer.setPointerCapture(e.pointerId); }catch(_){ }
-  });
-  viewer.addEventListener('pointermove',(e)=>{ if(!dragging) return; stepByDrag(e.clientX); });
-  const endDrag=(e)=>{ if(!dragging) return; dragging=false; viewer.classList.remove('is-dragging'); try{ viewer.releasePointerCapture(e.pointerId); }catch(_){ } };
-  ['pointerup','pointercancel','pointerleave'].forEach(ev=>viewer.addEventListener(ev,endDrag));
-
-  if(!reduced){ setTimeout(()=>{ if(!viewer.classList.contains('is-touched')) startSpin(); },1700); }
-  document.addEventListener('visibilitychange',()=>{ if(document.hidden) stopSpin(); });
-  setFrame(0);
-
-  // hotspot notes remain interactive but unobtrusive
-  merch.querySelectorAll('.ydg-hotspot').forEach(btn=>btn.addEventListener('click',()=>{
-    btn.classList.toggle('active');
-    const note=btn.dataset.note;
-    if(note) btn.setAttribute('aria-label', note);
-  }));
-})();
-</script>
-
-
-<script id="ydg-store-phase2-lang-v131">
-(()=>{
-  const store=document.getElementById('tienda');
-  if(!store) return;
-  const copy={
-    es:{rotateHint:'ARRASTRA PARA GIRAR',frontBtn:'FRONTAL',backBtn:'TRASERA',sleevesBtn:'MANGAS',detailBtn:'DETALLES',spinBtn:'360°',frontTitle:'FRONTAL',frontDesc2:'Logo YDG delantero',backTitle:'TRASERA',backDesc2:'Gráfica principal',sleevesTitle:'MANGAS',sleevesDesc2:'Detalle //72H + logo',hemTitle:'ETIQUETA YDG',hemDesc2:'Etiqueta lateral exterior',frontCallout:'FRONTAL · YDG',backCallout:'BACK SYSTEM',sleeveCallout:'SLEEVE // 72H',hemCallout:'HEM LABEL · YDG'},
-    en:{rotateHint:'DRAG TO ROTATE',frontBtn:'FRONT',backBtn:'BACK',sleevesBtn:'SLEEVES',detailBtn:'DETAILS',spinBtn:'360°',frontTitle:'FRONT',frontDesc2:'Front YDG logo',backTitle:'BACK',backDesc2:'Main back graphic',sleevesTitle:'SLEEVES',sleevesDesc2:'//72H detail + sleeve logo',hemTitle:'YDG LABEL',hemDesc2:'Outer side hem label',frontCallout:'FRONT · YDG',backCallout:'BACK SYSTEM',sleeveCallout:'SLEEVE // 72H',hemCallout:'HEM LABEL · YDG'},
-    fr:{rotateHint:'FAITES GLISSER POUR TOURNER',frontBtn:'AVANT',backBtn:'DOS',sleevesBtn:'MANCHES',detailBtn:'DÉTAILS',spinBtn:'360°',frontTitle:'AVANT',frontDesc2:'Logo YDG sur le devant',backTitle:'DOS',backDesc2:'Graphisme principal',sleevesTitle:'MANCHES',sleevesDesc2:'Détail //72H + logo',hemTitle:'ÉTIQUETTE YDG',hemDesc2:'Étiquette extérieure latérale',frontCallout:'AVANT · YDG',backCallout:'BACK SYSTEM',sleeveCallout:'MANCHE // 72H',hemCallout:'ÉTIQUETTE · YDG'},
-    it:{rotateHint:'TRASCINA PER RUOTARE',frontBtn:'FRONTE',backBtn:'RETRO',sleevesBtn:'MANICHE',detailBtn:'DETTAGLI',spinBtn:'360°',frontTitle:'FRONTE',frontDesc2:'Logo YDG frontale',backTitle:'RETRO',backDesc2:'Grafica principale',sleevesTitle:'MANICHE',sleevesDesc2:'Dettaglio //72H + logo',hemTitle:'ETICHETTA YDG',hemDesc2:'Etichetta laterale esterna',frontCallout:'FRONTE · YDG',backCallout:'BACK SYSTEM',sleeveCallout:'MANICA // 72H',hemCallout:'LABEL YDG'},
-    de:{rotateHint:'ZUM DREHEN ZIEHEN',frontBtn:'VORNE',backBtn:'RÜCKSEITE',sleevesBtn:'ÄRMEL',detailBtn:'DETAILS',spinBtn:'360°',frontTitle:'VORNE',frontDesc2:'Frontales YDG-Logo',backTitle:'RÜCKSEITE',backDesc2:'Hauptgrafik hinten',sleevesTitle:'ÄRMEL',sleevesDesc2:'//72H-Detail + Logo',hemTitle:'YDG-ETIKETT',hemDesc2:'Äußeres Seitenetikett',frontCallout:'VORNE · YDG',backCallout:'BACK SYSTEM',sleeveCallout:'ÄRMEL // 72H',hemCallout:'SAUM-ETIKETT · YDG'}
-  };
-  const apply=()=>{
-    const lang=(document.documentElement.lang||'es').slice(0,2).toLowerCase();
-    const p=copy[lang]||copy.es;
-    Object.entries(p).forEach(([k,v])=>store.querySelectorAll(`[data-ydg-store2="${k}"]`).forEach(el=>el.textContent=v));
-    const viewer=document.getElementById('ydg-merch-viewer360');
-    if(viewer){
-      const aria={es:'Vista 360 del producto YDG Tech Oversize Tee',en:'360 product view of the YDG Tech Oversize Tee',fr:'Vue 360 du produit YDG Tech Oversize Tee',it:'Vista prodotto a 360 del YDG Tech Oversize Tee',de:'360°-Produktansicht des YDG Tech Oversize Tee'};
-      viewer.setAttribute('aria-label', aria[lang]||aria.es);
-    }
-  };
-  apply();
-  window.addEventListener('ydg-language-change',apply);
+  if(openBtn)openBtn.addEventListener('click',()=>{const b=merch.querySelector('[data-merch-stage="product"]');if(b)b.click();merch.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});merch.classList.remove('ydg-store-focus');void merch.offsetWidth;merch.classList.add('ydg-store-focus');setTimeout(()=>merch.classList.remove('ydg-store-focus'),900)});
+  const view=document.getElementById('ydg-merch-view');
+  merch.querySelectorAll('[data-merch-view]').forEach(btn=>btn.addEventListener('click',()=>{if(view)view.dataset.view=btn.dataset.merchView;merch.querySelectorAll('[data-merch-view]').forEach(b=>b.classList.toggle('active',b===btn))}));
+  merch.querySelectorAll('[data-merch-stage]').forEach(btn=>btn.addEventListener('click',()=>{const stage=btn.dataset.merchStage;merch.querySelectorAll('[data-merch-stage]').forEach(b=>b.classList.toggle('active',b===btn));merch.querySelectorAll('[data-stage]').forEach(p=>p.classList.toggle('active',p.dataset.stage===stage))}));
+  const reveal=[...store.querySelectorAll('[data-ydg-store-reveal]')];
+  if('IntersectionObserver' in window&&!reduced){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.14});reveal.forEach(el=>io.observe(el))}else reveal.forEach(el=>el.classList.add('is-visible'));
 })();
 </script>
 
